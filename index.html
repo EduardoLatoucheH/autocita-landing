@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoCita — Tu negocio en piloto automático</title>
+  <meta name="description" content="Tu negocio agenda solo, 24/7, por WhatsApp. Tus datos en tu Google. Sin apps, sin formularios, sin llamadas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f3ee;
+      --green: #00e676;
+      --green-dark: #00c853;
+      --grey: #1a1a1a;
+      --grey-light: #2a2a2a;
+      --text-muted: #888;
+      --whatsapp: #25D366;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* Custom cursor */
+    .cursor {
+      width: 12px; height: 12px;
+      background: var(--green);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.15s ease, width 0.2s, height 0.2s;
+      transform: translate(-50%, -50%);
+    }
+    .cursor-ring {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(0,230,118,0.4);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: all 0.1s ease;
+    }
+    body:hover .cursor { opacity: 1; }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 3rem;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .logo span { color: var(--green); }
+
+    .nav-cta {
+      background: var(--green);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--green-dark); transform: scale(1.03); }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,230,118,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--green);
+    }
+
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      max-width: 900px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.4s forwards;
+    }
+
+    .hero-title .accent {
+      color: transparent;
+      -webkit-text-stroke: 1px var(--green);
+    }
+
+    .hero-title .highlight {
+      position: relative;
+      display: inline-block;
+    }
+    .hero-title .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 4px; left: 0; right: 0;
+      height: 3px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: lineIn 0.6s ease 1.2s forwards;
+    }
+
+    .hero-sub {
+      margin-top: 2.5rem;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.6s forwards;
+    }
+
+    .hero-actions {
+      margin-top: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.8s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--green);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 1rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,230,118,0.25); }
+
+    .btn-secondary {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--white); }
+
+    .whatsapp-icon {
+      width: 20px; height: 20px;
+      fill: currentColor;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem 3rem;
+      display: flex;
+      gap: 4rem;
+      overflow-x: auto;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1s forwards;
+    }
+
+    .stat { flex-shrink: 0; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--green);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* How it works */
+    .section {
+      padding: 8rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-label::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--green);
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 4rem;
+      max-width: 600px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .step {
+      background: var(--black);
+      padding: 2.5rem;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .step:hover { background: var(--grey); }
+
+    .step-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 4rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .step h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Feature grid */
+    .features {
+      padding: 4rem 3rem 8rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: var(--grey);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem;
+      border-radius: 4px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .feature-card:hover { border-color: rgba(0,230,118,0.3); transform: translateY(-4px); }
+
+    .feature-icon {
+      width: 40px; height: 40px;
+      background: rgba(0,230,118,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .feature-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Big statement */
+    .statement {
+      padding: 8rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .statement::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(0,230,118,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .statement-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      max-width: 900px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .statement-title em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .statement p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+
+    /* Demo section */
+    .demo {
+      background: var(--grey);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 8rem 3rem;
+    }
+
+    .demo-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .demo-text .section-label { margin-bottom: 1.5rem; }
+
+    .demo-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .demo-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .demo-number {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(37,211,102,0.1);
+      border: 1px solid rgba(37,211,102,0.2);
+      border-radius: 100px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .demo-number:hover { background: rgba(37,211,102,0.15); transform: scale(1.02); }
+
+    .demo-number-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .demo-number-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .demo-number-value {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--whatsapp);
+    }
+
+    /* Chat mockup */
+    .chat-mockup {
+      background: #111;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+    }
+
+    .chat-header {
+      background: #1a1a1a;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .chat-avatar {
+      width: 36px; height: 36px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .chat-info { flex: 1; }
+    .chat-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .chat-status {
+      font-size: 0.7rem;
+      color: var(--green);
+    }
+
+    .chat-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-height: 320px;
+    }
+
+    .msg {
+      max-width: 75%;
+      padding: 0.6rem 0.9rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .msg-in {
+      background: #2a2a2a;
+      color: var(--white);
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .msg-out {
+      background: #005c4b;
+      color: var(--white);
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .msg-time {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.25rem;
+      text-align: right;
+    }
+
+    /* CTA final */
+    .cta-final {
+      padding: 8rem 3rem;
+      text-align: center;
+    }
+
+    .cta-final h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-final p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer .logo { font-size: 0.9rem; }
+
+    .footer-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes lineIn {
+      to { transform: scaleX(1); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .hero { padding: 7rem 1.5rem 3rem; }
+      .stats-bar { padding: 1.5rem; gap: 2rem; }
+      .section { padding: 5rem 1.5rem; }
+      .features { padding: 2rem 1.5rem 5rem; }
+      .demo { padding: 5rem 1.5rem; }
+      .demo-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .statement { padding: 5rem 1.5rem; }
+      .cta-final { padding: 5rem 1.5rem; }
+      footer { padding: 1.5rem; }
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Nav -->
+  <nav>
+    <a href="#" class="logo">Automat<span>IA</span></a>
+    <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20ver%20una%20demo%20de%20AutoCita" target="_blank" class="nav-cta">Ver demo en vivo →</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-eyebrow">AutoCita by AutomatIA</div>
+    <h1 class="hero-title">
+      Tu negocio<br>
+      en <span class="highlight">piloto</span><br>
+      <span class="accent">automático.</span>
+    </h1>
+    <p class="hero-sub">
+      Solo preocúpate por bloquear tus vacaciones — las vas a necesitar después de tener agenda full.
+    </p>
+    <div class="hero-actions">
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20ver%20una%20demo%20de%20AutoCita" target="_blank" class="btn-primary">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+        </svg>
+        Probar demo en vivo
+      </a>
+      <a href="#como-funciona" class="btn-secondary">Ver cómo funciona ↓</a>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">24/7</span>
+      <span class="stat-label">Disponible siempre</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">0</span>
+      <span class="stat-label">Llamadas perdidas</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">+50</span>
+      <span class="stat-label">Idiomas soportados</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Tus datos en tu Google</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">&lt;30s</span>
+      <span class="stat-label">Para agendar una cita</span>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <section class="section" id="como-funciona">
+    <div class="section-label">Cómo funciona</div>
+    <h2 class="section-title">De mensaje a cita confirmada en segundos.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-icon">💬</div>
+        <h3>El cliente escribe por WhatsApp</h3>
+        <p>Sin apps, sin formularios, sin llamadas. Solo WhatsApp — el canal que ya usan todos.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-icon">🤖</div>
+        <h3>Sara gestiona todo</h3>
+        <p>Nuestra IA entiende el idioma del cliente, consulta disponibilidad real y confirma la cita al instante.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-icon">📅</div>
+        <h3>La cita aparece en tu calendario</h3>
+        <p>Directamente en tu Google Calendar. Sin sincronizaciones raras. Sin intermediarios.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-icon">🔔</div>
+        <h3>Recordatorio automático</h3>
+        <p>Sara le recuerda al cliente 24h antes y 2h antes. Menos no-shows, más ingresos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="section-label">Lo que incluye</div>
+    <h2 class="section-title">Todo lo que necesitas. Nada que no necesitas.</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3>Multiidioma real</h3>
+        <p>Sara responde en el idioma del cliente automáticamente. Español, inglés, portugués, árabe — sin configurar nada.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Tus datos en tu Google</h3>
+        <p>Citas en tu Google Calendar. Pacientes en tu Google Sheets. Tú eres el dueño de todo. Nosotros no guardamos nada.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>Lista de espera inteligente</h3>
+        <p>Si alguien cancela, Sara notifica automáticamente a quien está esperando. El slot no se pierde.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Múltiples doctores / agentes</h3>
+        <p>Maneja varios profesionales con horarios distintos. Sara sabe quién tiene disponibilidad y cuánto dura cada cita.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Expediente del cliente</h3>
+        <p>Sara recuerda a cada cliente, su historial y preferencias. Atención personalizada desde el primer mensaje.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎛️</div>
+        <h3>Mensajes personalizables</h3>
+        <p>Configura los mensajes de confirmación y recordatorio desde una hoja de cálculo. Sin tocar código.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statement -->
+  <section class="statement">
+    <h2 class="statement-title">
+      Calendly guarda<br>tus datos.<br>
+      <em>Nosotros no.</em>
+    </h2>
+    <p>Tu agenda vive en tu Google Calendar. Tu base de clientes en tu Google Sheets. Eres el dueño de todo, siempre.</p>
+    <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20ver%20una%20demo%20de%20AutoCita" target="_blank" class="btn-primary">
+      Ver demo real →
+    </a>
+  </section>
+
+  <!-- Demo section -->
+  <section class="demo">
+    <div class="demo-inner">
+      <div class="demo-text">
+        <div class="section-label">Demo en vivo</div>
+        <h2 class="demo-title">Pruébalo ahora mismo. De verdad.</h2>
+        <p class="demo-desc">
+          No un video. No un GIF. Un bot real funcionando en producción. Escríbele a Sara y agenda una cita de prueba en menos de 2 minutos.
+        </p>
+        <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="demo-number">
+          <svg style="width:28px;height:28px;fill:#25D366;flex-shrink:0" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+          </svg>
+          <div class="demo-number-text">
+            <span class="demo-number-label">Escríbele a Sara</span>
+            <span class="demo-number-value">+506 8620-5959</span>
+          </div>
+        </a>
+        <p style="font-size:0.8rem;color:var(--text-muted)">También puedes escribirnos al <strong style="color:var(--white)">+506 8307-0700</strong> para hablar con nosotros.</p>
+      </div>
+
+      <!-- Chat mockup -->
+      <div class="chat-mockup">
+        <div class="chat-header">
+          <div class="chat-avatar">🤖</div>
+          <div class="chat-info">
+            <div class="chat-name">Sara — AutoCita</div>
+            <div class="chat-status">● en línea</div>
+          </div>
+        </div>
+        <div class="chat-body" id="chat-body">
+          <div class="msg msg-out" style="animation-delay:0.5s">
+            Hola, quiero agendar una cita
+          </div>
+          <div class="msg msg-in" style="animation-delay:1.2s">
+            Hola. Con gusto te ayudo. Cual es tu nombre completo?
+            <div class="msg-time">10:30</div>
+          </div>
+          <div class="msg msg-out" style="animation-delay:2s">
+            Juan Pérez
+          </div>
+          <div class="msg msg-in" style="animation-delay:2.8s">
+            Perfecto Juan. Tenemos disponible a la Dra. Rodriguez (consulta general) y al Dr. Mora (especialista). Con quien prefieres?
+            <div class="msg-time">10:30</div>
+          </div>
+          <div class="msg msg-out" style="animation-delay:3.6s">
+            Con la Dra. Rodriguez para el jueves
+          </div>
+          <div class="msg msg-in" style="animation-delay:4.4s">
+            Los horarios disponibles son 08:00, 09:00, 10:00, 11:00. Cual prefieres?
+            <div class="msg-time">10:31</div>
+          </div>
+          <div class="msg msg-out" style="animation-delay:5.2s">
+            A las 9
+          </div>
+          <div class="msg msg-in" style="animation-delay:6s">
+            Listo Juan, quedas agendado con la Dra. Rodriguez el jueves a las 09:00. Este agendamiento fue gestionado por AutomatIA. ✓
+            <div class="msg-time">10:31</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-final">
+    <h2>Empieza hoy.<br>Sin setup complicado.</h2>
+    <p>15 días gratis para que veas cómo tu agenda se llena sola. Sin tarjeta de crédito.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20empezar%20con%20AutoCita" target="_blank" class="btn-primary">
+        Empezar gratis →
+      </a>
+      <a href="https://wa.me/50683070700" target="_blank" class="btn-secondary">Hablar con ventas →</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <a href="#" class="logo">Automat<span>IA</span></a>
+    <span class="footer-text">© 2026 AutomatIA. Todos los derechos reservados.</span>
+  </footer>
+
+  <script>
+    // Cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top = my + 'px';
+    });
+
+    function animRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) *.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animRing);
+    }
+    animRing();
+
+    // Animate chat messages
+    const msgs = document.querySelectorAll('.msg');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          msgs.forEach((msg, i) => {
+            const delay = parseFloat(msg.style.animationDelay) || 0;
+            setTimeout(() => {
+              msg.style.opacity = '1';
+              msg.style.transform = 'translateY(0)';
+              msg.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            }, delay * 1000);
+          });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const chatBody = document.getElementById('chat-body');
+    if (chatBody) observer.observe(chatBody);
+  </script>
+</body>
+</html>
