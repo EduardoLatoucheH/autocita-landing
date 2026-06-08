@@ -3,860 +3,858 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AutoCita — Agenda inteligente por WhatsApp para Costa Rica</title>
-  <meta name="description" content="Sara agenda tus citas sola, 24/7, por WhatsApp. Tecnología oficial de Google y Meta. Para negocios en Costa Rica.">
+  <title>AutoCita — Su negocio agenda solo.</title>
+  <meta name="description" content="La primera vez que un paciente le escriba a las 11pm y usted ya esté dormido — y la cita igual quede agendada — va a querer haberlo tenido antes.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    /* ── RESET & VARIABLES ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-
     :root {
-      --green: #00a86b;
-      --green-dark: #007a4e;
-      --green-light: #e6f7f1;
-      --green-mid: #ccefe3;
-      --text: #111827;
-      --text-mid: #4b5563;
-      --text-light: #9ca3af;
-      --white: #ffffff;
-      --bg: #f9fafb;
-      --border: #e5e7eb;
+      --black: #0d0d0d;
+      --white: #fafaf8;
+      --green: #1a9e6e;
+      --green-light: #e8f5f0;
+      --green-mid: #d0ede3;
+      --text: #1a1a1a;
+      --text-mid: #6b6b6b;
+      --text-light: #b0b0b0;
+      --border: #e8e8e8;
       --wa: #25D366;
-      --radius: 12px;
-      --shadow: 0 2px 16px rgba(0,0,0,.08);
-      --shadow-lg: 0 8px 40px rgba(0,0,0,.12);
+      --r: 10px;
     }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
     body {
       background: var(--white);
       color: var(--text);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* ── ACCESSIBILITY ── */
-    :focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
-    .sr-only { position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0); }
+    :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
 
     /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,.97);
-      backdrop-filter: blur(12px);
+      background: rgba(250,250,248,.96);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
+      padding: 0 2.5rem;
       display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
+      height: 60px;
     }
     .logo {
-      font-weight: 800; font-size: 1.25rem;
-      color: var(--text); text-decoration: none;
-      letter-spacing: -.02em;
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.2rem; color: var(--text);
+      text-decoration: none; letter-spacing: -.01em;
     }
-    .logo em { color: var(--green); font-style: normal; }
+    .logo em { color: var(--green); font-style: italic; }
 
-    .nav-links {
-      display: flex; gap: 0.25rem; list-style: none;
-    }
+    .nav-links { display: flex; gap: .25rem; list-style: none; }
     .nav-links a {
-      font-size: .9rem; font-weight: 500;
+      font-size: .85rem; font-weight: 400;
       color: var(--text-mid); text-decoration: none;
-      padding: .5rem .9rem; border-radius: 8px;
+      padding: .45rem .85rem; border-radius: 8px;
       transition: background .15s, color .15s;
     }
-    .nav-links a:hover { background: var(--green-light); color: var(--green-dark); }
+    .nav-links a:hover { background: var(--green-light); color: var(--green); }
 
     .nav-cta {
-      background: var(--green); color: var(--white) !important;
-      font-weight: 600 !important; font-size: .875rem !important;
-      padding: .55rem 1.25rem !important; border-radius: 100px !important;
-      transition: background .15s, transform .15s !important;
+      background: var(--green) !important;
+      color: #fff !important;
+      font-weight: 500 !important;
+      border-radius: 100px !important;
     }
-    .nav-cta:hover { background: var(--green-dark) !important; transform: translateY(-1px); }
+    .nav-cta:hover { opacity: .9; }
 
-    /* ── HERO ── */
-    .hero {
-      max-width: 1100px; margin: 0 auto;
-      padding: 4rem 2rem 3rem;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 3rem; align-items: center;
-    }
-
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: var(--green-light); color: var(--green-dark);
-      font-size: .8rem; font-weight: 600;
-      padding: .35rem .9rem; border-radius: 100px;
-      margin-bottom: 1.25rem; letter-spacing: .02em;
-    }
-    .hero-tag::before { content:'🇨🇷'; font-size: .9rem; }
-
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800; line-height: 1.15;
-      letter-spacing: -.03em; color: var(--text);
-      margin-bottom: 1.25rem;
-    }
-    .hero h1 em { color: var(--green); font-style: normal; }
-
-    .pain-box {
-      background: var(--bg); border: 1px solid var(--border);
-      border-left: 3px solid var(--green);
-      border-radius: var(--radius); padding: 1rem 1.25rem;
-      margin-bottom: 1.75rem;
-      font-size: .95rem; color: var(--text-mid); line-height: 1.7;
-    }
-    .pain-box strong { color: var(--text); }
-    .pain-box em { color: var(--green); font-style: normal; font-weight: 600; }
-
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .btn-wa {
-      display: inline-flex; align-items: center; gap: .6rem;
-      background: var(--wa); color: var(--white);
-      font-weight: 700; font-size: 1rem;
-      padding: .85rem 1.75rem; border-radius: 100px;
-      text-decoration: none; transition: all .2s;
-      box-shadow: 0 4px 20px rgba(37,211,102,.35);
-    }
-    .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,211,102,.45); }
-    .btn-wa svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
-
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: transparent; color: var(--text-mid);
-      font-weight: 500; font-size: .9rem;
-      padding: .85rem 1.5rem; border-radius: 100px;
-      text-decoration: none; border: 1.5px solid var(--border);
-      transition: all .2s;
-    }
-    .btn-outline:hover { border-color: var(--green); color: var(--green); }
-
-    /* Hero right — Sara card */
-    .sara-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-    }
-    .sara-card-header {
-      background: var(--green); padding: 1.25rem 1.5rem;
-      display: flex; align-items: center; gap: .75rem;
-    }
-    .sara-avatar {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: rgba(255,255,255,.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; flex-shrink: 0;
-    }
-    .sara-info { flex: 1; }
-    .sara-name { font-weight: 700; font-size: 1rem; color: var(--white); }
-    .sara-status { font-size: .78rem; color: rgba(255,255,255,.8); display: flex; align-items: center; gap: .35rem; }
-    .sara-status::before { content:''; width: 7px; height: 7px; background: #7fff7f; border-radius: 50%; display: inline-block; }
-
-    .sara-body { padding: 1.25rem; display: flex; flex-direction: column; gap: .6rem; }
-    .msg { max-width: 82%; padding: .65rem 1rem; border-radius: 12px; font-size: .875rem; line-height: 1.5; }
-    .msg-in { background: var(--bg); color: var(--text); align-self: flex-start; border-bottom-left-radius: 3px; }
-    .msg-out { background: #dcf8c6; color: #111; align-self: flex-end; border-bottom-right-radius: 3px; }
-    .msg-time { font-size: .65rem; color: var(--text-light); margin-top: .2rem; text-align: right; }
-
-    .sara-cta {
-      padding: 1rem 1.25rem;
-      border-top: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .sara-cta a {
-      font-size: .875rem; font-weight: 600; color: var(--green);
-      text-decoration: none; display: flex; align-items: center; gap: .4rem;
-    }
-    .sara-cta a:hover { color: var(--green-dark); }
-
-    /* ── STATS BAR ── */
-    .stats-bar {
-      background: var(--green); padding: 1.25rem 2rem;
-      display: flex; justify-content: center; gap: 4rem;
-      flex-wrap: wrap;
-    }
-    .stat { text-align: center; }
-    .stat-num { font-size: 1.6rem; font-weight: 800; color: var(--white); display: block; line-height: 1; }
-    .stat-label { font-size: .72rem; color: rgba(255,255,255,.8); letter-spacing: .06em; text-transform: uppercase; margin-top: .2rem; display: block; }
-
-    /* ── SECTIONS ── */
-    .section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
-    .section-center { text-align: center; }
-    .section-tag {
-      display: inline-flex; align-items: center; gap: .4rem;
-      background: var(--green-light); color: var(--green-dark);
-      font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
-      padding: .3rem .8rem; border-radius: 100px; margin-bottom: 1rem;
-    }
-    h2.section-title {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 800; letter-spacing: -.03em; line-height: 1.2;
-      color: var(--text); margin-bottom: .75rem;
-    }
-    h2.section-title em { color: var(--green); font-style: normal; }
-    .section-sub { font-size: 1rem; color: var(--text-mid); max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.7; }
-
-    /* ── SARA SECTION ── */
-    .sara-section { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .sara-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .sara-features { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
-    .sara-feature {
-      display: flex; align-items: flex-start; gap: .75rem;
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1rem 1.25rem;
-    }
-    .sara-feature-icon {
-      width: 36px; height: 36px; border-radius: 8px;
-      background: var(--green-light); display: flex; align-items: center;
-      justify-content: center; font-size: 1rem; flex-shrink: 0;
-    }
-    .sara-feature h3 { font-size: .9rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; }
-    .sara-feature p { font-size: .82rem; color: var(--text-mid); line-height: 1.6; }
-
-    /* ── STEPS ── */
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
-    .step {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.5rem 1.25rem;
-      position: relative; transition: border-color .2s, transform .2s;
-    }
-    .step:hover { border-color: var(--green); transform: translateY(-3px); }
-    .step-num {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: var(--green); color: var(--white);
-      font-size: .8rem; font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1rem;
-    }
-    .step-icon { font-size: 1.5rem; margin-bottom: .75rem; display: block; }
-    .step h3 { font-size: .95rem; font-weight: 700; margin-bottom: .4rem; color: var(--text); }
-    .step p { font-size: .83rem; color: var(--text-mid); line-height: 1.65; }
-
-    /* ── TRUST ── */
-    .trust-section { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
-    .trust-card {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.5rem;
-      display: flex; flex-direction: column; gap: .75rem;
-    }
-    .trust-logo {
-      height: 32px; display: flex; align-items: center; gap: .5rem;
-      font-weight: 700; font-size: 1rem;
-    }
-    .trust-logo img { height: 28px; width: auto; }
-    .trust-card h3 { font-size: .95rem; font-weight: 700; color: var(--text); }
-    .trust-card p { font-size: .83rem; color: var(--text-mid); line-height: 1.65; }
-    .trust-badge {
-      display: inline-flex; align-items: center; gap: .4rem;
-      background: var(--green-light); color: var(--green-dark);
-      font-size: .75rem; font-weight: 600; padding: .25rem .7rem; border-radius: 100px;
-      width: fit-content;
-    }
-
-    /* ── PLANS ── */
-    .plans-table {
-      border: 1px solid var(--border); border-radius: 16px;
-      overflow: hidden; margin-top: 2rem;
-    }
-    .plans-header {
-      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      background: var(--bg); border-bottom: 2px solid var(--border);
-    }
-    .plans-header div {
-      padding: 1.25rem 1rem; font-size: .8rem; font-weight: 700;
-      letter-spacing: .04em; text-transform: uppercase; color: var(--text-mid);
-    }
-    .plans-header .col-featured {
-      background: var(--green); color: var(--white) !important;
-      text-align: center; border-radius: 0;
-    }
-    .col-featured-label { font-size: .68rem !important; opacity: .8; }
-    .col-featured-name { font-size: 1rem !important; font-weight: 800 !important; }
-
-    .plans-row {
-      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      border-bottom: 1px solid var(--border);
-      transition: background .15s;
-    }
-    .plans-row:last-child { border-bottom: none; }
-    .plans-row:hover { background: var(--bg); }
-    .plans-row div { padding: 1rem 1rem; font-size: .875rem; color: var(--text-mid); display: flex; align-items: center; }
-    .plans-row .feature-name { font-weight: 600; color: var(--text); font-size: .9rem; }
-    .plans-row .col-center { justify-content: center; }
-    .plans-row .col-featured-cell { background: rgba(0,168,107,.04); justify-content: center; }
-    .check { color: var(--green); font-size: 1.1rem; font-weight: 700; }
-    .cross { color: var(--border); font-size: 1.1rem; }
-    .partial { color: var(--text-light); font-size: .8rem; }
-
-    .plans-cta-row {
-      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      background: var(--bg); padding: 1.25rem 0;
-      border-top: 2px solid var(--border);
-    }
-    .plans-cta-row div { display: flex; align-items: center; justify-content: center; padding: 0 1rem; }
-    .plans-cta-row .plan-name-label { font-size: .8rem; color: var(--text-mid); font-weight: 500; justify-content: flex-start; }
-
-    .btn-plan {
-      display: block; text-align: center; text-decoration: none;
-      font-weight: 700; font-size: .85rem; padding: .7rem 1rem;
-      border-radius: 100px; transition: all .2s; width: 100%;
-    }
-    .btn-plan-ghost { border: 1.5px solid var(--border); color: var(--text-mid); }
-    .btn-plan-ghost:hover { border-color: var(--green); color: var(--green); }
-    .btn-plan-main { background: var(--green); color: var(--white); box-shadow: 0 4px 16px rgba(0,168,107,.3); }
-    .btn-plan-main:hover { background: var(--green-dark); transform: translateY(-1px); }
-
-    /* ── FAQ ── */
-    .faq-list { margin-top: 2rem; display: flex; flex-direction: column; gap: .5rem; max-width: 720px; margin-left: auto; margin-right: auto; }
-    .faq-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-    .faq-q {
-      width: 100%; padding: 1.1rem 1.25rem; text-align: left;
-      background: none; border: none; cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-      font-family: inherit; font-size: .95rem; font-weight: 600; color: var(--text);
-      transition: color .2s;
-    }
-    .faq-q:hover { color: var(--green); }
-    .faq-icon { width: 24px; height: 24px; border-radius: 50%; background: var(--bg); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: .9rem; transition: transform .25s; color: var(--green); font-weight: 700; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-a { display: none; padding: 0 1.25rem 1.1rem; font-size: .9rem; color: var(--text-mid); line-height: 1.75; }
-    .faq-a strong { color: var(--text); font-weight: 600; }
-    .faq-item.open .faq-a { display: block; }
-
-    /* ── FINAL CTA ── */
-    .cta-final {
-      background: var(--green); padding: 4rem 2rem;
-      text-align: center;
-    }
-    .cta-final h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: var(--white); letter-spacing: -.03em; margin-bottom: .75rem; }
-    .cta-final p { color: rgba(255,255,255,.85); font-size: 1rem; max-width: 420px; margin: 0 auto 2rem; line-height: 1.7; }
-    .btn-wa-white {
-      display: inline-flex; align-items: center; gap: .6rem;
-      background: var(--white); color: var(--green);
-      font-weight: 700; font-size: 1rem;
-      padding: .9rem 2rem; border-radius: 100px;
-      text-decoration: none; transition: all .2s;
-      box-shadow: 0 4px 20px rgba(0,0,0,.15);
-    }
-    .btn-wa-white:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,.2); }
-    .btn-wa-white svg { width: 20px; height: 20px; fill: var(--wa); flex-shrink: 0; }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border); padding: 1.5rem 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-text { font-size: .8rem; color: var(--text-light); }
-    .footer-badges { display: flex; gap: .5rem; flex-wrap: wrap; }
-    .badge {
-      display: inline-flex; align-items: center; gap: .35rem;
-      background: var(--bg); border: 1px solid var(--border);
-      font-size: .72rem; font-weight: 600; color: var(--text-mid);
-      padding: .25rem .65rem; border-radius: 100px;
-    }
-    .badge span { color: var(--green); }
-
-    /* ── FLOAT WA ── */
-    .float-wa {
-      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
-      background: var(--wa); width: 56px; height: 56px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none; box-shadow: 0 4px 24px rgba(37,211,102,.4);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .float-wa:hover { transform: scale(1.1); box-shadow: 0 8px 36px rgba(37,211,102,.5); }
-    .float-wa svg { width: 28px; height: 28px; fill: var(--white); }
-
-    /* ── RESPONSIVE ── */
-    @media(max-width: 900px) {
-      .hero { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.5rem 2rem; }
-      .sara-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .steps { grid-template-columns: 1fr 1fr; }
-      .trust-grid { grid-template-columns: 1fr; }
-      .plans-header { grid-template-columns: 1.2fr 1fr 1fr; }
-      .plans-header .col-starter { display: none; }
-      .plans-row { grid-template-columns: 1.2fr 1fr 1fr; }
-      .plans-row .col-starter { display: none; }
-      .plans-cta-row { grid-template-columns: 1.2fr 1fr 1fr; }
-      .plans-cta-row .col-starter { display: none; }
-      .stats-bar { gap: 2rem; }
-    }
-
-    @media(max-width: 600px) {
-      nav { padding: 0 1rem; }
-      .nav-links { display: none; }
-      .nav-mobile-menu { display: flex; }
-      .hero h1 { font-size: 1.9rem; }
-      .hero-actions { flex-direction: column; }
-      .btn-wa { justify-content: center; }
-      .steps { grid-template-columns: 1fr; }
-      .section { padding: 3rem 1.25rem; }
-      .plans-header { grid-template-columns: 1fr 1fr; }
-      .plans-header .col-starter,.plans-header .col-enterprise { display: none; }
-      .plans-row { grid-template-columns: 1fr 1fr; }
-      .plans-row .col-starter,.plans-row .col-enterprise { display: none; }
-      .plans-cta-row { grid-template-columns: 1fr 1fr; }
-      .plans-cta-row .col-starter,.plans-cta-row .col-enterprise { display: none; }
-      footer { flex-direction: column; align-items: flex-start; }
-    }
-
-    /* ── MOBILE NAV ── */
-    .nav-mobile-menu {
+    .nav-btn {
       display: none; background: none; border: none;
-      cursor: pointer; padding: .4rem; color: var(--text);
+      cursor: pointer; color: var(--text); padding: .4rem;
     }
+
+    /* ── MOBILE MENU ── */
     .mobile-menu {
-      display: none; position: fixed; inset: 64px 0 0 0;
-      background: var(--white); z-index: 99;
-      flex-direction: column; padding: 1.5rem;
-      border-top: 1px solid var(--border); gap: .5rem;
+      display: none; position: fixed;
+      inset: 60px 0 0 0; background: var(--white);
+      z-index: 99; flex-direction: column;
+      padding: 1.5rem 2rem; gap: .5rem;
+      border-top: 1px solid var(--border);
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a {
-      font-size: 1rem; font-weight: 600; color: var(--text);
-      text-decoration: none; padding: .9rem 1rem;
-      border-radius: var(--radius); transition: background .15s;
+      font-size: 1rem; font-weight: 400;
+      color: var(--text); text-decoration: none;
+      padding: .85rem 1rem; border-radius: var(--r);
+      transition: background .15s;
     }
     .mobile-menu a:hover { background: var(--green-light); color: var(--green); }
-    .mobile-menu .btn-wa { margin-top: 1rem; justify-content: center; }
+    .mobile-menu .m-cta {
+      margin-top: .5rem; background: var(--wa);
+      color: #fff !important; text-align: center;
+      font-weight: 500; border-radius: 100px;
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+    }
 
-    @media(max-width: 600px) {
-      .nav-mobile-menu { display: flex; }
+    /* ── HERO ── */
+    .hero {
+      min-height: calc(100svh - 60px);
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 5rem 2.5rem 4rem;
+      max-width: 860px; margin: 0 auto;
+    }
+
+    .hero-label {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .75rem; font-weight: 500; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--green);
+      margin-bottom: 2rem;
+    }
+    .hero-label::before {
+      content: ''; width: 20px; height: 1px;
+      background: var(--green);
+    }
+
+    .hero-title {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400; font-style: italic;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.15; letter-spacing: -.02em;
+      color: var(--text); margin-bottom: 2.5rem;
+      max-width: 720px;
+    }
+    .hero-title em {
+      font-style: normal; color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: clamp(.95rem, 1.5vw, 1.05rem);
+      color: var(--text-mid); max-width: 480px;
+      line-height: 1.75; margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: var(--wa); color: #fff;
+      font-weight: 500; font-size: .95rem;
+      padding: .85rem 1.75rem; border-radius: 100px;
+      text-decoration: none; transition: all .2s;
+      box-shadow: 0 4px 20px rgba(37,211,102,.25);
+    }
+    .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,211,102,.35); }
+    .btn-wa svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+
+    .btn-text {
+      font-size: .85rem; font-weight: 400;
+      color: var(--text-mid); text-decoration: none;
+      letter-spacing: .02em; transition: color .2s;
+    }
+    .btn-text:hover { color: var(--text); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── STATS ── */
+    .stats {
+      display: flex; justify-content: center;
+      gap: 0; flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+    }
+    .stat {
+      flex: 1; min-width: 120px;
+      padding: 1.75rem 1rem; text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.8rem; color: var(--green);
+      display: block; line-height: 1;
+    }
+    .stat-label {
+      font-size: .72rem; color: var(--text-light);
+      letter-spacing: .06em; text-transform: uppercase;
+      margin-top: .3rem; display: block;
+    }
+
+    /* ── SECTION ── */
+    .section { padding: 5rem 2.5rem; max-width: 1000px; margin: 0 auto; }
+    .section-sm { max-width: 720px; }
+    .section-label {
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-light); margin-bottom: 1rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .section-label::before {
+      content: ''; width: 16px; height: 1px;
+      background: var(--text-light); flex-shrink: 0;
+    }
+
+    h2.title {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      letter-spacing: -.02em; line-height: 1.15;
+      margin-bottom: 1rem; color: var(--text);
+    }
+    h2.title em { font-style: italic; color: var(--green); }
+
+    .subtitle {
+      font-size: 1rem; color: var(--text-mid);
+      line-height: 1.75; max-width: 520px;
+      margin-bottom: 3rem; font-weight: 300;
+    }
+
+    /* ── BEFORE / AFTER ── */
+    .ba-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: var(--r);
+      overflow: hidden;
+    }
+    .ba-col { background: var(--white); padding: 2rem; }
+    .ba-col.after { background: var(--green-light); }
+    .ba-label {
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-light); margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .ba-label.green { color: var(--green); }
+    .ba-item {
+      display: flex; align-items: flex-start; gap: .6rem;
+      font-size: .9rem; color: var(--text-mid);
+      line-height: 1.6; margin-bottom: .85rem;
+      font-weight: 300;
+    }
+    .ba-item:last-child { margin-bottom: 0; }
+    .ba-item .icon { flex-shrink: 0; margin-top: .1rem; }
+
+    /* ── STEPS ── */
+    .steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .step {
+      padding: 1.75rem; border: 1px solid var(--border);
+      border-radius: var(--r); transition: border-color .2s;
+    }
+    .step:hover { border-color: var(--green); }
+    .step-num {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.5rem; color: var(--green-mid);
+      line-height: 1; margin-bottom: 1rem;
+    }
+    .step h3 {
+      font-size: .95rem; font-weight: 500;
+      margin-bottom: .4rem; color: var(--text);
+    }
+    .step p { font-size: .85rem; color: var(--text-mid); line-height: 1.7; font-weight: 300; }
+
+    /* ── TRUST ── */
+    .trust-section { background: var(--black); }
+    .trust-section .section { max-width: 1000px; }
+    .trust-section .section-label { color: #555; }
+    .trust-section .section-label::before { background: #555; }
+    .trust-section h2.title { color: var(--white); }
+    .trust-section .subtitle { color: #888; }
+
+    .trust-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: #1a1a1a;
+      border: 1px solid #1a1a1a; border-radius: var(--r);
+      overflow: hidden;
+    }
+    .trust-card { background: #111; padding: 2rem; }
+    .trust-icon { font-size: 1.5rem; margin-bottom: 1rem; display: block; }
+    .trust-card h3 { font-size: .95rem; font-weight: 500; color: var(--white); margin-bottom: .5rem; }
+    .trust-card p { font-size: .85rem; color: #888; line-height: 1.7; font-weight: 300; }
+    .trust-badge {
+      display: inline-flex; align-items: center; gap: .35rem;
+      background: rgba(26,158,110,.15); color: var(--green);
+      font-size: .7rem; font-weight: 500;
+      padding: .25rem .65rem; border-radius: 100px;
+      margin-bottom: .75rem; letter-spacing: .04em;
+    }
+
+    /* ── PLANS ── */
+    .plans-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: var(--r);
+      overflow: hidden;
+    }
+    .plan { background: var(--white); padding: 2rem; }
+    .plan.featured { background: var(--black); }
+    .plan-tag {
+      font-size: .68rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--green); margin-bottom: .6rem;
+      display: flex; align-items: center; gap: .35rem;
+    }
+    .plan-tag::before { content: ''; width: 12px; height: 1px; background: var(--green); }
+    .plan-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.75rem; font-weight: 400;
+      margin-bottom: .4rem; color: var(--text);
+    }
+    .plan.featured .plan-name { color: var(--white); }
+    .plan-desc { font-size: .82rem; color: var(--text-mid); margin-bottom: 1.5rem; line-height: 1.6; font-weight: 300; }
+    .plan.featured .plan-desc { color: #888; }
+    .plan-list { list-style: none; margin-bottom: 1.75rem; display: flex; flex-direction: column; gap: .5rem; }
+    .plan-list li {
+      font-size: .83rem; color: var(--text-mid);
+      display: flex; align-items: flex-start; gap: .5rem;
+      line-height: 1.55; font-weight: 300;
+    }
+    .plan.featured .plan-list li { color: #888; }
+    .plan-list li::before { content: '✓'; color: var(--green); flex-shrink: 0; font-size: .75rem; margin-top: .1rem; }
+    .plan-btn {
+      display: block; text-align: center; text-decoration: none;
+      font-size: .82rem; font-weight: 500;
+      letter-spacing: .04em; padding: .75rem;
+      border-radius: 100px; transition: all .2s;
+      border: 1.5px solid var(--border); color: var(--text-mid);
+    }
+    .plan-btn:hover { border-color: var(--green); color: var(--green); }
+    .plan.featured .plan-btn { background: var(--green); border-color: var(--green); color: #fff; }
+    .plan.featured .plan-btn:hover { opacity: .9; }
+
+    /* ── FAQ ── */
+    .faq-list { display: flex; flex-direction: column; gap: .5rem; }
+    .faq-item { border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+    .faq-btn {
+      width: 100%; background: none; border: none;
+      padding: 1.25rem 1.5rem; text-align: left;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .9rem; font-weight: 400; color: var(--text);
+      cursor: pointer; display: flex; justify-content: space-between;
+      align-items: center; gap: 1rem; transition: color .2s;
+    }
+    .faq-btn:hover { color: var(--green); }
+    .faq-icon { color: var(--green); font-size: 1rem; flex-shrink: 0; transition: transform .2s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-body { display: none; padding: 0 1.5rem 1.25rem; font-size: .875rem; color: var(--text-mid); line-height: 1.75; font-weight: 300; }
+    .faq-body strong { color: var(--text); font-weight: 500; }
+    .faq-item.open .faq-body { display: block; }
+
+    /* ── FINAL CTA ── */
+    .cta-section {
+      background: var(--green);
+      padding: 5rem 2.5rem; text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400; font-style: italic;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: #fff; letter-spacing: -.02em;
+      line-height: 1.2; margin-bottom: .75rem;
+    }
+    .cta-section p { color: rgba(255,255,255,.75); font-size: .95rem; margin-bottom: 2rem; font-weight: 300; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: #fff; color: var(--green);
+      font-weight: 600; font-size: .95rem;
+      padding: .85rem 1.75rem; border-radius: 100px;
+      text-decoration: none; transition: all .2s;
+      box-shadow: 0 4px 24px rgba(0,0,0,.15);
+    }
+    .btn-white:hover { transform: translateY(-2px); }
+    .btn-white svg { width: 18px; height: 18px; fill: var(--wa); flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 2.5rem;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-badges { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .badge {
+      font-size: .7rem; font-weight: 400; color: var(--text-light);
+      background: var(--green-light); border-radius: 100px;
+      padding: .25rem .7rem; letter-spacing: .02em;
+    }
+    .footer-copy { font-size: .75rem; color: var(--text-light); }
+
+    /* ── FLOAT ── */
+    .float-wa {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
+      background: var(--wa); width: 52px; height: 52px;
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; text-decoration: none;
+      box-shadow: 0 4px 24px rgba(37,211,102,.35);
+      transition: transform .2s;
+    }
+    .float-wa:hover { transform: scale(1.08); }
+    .float-wa svg { width: 26px; height: 26px; fill: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width: 768px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .nav-btn { display: flex; }
+      .hero { padding: 3.5rem 1.25rem 3rem; min-height: auto; padding-top: 3rem; }
+      .hero-title { font-size: clamp(2rem, 9vw, 2.8rem); }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .btn-wa { width: 100%; justify-content: center; }
+      .stats { flex-wrap: wrap; }
+      .stat { min-width: calc(50% - 1px); border-bottom: 1px solid var(--border); }
+      .section { padding: 3.5rem 1.25rem; }
+      .ba-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; gap: 1rem; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .plans-grid { grid-template-columns: 1fr; }
+      .plan.featured { order: -1; }
+      footer { flex-direction: column; align-items: flex-start; padding: 1.5rem 1.25rem; }
+      .cta-section { padding: 3.5rem 1.25rem; }
+    }
+
+    @media(max-width: 480px) {
+      .hero-title { font-size: clamp(1.75rem, 10vw, 2.4rem); }
+      .stat { min-width: 100%; }
     }
   </style>
 </head>
 <body>
 
 <!-- Float WA -->
-<a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="float-wa" aria-label="Escribir a Sara por WhatsApp">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+<a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="float-wa" aria-label="Escribir a Sara">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
 </a>
 
 <!-- Nav -->
-<nav role="navigation" aria-label="Navegación principal">
+<nav>
   <a href="#" class="logo">Automat<em>IA</em></a>
-  <ul class="nav-links" role="list">
-    <li><a href="#sara">¿Qué es Sara?</a></li>
-    <li><a href="#como-funciona">Cómo funciona</a></li>
-    <li><a href="#planes">Planes</a></li>
-    <li><a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="nav-cta">Probar gratis →</a></li>
+  <ul class="nav-links">
+    <li><a href="#sara" data-i18n="nav.sara">¿Qué es Sara?</a></li>
+    <li><a href="#como-funciona" data-i18n="nav.how">Cómo funciona</a></li>
+    <li><a href="#planes" data-i18n="nav.plans">Planes</a></li>
+    <li><a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="nav-cta" data-i18n="nav.cta">Probar gratis</a></li>
   </ul>
-  <button class="nav-mobile-menu" aria-label="Abrir menú" aria-expanded="false" id="menu-btn">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  <button class="nav-btn" id="menu-btn" aria-label="Menú" aria-expanded="false">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
 </nav>
 
-<!-- Mobile menu -->
-<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menú móvil">
-  <a href="#sara" onclick="closeMobileMenu()">¿Qué es Sara?</a>
-  <a href="#como-funciona" onclick="closeMobileMenu()">Cómo funciona</a>
-  <a href="#planes" onclick="closeMobileMenu()">Planes</a>
-  <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="btn-wa">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-    Escribirle a Sara
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#sara" data-i18n="nav.sara" onclick="closeMenu()">¿Qué es Sara?</a>
+  <a href="#como-funciona" data-i18n="nav.how" onclick="closeMenu()">Cómo funciona</a>
+  <a href="#planes" data-i18n="nav.plans" onclick="closeMenu()">Planes</a>
+  <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="m-cta" onclick="closeMenu()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+    <span data-i18n="nav.cta">Probar gratis</span>
   </a>
 </div>
 
 <!-- Hero -->
-<main>
-<section class="hero" aria-labelledby="hero-title">
-  <div>
-    <div class="hero-tag">Para negocios en Costa Rica</div>
-    <h1 id="hero-title">Tu negocio agenda solo,<br><em>24/7, por WhatsApp.</em></h1>
-    <div class="pain-box" role="note">
-      Una recepcionista te cuesta <strong>$800 al mes</strong>. Súmale cargas sociales — ya vas en <em>$1,500</em>. AutoCita trabaja las 24 horas, los 365 días del año. Sin vacaciones, sin incapacidades.
-    </div>
-    <div class="hero-actions">
-      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="btn-wa" aria-label="Escribirle a Sara por WhatsApp">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-        Hablar con Sara ahora
-      </a>
-      <a href="#como-funciona" class="btn-outline">Ver cómo funciona ↓</a>
-    </div>
-  </div>
-
-  <!-- Sara chat preview -->
-  <div class="sara-card" aria-label="Vista previa del chat con Sara">
-    <div class="sara-card-header">
-      <div class="sara-avatar" aria-hidden="true">🤖</div>
-      <div class="sara-info">
-        <div class="sara-name">Sara — AutoCita</div>
-        <div class="sara-status">En línea ahora mismo</div>
-      </div>
-    </div>
-    <div class="sara-body" role="log" aria-label="Conversación de ejemplo con Sara">
-      <div class="msg msg-out">Hola, quiero agendar una cita</div>
-      <div class="msg msg-in">¡Hola! Con gusto te ayudo. ¿Cuál es tu nombre completo? Por ejemplo: Juan Pérez.<div class="msg-time">10:30</div></div>
-      <div class="msg msg-out">Juan Pérez</div>
-      <div class="msg msg-in">Perfecto Juan. Tenemos disponible a la Dra. Rodríguez el lunes 8 de junio a las 08:00, 09:00 o 10:00. ¿Cuál prefiere?<div class="msg-time">10:30</div></div>
-      <div class="msg msg-out">A las 9</div>
-      <div class="msg msg-in">✅ Listo Juan, quedás agendado con la Dra. Rodríguez el lunes 8 de junio a las 09:00. Este agendamiento fue gestionado por AutomatIA.<div class="msg-time">10:31</div></div>
-    </div>
-    <div class="sara-cta">
-      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank">
-        Probar con Sara real → +506 8620-5959
-      </a>
-    </div>
+<section class="hero">
+  <div class="hero-label" data-i18n="hero.label">AutoCita by AutomatIA · Costa Rica</div>
+  <h1 class="hero-title" data-i18n="hero.title">
+    La primera vez que un paciente le escriba a las 11pm y usted ya esté dormido — y la cita igual quede agendada — va a querer haberlo tenido antes.
+  </h1>
+  <p class="hero-sub" data-i18n="hero.sub">
+    Su negocio agenda solo. Usted descansa.
+  </p>
+  <div class="hero-actions">
+    <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="btn-wa">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      <span data-i18n="hero.cta">Escribirle a Sara ahora</span>
+    </a>
+    <a href="#como-funciona" class="btn-text" data-i18n="hero.link">Ver cómo funciona →</a>
   </div>
 </section>
-</main>
+
+<hr class="divider">
 
 <!-- Stats -->
-<div class="stats-bar" role="region" aria-label="Estadísticas clave">
-  <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Disponible siempre</span></div>
-  <div class="stat"><span class="stat-num">0</span><span class="stat-label">Llamadas perdidas</span></div>
-  <div class="stat"><span class="stat-num">+50</span><span class="stat-label">Idiomas</span></div>
-  <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Tus datos en tu Google</span></div>
-  <div class="stat"><span class="stat-num">&lt;30s</span><span class="stat-label">Para agendar</span></div>
+<div class="stats">
+  <div class="stat"><span class="stat-num">24/7</span><span class="stat-label" data-i18n="stats.s1">Siempre disponible</span></div>
+  <div class="stat"><span class="stat-num">0</span><span class="stat-label" data-i18n="stats.s2">Citas perdidas</span></div>
+  <div class="stat"><span class="stat-num">+50</span><span class="stat-label" data-i18n="stats.s3">Idiomas</span></div>
+  <div class="stat"><span class="stat-num">100%</span><span class="stat-label" data-i18n="stats.s4">Sus datos en su Google</span></div>
+  <div class="stat"><span class="stat-num">24h</span><span class="stat-label" data-i18n="stats.s5">Para estar listo</span></div>
 </div>
 
-<!-- Sara section -->
-<section id="sara" class="sara-section" aria-labelledby="sara-title">
-  <div class="section">
-    <div class="section-center">
-      <div class="section-tag">¿Quién es Sara?</div>
-      <h2 class="section-title" id="sara-title">Sara es tu <em>recepcionista virtual.</em><br>Trabaja sola, las 24 horas.</h2>
-      <p class="section-sub">No es un bot de menús ni botones. Sara entiende lenguaje natural — como cuando le escribís a una persona real por WhatsApp.</p>
+<!-- Before / After -->
+<section id="sara" class="section section-sm">
+  <div class="section-label" data-i18n="ba.label">La diferencia</div>
+  <h2 class="title" data-i18n="ba.title">Antes y después de <em>AutoCita.</em></h2>
+  <div class="ba-grid">
+    <div class="ba-col">
+      <div class="ba-label" data-i18n="ba.before">Antes</div>
+      <div class="ba-item"><span class="icon">✗</span><span data-i18n="ba.b1">Contestando WhatsApp en la cena</span></div>
+      <div class="ba-item"><span class="icon">✗</span><span data-i18n="ba.b2">Citas perdidas por no ver el mensaje</span></div>
+      <div class="ba-item"><span class="icon">✗</span><span data-i18n="ba.b3">Lunes sin saber si hay agenda</span></div>
+      <div class="ba-item"><span class="icon">✗</span><span data-i18n="ba.b4">Vacaciones con el teléfono en la mano</span></div>
+      <div class="ba-item"><span class="icon">✗</span><span data-i18n="ba.b5">Una recepcionista que cuesta $1,500 al mes</span></div>
     </div>
-    <div class="sara-grid">
-      <div class="sara-features">
-        <div class="sara-feature">
-          <div class="sara-feature-icon" aria-hidden="true">💬</div>
-          <div>
-            <h3>Entiende como una persona</h3>
-            <p>El cliente escribe como quiera — Sara entiende y responde en el mismo idioma del cliente, sin menús ni opciones numeradas.</p>
-          </div>
-        </div>
-        <div class="sara-feature">
-          <div class="sara-feature-icon" aria-hidden="true">📅</div>
-          <div>
-            <h3>Agenda directo en tu Google Calendar</h3>
-            <p>La cita aparece en tu calendario en segundos. Sin apps nuevas, sin sincronizaciones raras. Funciona con el calendario que ya usás.</p>
-          </div>
-        </div>
-        <div class="sara-feature">
-          <div class="sara-feature-icon" aria-hidden="true">🔔</div>
-          <div>
-            <h3>Recuerda a tus clientes</h3>
-            <p>Sara manda recordatorios automáticos 24 horas y 2 horas antes de la cita. Menos inasistencias, más ingresos.</p>
-          </div>
-        </div>
-        <div class="sara-feature">
-          <div class="sara-feature-icon" aria-hidden="true">📋</div>
-          <div>
-            <h3>Maneja cancelaciones y lista de espera</h3>
-            <p>Si alguien cancela, Sara libera el espacio y avisa automáticamente a quien está esperando. Ningún slot se pierde.</p>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="sara-card">
-          <div class="sara-card-header">
-            <div class="sara-avatar" aria-hidden="true">🤖</div>
-            <div class="sara-info">
-              <div class="sara-name">Sara — AutoCita</div>
-              <div class="sara-status">En línea ahora mismo</div>
-            </div>
-          </div>
-          <div class="sara-body">
-            <div class="msg msg-out">Necesito cancelar mi cita del martes</div>
-            <div class="msg msg-in">Claro, ya cancelé tu cita. ¿Querés que te ayude a reagendar para otra fecha?<div class="msg-time">14:22</div></div>
-            <div class="msg msg-out">Sí, para el jueves si hay</div>
-            <div class="msg msg-in">El jueves 12 de junio hay disponibilidad a las 09:00, 10:00 y 14:00. ¿Cuál preferís?<div class="msg-time">14:22</div></div>
-            <div class="msg msg-out">Las 10</div>
-            <div class="msg msg-in">✅ Listo, quedás agendado el jueves 12 de junio a las 10:00.<div class="msg-time">14:23</div></div>
-          </div>
-          <div class="sara-cta">
-            <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank">
-              Probá con Sara de verdad →
-            </a>
-          </div>
-        </div>
-      </div>
+    <div class="ba-col after">
+      <div class="ba-label green" data-i18n="ba.after">Después</div>
+      <div class="ba-item"><span class="icon">✓</span><span data-i18n="ba.a1">Sara llena su agenda mientras duerme</span></div>
+      <div class="ba-item"><span class="icon">✓</span><span data-i18n="ba.a2">Cada cita en su Google Calendar al instante</span></div>
+      <div class="ba-item"><span class="icon">✓</span><span data-i18n="ba.a3">Semana organizada sola desde el domingo</span></div>
+      <div class="ba-item"><span class="icon">✓</span><span data-i18n="ba.a4">Vacaciones de verdad</span></div>
+      <div class="ba-item"><span class="icon">✓</span><span data-i18n="ba.a5">Su negocio trabaja. Usted descansa.</span></div>
     </div>
   </div>
 </section>
 
 <!-- How it works -->
-<section id="como-funciona" class="section" aria-labelledby="steps-title">
-  <div class="section-center">
-    <div class="section-tag">Cómo funciona</div>
-    <h2 class="section-title" id="steps-title">De mensaje a cita confirmada<br>en <em>menos de 2 minutos.</em></h2>
-  </div>
-  <div class="steps" role="list">
-    <div class="step" role="listitem">
-      <div class="step-num" aria-hidden="true">1</div>
-      <span class="step-icon" aria-hidden="true">💬</span>
-      <h3>El cliente escribe por WhatsApp</h3>
-      <p>Sin descargar apps, sin formularios, sin llamadas. Solo WhatsApp — la app que todos ya tienen.</p>
-    </div>
-    <div class="step" role="listitem">
-      <div class="step-num" aria-hidden="true">2</div>
-      <span class="step-icon" aria-hidden="true">🤖</span>
-      <h3>Sara gestiona todo</h3>
-      <p>Entiende el mensaje, consulta la disponibilidad real y confirma la cita al instante.</p>
-    </div>
-    <div class="step" role="listitem">
-      <div class="step-num" aria-hidden="true">3</div>
-      <span class="step-icon" aria-hidden="true">📅</span>
-      <h3>La cita aparece en tu calendario</h3>
-      <p>Directamente en tu Google Calendar. Tus datos en tu Google — no en servidores de terceros.</p>
-    </div>
-    <div class="step" role="listitem">
-      <div class="step-num" aria-hidden="true">4</div>
-      <span class="step-icon" aria-hidden="true">🔔</span>
-      <h3>Recordatorio automático</h3>
-      <p>Sara le recuerda al cliente 24h y 2h antes. Menos inasistencias, más ingresos.</p>
+<section id="como-funciona" class="section" style="background:var(--green-light);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div style="max-width:1000px;margin:0 auto">
+    <div class="section-label" data-i18n="how.label">Cómo funciona</div>
+    <h2 class="title" data-i18n="how.title">Tres pasos. <em>Sin complicaciones.</em></h2>
+    <p class="subtitle" data-i18n="how.sub">No hay apps que instalar. No hay sistemas que aprender. Solo WhatsApp y su Google Calendar, trabajando solos.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3 data-i18n="how.s1.title">El paciente escribe por WhatsApp</h3>
+        <p data-i18n="how.s1.desc">Sin descargar nada. Sin formularios. Sara entiende lenguaje natural — como hablarle a una persona real.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3 data-i18n="how.s2.title">Sara gestiona todo</h3>
+        <p data-i18n="how.s2.desc">Revisa disponibilidad real, confirma la cita, crea el registro. Todo en segundos, en el idioma del paciente.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3 data-i18n="how.s3.title">La cita aparece en su Google Calendar</h3>
+        <p data-i18n="how.s3.desc">Sus datos en su Google. No en servidores de terceros. Usted es el dueño de todo, siempre.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Trust / Official tech -->
-<section class="trust-section" aria-labelledby="trust-title">
+<!-- Trust -->
+<section class="trust-section">
   <div class="section">
-    <div class="section-center">
-      <div class="section-tag">Tecnología oficial</div>
-      <h2 class="section-title" id="trust-title">Usamos tecnología <em>100% oficial.</em><br>Sin intermediarios, sin riesgos.</h2>
-      <p class="section-sub">No usamos herramientas informales ni APIs no autorizadas. Todo lo que conectamos es oficial, seguro y certificado.</p>
-    </div>
+    <div class="section-label" data-i18n="trust.label">Tecnología oficial</div>
+    <h2 class="title" data-i18n="trust.title">Todo oficial. <em>Sin intermediarios.</em></h2>
+    <p class="subtitle" data-i18n="trust.sub">No usamos herramientas informales. Cada integración es certificada y segura.</p>
     <div class="trust-grid">
       <div class="trust-card">
-        <div class="trust-logo" aria-label="WhatsApp Business API de Meta">
-          <span style="font-size:1.5rem">💬</span>
-          <span style="color:#25D366">WhatsApp Business API</span>
-        </div>
-        <div class="trust-badge">✓ API oficial de Meta</div>
-        <h3>Número verificado por Meta</h3>
-        <p>Usamos la API oficial de WhatsApp Business de Meta. Tu número queda verificado — más confianza, menos bloqueos y mayor tasa de entrega de mensajes.</p>
+        <span class="trust-icon">💬</span>
+        <div class="trust-badge">✓ Meta oficial</div>
+        <h3 data-i18n="trust.t1.title">WhatsApp Business API verificado</h3>
+        <p data-i18n="trust.t1.desc">Número verificado por Meta. Menos bloqueos, mayor confianza del paciente desde el primer mensaje.</p>
       </div>
       <div class="trust-card">
-        <div class="trust-logo" aria-label="Google Calendar y Google Workspace">
-          <span style="font-size:1.5rem">📅</span>
-          <span style="color:#4285F4">Google Workspace</span>
-        </div>
-        <div class="trust-badge">✓ Certificado por Google</div>
-        <h3>Tus datos en tu Google</h3>
-        <p>Las citas van directo a tu Google Calendar. Los registros a tu Google Drive. Nosotros no guardamos nada — vos sos el dueño absoluto de tus datos, siempre.</p>
+        <span class="trust-icon">📅</span>
+        <div class="trust-badge">✓ Google certificado</div>
+        <h3 data-i18n="trust.t2.title">Sus datos en su Google</h3>
+        <p data-i18n="trust.t2.desc">Citas en Google Calendar. Registros en Google Drive. Nosotros no guardamos nada — usted es el dueño absoluto.</p>
       </div>
       <div class="trust-card">
-        <div class="trust-logo" aria-label="Inteligencia Artificial de Anthropic">
-          <span style="font-size:1.5rem">🤖</span>
-          <span style="color:#111">Anthropic AI</span>
-        </div>
-        <div class="trust-badge">✓ IA conversacional real</div>
-        <h3>No es un bot de botones</h3>
-        <p>Sara usa inteligencia artificial conversacional real — la misma tecnología de las empresas más avanzadas del mundo. Entiende lenguaje natural, no comandos.</p>
+        <span class="trust-icon">🤖</span>
+        <div class="trust-badge">✓ IA conversacional</div>
+        <h3 data-i18n="trust.t3.title">No es un bot de menús</h3>
+        <p data-i18n="trust.t3.desc">Sara entiende lenguaje natural. El paciente escribe como quiera — Sara interpreta y responde como una persona real.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Plans -->
-<section id="planes" class="section" aria-labelledby="plans-title">
-  <div class="section-center">
-    <div class="section-tag">Planes</div>
-    <h2 class="section-title" id="plans-title">Elegí el plan que <em>se ajusta</em><br>a tu negocio.</h2>
-    <p class="section-sub">Sin permanencia. Sin tarjeta de crédito para empezar. Podés cambiar de plan cuando quieras.</p>
-  </div>
-  <div class="plans-table" role="table" aria-label="Comparación de planes">
-    <div class="plans-header" role="row">
-      <div role="columnheader">¿Qué incluye?</div>
-      <div class="col-starter" role="columnheader" style="text-align:center">Starter</div>
-      <div class="col-featured" role="columnheader" style="text-align:center">
-        <div class="col-featured-label">Más popular</div>
-        <div class="col-featured-name">Clínica</div>
-      </div>
-      <div role="columnheader" style="text-align:center">Enterprise</div>
+<section id="planes" class="section">
+  <div class="section-label" data-i18n="plans.label">Planes</div>
+  <h2 class="title" data-i18n="plans.title">Encuentre su <em>plan.</em></h2>
+  <p class="subtitle" data-i18n="plans.sub">Sin permanencia. Sin tarjeta para empezar. Cambie de plan cuando quiera.</p>
+  <div class="plans-grid">
+    <div class="plan">
+      <div class="plan-name" data-i18n="plans.p1.name">Starter</div>
+      <div class="plan-desc" data-i18n="plans.p1.desc">Para profesionales independientes y consultorios pequeños.</div>
+      <ul class="plan-list">
+        <li data-i18n="plans.p1.f1">Hasta 3 profesionales</li>
+        <li data-i18n="plans.p1.f2">Sara agenda 24/7</li>
+        <li data-i18n="plans.p1.f3">Confirmaciones y recordatorios</li>
+        <li data-i18n="plans.p1.f4">Lista de espera automática</li>
+        <li data-i18n="plans.p1.f5">Sus datos en su Google</li>
+      </ul>
+      <a href="https://wa.me/50683070700?text=Hola%2C%20quiero%20info%20del%20plan%20Starter" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
     </div>
-    <div class="plans-row" role="row">
-      <div class="feature-name" role="cell">Profesionales incluidos</div>
-      <div class="col-starter col-center" role="cell">Hasta 3</div>
-      <div class="col-center col-featured-cell" role="cell"><strong>Hasta 7</strong></div>
-      <div class="col-center" role="cell">Hasta 10 x sede</div>
+    <div class="plan featured">
+      <div class="plan-tag" data-i18n="plans.popular">Más popular</div>
+      <div class="plan-name" data-i18n="plans.p2.name">Clínica</div>
+      <div class="plan-desc" data-i18n="plans.p2.desc">Para clínicas con varios profesionales y seguimiento al paciente.</div>
+      <ul class="plan-list">
+        <li data-i18n="plans.p2.f1">Hasta 7 profesionales</li>
+        <li data-i18n="plans.p2.f2">Todo lo del plan Starter</li>
+        <li data-i18n="plans.p2.f3">Seguimiento al paciente</li>
+        <li data-i18n="plans.p2.f4">Mensajes, fotos y videos directos</li>
+        <li data-i18n="plans.p2.f5">Reporte mensual</li>
+      </ul>
+      <a href="https://wa.me/50683070700?text=Hola%2C%20quiero%20info%20del%20plan%20Clinica" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
     </div>
-    <div class="plans-row" role="row">
-      <div class="feature-name" role="cell">Sedes</div>
-      <div class="col-starter col-center" role="cell">1 sede</div>
-      <div class="col-center col-featured-cell" role="cell">1 sede</div>
-      <div class="col-center" role="cell"><strong>Hasta 5 sedes</strong></div>
-    </div>
-    <div class="plans-row" role="row">
-      <div class="feature-name" role="cell">Sara agenda 24/7 por WhatsApp</div>
-      <div class="col-starter col-center" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-      <div class="col-center col-featured-cell" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-      <div class="col-center" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-    </div>
-    <div class="plans-row" role="row">
-      <div class="feature-name" role="cell">Confirmaciones y recordatorios</div>
-      <div class="col-starter col-center" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-      <div class="col-center col-featured-cell" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-      <div class="col-center" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-    </div>
-    <div class="plans-row" role="row">
-      <div class="feature-name" role="cell">Lista de espera automática</div>
-      <div class="col-starter col-center" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-      <div class="col-center col-featured-cell" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-      <div class="col-center" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-    </div>
-    <div class="plans-row" role="row">
-      <div class="feature-name" role="cell">Tus datos en tu Google</div>
-      <div class="col-starter col-center" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-      <div class="col-center col-featured-cell" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-      <div class="col-center" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-    </div>
-    <div class="plans-row" role="row">
-      <div class="feature-name" role="cell">Sara distingue especialidades</div>
-      <div class="col-starter col-center" role="cell"><span class="cross" aria-label="No incluido">—</span></div>
-      <div class="col-center col-featured-cell" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-      <div class="col-center" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-    </div>
-    <div class="plans-row" role="row">
-      <div class="feature-name" role="cell">Seguimiento al paciente (fotos, videos, mensajes)</div>
-      <div class="col-starter col-center" role="cell"><span class="cross" aria-label="No incluido">—</span></div>
-      <div class="col-center col-featured-cell" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-      <div class="col-center" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-    </div>
-    <div class="plans-row" role="row">
-      <div class="feature-name" role="cell">Multi-sede automático</div>
-      <div class="col-starter col-center" role="cell"><span class="cross" aria-label="No incluido">—</span></div>
-      <div class="col-center col-featured-cell" role="cell"><span class="cross" aria-label="No incluido">—</span></div>
-      <div class="col-center" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-    </div>
-    <div class="plans-row" role="row">
-      <div class="feature-name" role="cell">Onboarding por videollamada</div>
-      <div class="col-starter col-center" role="cell"><span class="cross" aria-label="No incluido">—</span></div>
-      <div class="col-center col-featured-cell" role="cell"><span class="cross" aria-label="No incluido">—</span></div>
-      <div class="col-center" role="cell"><span class="check" aria-label="Incluido">✓</span></div>
-    </div>
-    <div class="plans-cta-row" role="row">
-      <div class="plan-name-label" role="cell">Consultá el precio por WhatsApp</div>
-      <div class="col-starter" role="cell">
-        <a href="https://wa.me/50683070700?text=Hola%2C%20quiero%20info%20del%20plan%20Starter" target="_blank" class="btn-plan btn-plan-ghost" aria-label="Consultar precio del plan Starter">Consultar →</a>
-      </div>
-      <div class="col-featured-cell" role="cell">
-        <a href="https://wa.me/50683070700?text=Hola%2C%20quiero%20info%20del%20plan%20Clinica" target="_blank" class="btn-plan btn-plan-main" aria-label="Consultar precio del plan Clínica">Consultar →</a>
-      </div>
-      <div role="cell">
-        <a href="https://wa.me/50683070700?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise" target="_blank" class="btn-plan btn-plan-ghost" aria-label="Consultar precio del plan Enterprise">Consultar →</a>
-      </div>
+    <div class="plan">
+      <div class="plan-name">Enterprise</div>
+      <div class="plan-desc" data-i18n="plans.p3.desc">Para grupos y operaciones multi-sede.</div>
+      <ul class="plan-list">
+        <li data-i18n="plans.p3.f1">Hasta 10 profesionales por sede</li>
+        <li data-i18n="plans.p3.f2">Hasta 5 sedes</li>
+        <li data-i18n="plans.p3.f3">Todo lo del plan Clínica</li>
+        <li data-i18n="plans.p3.f4">Onboarding por videollamada</li>
+        <li data-i18n="plans.p3.f5">Soporte dedicado</li>
+      </ul>
+      <a href="https://wa.me/50683070700?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section section-center" aria-labelledby="faq-title" style="background:var(--bg);border-top:1px solid var(--border)">
-  <div class="section-tag">Preguntas frecuentes</div>
-  <h2 class="section-title" id="faq-title">Resolvemos tus <em>dudas.</em></h2>
-  <div class="faq-list" role="list">
-    <div class="faq-item" role="listitem">
-      <button class="faq-q" aria-expanded="false">
-        ¿Necesito instalar algo o cambiar mi número de WhatsApp?
-        <span class="faq-icon" aria-hidden="true">+</span>
-      </button>
-      <div class="faq-a" role="region">No. <strong>No cambiás tu número</strong> y no instalás nada nuevo. Conectamos tu número de WhatsApp Business existente en menos de 24 horas. Tus clientes no notan ningún cambio.</div>
+<section class="section section-sm" style="padding-top:0">
+  <div class="section-label" data-i18n="faq.label">Preguntas frecuentes</div>
+  <h2 class="title" data-i18n="faq.title" style="margin-bottom:2rem">Lo que siempre <em>preguntan.</em></h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false"><span data-i18n="faq.q1">¿Necesito instalar algo o cambiar mi número?</span><span class="faq-icon">+</span></button>
+      <div class="faq-body" data-i18n="faq.a1">No. <strong>No cambia su número</strong> y no instala nada. Conectamos su WhatsApp Business existente en menos de 24 horas.</div>
     </div>
-    <div class="faq-item" role="listitem">
-      <button class="faq-q" aria-expanded="false">
-        ¿Qué pasa si el cliente escribe a las 11 de la noche?
-        <span class="faq-icon" aria-hidden="true">+</span>
-      </button>
-      <div class="faq-a" role="region">Sara responde <strong>las 24 horas, los 7 días de la semana</strong>. Si hay disponibilidad, agenda la cita. Si no hay, pone al cliente en lista de espera y lo avisa cuando se abra un espacio.</div>
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false"><span data-i18n="faq.q2">¿Qué pasa si el paciente escribe a las 11pm?</span><span class="faq-icon">+</span></button>
+      <div class="faq-body" data-i18n="faq.a2">Sara responde las <strong>24 horas, los 7 días</strong>. Si hay disponibilidad, agenda. Si no, pone al paciente en lista de espera y le avisa cuando se abra un espacio.</div>
     </div>
-    <div class="faq-item" role="listitem">
-      <button class="faq-q" aria-expanded="false">
-        ¿Mis datos y los de mis pacientes están seguros?
-        <span class="faq-icon" aria-hidden="true">+</span>
-      </button>
-      <div class="faq-a" role="region">Sí. Las citas van directo a tu <strong>Google Calendar</strong> y los registros a tu <strong>Google Drive</strong>. AutomatIA no guarda nada en servidores propios. Vos sos el dueño absoluto de toda la información, en todo momento.</div>
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false"><span data-i18n="faq.q3">¿Mis datos y los de mis pacientes están seguros?</span><span class="faq-icon">+</span></button>
+      <div class="faq-body" data-i18n="faq.a3">Las citas van a su <strong>Google Calendar</strong> y los registros a su <strong>Google Drive</strong>. AutomatIA no guarda nada. Usted es el dueño absoluto.</div>
     </div>
-    <div class="faq-item" role="listitem">
-      <button class="faq-q" aria-expanded="false">
-        ¿Cuánto tarda en estar listo?
-        <span class="faq-icon" aria-hidden="true">+</span>
-      </button>
-      <div class="faq-a" role="region"><strong>24 horas desde que nos contactás.</strong> Conectamos tu calendario, configuramos a Sara con los datos de tu negocio y listo. Sin semanas de implementación ni contratos largos.</div>
-    </div>
-    <div class="faq-item" role="listitem">
-      <button class="faq-q" aria-expanded="false">
-        ¿Qué pasa si un cliente cancela?
-        <span class="faq-icon" aria-hidden="true">+</span>
-      </button>
-      <div class="faq-a" role="region">Sara gestiona la cancelación, libera el espacio y <strong>notifica automáticamente</strong> a quien está en lista de espera. Ningún horario se pierde.</div>
-    </div>
-    <div class="faq-item" role="listitem">
-      <button class="faq-q" aria-expanded="false">
-        ¿Puedo ver las citas y mandar mensajes a mis pacientes?
-        <span class="faq-icon" aria-hidden="true">+</span>
-      </button>
-      <div class="faq-a" role="region">Sí. Desde tu panel podés ver todas las citas, el historial de pacientes y <strong>mandar mensajes, fotos, videos o PDFs</strong> directamente a cualquier paciente — sin abrir WhatsApp.</div>
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false"><span data-i18n="faq.q4">¿Cuánto tarda en estar listo?</span><span class="faq-icon">+</span></button>
+      <div class="faq-body" data-i18n="faq.a4"><strong>24 horas</strong> desde que nos contacta. Conectamos su calendario, configuramos a Sara con los datos de su negocio y listo.</div>
     </div>
   </div>
 </section>
 
-<!-- Final CTA -->
-<section class="cta-final" aria-labelledby="cta-title">
-  <h2 id="cta-title">Empezá hoy.<br>Tu negocio agenda solo.</h2>
-  <p>Escribinos y en 24 horas Sara está lista para atender a tus clientes.</p>
-  <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="btn-wa-white" aria-label="Escribirle a Sara por WhatsApp">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-    Hablar con Sara ahora
+<!-- CTA Final -->
+<section class="cta-section">
+  <h2 data-i18n="cta.title">Su negocio agenda solo.<br>Usted descansa.</h2>
+  <p data-i18n="cta.sub">Escríbanos. En 24 horas Sara está lista.</p>
+  <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="btn-white">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+    <span data-i18n="cta.btn">Hablar con Sara ahora</span>
   </a>
 </section>
 
 <!-- Footer -->
-<footer role="contentinfo">
+<footer>
   <a href="#" class="logo">Automat<em>IA</em></a>
   <div class="footer-badges">
-    <span class="badge">✓ <span>WhatsApp Business API oficial</span></span>
-    <span class="badge">✓ <span>Google Workspace certificado</span></span>
-    <span class="badge">🇨🇷 <span>Hecho en Costa Rica</span></span>
+    <span class="badge">✓ WhatsApp Business API oficial</span>
+    <span class="badge">✓ Google certificado</span>
+    <span class="badge">🇨🇷 Costa Rica</span>
   </div>
-  <span class="footer-text">© 2026 AutomatIA. Todos los derechos reservados.</span>
+  <span class="footer-copy">© 2026 AutomatIA.</span>
 </footer>
 
 <script>
-  // FAQ accordion
-  document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.parentElement;
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-      });
-      if (!isOpen) {
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
-  // Mobile menu
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  menuBtn.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', isOpen);
-  });
-  function closeMobileMenu() {
-    mobileMenu.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
+// ── i18n ──
+const translations = {
+  es: {
+    'nav.sara': '¿Qué es Sara?', 'nav.how': 'Cómo funciona', 'nav.plans': 'Planes', 'nav.cta': 'Probar gratis',
+    'hero.label': 'AutoCita by AutomatIA · Costa Rica',
+    'hero.title': 'La primera vez que un paciente le escriba a las 11pm y usted ya esté dormido — y la cita igual quede agendada — va a querer haberlo tenido antes.',
+    'hero.sub': 'Su negocio agenda solo. Usted descansa.',
+    'hero.cta': 'Escribirle a Sara ahora', 'hero.link': 'Ver cómo funciona →',
+    'stats.s1': 'Siempre disponible', 'stats.s2': 'Citas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Sus datos en su Google', 'stats.s5': 'Para estar listo',
+    'ba.label': 'La diferencia', 'ba.title': 'Antes y después de AutoCita.',
+    'ba.before': 'Antes', 'ba.after': 'Después',
+    'ba.b1': 'Contestando WhatsApp en la cena', 'ba.b2': 'Citas perdidas por no ver el mensaje', 'ba.b3': 'Lunes sin saber si hay agenda', 'ba.b4': 'Vacaciones con el teléfono en la mano', 'ba.b5': 'Una recepcionista que cuesta $1,500 al mes',
+    'ba.a1': 'Sara llena su agenda mientras duerme', 'ba.a2': 'Cada cita en su Google Calendar al instante', 'ba.a3': 'Semana organizada sola desde el domingo', 'ba.a4': 'Vacaciones de verdad', 'ba.a5': 'Su negocio trabaja. Usted descansa.',
+    'how.label': 'Cómo funciona', 'how.title': 'Tres pasos. Sin complicaciones.', 'how.sub': 'No hay apps que instalar. No hay sistemas que aprender.',
+    'how.s1.title': 'El paciente escribe por WhatsApp', 'how.s1.desc': 'Sin descargar nada. Sara entiende lenguaje natural.',
+    'how.s2.title': 'Sara gestiona todo', 'how.s2.desc': 'Revisa disponibilidad, confirma la cita, crea el registro.',
+    'how.s3.title': 'La cita aparece en su Google Calendar', 'how.s3.desc': 'Sus datos en su Google. Usted es el dueño de todo.',
+    'trust.label': 'Tecnología oficial', 'trust.title': 'Todo oficial. Sin intermediarios.', 'trust.sub': 'Cada integración es certificada y segura.',
+    'trust.t1.title': 'WhatsApp Business API verificado', 'trust.t1.desc': 'Número verificado por Meta. Menos bloqueos, más confianza.',
+    'trust.t2.title': 'Sus datos en su Google', 'trust.t2.desc': 'Citas en Google Calendar. Registros en Drive. Nosotros no guardamos nada.',
+    'trust.t3.title': 'No es un bot de menús', 'trust.t3.desc': 'Sara entiende lenguaje natural. El paciente escribe como quiera.',
+    'plans.label': 'Planes', 'plans.title': 'Encuentre su plan.', 'plans.sub': 'Sin permanencia. Sin tarjeta para empezar.', 'plans.popular': 'Más popular', 'plans.cta': 'Consultar precio →',
+    'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profesionales independientes y consultorios pequeños.',
+    'plans.p1.f1': 'Hasta 3 profesionales', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmaciones y recordatorios', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Sus datos en su Google',
+    'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas con varios profesionales y seguimiento al paciente.',
+    'plans.p2.f1': 'Hasta 7 profesionales', 'plans.p2.f2': 'Todo lo del plan Starter', 'plans.p2.f3': 'Seguimiento al paciente', 'plans.p2.f4': 'Mensajes, fotos y videos directos', 'plans.p2.f5': 'Reporte mensual',
+    'plans.p3.desc': 'Para grupos y operaciones multi-sede.',
+    'plans.p3.f1': 'Hasta 10 profesionales por sede', 'plans.p3.f2': 'Hasta 5 sedes', 'plans.p3.f3': 'Todo lo del plan Clínica', 'plans.p3.f4': 'Onboarding por videollamada', 'plans.p3.f5': 'Soporte dedicado',
+    'faq.label': 'Preguntas frecuentes', 'faq.title': 'Lo que siempre preguntan.',
+    'faq.q1': '¿Necesito instalar algo o cambiar mi número?', 'faq.a1': 'No. No cambia su número y no instala nada. Conectamos su WhatsApp Business existente en menos de 24 horas.',
+    'faq.q2': '¿Qué pasa si el paciente escribe a las 11pm?', 'faq.a2': 'Sara responde las 24 horas, los 7 días. Si hay disponibilidad, agenda. Si no, lista de espera.',
+    'faq.q3': '¿Mis datos y los de mis pacientes están seguros?', 'faq.a3': 'Las citas van a su Google Calendar. AutomatIA no guarda nada. Usted es el dueño.',
+    'faq.q4': '¿Cuánto tarda en estar listo?', 'faq.a4': '24 horas desde que nos contacta.',
+    'cta.title': 'Su negocio agenda solo.\nUsted descansa.', 'cta.sub': 'Escríbanos. En 24 horas Sara está lista.', 'cta.btn': 'Hablar con Sara ahora',
+  },
+  en: {
+    'nav.sara': 'What is Sara?', 'nav.how': 'How it works', 'nav.plans': 'Plans', 'nav.cta': 'Try for free',
+    'hero.label': 'AutoCita by AutomatIA',
+    'hero.title': 'The first time a patient messages you at 11pm and you\'re already asleep — and the appointment still gets booked — you\'ll wish you had this sooner.',
+    'hero.sub': 'Your business books itself. You rest.',
+    'hero.cta': 'Talk to Sara now', 'hero.link': 'See how it works →',
+    'stats.s1': 'Always available', 'stats.s2': 'Missed appointments', 'stats.s3': 'Languages', 'stats.s4': 'Your data in your Google', 'stats.s5': 'To go live',
+    'ba.label': 'The difference', 'ba.title': 'Before and after AutoCita.',
+    'ba.before': 'Before', 'ba.after': 'After',
+    'ba.b1': 'Answering WhatsApp during dinner', 'ba.b2': 'Missed appointments from unseen messages', 'ba.b3': 'Monday without knowing your schedule', 'ba.b4': 'Vacations with your phone in hand', 'ba.b5': 'A receptionist costing $1,500/month',
+    'ba.a1': 'Sara fills your schedule while you sleep', 'ba.a2': 'Every appointment in your Google Calendar instantly', 'ba.a3': 'Week organized on its own by Sunday', 'ba.a4': 'Real vacations', 'ba.a5': 'Your business works. You rest.',
+    'how.label': 'How it works', 'how.title': 'Three steps. No complications.', 'how.sub': 'No apps to install. No systems to learn.',
+    'how.s1.title': 'Patient writes on WhatsApp', 'how.s1.desc': 'Nothing to download. Sara understands natural language.',
+    'how.s2.title': 'Sara handles everything', 'how.s2.desc': 'Checks availability, confirms the appointment, creates the record.',
+    'how.s3.title': 'Appointment lands in your Google Calendar', 'how.s3.desc': 'Your data in your Google. You own everything.',
+    'trust.label': 'Official technology', 'trust.title': 'All official. No intermediaries.', 'trust.sub': 'Every integration is certified and secure.',
+    'trust.t1.title': 'Verified WhatsApp Business API', 'trust.t1.desc': 'Meta-verified number. Fewer blocks, more trust.',
+    'trust.t2.title': 'Your data in your Google', 'trust.t2.desc': 'Appointments in Google Calendar. Records in Drive. We store nothing.',
+    'trust.t3.title': 'Not a menu bot', 'trust.t3.desc': 'Sara understands natural language. Patients write however they want.',
+    'plans.label': 'Plans', 'plans.title': 'Find your plan.', 'plans.sub': 'No commitment. No card to start.', 'plans.popular': 'Most popular', 'plans.cta': 'Get pricing →',
+    'plans.p1.name': 'Starter', 'plans.p1.desc': 'For independent professionals and small offices.',
+    'plans.p1.f1': 'Up to 3 professionals', 'plans.p1.f2': 'Sara books 24/7', 'plans.p1.f3': 'Confirmations and reminders', 'plans.p1.f4': 'Automatic waiting list', 'plans.p1.f5': 'Your data in your Google',
+    'plans.p2.name': 'Clinic', 'plans.p2.desc': 'For clinics with multiple professionals and patient follow-up.',
+    'plans.p2.f1': 'Up to 7 professionals', 'plans.p2.f2': 'Everything in Starter', 'plans.p2.f3': 'Patient follow-up', 'plans.p2.f4': 'Messages, photos and videos', 'plans.p2.f5': 'Monthly report',
+    'plans.p3.desc': 'For groups and multi-location operations.',
+    'plans.p3.f1': 'Up to 10 professionals per location', 'plans.p3.f2': 'Up to 5 locations', 'plans.p3.f3': 'Everything in Clinic', 'plans.p3.f4': 'Video call onboarding', 'plans.p3.f5': 'Dedicated support',
+    'faq.label': 'FAQ', 'faq.title': 'What people always ask.',
+    'faq.q1': 'Do I need to install anything or change my number?', 'faq.a1': 'No. Your number stays the same. We connect your existing WhatsApp Business in under 24 hours.',
+    'faq.q2': 'What if a patient writes at 11pm?', 'faq.a2': 'Sara responds 24/7. If there\'s availability, she books. If not, waiting list.',
+    'faq.q3': 'Is my data and my patients\' data safe?', 'faq.a3': 'Appointments go to your Google Calendar. AutomatIA stores nothing. You own everything.',
+    'faq.q4': 'How long does setup take?', 'faq.a4': '24 hours from when you contact us.',
+    'cta.title': 'Your business books itself.\nYou rest.', 'cta.sub': 'Contact us. Sara will be ready in 24 hours.', 'cta.btn': 'Talk to Sara now',
+  },
+  pt: {
+    'nav.sara': 'O que é Sara?', 'nav.how': 'Como funciona', 'nav.plans': 'Planos', 'nav.cta': 'Testar grátis',
+    'hero.label': 'AutoCita by AutomatIA',
+    'hero.title': 'Na primeira vez que um paciente lhe escrever às 23h e você já estiver dormindo — e a consulta ainda assim ficar agendada — você vai querer ter tido isso antes.',
+    'hero.sub': 'Seu negócio agenda sozinho. Você descansa.',
+    'hero.cta': 'Falar com Sara agora', 'hero.link': 'Ver como funciona →',
+    'stats.s1': 'Sempre disponível', 'stats.s2': 'Consultas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Seus dados no seu Google', 'stats.s5': 'Para estar pronto',
+    'ba.label': 'A diferença', 'ba.title': 'Antes e depois do AutoCita.',
+    'ba.before': 'Antes', 'ba.after': 'Depois',
+    'ba.b1': 'Respondendo WhatsApp no jantar', 'ba.b2': 'Consultas perdidas por não ver a mensagem', 'ba.b3': 'Segunda-feira sem saber a agenda', 'ba.b4': 'Férias com o celular na mão', 'ba.b5': 'Uma recepcionista custando $1.500/mês',
+    'ba.a1': 'Sara preenche sua agenda enquanto você dorme', 'ba.a2': 'Cada consulta no Google Calendar na hora', 'ba.a3': 'Semana organizada sozinha desde domingo', 'ba.a4': 'Férias de verdade', 'ba.a5': 'Seu negócio trabalha. Você descansa.',
+    'how.label': 'Como funciona', 'how.title': 'Três passos. Sem complicações.', 'how.sub': 'Sem apps para instalar. Sem sistemas para aprender.',
+    'how.s1.title': 'O paciente escreve pelo WhatsApp', 'how.s1.desc': 'Sem baixar nada. Sara entende linguagem natural.',
+    'how.s2.title': 'Sara cuida de tudo', 'how.s2.desc': 'Verifica disponibilidade, confirma, cria o registro.',
+    'how.s3.title': 'A consulta aparece no seu Google Calendar', 'how.s3.desc': 'Seus dados no seu Google. Você é o dono de tudo.',
+    'trust.label': 'Tecnologia oficial', 'trust.title': 'Tudo oficial. Sem intermediários.', 'trust.sub': 'Cada integração é certificada e segura.',
+    'trust.t1.title': 'WhatsApp Business API verificado', 'trust.t1.desc': 'Número verificado pela Meta. Menos bloqueios, mais confiança.',
+    'trust.t2.title': 'Seus dados no seu Google', 'trust.t2.desc': 'Consultas no Google Calendar. Registros no Drive. Não guardamos nada.',
+    'trust.t3.title': 'Não é um bot de menus', 'trust.t3.desc': 'Sara entende linguagem natural. O paciente escreve como quiser.',
+    'plans.label': 'Planos', 'plans.title': 'Encontre seu plano.', 'plans.sub': 'Sem fidelidade. Sem cartão para começar.', 'plans.popular': 'Mais popular', 'plans.cta': 'Consultar preço →',
+    'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profissionais independentes e consultórios pequenos.',
+    'plans.p1.f1': 'Até 3 profissionais', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmações e lembretes', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Seus dados no seu Google',
+    'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas com vários profissionais e acompanhamento do paciente.',
+    'plans.p2.f1': 'Até 7 profissionais', 'plans.p2.f2': 'Tudo do plano Starter', 'plans.p2.f3': 'Acompanhamento do paciente', 'plans.p2.f4': 'Mensagens, fotos e vídeos', 'plans.p2.f5': 'Relatório mensal',
+    'plans.p3.desc': 'Para grupos e operações multi-unidade.',
+    'plans.p3.f1': 'Até 10 profissionais por unidade', 'plans.p3.f2': 'Até 5 unidades', 'plans.p3.f3': 'Tudo do plano Clínica', 'plans.p3.f4': 'Onboarding por videochamada', 'plans.p3.f5': 'Suporte dedicado',
+    'faq.label': 'Perguntas frequentes', 'faq.title': 'O que sempre perguntam.',
+    'faq.q1': 'Preciso instalar algo ou mudar meu número?', 'faq.a1': 'Não. Seu número não muda. Conectamos seu WhatsApp Business em menos de 24 horas.',
+    'faq.q2': 'E se o paciente escrever às 23h?', 'faq.a2': 'Sara responde 24 horas por dia, 7 dias por semana.',
+    'faq.q3': 'Meus dados e os dos meus pacientes estão seguros?', 'faq.a3': 'As consultas vão para o seu Google Calendar. Não guardamos nada.',
+    'faq.q4': 'Quanto tempo leva para estar pronto?', 'faq.a4': '24 horas a partir do seu contato.',
+    'cta.title': 'Seu negócio agenda sozinho.\nVocê descansa.', 'cta.sub': 'Entre em contato. Sara estará pronta em 24 horas.', 'cta.btn': 'Falar com Sara agora',
+  },
+  fr: {
+    'nav.sara': 'Qu\'est-ce que Sara ?', 'nav.how': 'Comment ça marche', 'nav.plans': 'Formules', 'nav.cta': 'Essayer gratuitement',
+    'hero.label': 'AutoCita by AutomatIA',
+    'hero.title': 'La première fois qu\'un patient vous écrira à 23h et que vous dormirez déjà — et que le rendez-vous sera quand même pris — vous regretterez de ne pas l\'avoir eu avant.',
+    'hero.sub': 'Votre activité prend les rendez-vous seule. Vous vous reposez.',
+    'hero.cta': 'Parler à Sara maintenant', 'hero.link': 'Voir comment ça marche →',
+    'stats.s1': 'Toujours disponible', 'stats.s2': 'Rendez-vous perdus', 'stats.s3': 'Langues', 'stats.s4': 'Vos données dans votre Google', 'stats.s5': 'Pour être prêt',
+    'ba.label': 'La différence', 'ba.title': 'Avant et après AutoCita.',
+    'ba.before': 'Avant', 'ba.after': 'Après',
+    'ba.b1': 'Répondre à WhatsApp pendant le dîner', 'ba.b2': 'Rendez-vous perdus par messages non vus', 'ba.b3': 'Lundi sans connaître votre planning', 'ba.b4': 'Vacances avec le téléphone en main', 'ba.b5': 'Une secrétaire coûtant 1 500 $/mois',
+    'ba.a1': 'Sara remplit votre agenda pendant que vous dormez', 'ba.a2': 'Chaque RDV dans Google Calendar instantanément', 'ba.a3': 'Semaine organisée seule dès le dimanche', 'ba.a4': 'De vraies vacances', 'ba.a5': 'Votre activité travaille. Vous vous reposez.',
+    'how.label': 'Comment ça marche', 'how.title': 'Trois étapes. Sans complications.', 'how.sub': 'Pas d\'apps à installer. Pas de systèmes à apprendre.',
+    'how.s1.title': 'Le patient écrit sur WhatsApp', 'how.s1.desc': 'Rien à télécharger. Sara comprend le langage naturel.',
+    'how.s2.title': 'Sara gère tout', 'how.s2.desc': 'Vérifie la disponibilité, confirme, crée l\'enregistrement.',
+    'how.s3.title': 'Le RDV apparaît dans votre Google Calendar', 'how.s3.desc': 'Vos données dans votre Google. Vous êtes propriétaire de tout.',
+    'trust.label': 'Technologie officielle', 'trust.title': 'Tout officiel. Sans intermédiaires.', 'trust.sub': 'Chaque intégration est certifiée et sécurisée.',
+    'trust.t1.title': 'WhatsApp Business API vérifié', 'trust.t1.desc': 'Numéro vérifié par Meta. Moins de blocages, plus de confiance.',
+    'trust.t2.title': 'Vos données dans votre Google', 'trust.t2.desc': 'RDV dans Google Calendar. Registres dans Drive. Nous ne stockons rien.',
+    'trust.t3.title': 'Pas un bot à menus', 'trust.t3.desc': 'Sara comprend le langage naturel. Le patient écrit comme il veut.',
+    'plans.label': 'Formules', 'plans.title': 'Trouvez votre formule.', 'plans.sub': 'Sans engagement. Sans carte pour commencer.', 'plans.popular': 'Plus populaire', 'plans.cta': 'Consulter le tarif →',
+    'plans.p1.name': 'Starter', 'plans.p1.desc': 'Pour les professionnels indépendants et petits cabinets.',
+    'plans.p1.f1': 'Jusqu\'à 3 professionnels', 'plans.p1.f2': 'Sara prend RDV 24h/7j', 'plans.p1.f3': 'Confirmations et rappels', 'plans.p1.f4': 'Liste d\'attente automatique', 'plans.p1.f5': 'Vos données dans votre Google',
+    'plans.p2.name': 'Clinique', 'plans.p2.desc': 'Pour les cliniques avec plusieurs professionnels.',
+    'plans.p2.f1': 'Jusqu\'à 7 professionnels', 'plans.p2.f2': 'Tout du plan Starter', 'plans.p2.f3': 'Suivi patient', 'plans.p2.f4': 'Messages, photos et vidéos', 'plans.p2.f5': 'Rapport mensuel',
+    'plans.p3.desc': 'Pour les groupes et opérations multi-sites.',
+    'plans.p3.f1': 'Jusqu\'à 10 professionnels par site', 'plans.p3.f2': 'Jusqu\'à 5 sites', 'plans.p3.f3': 'Tout du plan Clinique', 'plans.p3.f4': 'Onboarding par visioconférence', 'plans.p3.f5': 'Support dédié',
+    'faq.label': 'Questions fréquentes', 'faq.title': 'Ce qu\'on demande toujours.',
+    'faq.q1': 'Dois-je installer quelque chose ou changer mon numéro ?', 'faq.a1': 'Non. Votre numéro ne change pas. Nous connectons votre WhatsApp Business en moins de 24 heures.',
+    'faq.q2': 'Que se passe-t-il si un patient écrit à 23h ?', 'faq.a2': 'Sara répond 24h/24, 7j/7.',
+    'faq.q3': 'Mes données et celles de mes patients sont-elles sécurisées ?', 'faq.a3': 'Les RDV vont dans votre Google Calendar. Nous ne stockons rien.',
+    'faq.q4': 'Combien de temps faut-il pour être prêt ?', 'faq.a4': '24 heures à partir de votre contact.',
+    'cta.title': 'Votre activité prend les RDV seule.\nVous vous reposez.', 'cta.sub': 'Contactez-nous. Sara sera prête en 24 heures.', 'cta.btn': 'Parler à Sara maintenant',
   }
-  // Close on outside click
-  document.addEventListener('click', e => {
-    if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-      closeMobileMenu();
+};
+
+function getLang() {
+  const l = (navigator.language || 'es').toLowerCase();
+  if (l.startsWith('pt')) return 'pt';
+  if (l.startsWith('fr')) return 'fr';
+  if (l.startsWith('en')) return 'en';
+  return 'es';
+}
+
+function applyLang(lang) {
+  const t = translations[lang] || translations.es;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) {
+      if (key.endsWith('.title') && t[key].includes('\n')) {
+        el.innerHTML = t[key].replace('\n', '<br>');
+      } else {
+        el.textContent = t[key];
+      }
     }
   });
+  // Update page title & meta
+  if (lang === 'en') {
+    document.title = 'AutoCita — Your business books itself.';
+  } else if (lang === 'pt') {
+    document.title = 'AutoCita — Seu negócio agenda sozinho.';
+  } else if (lang === 'fr') {
+    document.title = 'AutoCita — Votre activité prend les RDV seule.';
+  }
+}
+
+applyLang(getLang());
+
+// ── FAQ ──
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+// ── Mobile menu ──
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+menuBtn.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', open);
+});
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  menuBtn.setAttribute('aria-expanded', 'false');
+}
+document.addEventListener('click', e => {
+  if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) closeMenu();
+});
 </script>
 </body>
 </html>
