@@ -35,7 +35,6 @@
 
     :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
 
-    /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(250,250,248,.96);
@@ -74,7 +73,6 @@
       cursor: pointer; color: var(--text); padding: .4rem;
     }
 
-    /* ── MOBILE MENU ── */
     .mobile-menu {
       display: none; position: fixed;
       inset: 60px 0 0 0; background: var(--white);
@@ -97,7 +95,6 @@
       display: flex; align-items: center; justify-content: center; gap: .5rem;
     }
 
-    /* ── HERO ── */
     .hero {
       min-height: calc(100svh - 60px);
       display: flex; flex-direction: column;
@@ -125,9 +122,7 @@
       color: var(--text); margin-bottom: 2.5rem;
       max-width: 720px;
     }
-    .hero-title em {
-      font-style: normal; color: var(--green);
-    }
+    .hero-title em { font-style: normal; color: var(--green); }
 
     .hero-sub {
       font-size: clamp(.95rem, 1.5vw, 1.05rem);
@@ -156,13 +151,8 @@
     }
     .btn-text:hover { color: var(--text); }
 
-    /* ── DIVIDER ── */
-    .divider {
-      border: none; border-top: 1px solid var(--border);
-      margin: 0;
-    }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
 
-    /* ── STATS ── */
     .stats {
       display: flex; justify-content: center;
       gap: 0; flex-wrap: wrap;
@@ -185,7 +175,6 @@
       margin-top: .3rem; display: block;
     }
 
-    /* ── SECTION ── */
     .section { padding: 5rem 2.5rem; max-width: 1000px; margin: 0 auto; }
     .section-sm { max-width: 720px; }
     .section-label {
@@ -214,7 +203,6 @@
       margin-bottom: 3rem; font-weight: 300;
     }
 
-    /* ── BEFORE / AFTER ── */
     .ba-grid {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 1px; background: var(--border);
@@ -239,7 +227,6 @@
     .ba-item:last-child { margin-bottom: 0; }
     .ba-item .icon { flex-shrink: 0; margin-top: .1rem; }
 
-    /* ── STEPS ── */
     .steps {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
@@ -254,13 +241,9 @@
       font-size: 2.5rem; color: var(--green-mid);
       line-height: 1; margin-bottom: 1rem;
     }
-    .step h3 {
-      font-size: .95rem; font-weight: 500;
-      margin-bottom: .4rem; color: var(--text);
-    }
+    .step h3 { font-size: .95rem; font-weight: 500; margin-bottom: .4rem; color: var(--text); }
     .step p { font-size: .85rem; color: var(--text-mid); line-height: 1.7; font-weight: 300; }
 
-    /* ── TRUST ── */
     .trust-section { background: var(--black); }
     .trust-section .section { max-width: 1000px; }
     .trust-section .section-label { color: #555; }
@@ -286,7 +269,6 @@
       margin-bottom: .75rem; letter-spacing: .04em;
     }
 
-    /* ── PLANS ── */
     .plans-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1px; background: var(--border);
@@ -329,7 +311,6 @@
     .plan.featured .plan-btn { background: var(--green); border-color: var(--green); color: #fff; }
     .plan.featured .plan-btn:hover { opacity: .9; }
 
-    /* ── FAQ ── */
     .faq-list { display: flex; flex-direction: column; gap: .5rem; }
     .faq-item { border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
     .faq-btn {
@@ -347,7 +328,6 @@
     .faq-body strong { color: var(--text); font-weight: 500; }
     .faq-item.open .faq-body { display: block; }
 
-    /* ── FINAL CTA ── */
     .cta-section {
       background: var(--green);
       padding: 5rem 2.5rem; text-align: center;
@@ -371,7 +351,6 @@
     .btn-white:hover { transform: translateY(-2px); }
     .btn-white svg { width: 18px; height: 18px; fill: var(--wa); flex-shrink: 0; }
 
-    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
       padding: 1.75rem 2.5rem;
@@ -386,7 +365,6 @@
     }
     .footer-copy { font-size: .75rem; color: var(--text-light); }
 
-    /* ── FLOAT ── */
     .float-wa {
       position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
       background: var(--wa); width: 52px; height: 52px;
@@ -398,7 +376,27 @@
     .float-wa:hover { transform: scale(1.08); }
     .float-wa svg { width: 26px; height: 26px; fill: #fff; }
 
-    /* ── RESPONSIVE ── */
+    /* Sara chat mock */
+    .sara-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center;
+    }
+    .sara-chat {
+      background: #e5ddd5; border-radius: 14px;
+      padding: 1.25rem; font-size: .83rem; line-height: 1.55;
+    }
+    .chat-in {
+      background: #fff; border-radius: 8px 8px 8px 0;
+      padding: .6rem .9rem; margin-bottom: .5rem;
+      max-width: 88%; color: #111;
+    }
+    .chat-out {
+      background: #dcf8c6; border-radius: 8px 8px 0 8px;
+      padding: .6rem .9rem; margin-left: auto;
+      max-width: 92%; color: #111;
+    }
+    .chat-time { font-size: .7rem; color: #999; text-align: right; margin-top: .2rem; }
+
     @media(max-width: 768px) {
       nav { padding: 0 1.25rem; }
       .nav-links { display: none; }
@@ -410,6 +408,7 @@
       .stats { flex-wrap: wrap; }
       .stat { min-width: calc(50% - 1px); border-bottom: 1px solid var(--border); }
       .section { padding: 3.5rem 1.25rem; }
+      .sara-wrap { grid-template-columns: 1fr; gap: 2rem; }
       .ba-grid { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr; gap: 1rem; }
       .trust-grid { grid-template-columns: 1fr; }
@@ -427,12 +426,10 @@
 </head>
 <body>
 
-<!-- Float WA -->
 <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="float-wa" aria-label="Escribir a Sara">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
 </a>
 
-<!-- Nav -->
 <nav>
   <a href="#" class="logo">Automat<em>IA</em></a>
   <ul class="nav-links">
@@ -456,15 +453,12 @@
   </a>
 </div>
 
-<!-- Hero -->
 <section class="hero">
   <div class="hero-label" data-i18n="hero.label">AutoCita by AutomatIA · Costa Rica</div>
   <h1 class="hero-title" data-i18n="hero.title">
     La primera vez que un paciente le escriba a las 11pm y usted ya esté dormido — y la cita igual quede agendada — va a querer haberlo tenido antes.
   </h1>
-  <p class="hero-sub" data-i18n="hero.sub">
-    Su negocio agenda solo. Usted descansa.
-  </p>
+  <p class="hero-sub" data-i18n="hero.sub">Su negocio agenda solo. Usted descansa.</p>
   <div class="hero-actions">
     <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="btn-wa">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
@@ -476,17 +470,40 @@
 
 <hr class="divider">
 
-<!-- Stats -->
 <div class="stats">
   <div class="stat"><span class="stat-num">24/7</span><span class="stat-label" data-i18n="stats.s1">Siempre disponible</span></div>
   <div class="stat"><span class="stat-num">0</span><span class="stat-label" data-i18n="stats.s2">Citas perdidas</span></div>
   <div class="stat"><span class="stat-num">+50</span><span class="stat-label" data-i18n="stats.s3">Idiomas</span></div>
-  <div class="stat"><span class="stat-num">100%</span><span class="stat-label" data-i18n="stats.s4">Sus datos en su Google</span></div>
+  <div class="stat"><span class="stat-num">2min</span><span class="stat-label" data-i18n="stats.s4">Para agendar</span></div>
   <div class="stat"><span class="stat-num">24h</span><span class="stat-label" data-i18n="stats.s5">Para estar listo</span></div>
 </div>
 
-<!-- Before / After -->
+<!-- Sara -->
 <section id="sara" class="section section-sm">
+  <div class="section-label" data-i18n="sara.label">Tu recepcionista con IA</div>
+  <div class="sara-wrap">
+    <div>
+      <h2 class="title" data-i18n="sara.title">Hola, soy <em>Sara.</em></h2>
+      <p style="font-size:1.05rem;color:var(--text-mid);line-height:1.8;margin-bottom:1.5rem;font-weight:300" data-i18n="sara.desc">
+        Atiendo a tus pacientes por WhatsApp las 24 horas. Agendo, confirmo y recuerdo citas — en el idioma de cada uno. Mientras dormís, tu agenda se llena sola.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:.6rem">
+        <div style="display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:var(--text-mid)"><span style="color:var(--green);font-size:1rem">✓</span> Entiende lenguaje natural — no es un bot de menús</div>
+        <div style="display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:var(--text-mid)"><span style="color:var(--green);font-size:1rem">✓</span> Responde en el idioma del paciente automáticamente</div>
+        <div style="display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:var(--text-mid)"><span style="color:var(--green);font-size:1rem">✓</span> Nunca se enferma, nunca falta, nunca descansa</div>
+      </div>
+    </div>
+    <div class="sara-chat">
+      <div class="chat-in">Hola, quiero cita con el Dr. García para mañana</div>
+      <div class="chat-out">¡Hola! Soy Sara 👋 Tengo disponible mañana a las 9:00, 10:00 y 14:00. ¿Cuál prefiere?<div class="chat-time">✓✓</div></div>
+      <div class="chat-in" style="margin-top:.5rem">Las 10</div>
+      <div class="chat-out" style="margin-top:.5rem">✅ Listo. Cita con Dr. García mañana a las 10:00 am. Le enviamos recordatorio 24h antes.<div class="chat-time">✓✓</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Before / After -->
+<section class="section section-sm" style="padding-top:0">
   <div class="section-label" data-i18n="ba.label">La diferencia</div>
   <h2 class="title" data-i18n="ba.title">Antes y después de <em>AutoCita.</em></h2>
   <div class="ba-grid">
@@ -501,7 +518,7 @@
     <div class="ba-col after">
       <div class="ba-label green" data-i18n="ba.after">Después</div>
       <div class="ba-item"><span class="icon">✓</span><span data-i18n="ba.a1">Sara llena su agenda mientras duerme</span></div>
-      <div class="ba-item"><span class="icon">✓</span><span data-i18n="ba.a2">Cada cita en su Google Calendar al instante</span></div>
+      <div class="ba-item"><span class="icon">✓</span><span data-i18n="ba.a2">Cada cita confirmada al instante por WhatsApp</span></div>
       <div class="ba-item"><span class="icon">✓</span><span data-i18n="ba.a3">Semana organizada sola desde el domingo</span></div>
       <div class="ba-item"><span class="icon">✓</span><span data-i18n="ba.a4">Vacaciones de verdad</span></div>
       <div class="ba-item"><span class="icon">✓</span><span data-i18n="ba.a5">Su negocio trabaja. Usted descansa.</span></div>
@@ -514,7 +531,7 @@
   <div style="max-width:1000px;margin:0 auto">
     <div class="section-label" data-i18n="how.label">Cómo funciona</div>
     <h2 class="title" data-i18n="how.title">Tres pasos. <em>Sin complicaciones.</em></h2>
-    <p class="subtitle" data-i18n="how.sub">No hay apps que instalar. No hay sistemas que aprender. Solo WhatsApp y su Google Calendar, trabajando solos.</p>
+    <p class="subtitle" data-i18n="how.sub">No hay apps que instalar. No hay sistemas que aprender. Solo WhatsApp, trabajando solo.</p>
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
@@ -528,8 +545,8 @@
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <h3 data-i18n="how.s3.title">La cita aparece en su Google Calendar</h3>
-        <p data-i18n="how.s3.desc">Sus datos en su Google. No en servidores de terceros. Usted es el dueño de todo, siempre.</p>
+        <h3 data-i18n="how.s3.title">La cita queda confirmada</h3>
+        <p data-i18n="how.s3.desc">El paciente recibe confirmación al instante. La clínica ve todo en su panel. Recordatorio automático 24h antes.</p>
       </div>
     </div>
   </div>
@@ -546,13 +563,13 @@
         <span class="trust-icon">💬</span>
         <div class="trust-badge">✓ Meta oficial</div>
         <h3 data-i18n="trust.t1.title">WhatsApp Business API verificado</h3>
-        <p data-i18n="trust.t1.desc">Número verificado por Meta. Menos bloqueos, mayor confianza del paciente desde el primer mensaje.</p>
+        <p data-i18n="trust.t1.desc">Número verificado por Meta. Sin intermediarios. Mayor confianza del paciente desde el primer mensaje.</p>
       </div>
       <div class="trust-card">
-        <span class="trust-icon">📅</span>
-        <div class="trust-badge">✓ Google certificado</div>
-        <h3 data-i18n="trust.t2.title">Sus datos en su Google</h3>
-        <p data-i18n="trust.t2.desc">Citas en Google Calendar. Registros en Google Drive. Nosotros no guardamos nada — usted es el dueño absoluto.</p>
+        <span class="trust-icon">🔒</span>
+        <div class="trust-badge">✓ Datos seguros</div>
+        <h3 data-i18n="trust.t2.title">Sus datos protegidos</h3>
+        <p data-i18n="trust.t2.desc">Infraestructura con certificación SOC 2 e ISO 27001. Aislamiento completo entre clínicas. Sus pacientes son solo suyos.</p>
       </div>
       <div class="trust-card">
         <span class="trust-icon">🤖</span>
@@ -578,9 +595,9 @@
         <li data-i18n="plans.p1.f2">Sara agenda 24/7</li>
         <li data-i18n="plans.p1.f3">Confirmaciones y recordatorios</li>
         <li data-i18n="plans.p1.f4">Lista de espera automática</li>
-        <li data-i18n="plans.p1.f5">Sus datos en su Google</li>
+        <li data-i18n="plans.p1.f5">Panel de gestión incluido</li>
       </ul>
-      <a href="https://wa.me/50683070700?text=Hola%2C%20quiero%20info%20del%20plan%20Starter" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Starter" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
     </div>
     <div class="plan featured">
       <div class="plan-tag" data-i18n="plans.popular">Más popular</div>
@@ -589,11 +606,11 @@
       <ul class="plan-list">
         <li data-i18n="plans.p2.f1">Hasta 7 profesionales</li>
         <li data-i18n="plans.p2.f2">Todo lo del plan Starter</li>
-        <li data-i18n="plans.p2.f3">Seguimiento al paciente</li>
-        <li data-i18n="plans.p2.f4">Mensajes, fotos y videos directos</li>
+        <li data-i18n="plans.p2.f3">Expediente del paciente</li>
+        <li data-i18n="plans.p2.f4">Mensajes, fotos y audios</li>
         <li data-i18n="plans.p2.f5">Reporte mensual</li>
       </ul>
-      <a href="https://wa.me/50683070700?text=Hola%2C%20quiero%20info%20del%20plan%20Clinica" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Clinica" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
     </div>
     <div class="plan">
       <div class="plan-name">Enterprise</div>
@@ -605,7 +622,7 @@
         <li data-i18n="plans.p3.f4">Onboarding por videollamada</li>
         <li data-i18n="plans.p3.f5">Soporte dedicado</li>
       </ul>
-      <a href="https://wa.me/50683070700?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
     </div>
   </div>
 </section>
@@ -625,11 +642,11 @@
     </div>
     <div class="faq-item">
       <button class="faq-btn" aria-expanded="false"><span data-i18n="faq.q3">¿Mis datos y los de mis pacientes están seguros?</span><span class="faq-icon">+</span></button>
-      <div class="faq-body" data-i18n="faq.a3">Las citas van a su <strong>Google Calendar</strong> y los registros a su <strong>Google Drive</strong>. AutomatIA no guarda nada. Usted es el dueño absoluto.</div>
+      <div class="faq-body" data-i18n="faq.a3">Sí. Usamos infraestructura con certificación <strong>SOC 2 e ISO 27001</strong>. Los datos de cada clínica están completamente aislados. Nadie más puede ver sus pacientes.</div>
     </div>
     <div class="faq-item">
       <button class="faq-btn" aria-expanded="false"><span data-i18n="faq.q4">¿Cuánto tarda en estar listo?</span><span class="faq-icon">+</span></button>
-      <div class="faq-body" data-i18n="faq.a4"><strong>24 horas</strong> desde que nos contacta. Conectamos su calendario, configuramos a Sara con los datos de su negocio y listo.</div>
+      <div class="faq-body" data-i18n="faq.a4"><strong>24 horas</strong> desde que nos contacta. Configuramos todo, conectamos su número y hacemos una prueba en vivo con usted.</div>
     </div>
   </div>
 </section>
@@ -649,14 +666,13 @@
   <a href="#" class="logo">Automat<em>IA</em></a>
   <div class="footer-badges">
     <span class="badge">✓ WhatsApp Business API oficial</span>
-    <span class="badge">✓ Google certificado</span>
+    <span class="badge">✓ SOC 2 · ISO 27001</span>
     <span class="badge">🇨🇷 Costa Rica</span>
   </div>
-  <span class="footer-copy">© 2026 AutomatIA.</span>
+  <span class="footer-copy">© 2026 AutomatIA · AutoCita es un nombre comercial de 3102964957 S.R.L.</span>
 </footer>
 
 <script>
-// ── i18n ──
 const translations = {
   es: {
     'nav.sara': '¿Qué es Sara?', 'nav.how': 'Cómo funciona', 'nav.plans': 'Planes', 'nav.cta': 'Probar gratis',
@@ -664,30 +680,32 @@ const translations = {
     'hero.title': 'La primera vez que un paciente le escriba a las 11pm y usted ya esté dormido — y la cita igual quede agendada — va a querer haberlo tenido antes.',
     'hero.sub': 'Su negocio agenda solo. Usted descansa.',
     'hero.cta': 'Escribirle a Sara ahora', 'hero.link': 'Ver cómo funciona →',
-    'stats.s1': 'Siempre disponible', 'stats.s2': 'Citas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Sus datos en su Google', 'stats.s5': 'Para estar listo',
+    'stats.s1': 'Siempre disponible', 'stats.s2': 'Citas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Para agendar', 'stats.s5': 'Para estar listo',
+    'sara.label': 'Tu recepcionista con IA', 'sara.title': 'Hola, soy Sara.',
+    'sara.desc': 'Atiendo a tus pacientes por WhatsApp las 24 horas. Agendo, confirmo y recuerdo citas — en el idioma de cada uno. Mientras dormís, tu agenda se llena sola.',
     'ba.label': 'La diferencia', 'ba.title': 'Antes y después de AutoCita.',
     'ba.before': 'Antes', 'ba.after': 'Después',
     'ba.b1': 'Contestando WhatsApp en la cena', 'ba.b2': 'Citas perdidas por no ver el mensaje', 'ba.b3': 'Lunes sin saber si hay agenda', 'ba.b4': 'Vacaciones con el teléfono en la mano', 'ba.b5': 'Una recepcionista que cuesta $1,500 al mes',
-    'ba.a1': 'Sara llena su agenda mientras duerme', 'ba.a2': 'Cada cita en su Google Calendar al instante', 'ba.a3': 'Semana organizada sola desde el domingo', 'ba.a4': 'Vacaciones de verdad', 'ba.a5': 'Su negocio trabaja. Usted descansa.',
-    'how.label': 'Cómo funciona', 'how.title': 'Tres pasos. Sin complicaciones.', 'how.sub': 'No hay apps que instalar. No hay sistemas que aprender.',
-    'how.s1.title': 'El paciente escribe por WhatsApp', 'how.s1.desc': 'Sin descargar nada. Sara entiende lenguaje natural.',
-    'how.s2.title': 'Sara gestiona todo', 'how.s2.desc': 'Revisa disponibilidad, confirma la cita, crea el registro.',
-    'how.s3.title': 'La cita aparece en su Google Calendar', 'how.s3.desc': 'Sus datos en su Google. Usted es el dueño de todo.',
+    'ba.a1': 'Sara llena su agenda mientras duerme', 'ba.a2': 'Cada cita confirmada al instante por WhatsApp', 'ba.a3': 'Semana organizada sola desde el domingo', 'ba.a4': 'Vacaciones de verdad', 'ba.a5': 'Su negocio trabaja. Usted descansa.',
+    'how.label': 'Cómo funciona', 'how.title': 'Tres pasos. Sin complicaciones.', 'how.sub': 'No hay apps que instalar. No hay sistemas que aprender. Solo WhatsApp, trabajando solo.',
+    'how.s1.title': 'El paciente escribe por WhatsApp', 'how.s1.desc': 'Sin descargar nada. Sin formularios. Sara entiende lenguaje natural.',
+    'how.s2.title': 'Sara gestiona todo', 'how.s2.desc': 'Revisa disponibilidad real, confirma la cita, crea el registro.',
+    'how.s3.title': 'La cita queda confirmada', 'how.s3.desc': 'El paciente recibe confirmación al instante. Recordatorio automático 24h antes.',
     'trust.label': 'Tecnología oficial', 'trust.title': 'Todo oficial. Sin intermediarios.', 'trust.sub': 'Cada integración es certificada y segura.',
-    'trust.t1.title': 'WhatsApp Business API verificado', 'trust.t1.desc': 'Número verificado por Meta. Menos bloqueos, más confianza.',
-    'trust.t2.title': 'Sus datos en su Google', 'trust.t2.desc': 'Citas en Google Calendar. Registros en Drive. Nosotros no guardamos nada.',
+    'trust.t1.title': 'WhatsApp Business API verificado', 'trust.t1.desc': 'Número verificado por Meta. Sin intermediarios. Mayor confianza del paciente.',
+    'trust.t2.title': 'Sus datos protegidos', 'trust.t2.desc': 'Infraestructura SOC 2 e ISO 27001. Aislamiento completo entre clínicas.',
     'trust.t3.title': 'No es un bot de menús', 'trust.t3.desc': 'Sara entiende lenguaje natural. El paciente escribe como quiera.',
     'plans.label': 'Planes', 'plans.title': 'Encuentre su plan.', 'plans.sub': 'Sin permanencia. Sin tarjeta para empezar.', 'plans.popular': 'Más popular', 'plans.cta': 'Consultar precio →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profesionales independientes y consultorios pequeños.',
-    'plans.p1.f1': 'Hasta 3 profesionales', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmaciones y recordatorios', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Sus datos en su Google',
+    'plans.p1.f1': 'Hasta 3 profesionales', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmaciones y recordatorios', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Panel de gestión incluido',
     'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas con varios profesionales y seguimiento al paciente.',
-    'plans.p2.f1': 'Hasta 7 profesionales', 'plans.p2.f2': 'Todo lo del plan Starter', 'plans.p2.f3': 'Seguimiento al paciente', 'plans.p2.f4': 'Mensajes, fotos y videos directos', 'plans.p2.f5': 'Reporte mensual',
+    'plans.p2.f1': 'Hasta 7 profesionales', 'plans.p2.f2': 'Todo lo del plan Starter', 'plans.p2.f3': 'Expediente del paciente', 'plans.p2.f4': 'Mensajes, fotos y audios', 'plans.p2.f5': 'Reporte mensual',
     'plans.p3.desc': 'Para grupos y operaciones multi-sede.',
     'plans.p3.f1': 'Hasta 10 profesionales por sede', 'plans.p3.f2': 'Hasta 5 sedes', 'plans.p3.f3': 'Todo lo del plan Clínica', 'plans.p3.f4': 'Onboarding por videollamada', 'plans.p3.f5': 'Soporte dedicado',
     'faq.label': 'Preguntas frecuentes', 'faq.title': 'Lo que siempre preguntan.',
-    'faq.q1': '¿Necesito instalar algo o cambiar mi número?', 'faq.a1': 'No. No cambia su número y no instala nada. Conectamos su WhatsApp Business existente en menos de 24 horas.',
+    'faq.q1': '¿Necesito instalar algo o cambiar mi número?', 'faq.a1': 'No. No cambia su número y no instala nada. Conectamos su WhatsApp Business en menos de 24 horas.',
     'faq.q2': '¿Qué pasa si el paciente escribe a las 11pm?', 'faq.a2': 'Sara responde las 24 horas, los 7 días. Si hay disponibilidad, agenda. Si no, lista de espera.',
-    'faq.q3': '¿Mis datos y los de mis pacientes están seguros?', 'faq.a3': 'Las citas van a su Google Calendar. AutomatIA no guarda nada. Usted es el dueño.',
+    'faq.q3': '¿Mis datos y los de mis pacientes están seguros?', 'faq.a3': 'Sí. Infraestructura SOC 2 e ISO 27001. Los datos de cada clínica están completamente aislados.',
     'faq.q4': '¿Cuánto tarda en estar listo?', 'faq.a4': '24 horas desde que nos contacta.',
     'cta.title': 'Su negocio agenda solo.\nUsted descansa.', 'cta.sub': 'Escríbanos. En 24 horas Sara está lista.', 'cta.btn': 'Hablar con Sara ahora',
   },
@@ -697,30 +715,32 @@ const translations = {
     'hero.title': 'The first time a patient messages you at 11pm and you\'re already asleep — and the appointment still gets booked — you\'ll wish you had this sooner.',
     'hero.sub': 'Your business books itself. You rest.',
     'hero.cta': 'Talk to Sara now', 'hero.link': 'See how it works →',
-    'stats.s1': 'Always available', 'stats.s2': 'Missed appointments', 'stats.s3': 'Languages', 'stats.s4': 'Your data in your Google', 'stats.s5': 'To go live',
+    'stats.s1': 'Always available', 'stats.s2': 'Missed appointments', 'stats.s3': 'Languages', 'stats.s4': 'To book', 'stats.s5': 'To go live',
+    'sara.label': 'Your AI receptionist', 'sara.title': 'Hi, I\'m Sara.',
+    'sara.desc': 'I handle your patients on WhatsApp 24 hours a day. I book, confirm and remind appointments — in each patient\'s language. While you sleep, your schedule fills itself.',
     'ba.label': 'The difference', 'ba.title': 'Before and after AutoCita.',
     'ba.before': 'Before', 'ba.after': 'After',
     'ba.b1': 'Answering WhatsApp during dinner', 'ba.b2': 'Missed appointments from unseen messages', 'ba.b3': 'Monday without knowing your schedule', 'ba.b4': 'Vacations with your phone in hand', 'ba.b5': 'A receptionist costing $1,500/month',
-    'ba.a1': 'Sara fills your schedule while you sleep', 'ba.a2': 'Every appointment in your Google Calendar instantly', 'ba.a3': 'Week organized on its own by Sunday', 'ba.a4': 'Real vacations', 'ba.a5': 'Your business works. You rest.',
-    'how.label': 'How it works', 'how.title': 'Three steps. No complications.', 'how.sub': 'No apps to install. No systems to learn.',
+    'ba.a1': 'Sara fills your schedule while you sleep', 'ba.a2': 'Every appointment confirmed instantly on WhatsApp', 'ba.a3': 'Week organized on its own by Sunday', 'ba.a4': 'Real vacations', 'ba.a5': 'Your business works. You rest.',
+    'how.label': 'How it works', 'how.title': 'Three steps. No complications.', 'how.sub': 'No apps to install. No systems to learn. Just WhatsApp, working on its own.',
     'how.s1.title': 'Patient writes on WhatsApp', 'how.s1.desc': 'Nothing to download. Sara understands natural language.',
     'how.s2.title': 'Sara handles everything', 'how.s2.desc': 'Checks availability, confirms the appointment, creates the record.',
-    'how.s3.title': 'Appointment lands in your Google Calendar', 'how.s3.desc': 'Your data in your Google. You own everything.',
+    'how.s3.title': 'Appointment confirmed', 'how.s3.desc': 'Patient gets instant confirmation. Automatic reminder 24h before.',
     'trust.label': 'Official technology', 'trust.title': 'All official. No intermediaries.', 'trust.sub': 'Every integration is certified and secure.',
-    'trust.t1.title': 'Verified WhatsApp Business API', 'trust.t1.desc': 'Meta-verified number. Fewer blocks, more trust.',
-    'trust.t2.title': 'Your data in your Google', 'trust.t2.desc': 'Appointments in Google Calendar. Records in Drive. We store nothing.',
+    'trust.t1.title': 'Verified WhatsApp Business API', 'trust.t1.desc': 'Meta-verified number. No intermediaries. More patient trust.',
+    'trust.t2.title': 'Your data protected', 'trust.t2.desc': 'SOC 2 and ISO 27001 certified infrastructure. Complete isolation between clinics.',
     'trust.t3.title': 'Not a menu bot', 'trust.t3.desc': 'Sara understands natural language. Patients write however they want.',
     'plans.label': 'Plans', 'plans.title': 'Find your plan.', 'plans.sub': 'No commitment. No card to start.', 'plans.popular': 'Most popular', 'plans.cta': 'Get pricing →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'For independent professionals and small offices.',
-    'plans.p1.f1': 'Up to 3 professionals', 'plans.p1.f2': 'Sara books 24/7', 'plans.p1.f3': 'Confirmations and reminders', 'plans.p1.f4': 'Automatic waiting list', 'plans.p1.f5': 'Your data in your Google',
+    'plans.p1.f1': 'Up to 3 professionals', 'plans.p1.f2': 'Sara books 24/7', 'plans.p1.f3': 'Confirmations and reminders', 'plans.p1.f4': 'Automatic waiting list', 'plans.p1.f5': 'Management panel included',
     'plans.p2.name': 'Clinic', 'plans.p2.desc': 'For clinics with multiple professionals and patient follow-up.',
-    'plans.p2.f1': 'Up to 7 professionals', 'plans.p2.f2': 'Everything in Starter', 'plans.p2.f3': 'Patient follow-up', 'plans.p2.f4': 'Messages, photos and videos', 'plans.p2.f5': 'Monthly report',
+    'plans.p2.f1': 'Up to 7 professionals', 'plans.p2.f2': 'Everything in Starter', 'plans.p2.f3': 'Patient records', 'plans.p2.f4': 'Messages, photos and audio', 'plans.p2.f5': 'Monthly report',
     'plans.p3.desc': 'For groups and multi-location operations.',
     'plans.p3.f1': 'Up to 10 professionals per location', 'plans.p3.f2': 'Up to 5 locations', 'plans.p3.f3': 'Everything in Clinic', 'plans.p3.f4': 'Video call onboarding', 'plans.p3.f5': 'Dedicated support',
     'faq.label': 'FAQ', 'faq.title': 'What people always ask.',
     'faq.q1': 'Do I need to install anything or change my number?', 'faq.a1': 'No. Your number stays the same. We connect your existing WhatsApp Business in under 24 hours.',
     'faq.q2': 'What if a patient writes at 11pm?', 'faq.a2': 'Sara responds 24/7. If there\'s availability, she books. If not, waiting list.',
-    'faq.q3': 'Is my data and my patients\' data safe?', 'faq.a3': 'Appointments go to your Google Calendar. AutomatIA stores nothing. You own everything.',
+    'faq.q3': 'Is my data and my patients\' data safe?', 'faq.a3': 'Yes. SOC 2 and ISO 27001 infrastructure. Each clinic\'s data is completely isolated.',
     'faq.q4': 'How long does setup take?', 'faq.a4': '24 hours from when you contact us.',
     'cta.title': 'Your business books itself.\nYou rest.', 'cta.sub': 'Contact us. Sara will be ready in 24 hours.', 'cta.btn': 'Talk to Sara now',
   },
@@ -730,72 +750,40 @@ const translations = {
     'hero.title': 'Na primeira vez que um paciente lhe escrever às 23h e você já estiver dormindo — e a consulta ainda assim ficar agendada — você vai querer ter tido isso antes.',
     'hero.sub': 'Seu negócio agenda sozinho. Você descansa.',
     'hero.cta': 'Falar com Sara agora', 'hero.link': 'Ver como funciona →',
-    'stats.s1': 'Sempre disponível', 'stats.s2': 'Consultas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Seus dados no seu Google', 'stats.s5': 'Para estar pronto',
+    'stats.s1': 'Sempre disponível', 'stats.s2': 'Consultas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Para agendar', 'stats.s5': 'Para estar pronto',
+    'sara.label': 'Sua recepcionista com IA', 'sara.title': 'Olá, sou Sara.',
+    'sara.desc': 'Atendo seus pacientes pelo WhatsApp 24 horas por dia. Agendo, confirmo e lembro consultas — no idioma de cada um. Enquanto você dorme, sua agenda se preenche sozinha.',
     'ba.label': 'A diferença', 'ba.title': 'Antes e depois do AutoCita.',
     'ba.before': 'Antes', 'ba.after': 'Depois',
     'ba.b1': 'Respondendo WhatsApp no jantar', 'ba.b2': 'Consultas perdidas por não ver a mensagem', 'ba.b3': 'Segunda-feira sem saber a agenda', 'ba.b4': 'Férias com o celular na mão', 'ba.b5': 'Uma recepcionista custando $1.500/mês',
-    'ba.a1': 'Sara preenche sua agenda enquanto você dorme', 'ba.a2': 'Cada consulta no Google Calendar na hora', 'ba.a3': 'Semana organizada sozinha desde domingo', 'ba.a4': 'Férias de verdade', 'ba.a5': 'Seu negócio trabalha. Você descansa.',
+    'ba.a1': 'Sara preenche sua agenda enquanto você dorme', 'ba.a2': 'Cada consulta confirmada na hora pelo WhatsApp', 'ba.a3': 'Semana organizada sozinha desde domingo', 'ba.a4': 'Férias de verdade', 'ba.a5': 'Seu negócio trabalha. Você descansa.',
     'how.label': 'Como funciona', 'how.title': 'Três passos. Sem complicações.', 'how.sub': 'Sem apps para instalar. Sem sistemas para aprender.',
     'how.s1.title': 'O paciente escreve pelo WhatsApp', 'how.s1.desc': 'Sem baixar nada. Sara entende linguagem natural.',
     'how.s2.title': 'Sara cuida de tudo', 'how.s2.desc': 'Verifica disponibilidade, confirma, cria o registro.',
-    'how.s3.title': 'A consulta aparece no seu Google Calendar', 'how.s3.desc': 'Seus dados no seu Google. Você é o dono de tudo.',
+    'how.s3.title': 'Consulta confirmada', 'how.s3.desc': 'Paciente recebe confirmação na hora. Lembrete automático 24h antes.',
     'trust.label': 'Tecnologia oficial', 'trust.title': 'Tudo oficial. Sem intermediários.', 'trust.sub': 'Cada integração é certificada e segura.',
-    'trust.t1.title': 'WhatsApp Business API verificado', 'trust.t1.desc': 'Número verificado pela Meta. Menos bloqueios, mais confiança.',
-    'trust.t2.title': 'Seus dados no seu Google', 'trust.t2.desc': 'Consultas no Google Calendar. Registros no Drive. Não guardamos nada.',
-    'trust.t3.title': 'Não é um bot de menus', 'trust.t3.desc': 'Sara entende linguagem natural. O paciente escreve como quiser.',
+    'trust.t1.title': 'WhatsApp Business API verificado', 'trust.t1.desc': 'Número verificado pela Meta. Sem intermediários.',
+    'trust.t2.title': 'Seus dados protegidos', 'trust.t2.desc': 'Infraestrutura SOC 2 e ISO 27001. Isolamento completo entre clínicas.',
+    'trust.t3.title': 'Não é um bot de menus', 'trust.t3.desc': 'Sara entende linguagem natural.',
     'plans.label': 'Planos', 'plans.title': 'Encontre seu plano.', 'plans.sub': 'Sem fidelidade. Sem cartão para começar.', 'plans.popular': 'Mais popular', 'plans.cta': 'Consultar preço →',
-    'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profissionais independentes e consultórios pequenos.',
-    'plans.p1.f1': 'Até 3 profissionais', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmações e lembretes', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Seus dados no seu Google',
-    'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas com vários profissionais e acompanhamento do paciente.',
-    'plans.p2.f1': 'Até 7 profissionais', 'plans.p2.f2': 'Tudo do plano Starter', 'plans.p2.f3': 'Acompanhamento do paciente', 'plans.p2.f4': 'Mensagens, fotos e vídeos', 'plans.p2.f5': 'Relatório mensal',
+    'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profissionais independentes.',
+    'plans.p1.f1': 'Até 3 profissionais', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmações e lembretes', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Painel de gestão incluído',
+    'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas com vários profissionais.',
+    'plans.p2.f1': 'Até 7 profissionais', 'plans.p2.f2': 'Tudo do Starter', 'plans.p2.f3': 'Prontuário do paciente', 'plans.p2.f4': 'Mensagens, fotos e áudios', 'plans.p2.f5': 'Relatório mensal',
     'plans.p3.desc': 'Para grupos e operações multi-unidade.',
-    'plans.p3.f1': 'Até 10 profissionais por unidade', 'plans.p3.f2': 'Até 5 unidades', 'plans.p3.f3': 'Tudo do plano Clínica', 'plans.p3.f4': 'Onboarding por videochamada', 'plans.p3.f5': 'Suporte dedicado',
+    'plans.p3.f1': 'Até 10 profissionais por unidade', 'plans.p3.f2': 'Até 5 unidades', 'plans.p3.f3': 'Tudo da Clínica', 'plans.p3.f4': 'Onboarding por videochamada', 'plans.p3.f5': 'Suporte dedicado',
     'faq.label': 'Perguntas frequentes', 'faq.title': 'O que sempre perguntam.',
-    'faq.q1': 'Preciso instalar algo ou mudar meu número?', 'faq.a1': 'Não. Seu número não muda. Conectamos seu WhatsApp Business em menos de 24 horas.',
-    'faq.q2': 'E se o paciente escrever às 23h?', 'faq.a2': 'Sara responde 24 horas por dia, 7 dias por semana.',
-    'faq.q3': 'Meus dados e os dos meus pacientes estão seguros?', 'faq.a3': 'As consultas vão para o seu Google Calendar. Não guardamos nada.',
-    'faq.q4': 'Quanto tempo leva para estar pronto?', 'faq.a4': '24 horas a partir do seu contato.',
+    'faq.q1': 'Preciso instalar algo ou mudar meu número?', 'faq.a1': 'Não. Seu número não muda.',
+    'faq.q2': 'E se o paciente escrever às 23h?', 'faq.a2': 'Sara responde 24/7.',
+    'faq.q3': 'Meus dados estão seguros?', 'faq.a3': 'Sim. SOC 2 e ISO 27001. Isolamento completo.',
+    'faq.q4': 'Quanto tempo leva?', 'faq.a4': '24 horas.',
     'cta.title': 'Seu negócio agenda sozinho.\nVocê descansa.', 'cta.sub': 'Entre em contato. Sara estará pronta em 24 horas.', 'cta.btn': 'Falar com Sara agora',
-  },
-  fr: {
-    'nav.sara': 'Qu\'est-ce que Sara ?', 'nav.how': 'Comment ça marche', 'nav.plans': 'Formules', 'nav.cta': 'Essayer gratuitement',
-    'hero.label': 'AutoCita by AutomatIA',
-    'hero.title': 'La première fois qu\'un patient vous écrira à 23h et que vous dormirez déjà — et que le rendez-vous sera quand même pris — vous regretterez de ne pas l\'avoir eu avant.',
-    'hero.sub': 'Votre activité prend les rendez-vous seule. Vous vous reposez.',
-    'hero.cta': 'Parler à Sara maintenant', 'hero.link': 'Voir comment ça marche →',
-    'stats.s1': 'Toujours disponible', 'stats.s2': 'Rendez-vous perdus', 'stats.s3': 'Langues', 'stats.s4': 'Vos données dans votre Google', 'stats.s5': 'Pour être prêt',
-    'ba.label': 'La différence', 'ba.title': 'Avant et après AutoCita.',
-    'ba.before': 'Avant', 'ba.after': 'Après',
-    'ba.b1': 'Répondre à WhatsApp pendant le dîner', 'ba.b2': 'Rendez-vous perdus par messages non vus', 'ba.b3': 'Lundi sans connaître votre planning', 'ba.b4': 'Vacances avec le téléphone en main', 'ba.b5': 'Une secrétaire coûtant 1 500 $/mois',
-    'ba.a1': 'Sara remplit votre agenda pendant que vous dormez', 'ba.a2': 'Chaque RDV dans Google Calendar instantanément', 'ba.a3': 'Semaine organisée seule dès le dimanche', 'ba.a4': 'De vraies vacances', 'ba.a5': 'Votre activité travaille. Vous vous reposez.',
-    'how.label': 'Comment ça marche', 'how.title': 'Trois étapes. Sans complications.', 'how.sub': 'Pas d\'apps à installer. Pas de systèmes à apprendre.',
-    'how.s1.title': 'Le patient écrit sur WhatsApp', 'how.s1.desc': 'Rien à télécharger. Sara comprend le langage naturel.',
-    'how.s2.title': 'Sara gère tout', 'how.s2.desc': 'Vérifie la disponibilité, confirme, crée l\'enregistrement.',
-    'how.s3.title': 'Le RDV apparaît dans votre Google Calendar', 'how.s3.desc': 'Vos données dans votre Google. Vous êtes propriétaire de tout.',
-    'trust.label': 'Technologie officielle', 'trust.title': 'Tout officiel. Sans intermédiaires.', 'trust.sub': 'Chaque intégration est certifiée et sécurisée.',
-    'trust.t1.title': 'WhatsApp Business API vérifié', 'trust.t1.desc': 'Numéro vérifié par Meta. Moins de blocages, plus de confiance.',
-    'trust.t2.title': 'Vos données dans votre Google', 'trust.t2.desc': 'RDV dans Google Calendar. Registres dans Drive. Nous ne stockons rien.',
-    'trust.t3.title': 'Pas un bot à menus', 'trust.t3.desc': 'Sara comprend le langage naturel. Le patient écrit comme il veut.',
-    'plans.label': 'Formules', 'plans.title': 'Trouvez votre formule.', 'plans.sub': 'Sans engagement. Sans carte pour commencer.', 'plans.popular': 'Plus populaire', 'plans.cta': 'Consulter le tarif →',
-    'plans.p1.name': 'Starter', 'plans.p1.desc': 'Pour les professionnels indépendants et petits cabinets.',
-    'plans.p1.f1': 'Jusqu\'à 3 professionnels', 'plans.p1.f2': 'Sara prend RDV 24h/7j', 'plans.p1.f3': 'Confirmations et rappels', 'plans.p1.f4': 'Liste d\'attente automatique', 'plans.p1.f5': 'Vos données dans votre Google',
-    'plans.p2.name': 'Clinique', 'plans.p2.desc': 'Pour les cliniques avec plusieurs professionnels.',
-    'plans.p2.f1': 'Jusqu\'à 7 professionnels', 'plans.p2.f2': 'Tout du plan Starter', 'plans.p2.f3': 'Suivi patient', 'plans.p2.f4': 'Messages, photos et vidéos', 'plans.p2.f5': 'Rapport mensuel',
-    'plans.p3.desc': 'Pour les groupes et opérations multi-sites.',
-    'plans.p3.f1': 'Jusqu\'à 10 professionnels par site', 'plans.p3.f2': 'Jusqu\'à 5 sites', 'plans.p3.f3': 'Tout du plan Clinique', 'plans.p3.f4': 'Onboarding par visioconférence', 'plans.p3.f5': 'Support dédié',
-    'faq.label': 'Questions fréquentes', 'faq.title': 'Ce qu\'on demande toujours.',
-    'faq.q1': 'Dois-je installer quelque chose ou changer mon numéro ?', 'faq.a1': 'Non. Votre numéro ne change pas. Nous connectons votre WhatsApp Business en moins de 24 heures.',
-    'faq.q2': 'Que se passe-t-il si un patient écrit à 23h ?', 'faq.a2': 'Sara répond 24h/24, 7j/7.',
-    'faq.q3': 'Mes données et celles de mes patients sont-elles sécurisées ?', 'faq.a3': 'Les RDV vont dans votre Google Calendar. Nous ne stockons rien.',
-    'faq.q4': 'Combien de temps faut-il pour être prêt ?', 'faq.a4': '24 heures à partir de votre contact.',
-    'cta.title': 'Votre activité prend les RDV seule.\nVous vous reposez.', 'cta.sub': 'Contactez-nous. Sara sera prête en 24 heures.', 'cta.btn': 'Parler à Sara maintenant',
   }
 };
 
 function getLang() {
   const l = (navigator.language || 'es').toLowerCase();
   if (l.startsWith('pt')) return 'pt';
-  if (l.startsWith('fr')) return 'fr';
   if (l.startsWith('en')) return 'en';
   return 'es';
 }
@@ -813,19 +801,12 @@ function applyLang(lang) {
       }
     }
   });
-  // Update page title & meta
-  if (lang === 'en') {
-    document.title = 'AutoCita — Your business books itself.';
-  } else if (lang === 'pt') {
-    document.title = 'AutoCita — Seu negócio agenda sozinho.';
-  } else if (lang === 'fr') {
-    document.title = 'AutoCita — Votre activité prend les RDV seule.';
-  }
+  if (lang === 'en') document.title = 'AutoCita — Your business books itself.';
+  if (lang === 'pt') document.title = 'AutoCita — Seu negócio agenda sozinho.';
 }
 
 applyLang(getLang());
 
-// ── FAQ ──
 document.querySelectorAll('.faq-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.parentElement;
@@ -841,7 +822,6 @@ document.querySelectorAll('.faq-btn').forEach(btn => {
   });
 });
 
-// ── Mobile menu ──
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 menuBtn.addEventListener('click', () => {
