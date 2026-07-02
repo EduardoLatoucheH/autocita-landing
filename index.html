@@ -485,7 +485,7 @@
     <div>
       <h2 class="title" data-i18n="sara.title">Hola, soy <em>Sara.</em></h2>
       <p style="font-size:1.05rem;color:var(--text-mid);line-height:1.8;margin-bottom:1.5rem;font-weight:300" data-i18n="sara.desc">
-        Atiendo a tus pacientes por WhatsApp las 24 horas. Agendo, confirmo y recuerdo citas — en el idioma de cada uno. Mientras dormís, tu agenda se llena sola.
+        Atiendo a tus pacientes por WhatsApp las 24 horas. Agendo y confirmo citas — en el idioma de cada uno. Mientras dormís, tu agenda se llena sola.
       </p>
       <div style="display:flex;flex-direction:column;gap:.6rem">
         <div style="display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:var(--text-mid)"><span style="color:var(--green);font-size:1rem">✓</span> Entiende lenguaje natural — no es un bot de menús</div>
@@ -497,7 +497,7 @@
       <div class="chat-in">Hola, quiero cita con el Dr. García para mañana</div>
       <div class="chat-out">¡Hola! Soy Sara 👋 Tengo disponible mañana a las 9:00, 10:00 y 14:00. ¿Cuál prefiere?<div class="chat-time">✓✓</div></div>
       <div class="chat-in" style="margin-top:.5rem">Las 10</div>
-      <div class="chat-out" style="margin-top:.5rem">✅ Listo. Cita con Dr. García mañana a las 10:00 am. Le enviamos recordatorio 24h antes.<div class="chat-time">✓✓</div></div>
+      <div class="chat-out" style="margin-top:.5rem">✅ Listo. Cita con Dr. García mañana a las 10:00 am. Nos vemos entonces.<div class="chat-time">✓✓</div></div>
     </div>
   </div>
 </section>
@@ -546,7 +546,7 @@
       <div class="step">
         <div class="step-num">03</div>
         <h3 data-i18n="how.s3.title">La cita queda confirmada</h3>
-        <p data-i18n="how.s3.desc">El paciente recibe confirmación al instante. La clínica ve todo en su panel. Recordatorio automático 24h antes.</p>
+        <p data-i18n="how.s3.desc">El paciente recibe confirmación al instante. La clínica ve todo en su panel de gestión.</p>
       </div>
     </div>
   </div>
@@ -561,9 +561,9 @@
     <div class="trust-grid">
       <div class="trust-card">
         <span class="trust-icon">💬</span>
-        <div class="trust-badge">✓ Meta oficial</div>
-        <h3 data-i18n="trust.t1.title">WhatsApp Business API verificado</h3>
-        <p data-i18n="trust.t1.desc">Número verificado por Meta. Sin intermediarios. Mayor confianza del paciente desde el primer mensaje.</p>
+        <div class="trust-badge">✓ API oficial de Meta</div>
+        <h3 data-i18n="trust.t1.title">Conectado a WhatsApp Business API</h3>
+        <p data-i18n="trust.t1.desc">Usamos la infraestructura oficial de Meta para WhatsApp Business. Sin intermediarios ni herramientas informales.</p>
       </div>
       <div class="trust-card">
         <span class="trust-icon">🔒</span>
@@ -593,7 +593,7 @@
       <ul class="plan-list">
         <li data-i18n="plans.p1.f1">Hasta 3 profesionales</li>
         <li data-i18n="plans.p1.f2">Sara agenda 24/7</li>
-        <li data-i18n="plans.p1.f3">Confirmaciones y recordatorios</li>
+        <li data-i18n="plans.p1.f3">Confirmaciones de citas</li>
         <li data-i18n="plans.p1.f4">Lista de espera automática</li>
         <li data-i18n="plans.p1.f5">Panel de gestión incluido</li>
       </ul>
@@ -607,8 +607,8 @@
         <li data-i18n="plans.p2.f1">Hasta 7 profesionales</li>
         <li data-i18n="plans.p2.f2">Todo lo del plan Starter</li>
         <li data-i18n="plans.p2.f3">Expediente del paciente</li>
-        <li data-i18n="plans.p2.f4">Mensajes, fotos y audios</li>
-        <li data-i18n="plans.p2.f5">Reporte mensual</li>
+        <li data-i18n="plans.p2.f4">Mensajes de texto ilimitados</li>
+        <li data-i18n="plans.p2.f5">Soporte prioritario</li>
       </ul>
       <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Clinica" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
     </div>
@@ -634,7 +634,7 @@
   <div class="faq-list">
     <div class="faq-item">
       <button class="faq-btn" aria-expanded="false"><span data-i18n="faq.q1">¿Necesito instalar algo o cambiar mi número?</span><span class="faq-icon">+</span></button>
-      <div class="faq-body" data-i18n="faq.a1">No. <strong>No cambia su número</strong> y no instala nada. Conectamos su WhatsApp Business existente en menos de 24 horas.</div>
+      <div class="faq-body" data-i18n="faq.a1">No. <strong>No cambia su número</strong> y no instala nada. Conectamos su WhatsApp Business existente durante el proceso de incorporación.</div>
     </div>
     <div class="faq-item">
       <button class="faq-btn" aria-expanded="false"><span data-i18n="faq.q2">¿Qué pasa si el paciente escribe a las 11pm?</span><span class="faq-icon">+</span></button>
@@ -682,7 +682,7 @@ const translations = {
     'hero.cta': 'Escribirle a Sara ahora', 'hero.link': 'Ver cómo funciona →',
     'stats.s1': 'Siempre disponible', 'stats.s2': 'Citas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Para agendar', 'stats.s5': 'Para estar listo',
     'sara.label': 'Tu recepcionista con IA', 'sara.title': 'Hola, soy Sara.',
-    'sara.desc': 'Atiendo a tus pacientes por WhatsApp las 24 horas. Agendo, confirmo y recuerdo citas — en el idioma de cada uno. Mientras dormís, tu agenda se llena sola.',
+    'sara.desc': 'Atiendo a tus pacientes por WhatsApp las 24 horas. Agendo y confirmo citas — en el idioma de cada uno. Mientras dormís, tu agenda se llena sola.',
     'ba.label': 'La diferencia', 'ba.title': 'Antes y después de AutoCita.',
     'ba.before': 'Antes', 'ba.after': 'Después',
     'ba.b1': 'Contestando WhatsApp en la cena', 'ba.b2': 'Citas perdidas por no ver el mensaje', 'ba.b3': 'Lunes sin saber si hay agenda', 'ba.b4': 'Vacaciones con el teléfono en la mano', 'ba.b5': 'Una recepcionista que cuesta $1,500 al mes',
@@ -690,20 +690,20 @@ const translations = {
     'how.label': 'Cómo funciona', 'how.title': 'Tres pasos. Sin complicaciones.', 'how.sub': 'No hay apps que instalar. No hay sistemas que aprender. Solo WhatsApp, trabajando solo.',
     'how.s1.title': 'El paciente escribe por WhatsApp', 'how.s1.desc': 'Sin descargar nada. Sin formularios. Sara entiende lenguaje natural.',
     'how.s2.title': 'Sara gestiona todo', 'how.s2.desc': 'Revisa disponibilidad real, confirma la cita, crea el registro.',
-    'how.s3.title': 'La cita queda confirmada', 'how.s3.desc': 'El paciente recibe confirmación al instante. Recordatorio automático 24h antes.',
+    'how.s3.title': 'La cita queda confirmada', 'how.s3.desc': 'El paciente recibe confirmación al instante. La clínica ve todo en su panel.',
     'trust.label': 'Tecnología oficial', 'trust.title': 'Todo oficial. Sin intermediarios.', 'trust.sub': 'Cada integración es certificada y segura.',
-    'trust.t1.title': 'WhatsApp Business API verificado', 'trust.t1.desc': 'Número verificado por Meta. Sin intermediarios. Mayor confianza del paciente.',
+    'trust.t1.title': 'Conectado a WhatsApp Business API', 'trust.t1.desc': 'Usamos la infraestructura oficial de Meta para WhatsApp Business. Sin intermediarios ni herramientas informales.',
     'trust.t2.title': 'Sus datos protegidos', 'trust.t2.desc': 'Infraestructura SOC 2 e ISO 27001. Aislamiento completo entre clínicas.',
     'trust.t3.title': 'No es un bot de menús', 'trust.t3.desc': 'Sara entiende lenguaje natural. El paciente escribe como quiera.',
     'plans.label': 'Planes', 'plans.title': 'Encuentre su plan.', 'plans.sub': 'Sin permanencia. Sin tarjeta para empezar.', 'plans.popular': 'Más popular', 'plans.cta': 'Consultar precio →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profesionales independientes y consultorios pequeños.',
-    'plans.p1.f1': 'Hasta 3 profesionales', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmaciones y recordatorios', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Panel de gestión incluido',
+    'plans.p1.f1': 'Hasta 3 profesionales', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmaciones de citas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Panel de gestión incluido',
     'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas con varios profesionales y seguimiento al paciente.',
-    'plans.p2.f1': 'Hasta 7 profesionales', 'plans.p2.f2': 'Todo lo del plan Starter', 'plans.p2.f3': 'Expediente del paciente', 'plans.p2.f4': 'Mensajes, fotos y audios', 'plans.p2.f5': 'Reporte mensual',
+    'plans.p2.f1': 'Hasta 7 profesionales', 'plans.p2.f2': 'Todo lo del plan Starter', 'plans.p2.f3': 'Expediente del paciente', 'plans.p2.f4': 'Mensajes de texto ilimitados', 'plans.p2.f5': 'Soporte prioritario',
     'plans.p3.desc': 'Para grupos y operaciones multi-sede.',
     'plans.p3.f1': 'Hasta 10 profesionales por sede', 'plans.p3.f2': 'Hasta 5 sedes', 'plans.p3.f3': 'Todo lo del plan Clínica', 'plans.p3.f4': 'Onboarding por videollamada', 'plans.p3.f5': 'Soporte dedicado',
     'faq.label': 'Preguntas frecuentes', 'faq.title': 'Lo que siempre preguntan.',
-    'faq.q1': '¿Necesito instalar algo o cambiar mi número?', 'faq.a1': 'No. No cambia su número y no instala nada. Conectamos su WhatsApp Business en menos de 24 horas.',
+    'faq.q1': '¿Necesito instalar algo o cambiar mi número?', 'faq.a1': 'No. No cambia su número y no instala nada. Conectamos su WhatsApp Business durante el proceso de incorporación.',
     'faq.q2': '¿Qué pasa si el paciente escribe a las 11pm?', 'faq.a2': 'Sara responde las 24 horas, los 7 días. Si hay disponibilidad, agenda. Si no, lista de espera.',
     'faq.q3': '¿Mis datos y los de mis pacientes están seguros?', 'faq.a3': 'Sí. Infraestructura SOC 2 e ISO 27001. Los datos de cada clínica están completamente aislados.',
     'faq.q4': '¿Cuánto tarda en estar listo?', 'faq.a4': '24 horas desde que nos contacta.',
@@ -717,7 +717,7 @@ const translations = {
     'hero.cta': 'Talk to Sara now', 'hero.link': 'See how it works →',
     'stats.s1': 'Always available', 'stats.s2': 'Missed appointments', 'stats.s3': 'Languages', 'stats.s4': 'To book', 'stats.s5': 'To go live',
     'sara.label': 'Your AI receptionist', 'sara.title': 'Hi, I\'m Sara.',
-    'sara.desc': 'I handle your patients on WhatsApp 24 hours a day. I book, confirm and remind appointments — in each patient\'s language. While you sleep, your schedule fills itself.',
+    'sara.desc': 'I handle your patients on WhatsApp 24 hours a day. I book and confirm appointments — in each patient\'s language. While you sleep, your schedule fills itself.',
     'ba.label': 'The difference', 'ba.title': 'Before and after AutoCita.',
     'ba.before': 'Before', 'ba.after': 'After',
     'ba.b1': 'Answering WhatsApp during dinner', 'ba.b2': 'Missed appointments from unseen messages', 'ba.b3': 'Monday without knowing your schedule', 'ba.b4': 'Vacations with your phone in hand', 'ba.b5': 'A receptionist costing $1,500/month',
@@ -725,20 +725,20 @@ const translations = {
     'how.label': 'How it works', 'how.title': 'Three steps. No complications.', 'how.sub': 'No apps to install. No systems to learn. Just WhatsApp, working on its own.',
     'how.s1.title': 'Patient writes on WhatsApp', 'how.s1.desc': 'Nothing to download. Sara understands natural language.',
     'how.s2.title': 'Sara handles everything', 'how.s2.desc': 'Checks availability, confirms the appointment, creates the record.',
-    'how.s3.title': 'Appointment confirmed', 'how.s3.desc': 'Patient gets instant confirmation. Automatic reminder 24h before.',
+    'how.s3.title': 'Appointment confirmed', 'how.s3.desc': 'Patient gets instant confirmation. Clinic sees everything in its panel.',
     'trust.label': 'Official technology', 'trust.title': 'All official. No intermediaries.', 'trust.sub': 'Every integration is certified and secure.',
-    'trust.t1.title': 'Verified WhatsApp Business API', 'trust.t1.desc': 'Meta-verified number. No intermediaries. More patient trust.',
+    'trust.t1.title': 'Connected to WhatsApp Business API', 'trust.t1.desc': 'We use Meta\'s official infrastructure for WhatsApp Business. No intermediaries, no informal tools.',
     'trust.t2.title': 'Your data protected', 'trust.t2.desc': 'SOC 2 and ISO 27001 certified infrastructure. Complete isolation between clinics.',
     'trust.t3.title': 'Not a menu bot', 'trust.t3.desc': 'Sara understands natural language. Patients write however they want.',
     'plans.label': 'Plans', 'plans.title': 'Find your plan.', 'plans.sub': 'No commitment. No card to start.', 'plans.popular': 'Most popular', 'plans.cta': 'Get pricing →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'For independent professionals and small offices.',
-    'plans.p1.f1': 'Up to 3 professionals', 'plans.p1.f2': 'Sara books 24/7', 'plans.p1.f3': 'Confirmations and reminders', 'plans.p1.f4': 'Automatic waiting list', 'plans.p1.f5': 'Management panel included',
+    'plans.p1.f1': 'Up to 3 professionals', 'plans.p1.f2': 'Sara books 24/7', 'plans.p1.f3': 'Appointment confirmations', 'plans.p1.f4': 'Automatic waiting list', 'plans.p1.f5': 'Management panel included',
     'plans.p2.name': 'Clinic', 'plans.p2.desc': 'For clinics with multiple professionals and patient follow-up.',
-    'plans.p2.f1': 'Up to 7 professionals', 'plans.p2.f2': 'Everything in Starter', 'plans.p2.f3': 'Patient records', 'plans.p2.f4': 'Messages, photos and audio', 'plans.p2.f5': 'Monthly report',
+    'plans.p2.f1': 'Up to 7 professionals', 'plans.p2.f2': 'Everything in Starter', 'plans.p2.f3': 'Patient records', 'plans.p2.f4': 'Unlimited text messages', 'plans.p2.f5': 'Priority support',
     'plans.p3.desc': 'For groups and multi-location operations.',
     'plans.p3.f1': 'Up to 10 professionals per location', 'plans.p3.f2': 'Up to 5 locations', 'plans.p3.f3': 'Everything in Clinic', 'plans.p3.f4': 'Video call onboarding', 'plans.p3.f5': 'Dedicated support',
     'faq.label': 'FAQ', 'faq.title': 'What people always ask.',
-    'faq.q1': 'Do I need to install anything or change my number?', 'faq.a1': 'No. Your number stays the same. We connect your existing WhatsApp Business in under 24 hours.',
+    'faq.q1': 'Do I need to install anything or change my number?', 'faq.a1': 'No. Your number stays the same. We connect your existing WhatsApp Business during onboarding.',
     'faq.q2': 'What if a patient writes at 11pm?', 'faq.a2': 'Sara responds 24/7. If there\'s availability, she books. If not, waiting list.',
     'faq.q3': 'Is my data and my patients\' data safe?', 'faq.a3': 'Yes. SOC 2 and ISO 27001 infrastructure. Each clinic\'s data is completely isolated.',
     'faq.q4': 'How long does setup take?', 'faq.a4': '24 hours from when you contact us.',
@@ -752,7 +752,7 @@ const translations = {
     'hero.cta': 'Falar com Sara agora', 'hero.link': 'Ver como funciona →',
     'stats.s1': 'Sempre disponível', 'stats.s2': 'Consultas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Para agendar', 'stats.s5': 'Para estar pronto',
     'sara.label': 'Sua recepcionista com IA', 'sara.title': 'Olá, sou Sara.',
-    'sara.desc': 'Atendo seus pacientes pelo WhatsApp 24 horas por dia. Agendo, confirmo e lembro consultas — no idioma de cada um. Enquanto você dorme, sua agenda se preenche sozinha.',
+    'sara.desc': 'Atendo seus pacientes pelo WhatsApp 24 horas por dia. Agendo e confirmo consultas — no idioma de cada um. Enquanto você dorme, sua agenda se preenche sozinha.',
     'ba.label': 'A diferença', 'ba.title': 'Antes e depois do AutoCita.',
     'ba.before': 'Antes', 'ba.after': 'Depois',
     'ba.b1': 'Respondendo WhatsApp no jantar', 'ba.b2': 'Consultas perdidas por não ver a mensagem', 'ba.b3': 'Segunda-feira sem saber a agenda', 'ba.b4': 'Férias com o celular na mão', 'ba.b5': 'Uma recepcionista custando $1.500/mês',
@@ -760,16 +760,16 @@ const translations = {
     'how.label': 'Como funciona', 'how.title': 'Três passos. Sem complicações.', 'how.sub': 'Sem apps para instalar. Sem sistemas para aprender.',
     'how.s1.title': 'O paciente escreve pelo WhatsApp', 'how.s1.desc': 'Sem baixar nada. Sara entende linguagem natural.',
     'how.s2.title': 'Sara cuida de tudo', 'how.s2.desc': 'Verifica disponibilidade, confirma, cria o registro.',
-    'how.s3.title': 'Consulta confirmada', 'how.s3.desc': 'Paciente recebe confirmação na hora. Lembrete automático 24h antes.',
+    'how.s3.title': 'Consulta confirmada', 'how.s3.desc': 'Paciente recebe confirmação na hora. Clínica vê tudo no painel.',
     'trust.label': 'Tecnologia oficial', 'trust.title': 'Tudo oficial. Sem intermediários.', 'trust.sub': 'Cada integração é certificada e segura.',
-    'trust.t1.title': 'WhatsApp Business API verificado', 'trust.t1.desc': 'Número verificado pela Meta. Sem intermediários.',
+    'trust.t1.title': 'Conectado à WhatsApp Business API', 'trust.t1.desc': 'Usamos a infraestrutura oficial da Meta para WhatsApp Business. Sem intermediários.',
     'trust.t2.title': 'Seus dados protegidos', 'trust.t2.desc': 'Infraestrutura SOC 2 e ISO 27001. Isolamento completo entre clínicas.',
     'trust.t3.title': 'Não é um bot de menus', 'trust.t3.desc': 'Sara entende linguagem natural.',
     'plans.label': 'Planos', 'plans.title': 'Encontre seu plano.', 'plans.sub': 'Sem fidelidade. Sem cartão para começar.', 'plans.popular': 'Mais popular', 'plans.cta': 'Consultar preço →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profissionais independentes.',
-    'plans.p1.f1': 'Até 3 profissionais', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmações e lembretes', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Painel de gestão incluído',
+    'plans.p1.f1': 'Até 3 profissionais', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmações de consultas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Painel de gestão incluído',
     'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas com vários profissionais.',
-    'plans.p2.f1': 'Até 7 profissionais', 'plans.p2.f2': 'Tudo do Starter', 'plans.p2.f3': 'Prontuário do paciente', 'plans.p2.f4': 'Mensagens, fotos e áudios', 'plans.p2.f5': 'Relatório mensal',
+    'plans.p2.f1': 'Até 7 profissionais', 'plans.p2.f2': 'Tudo do Starter', 'plans.p2.f3': 'Prontuário do paciente', 'plans.p2.f4': 'Mensagens de texto ilimitadas', 'plans.p2.f5': 'Suporte prioritário',
     'plans.p3.desc': 'Para grupos e operações multi-unidade.',
     'plans.p3.f1': 'Até 10 profissionais por unidade', 'plans.p3.f2': 'Até 5 unidades', 'plans.p3.f3': 'Tudo da Clínica', 'plans.p3.f4': 'Onboarding por videochamada', 'plans.p3.f5': 'Suporte dedicado',
     'faq.label': 'Perguntas frequentes', 'faq.title': 'O que sempre perguntam.',
