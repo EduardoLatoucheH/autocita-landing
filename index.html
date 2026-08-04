@@ -21,7 +21,6 @@
       --wa: #25D366;
       --r: 10px;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
@@ -32,9 +31,7 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
     :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
-
     nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(250,250,248,.96);
@@ -50,7 +47,6 @@
       text-decoration: none; letter-spacing: -.01em;
     }
     .logo em { color: var(--green); font-style: italic; }
-
     .nav-links { display: flex; gap: .25rem; list-style: none; }
     .nav-links a {
       font-size: .85rem; font-weight: 400;
@@ -59,7 +55,6 @@
       transition: background .15s, color .15s;
     }
     .nav-links a:hover { background: var(--green-light); color: var(--green); }
-
     .nav-cta {
       background: var(--green) !important;
       color: #fff !important;
@@ -67,12 +62,10 @@
       border-radius: 100px !important;
     }
     .nav-cta:hover { opacity: .9; }
-
     .nav-btn {
       display: none; background: none; border: none;
       cursor: pointer; color: var(--text); padding: .4rem;
     }
-
     .mobile-menu {
       display: none; position: fixed;
       inset: 60px 0 0 0; background: var(--white);
@@ -94,7 +87,6 @@
       font-weight: 500; border-radius: 100px;
       display: flex; align-items: center; justify-content: center; gap: .5rem;
     }
-
     .hero {
       min-height: calc(100svh - 60px);
       display: flex; flex-direction: column;
@@ -102,7 +94,6 @@
       padding: 5rem 2.5rem 4rem;
       max-width: 860px; margin: 0 auto;
     }
-
     .hero-label {
       display: inline-flex; align-items: center; gap: .5rem;
       font-size: .75rem; font-weight: 500; letter-spacing: .1em;
@@ -113,7 +104,6 @@
       content: ''; width: 20px; height: 1px;
       background: var(--green);
     }
-
     .hero-title {
       font-family: 'Instrument Serif', serif;
       font-weight: 400; font-style: italic;
@@ -123,16 +113,13 @@
       max-width: 720px;
     }
     .hero-title em { font-style: normal; color: var(--green); }
-
     .hero-sub {
       font-size: clamp(.95rem, 1.5vw, 1.05rem);
       color: var(--text-mid); max-width: 480px;
       line-height: 1.75; margin-bottom: 2.5rem;
       font-weight: 300;
     }
-
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-
     .btn-wa {
       display: inline-flex; align-items: center; gap: .55rem;
       background: var(--wa); color: #fff;
@@ -143,16 +130,13 @@
     }
     .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,211,102,.35); }
     .btn-wa svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
-
     .btn-text {
       font-size: .85rem; font-weight: 400;
       color: var(--text-mid); text-decoration: none;
       letter-spacing: .02em; transition: color .2s;
     }
     .btn-text:hover { color: var(--text); }
-
     .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
-
     .stats {
       display: flex; justify-content: center;
       gap: 0; flex-wrap: wrap;
@@ -174,7 +158,6 @@
       letter-spacing: .06em; text-transform: uppercase;
       margin-top: .3rem; display: block;
     }
-
     .section { padding: 5rem 2.5rem; max-width: 1000px; margin: 0 auto; }
     .section-sm { max-width: 720px; }
     .section-label {
@@ -187,7 +170,6 @@
       content: ''; width: 16px; height: 1px;
       background: var(--text-light); flex-shrink: 0;
     }
-
     h2.title {
       font-family: 'Instrument Serif', serif;
       font-weight: 400;
@@ -196,13 +178,11 @@
       margin-bottom: 1rem; color: var(--text);
     }
     h2.title em { font-style: italic; color: var(--green); }
-
     .subtitle {
       font-size: 1rem; color: var(--text-mid);
       line-height: 1.75; max-width: 520px;
       margin-bottom: 3rem; font-weight: 300;
     }
-
     .ba-grid {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 1px; background: var(--border);
@@ -226,7 +206,6 @@
     }
     .ba-item:last-child { margin-bottom: 0; }
     .ba-item .icon { flex-shrink: 0; margin-top: .1rem; }
-
     .steps {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
@@ -243,14 +222,12 @@
     }
     .step h3 { font-size: .95rem; font-weight: 500; margin-bottom: .4rem; color: var(--text); }
     .step p { font-size: .85rem; color: var(--text-mid); line-height: 1.7; font-weight: 300; }
-
     .trust-section { background: var(--black); }
     .trust-section .section { max-width: 1000px; }
     .trust-section .section-label { color: #555; }
     .trust-section .section-label::before { background: #555; }
     .trust-section h2.title { color: var(--white); }
     .trust-section .subtitle { color: #888; }
-
     .trust-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1px; background: #1a1a1a;
@@ -268,7 +245,6 @@
       padding: .25rem .65rem; border-radius: 100px;
       margin-bottom: .75rem; letter-spacing: .04em;
     }
-
     .plans-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1px; background: var(--border);
@@ -292,6 +268,21 @@
     .plan.featured .plan-name { color: var(--white); }
     .plan-desc { font-size: .82rem; color: var(--text-mid); margin-bottom: 1.5rem; line-height: 1.6; font-weight: 300; }
     .plan.featured .plan-desc { color: #888; }
+    .plan-launch-badge {
+      display: inline-flex; align-items: center; gap: .35rem;
+      background: rgba(26,158,110,.1); color: var(--green);
+      font-size: .68rem; font-weight: 500; letter-spacing: .04em;
+      padding: .25rem .65rem; border-radius: 100px; margin-bottom: 1.25rem;
+    }
+    .plan.featured .plan-launch-badge { background: rgba(26,158,110,.2); }
+    .plan-price-row { margin-bottom: 1.5rem; }
+    .plan-price-antes { font-size: .8rem; color: var(--text-light); text-decoration: line-through; margin-bottom: .1rem; }
+    .plan.featured .plan-price-antes { color: #666; }
+    .plan-price-ahora { font-family: 'Instrument Serif', serif; font-size: 2.1rem; color: var(--text); line-height: 1; }
+    .plan.featured .plan-price-ahora { color: #fff; }
+    .plan-price-ahora span { font-family: 'DM Sans', sans-serif; font-size: .85rem; color: var(--text-mid); font-weight: 400; }
+    .plan.featured .plan-price-ahora span { color: #888; }
+    .plan-price-desde { font-family: 'Instrument Serif', serif; font-size: 1.5rem; color: var(--text); line-height: 1; }
     .plan-list { list-style: none; margin-bottom: 1.75rem; display: flex; flex-direction: column; gap: .5rem; }
     .plan-list li {
       font-size: .83rem; color: var(--text-mid);
@@ -310,7 +301,6 @@
     .plan-btn:hover { border-color: var(--green); color: var(--green); }
     .plan.featured .plan-btn { background: var(--green); border-color: var(--green); color: #fff; }
     .plan.featured .plan-btn:hover { opacity: .9; }
-
     .faq-list { display: flex; flex-direction: column; gap: .5rem; }
     .faq-item { border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
     .faq-btn {
@@ -327,7 +317,6 @@
     .faq-body { display: none; padding: 0 1.5rem 1.25rem; font-size: .875rem; color: var(--text-mid); line-height: 1.75; font-weight: 300; }
     .faq-body strong { color: var(--text); font-weight: 500; }
     .faq-item.open .faq-body { display: block; }
-
     .cta-section {
       background: var(--green);
       padding: 5rem 2.5rem; text-align: center;
@@ -350,7 +339,6 @@
     }
     .btn-white:hover { transform: translateY(-2px); }
     .btn-white svg { width: 18px; height: 18px; fill: var(--wa); flex-shrink: 0; }
-
     footer {
       border-top: 1px solid var(--border);
       padding: 1.75rem 2.5rem;
@@ -364,7 +352,6 @@
       padding: .25rem .7rem; letter-spacing: .02em;
     }
     .footer-copy { font-size: .75rem; color: var(--text-light); }
-
     .float-wa {
       position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
       background: var(--wa); width: 52px; height: 52px;
@@ -375,7 +362,6 @@
     }
     .float-wa:hover { transform: scale(1.08); }
     .float-wa svg { width: 26px; height: 26px; fill: #fff; }
-
     /* Sara chat mock */
     .sara-wrap {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -396,7 +382,6 @@
       max-width: 92%; color: #111;
     }
     .chat-time { font-size: .7rem; color: #999; text-align: right; margin-top: .2rem; }
-
     @media(max-width: 768px) {
       nav { padding: 0 1.25rem; }
       .nav-links { display: none; }
@@ -417,7 +402,6 @@
       footer { flex-direction: column; align-items: flex-start; padding: 1.5rem 1.25rem; }
       .cta-section { padding: 3.5rem 1.25rem; }
     }
-
     @media(max-width: 480px) {
       .hero-title { font-size: clamp(1.75rem, 10vw, 2.4rem); }
       .stat { min-width: 100%; }
@@ -425,11 +409,9 @@
   </style>
 </head>
 <body>
-
 <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="float-wa" aria-label="Escribir a Sara">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
 </a>
-
 <nav>
   <a href="#" class="logo">Automat<em>IA</em></a>
   <ul class="nav-links">
@@ -442,7 +424,6 @@
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
 </nav>
-
 <div class="mobile-menu" id="mobile-menu">
   <a href="#sara" data-i18n="nav.sara" onclick="closeMenu()">¿Qué es Sara?</a>
   <a href="#como-funciona" data-i18n="nav.how" onclick="closeMenu()">Cómo funciona</a>
@@ -452,7 +433,6 @@
     <span data-i18n="nav.cta">Probar gratis</span>
   </a>
 </div>
-
 <section class="hero">
   <div class="hero-label" data-i18n="hero.label">AutoCita by AutomatIA · Costa Rica</div>
   <h1 class="hero-title" data-i18n="hero.title">
@@ -467,9 +447,7 @@
     <a href="#como-funciona" class="btn-text" data-i18n="hero.link">Ver cómo funciona →</a>
   </div>
 </section>
-
 <hr class="divider">
-
 <div class="stats">
   <div class="stat"><span class="stat-num">24/7</span><span class="stat-label" data-i18n="stats.s1">Siempre disponible</span></div>
   <div class="stat"><span class="stat-num">0</span><span class="stat-label" data-i18n="stats.s2">Citas perdidas</span></div>
@@ -477,7 +455,6 @@
   <div class="stat"><span class="stat-num">2min</span><span class="stat-label" data-i18n="stats.s4">Para agendar</span></div>
   <div class="stat"><span class="stat-num">24h</span><span class="stat-label" data-i18n="stats.s5">Para estar listo</span></div>
 </div>
-
 <!-- Sara -->
 <section id="sara" class="section section-sm">
   <div class="section-label" data-i18n="sara.label">Tu recepcionista con IA</div>
@@ -501,7 +478,6 @@
     </div>
   </div>
 </section>
-
 <!-- Before / After -->
 <section class="section section-sm" style="padding-top:0">
   <div class="section-label" data-i18n="ba.label">La diferencia</div>
@@ -525,7 +501,6 @@
     </div>
   </div>
 </section>
-
 <!-- How it works -->
 <section id="como-funciona" class="section" style="background:var(--green-light);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div style="max-width:1000px;margin:0 auto">
@@ -551,7 +526,6 @@
     </div>
   </div>
 </section>
-
 <!-- Trust -->
 <section class="trust-section">
   <div class="section">
@@ -580,7 +554,6 @@
     </div>
   </div>
 </section>
-
 <!-- Plans -->
 <section id="planes" class="section">
   <div class="section-label" data-i18n="plans.label">Planes</div>
@@ -588,21 +561,31 @@
   <p class="subtitle" data-i18n="plans.sub">Sin permanencia. Sin tarjeta para empezar. Cambie de plan cuando quiera.</p>
   <div class="plans-grid">
     <div class="plan">
+      <span class="plan-launch-badge" data-i18n="plans.launch">🚀 Precio de lanzamiento</span>
       <div class="plan-name" data-i18n="plans.p1.name">Starter</div>
       <div class="plan-desc" data-i18n="plans.p1.desc">Para profesionales independientes y consultorios pequeños.</div>
+      <div class="plan-price-row">
+        <div class="plan-price-antes" data-i18n="plans.p1.antes">Antes $79/mes</div>
+        <div class="plan-price-ahora">$49<span data-i18n="plans.permes">/mes</span></div>
+      </div>
       <ul class="plan-list">
-        <li data-i18n="plans.p1.f1">Hasta 3 profesionales</li>
+        <li data-i18n="plans.p1.f1">Hasta 2 doctores + 1 recepción</li>
         <li data-i18n="plans.p1.f2">Sara agenda 24/7</li>
         <li data-i18n="plans.p1.f3">Confirmaciones de citas</li>
         <li data-i18n="plans.p1.f4">Lista de espera automática</li>
         <li data-i18n="plans.p1.f5">Panel de gestión incluido</li>
       </ul>
-      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Starter" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Starter%20de%20%2449%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
     </div>
     <div class="plan featured">
       <div class="plan-tag" data-i18n="plans.popular">Más popular</div>
+      <span class="plan-launch-badge" data-i18n="plans.launch">🚀 Precio de lanzamiento</span>
       <div class="plan-name" data-i18n="plans.p2.name">Clínica</div>
       <div class="plan-desc" data-i18n="plans.p2.desc">Para clínicas con varios profesionales y seguimiento al paciente.</div>
+      <div class="plan-price-row">
+        <div class="plan-price-antes" data-i18n="plans.p2.antes">Antes $189/mes</div>
+        <div class="plan-price-ahora">$119<span data-i18n="plans.permes">/mes</span></div>
+      </div>
       <ul class="plan-list">
         <li data-i18n="plans.p2.f1">Hasta 7 profesionales</li>
         <li data-i18n="plans.p2.f2">Todo lo del plan Starter</li>
@@ -610,11 +593,14 @@
         <li data-i18n="plans.p2.f4">Mensajes de texto ilimitados</li>
         <li data-i18n="plans.p2.f5">Soporte prioritario</li>
       </ul>
-      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Clinica" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20de%20%24119%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
     </div>
     <div class="plan">
       <div class="plan-name">Enterprise</div>
       <div class="plan-desc" data-i18n="plans.p3.desc">Para grupos y operaciones multi-sede.</div>
+      <div class="plan-price-row">
+        <div class="plan-price-desde" data-i18n="plans.p3.desde">Desde $299<span style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-mid)" data-i18n="plans.permes">/mes</span></div>
+      </div>
       <ul class="plan-list">
         <li data-i18n="plans.p3.f1">Hasta 10 profesionales por sede</li>
         <li data-i18n="plans.p3.f2">Hasta 5 sedes</li>
@@ -626,7 +612,6 @@
     </div>
   </div>
 </section>
-
 <!-- FAQ -->
 <section class="section section-sm" style="padding-top:0">
   <div class="section-label" data-i18n="faq.label">Preguntas frecuentes</div>
@@ -650,7 +635,6 @@
     </div>
   </div>
 </section>
-
 <!-- CTA Final -->
 <section class="cta-section">
   <h2 data-i18n="cta.title">Su negocio agenda solo.<br>Usted descansa.</h2>
@@ -660,7 +644,6 @@
     <span data-i18n="cta.btn">Hablar con Sara ahora</span>
   </a>
 </section>
-
 <!-- Footer -->
 <footer>
   <a href="#" class="logo">Automat<em>IA</em></a>
@@ -671,7 +654,6 @@
   </div>
   <span class="footer-copy">© 2026 AutomatIA · AutoCita es un nombre comercial de 3102964957 S.R.L.</span>
 </footer>
-
 <script>
 const translations = {
   es: {
@@ -696,11 +678,12 @@ const translations = {
     'trust.t2.title': 'Sus datos protegidos', 'trust.t2.desc': 'Infraestructura SOC 2 e ISO 27001. Aislamiento completo entre clínicas.',
     'trust.t3.title': 'No es un bot de menús', 'trust.t3.desc': 'Sara entiende lenguaje natural. El paciente escribe como quiera.',
     'plans.label': 'Planes', 'plans.title': 'Encuentre su plan.', 'plans.sub': 'Sin permanencia. Sin tarjeta para empezar.', 'plans.popular': 'Más popular', 'plans.cta': 'Consultar precio →',
-    'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profesionales independientes y consultorios pequeños.',
-    'plans.p1.f1': 'Hasta 3 profesionales', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmaciones de citas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Panel de gestión incluido',
-    'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas con varios profesionales y seguimiento al paciente.',
+    'plans.launch': '🚀 Precio de lanzamiento', 'plans.permes': '/mes', 'plans.ctaEmpezar': 'Empezar ahora →',
+    'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profesionales independientes y consultorios pequeños.', 'plans.p1.antes': 'Antes $79/mes',
+    'plans.p1.f1': 'Hasta 2 doctores + 1 recepción', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmaciones de citas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Panel de gestión incluido',
+    'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas con varios profesionales y seguimiento al paciente.', 'plans.p2.antes': 'Antes $189/mes',
     'plans.p2.f1': 'Hasta 7 profesionales', 'plans.p2.f2': 'Todo lo del plan Starter', 'plans.p2.f3': 'Expediente del paciente', 'plans.p2.f4': 'Mensajes de texto ilimitados', 'plans.p2.f5': 'Soporte prioritario',
-    'plans.p3.desc': 'Para grupos y operaciones multi-sede.',
+    'plans.p3.desc': 'Para grupos y operaciones multi-sede.', 'plans.p3.desde': 'Desde $299',
     'plans.p3.f1': 'Hasta 10 profesionales por sede', 'plans.p3.f2': 'Hasta 5 sedes', 'plans.p3.f3': 'Todo lo del plan Clínica', 'plans.p3.f4': 'Onboarding por videollamada', 'plans.p3.f5': 'Soporte dedicado',
     'faq.label': 'Preguntas frecuentes', 'faq.title': 'Lo que siempre preguntan.',
     'faq.q1': '¿Necesito instalar algo o cambiar mi número?', 'faq.a1': 'No. No cambia su número y no instala nada. Conectamos su WhatsApp Business durante el proceso de incorporación.',
@@ -731,11 +714,12 @@ const translations = {
     'trust.t2.title': 'Your data protected', 'trust.t2.desc': 'SOC 2 and ISO 27001 certified infrastructure. Complete isolation between clinics.',
     'trust.t3.title': 'Not a menu bot', 'trust.t3.desc': 'Sara understands natural language. Patients write however they want.',
     'plans.label': 'Plans', 'plans.title': 'Find your plan.', 'plans.sub': 'No commitment. No card to start.', 'plans.popular': 'Most popular', 'plans.cta': 'Get pricing →',
-    'plans.p1.name': 'Starter', 'plans.p1.desc': 'For independent professionals and small offices.',
-    'plans.p1.f1': 'Up to 3 professionals', 'plans.p1.f2': 'Sara books 24/7', 'plans.p1.f3': 'Appointment confirmations', 'plans.p1.f4': 'Automatic waiting list', 'plans.p1.f5': 'Management panel included',
-    'plans.p2.name': 'Clinic', 'plans.p2.desc': 'For clinics with multiple professionals and patient follow-up.',
+    'plans.launch': '🚀 Launch price', 'plans.permes': '/mo', 'plans.ctaEmpezar': 'Get started →',
+    'plans.p1.name': 'Starter', 'plans.p1.desc': 'For independent professionals and small offices.', 'plans.p1.antes': 'Was $79/mo',
+    'plans.p1.f1': 'Up to 2 doctors + 1 reception', 'plans.p1.f2': 'Sara books 24/7', 'plans.p1.f3': 'Appointment confirmations', 'plans.p1.f4': 'Automatic waiting list', 'plans.p1.f5': 'Management panel included',
+    'plans.p2.name': 'Clinic', 'plans.p2.desc': 'For clinics with multiple professionals and patient follow-up.', 'plans.p2.antes': 'Was $189/mo',
     'plans.p2.f1': 'Up to 7 professionals', 'plans.p2.f2': 'Everything in Starter', 'plans.p2.f3': 'Patient records', 'plans.p2.f4': 'Unlimited text messages', 'plans.p2.f5': 'Priority support',
-    'plans.p3.desc': 'For groups and multi-location operations.',
+    'plans.p3.desc': 'For groups and multi-location operations.', 'plans.p3.desde': 'From $299',
     'plans.p3.f1': 'Up to 10 professionals per location', 'plans.p3.f2': 'Up to 5 locations', 'plans.p3.f3': 'Everything in Clinic', 'plans.p3.f4': 'Video call onboarding', 'plans.p3.f5': 'Dedicated support',
     'faq.label': 'FAQ', 'faq.title': 'What people always ask.',
     'faq.q1': 'Do I need to install anything or change my number?', 'faq.a1': 'No. Your number stays the same. We connect your existing WhatsApp Business during onboarding.',
@@ -766,11 +750,12 @@ const translations = {
     'trust.t2.title': 'Seus dados protegidos', 'trust.t2.desc': 'Infraestrutura SOC 2 e ISO 27001. Isolamento completo entre clínicas.',
     'trust.t3.title': 'Não é um bot de menus', 'trust.t3.desc': 'Sara entende linguagem natural.',
     'plans.label': 'Planos', 'plans.title': 'Encontre seu plano.', 'plans.sub': 'Sem fidelidade. Sem cartão para começar.', 'plans.popular': 'Mais popular', 'plans.cta': 'Consultar preço →',
-    'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profissionais independentes.',
-    'plans.p1.f1': 'Até 3 profissionais', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmações de consultas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Painel de gestão incluído',
-    'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas com vários profissionais.',
+    'plans.launch': '🚀 Preço de lançamento', 'plans.permes': '/mês', 'plans.ctaEmpezar': 'Começar agora →',
+    'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profissionais independentes.', 'plans.p1.antes': 'Antes $79/mês',
+    'plans.p1.f1': 'Até 2 médicos + 1 recepção', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmações de consultas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Painel de gestão incluído',
+    'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas com vários profissionais.', 'plans.p2.antes': 'Antes $189/mês',
     'plans.p2.f1': 'Até 7 profissionais', 'plans.p2.f2': 'Tudo do Starter', 'plans.p2.f3': 'Prontuário do paciente', 'plans.p2.f4': 'Mensagens de texto ilimitadas', 'plans.p2.f5': 'Suporte prioritário',
-    'plans.p3.desc': 'Para grupos e operações multi-unidade.',
+    'plans.p3.desc': 'Para grupos e operações multi-unidade.', 'plans.p3.desde': 'A partir de $299',
     'plans.p3.f1': 'Até 10 profissionais por unidade', 'plans.p3.f2': 'Até 5 unidades', 'plans.p3.f3': 'Tudo da Clínica', 'plans.p3.f4': 'Onboarding por videochamada', 'plans.p3.f5': 'Suporte dedicado',
     'faq.label': 'Perguntas frequentes', 'faq.title': 'O que sempre perguntam.',
     'faq.q1': 'Preciso instalar algo ou mudar meu número?', 'faq.a1': 'Não. Seu número não muda.',
@@ -780,14 +765,12 @@ const translations = {
     'cta.title': 'Seu negócio agenda sozinho.\nVocê descansa.', 'cta.sub': 'Entre em contato. Sara estará pronta em 24 horas.', 'cta.btn': 'Falar com Sara agora',
   }
 };
-
 function getLang() {
   const l = (navigator.language || 'es').toLowerCase();
   if (l.startsWith('pt')) return 'pt';
   if (l.startsWith('en')) return 'en';
   return 'es';
 }
-
 function applyLang(lang) {
   const t = translations[lang] || translations.es;
   document.documentElement.lang = lang;
@@ -804,9 +787,7 @@ function applyLang(lang) {
   if (lang === 'en') document.title = 'AutoCita — Your business books itself.';
   if (lang === 'pt') document.title = 'AutoCita — Seu negócio agenda sozinho.';
 }
-
 applyLang(getLang());
-
 document.querySelectorAll('.faq-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.parentElement;
@@ -821,7 +802,6 @@ document.querySelectorAll('.faq-btn').forEach(btn => {
     }
   });
 });
-
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 menuBtn.addEventListener('click', () => {
