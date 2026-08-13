@@ -246,11 +246,30 @@
       margin-bottom: .75rem; letter-spacing: .04em;
     }
     .plans-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
+      display: grid; grid-template-columns: repeat(5, 1fr);
       gap: 1px; background: var(--border);
       border: 1px solid var(--border); border-radius: var(--r);
       overflow: hidden;
     }
+    @media(max-width: 1400px) {
+      .plans-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media(max-width: 1100px) {
+      .plans-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .plan-addon {
+      margin-top: 1rem; padding-top: .85rem; border-top: 1px dashed var(--border);
+      font-size: .72rem; color: var(--text-light); line-height: 1.4;
+    }
+    .plan.featured .plan-addon { border-top-color: #444; color: #999; }
+    .plan-addon strong { color: var(--text); font-weight: 600; }
+    .plan.featured .plan-addon strong { color: #fff; }
+    .plans-nota {
+      font-size: .75rem; color: var(--text-light); text-align: center;
+      margin-top: 1.25rem; max-width: 560px; margin-left: auto; margin-right: auto;
+      line-height: 1.5;
+    }
+    .plans-nota + .plans-nota { margin-top: .4rem; }
     .plan { background: var(--white); padding: 2rem; }
     .plan.featured { background: var(--black); }
     .plan-tag {
@@ -561,56 +580,93 @@
   <p class="subtitle" data-i18n="plans.sub">Sin permanencia. Sin tarjeta para empezar. Cambie de plan cuando quiera.</p>
   <div class="plans-grid">
     <div class="plan">
-      <span class="plan-launch-badge" data-i18n="plans.launch">🚀 Precio de lanzamiento</span>
+      <span class="plan-launch-badge" data-i18n="plans.porProfesional">Precio por profesional</span>
       <div class="plan-name" data-i18n="plans.p1.name">Starter</div>
       <div class="plan-desc" data-i18n="plans.p1.desc">Para profesionales independientes y consultorios pequeños.</div>
       <div class="plan-price-row">
-        <div class="plan-price-antes" data-i18n="plans.p1.antes">Antes $79/mes</div>
-        <div class="plan-price-ahora">$49<span data-i18n="plans.permes">/mes</span></div>
+        <div class="plan-price-ahora">$99<span data-i18n="plans.pordr">/doctor/mes</span></div>
       </div>
       <ul class="plan-list">
-        <li data-i18n="plans.p1.f1">Hasta 2 doctores + 1 recepción</li>
+        <li data-i18n="plans.p1.f1">1 recepción incluida sin costo</li>
         <li data-i18n="plans.p1.f2">Sara agenda 24/7</li>
         <li data-i18n="plans.p1.f3">Confirmaciones de citas</li>
         <li data-i18n="plans.p1.f4">Lista de espera automática</li>
         <li data-i18n="plans.p1.f5">Panel de gestión incluido</li>
+        <li data-i18n="plans.p1.f6">Hasta 750 mensajes de WhatsApp al mes por doctor</li>
       </ul>
-      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Starter%20de%20%2449%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
+      <div class="plan-addon" data-i18n="plans.addon">+ <strong>$9/mes</strong>: Facturación electrónica (Hacienda CR)</div>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Starter%20de%20%2499%2Fdoctor%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
     </div>
     <div class="plan featured">
       <div class="plan-tag" data-i18n="plans.popular">Más popular</div>
-      <span class="plan-launch-badge" data-i18n="plans.launch">🚀 Precio de lanzamiento</span>
       <div class="plan-name" data-i18n="plans.p2.name">Clínica</div>
       <div class="plan-desc" data-i18n="plans.p2.desc">Para clínicas con varios profesionales y seguimiento al paciente.</div>
       <div class="plan-price-row">
-        <div class="plan-price-antes" data-i18n="plans.p2.antes">Antes $189/mes</div>
-        <div class="plan-price-ahora">$119<span data-i18n="plans.permes">/mes</span></div>
+        <div class="plan-price-ahora">$279<span data-i18n="plans.permes">/mes</span></div>
       </div>
       <ul class="plan-list">
-        <li data-i18n="plans.p2.f1">Hasta 7 profesionales</li>
+        <li data-i18n="plans.p2.f1">Hasta 5 profesionales</li>
         <li data-i18n="plans.p2.f2">Todo lo del plan Starter</li>
         <li data-i18n="plans.p2.f3">Expediente del paciente</li>
-        <li data-i18n="plans.p2.f4">Mensajes de texto ilimitados</li>
+        <li data-i18n="plans.p2.f4">Hasta 3,750 mensajes de WhatsApp al mes</li>
         <li data-i18n="plans.p2.f5">Soporte prioritario</li>
       </ul>
-      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20de%20%24119%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
+      <div class="plan-addon" data-i18n="plans.addon">+ <strong>$9/mes</strong>: Facturación electrónica (Hacienda CR)</div>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20de%20%24279%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
+    </div>
+    <div class="plan">
+      <div class="plan-name" data-i18n="plans.p3.name">Clínica Plus</div>
+      <div class="plan-desc" data-i18n="plans.p3.desc">Para clínicas en crecimiento con más de una sede.</div>
+      <div class="plan-price-row">
+        <div class="plan-price-ahora">$499<span data-i18n="plans.permes">/mes</span></div>
+      </div>
+      <ul class="plan-list">
+        <li data-i18n="plans.p3.f1">Hasta 8 profesionales</li>
+        <li data-i18n="plans.p3.f2">Hasta 1 sede</li>
+        <li data-i18n="plans.p3.f3">Todo lo del plan Clínica</li>
+        <li data-i18n="plans.p3.f4">Reportes consolidados</li>
+        <li data-i18n="plans.p3.f5">Hasta 6,000 mensajes de WhatsApp al mes</li>
+      </ul>
+      <div class="plan-addon" data-i18n="plans.addon2">+ <strong>$19/mes</strong>: Facturación electrónica (Hacienda CR)</div>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20Plus%20de%20%24499%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
     </div>
     <div class="plan">
       <div class="plan-name">Enterprise</div>
-      <div class="plan-desc" data-i18n="plans.p3.desc">Para grupos y operaciones multi-sede.</div>
+      <div class="plan-desc" data-i18n="plans.p4.desc">Para clínicas grandes con una sola sede.</div>
       <div class="plan-price-row">
-        <div class="plan-price-desde" data-i18n="plans.p3.desde">Desde $299<span style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-mid)" data-i18n="plans.permes">/mes</span></div>
+        <div class="plan-price-ahora">$779<span data-i18n="plans.permes">/mes</span></div>
       </div>
       <ul class="plan-list">
-        <li data-i18n="plans.p3.f1">Hasta 10 profesionales por sede</li>
-        <li data-i18n="plans.p3.f2">Hasta 5 sedes</li>
-        <li data-i18n="plans.p3.f3">Todo lo del plan Clínica</li>
-        <li data-i18n="plans.p3.f4">Onboarding por videollamada</li>
-        <li data-i18n="plans.p3.f5">Soporte dedicado</li>
+        <li data-i18n="plans.p4.f1">Hasta 10 profesionales</li>
+        <li data-i18n="plans.p4.f2">1 sede</li>
+        <li data-i18n="plans.p4.f3">Todo lo del plan Clínica Plus</li>
+        <li data-i18n="plans.p4.f4">Onboarding por videollamada</li>
+        <li data-i18n="plans.p4.f5">Soporte dedicado</li>
+        <li data-i18n="plans.p4.f6">Hasta 12,500 mensajes de WhatsApp al mes</li>
       </ul>
-      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
+      <div class="plan-addon" data-i18n="plans.addon2">+ <strong>$19/mes</strong>: Facturación electrónica (Hacienda CR)</div>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Enterprise%20de%20%24779%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
+    </div>
+    <div class="plan">
+      <div class="plan-name" data-i18n="plans.p5.name">Enterprise Plus</div>
+      <div class="plan-desc" data-i18n="plans.p5.desc">Para grupos y operaciones multi-sede.</div>
+      <div class="plan-price-row">
+        <div class="plan-price-desde" data-i18n="plans.p5.desde">Desde $1,499<span style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-mid)" data-i18n="plans.permes">/mes</span></div>
+      </div>
+      <ul class="plan-list">
+        <li data-i18n="plans.p5.f1">Hasta 12 profesionales por sede</li>
+        <li data-i18n="plans.p5.f2">2 sedes incluidas</li>
+        <li data-i18n="plans.p5.f3">Todo lo del plan Enterprise</li>
+        <li data-i18n="plans.p5.f4">Hasta 12,500 mensajes de WhatsApp al mes por sede</li>
+        <li data-i18n="plans.p5.f5">¿Necesita más profesionales o más sedes? Consúltenos</li>
+      </ul>
+      <div class="plan-addon" data-i18n="plans.addon3">+ <strong>$29/mes</strong>: Facturación electrónica (Hacienda CR)</div>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise%20Plus" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
     </div>
   </div>
+  <p class="plans-nota" data-i18n="plans.mensajesNota">Los mensajes incluidos cubren el uso típico de agendamiento, confirmaciones y recordatorios.</p>
+  <p class="plans-nota" data-i18n="plans.mensajesExcedente">¿Necesita más? Cada 1,000 mensajes adicionales cuestan entre $3 y $7, según la tarifa vigente de WhatsApp.</p>
+  <p class="plans-nota" data-i18n="plans.facturacionNota">El add-on de facturación electrónica se integra con Hacienda de Costa Rica y solo está disponible para clínicas en Costa Rica. Para otros países, contáctenos para revisar las opciones locales.</p>
 </section>
 <!-- FAQ -->
 <section class="section section-sm" style="padding-top:0">
@@ -678,13 +734,23 @@ const translations = {
     'trust.t2.title': 'Sus datos protegidos', 'trust.t2.desc': 'Infraestructura SOC 2 e ISO 27001. Aislamiento completo entre clínicas.',
     'trust.t3.title': 'No es un bot de menús', 'trust.t3.desc': 'Sara entiende lenguaje natural. El paciente escribe como quiera.',
     'plans.label': 'Planes', 'plans.title': 'Encuentre su plan.', 'plans.sub': 'Sin permanencia. Sin tarjeta para empezar.', 'plans.popular': 'Más popular', 'plans.cta': 'Consultar precio →',
-    'plans.launch': '🚀 Precio de lanzamiento', 'plans.permes': '/mes', 'plans.ctaEmpezar': 'Empezar ahora →',
+    'plans.launch': '🚀 Precio de lanzamiento', 'plans.porProfesional': 'Precio por profesional', 'plans.pordr': '/doctor/mes', 'plans.permes': '/mes', 'plans.ctaEmpezar': 'Empezar ahora →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profesionales independientes y consultorios pequeños.', 'plans.p1.antes': 'Antes $79/mes',
-    'plans.p1.f1': 'Hasta 2 doctores + 1 recepción', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmaciones de citas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Panel de gestión incluido',
+    'plans.p1.f1': '1 recepción incluida sin costo', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmaciones de citas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Panel de gestión incluido', 'plans.p1.f6': 'Hasta 750 mensajes de WhatsApp al mes por doctor',
     'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas con varios profesionales y seguimiento al paciente.', 'plans.p2.antes': 'Antes $189/mes',
-    'plans.p2.f1': 'Hasta 7 profesionales', 'plans.p2.f2': 'Todo lo del plan Starter', 'plans.p2.f3': 'Expediente del paciente', 'plans.p2.f4': 'Mensajes de texto ilimitados', 'plans.p2.f5': 'Soporte prioritario',
-    'plans.p3.desc': 'Para grupos y operaciones multi-sede.', 'plans.p3.desde': 'Desde $299',
-    'plans.p3.f1': 'Hasta 10 profesionales por sede', 'plans.p3.f2': 'Hasta 5 sedes', 'plans.p3.f3': 'Todo lo del plan Clínica', 'plans.p3.f4': 'Onboarding por videollamada', 'plans.p3.f5': 'Soporte dedicado',
+    'plans.p2.f1': 'Hasta 5 profesionales', 'plans.p2.f2': 'Todo lo del plan Starter', 'plans.p2.f3': 'Expediente del paciente', 'plans.p2.f4': 'Hasta 3,750 mensajes de WhatsApp al mes', 'plans.p2.f5': 'Soporte prioritario',
+    'plans.p3.name': 'Clínica Plus', 'plans.p3.desc': 'Para clínicas en crecimiento con más de una sede.',
+    'plans.p3.f1': 'Hasta 8 profesionales', 'plans.p3.f2': 'Hasta 1 sede', 'plans.p3.f3': 'Todo lo del plan Clínica', 'plans.p3.f4': 'Reportes consolidados', 'plans.p3.f5': 'Hasta 6,000 mensajes de WhatsApp al mes',
+    'plans.p4.desc': 'Para clínicas grandes con una sola sede.',
+    'plans.p4.f1': 'Hasta 10 profesionales', 'plans.p4.f2': '1 sede', 'plans.p4.f3': 'Todo lo del plan Clínica Plus', 'plans.p4.f4': 'Onboarding por videollamada', 'plans.p4.f5': 'Soporte dedicado', 'plans.p4.f6': 'Hasta 12,500 mensajes de WhatsApp al mes',
+    'plans.p5.name': 'Enterprise Plus', 'plans.p5.desc': 'Para grupos y operaciones multi-sede.', 'plans.p5.desde': 'Desde $1,499',
+    'plans.p5.f1': 'Hasta 12 profesionales por sede', 'plans.p5.f2': '2 sedes incluidas', 'plans.p5.f3': 'Todo lo del plan Enterprise', 'plans.p5.f4': 'Hasta 12,500 mensajes de WhatsApp al mes por sede', 'plans.p5.f5': '¿Necesita más profesionales o más sedes? Consúltenos',
+    'plans.addon': '+ <strong>$9/mes</strong>: Facturación electrónica (Hacienda CR)',
+    'plans.addon2': '+ <strong>$19/mes</strong>: Facturación electrónica (Hacienda CR)',
+    'plans.addon3': '+ <strong>$29/mes</strong>: Facturación electrónica (Hacienda CR)',
+    'plans.mensajesNota': 'Los mensajes incluidos cubren el uso típico de agendamiento, confirmaciones y recordatorios.',
+    'plans.mensajesExcedente': '¿Necesita más? Cada 1,000 mensajes adicionales cuestan entre $3 y $7, según la tarifa vigente de WhatsApp.',
+    'plans.facturacionNota': 'El add-on de facturación electrónica se integra con Hacienda de Costa Rica y solo está disponible para clínicas en Costa Rica. Para otros países, contáctenos para revisar las opciones locales.',
     'faq.label': 'Preguntas frecuentes', 'faq.title': 'Lo que siempre preguntan.',
     'faq.q1': '¿Necesito instalar algo o cambiar mi número?', 'faq.a1': 'No. No cambia su número y no instala nada. Conectamos su WhatsApp Business durante el proceso de incorporación.',
     'faq.q2': '¿Qué pasa si el paciente escribe a las 11pm?', 'faq.a2': 'Sara responde las 24 horas, los 7 días. Si hay disponibilidad, agenda. Si no, lista de espera.',
@@ -714,13 +780,23 @@ const translations = {
     'trust.t2.title': 'Your data protected', 'trust.t2.desc': 'SOC 2 and ISO 27001 certified infrastructure. Complete isolation between clinics.',
     'trust.t3.title': 'Not a menu bot', 'trust.t3.desc': 'Sara understands natural language. Patients write however they want.',
     'plans.label': 'Plans', 'plans.title': 'Find your plan.', 'plans.sub': 'No commitment. No card to start.', 'plans.popular': 'Most popular', 'plans.cta': 'Get pricing →',
-    'plans.launch': '🚀 Launch price', 'plans.permes': '/mo', 'plans.ctaEmpezar': 'Get started →',
+    'plans.launch': '🚀 Launch price', 'plans.porProfesional': 'Priced per professional', 'plans.pordr': '/doctor/mo', 'plans.permes': '/mo', 'plans.ctaEmpezar': 'Get started →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'For independent professionals and small offices.', 'plans.p1.antes': 'Was $79/mo',
-    'plans.p1.f1': 'Up to 2 doctors + 1 reception', 'plans.p1.f2': 'Sara books 24/7', 'plans.p1.f3': 'Appointment confirmations', 'plans.p1.f4': 'Automatic waiting list', 'plans.p1.f5': 'Management panel included',
+    'plans.p1.f1': '1 reception seat included free', 'plans.p1.f2': 'Sara books 24/7', 'plans.p1.f3': 'Appointment confirmations', 'plans.p1.f4': 'Automatic waiting list', 'plans.p1.f5': 'Management panel included', 'plans.p1.f6': 'Up to 750 WhatsApp messages a month per doctor',
     'plans.p2.name': 'Clinic', 'plans.p2.desc': 'For clinics with multiple professionals and patient follow-up.', 'plans.p2.antes': 'Was $189/mo',
-    'plans.p2.f1': 'Up to 7 professionals', 'plans.p2.f2': 'Everything in Starter', 'plans.p2.f3': 'Patient records', 'plans.p2.f4': 'Unlimited text messages', 'plans.p2.f5': 'Priority support',
-    'plans.p3.desc': 'For groups and multi-location operations.', 'plans.p3.desde': 'From $299',
-    'plans.p3.f1': 'Up to 10 professionals per location', 'plans.p3.f2': 'Up to 5 locations', 'plans.p3.f3': 'Everything in Clinic', 'plans.p3.f4': 'Video call onboarding', 'plans.p3.f5': 'Dedicated support',
+    'plans.p2.f1': 'Up to 5 professionals', 'plans.p2.f2': 'Everything in Starter', 'plans.p2.f3': 'Patient records', 'plans.p2.f4': 'Up to 3,750 WhatsApp messages a month', 'plans.p2.f5': 'Priority support',
+    'plans.p3.name': 'Clinic Plus', 'plans.p3.desc': 'For growing clinics with more than one location.',
+    'plans.p3.f1': 'Up to 8 professionals', 'plans.p3.f2': 'Up to 1 location', 'plans.p3.f3': 'Everything in Clinic', 'plans.p3.f4': 'Consolidated reports', 'plans.p3.f5': 'Up to 6,000 WhatsApp messages a month',
+    'plans.p4.desc': 'For large clinics with a single location.',
+    'plans.p4.f1': 'Up to 10 professionals', 'plans.p4.f2': '1 location', 'plans.p4.f3': 'Everything in Clinic Plus', 'plans.p4.f4': 'Video call onboarding', 'plans.p4.f5': 'Dedicated support', 'plans.p4.f6': 'Up to 12,500 WhatsApp messages a month',
+    'plans.p5.name': 'Enterprise Plus', 'plans.p5.desc': 'For groups and multi-location operations.', 'plans.p5.desde': 'From $1,499',
+    'plans.p5.f1': 'Up to 12 professionals per location', 'plans.p5.f2': '2 locations included', 'plans.p5.f3': 'Everything in Enterprise', 'plans.p5.f4': 'Up to 12,500 WhatsApp messages a month per location', 'plans.p5.f5': 'Need more professionals or locations? Contact us',
+    'plans.addon': '+ <strong>$9/mo</strong>: Electronic invoicing (Hacienda CR)',
+    'plans.addon2': '+ <strong>$19/mo</strong>: Electronic invoicing (Hacienda CR)',
+    'plans.addon3': '+ <strong>$29/mo</strong>: Electronic invoicing (Hacienda CR)',
+    'plans.mensajesNota': 'Included messages cover typical scheduling, confirmations, and reminders.',
+    'plans.mensajesExcedente': 'Need more? Each extra 1,000 messages costs between $3 and $7, based on WhatsApp\'s current rate.',
+    'plans.facturacionNota': 'The electronic invoicing add-on integrates with Costa Rica\'s Hacienda and is only available for clinics in Costa Rica. For other countries, contact us to review local options.',
     'faq.label': 'FAQ', 'faq.title': 'What people always ask.',
     'faq.q1': 'Do I need to install anything or change my number?', 'faq.a1': 'No. Your number stays the same. We connect your existing WhatsApp Business during onboarding.',
     'faq.q2': 'What if a patient writes at 11pm?', 'faq.a2': 'Sara responds 24/7. If there\'s availability, she books. If not, waiting list.',
@@ -750,13 +826,23 @@ const translations = {
     'trust.t2.title': 'Seus dados protegidos', 'trust.t2.desc': 'Infraestrutura SOC 2 e ISO 27001. Isolamento completo entre clínicas.',
     'trust.t3.title': 'Não é um bot de menus', 'trust.t3.desc': 'Sara entende linguagem natural.',
     'plans.label': 'Planos', 'plans.title': 'Encontre seu plano.', 'plans.sub': 'Sem fidelidade. Sem cartão para começar.', 'plans.popular': 'Mais popular', 'plans.cta': 'Consultar preço →',
-    'plans.launch': '🚀 Preço de lançamento', 'plans.permes': '/mês', 'plans.ctaEmpezar': 'Começar agora →',
+    'plans.launch': '🚀 Preço de lançamento', 'plans.porProfesional': 'Preço por profissional', 'plans.pordr': '/médico/mês', 'plans.permes': '/mês', 'plans.ctaEmpezar': 'Começar agora →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profissionais independentes.', 'plans.p1.antes': 'Antes $79/mês',
-    'plans.p1.f1': 'Até 2 médicos + 1 recepção', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmações de consultas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Painel de gestão incluído',
+    'plans.p1.f1': '1 recepção incluída sem custo', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmações de consultas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Painel de gestão incluído', 'plans.p1.f6': 'Até 750 mensagens de WhatsApp por mês por médico',
     'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas com vários profissionais.', 'plans.p2.antes': 'Antes $189/mês',
-    'plans.p2.f1': 'Até 7 profissionais', 'plans.p2.f2': 'Tudo do Starter', 'plans.p2.f3': 'Prontuário do paciente', 'plans.p2.f4': 'Mensagens de texto ilimitadas', 'plans.p2.f5': 'Suporte prioritário',
-    'plans.p3.desc': 'Para grupos e operações multi-unidade.', 'plans.p3.desde': 'A partir de $299',
-    'plans.p3.f1': 'Até 10 profissionais por unidade', 'plans.p3.f2': 'Até 5 unidades', 'plans.p3.f3': 'Tudo da Clínica', 'plans.p3.f4': 'Onboarding por videochamada', 'plans.p3.f5': 'Suporte dedicado',
+    'plans.p2.f1': 'Até 5 profissionais', 'plans.p2.f2': 'Tudo do Starter', 'plans.p2.f3': 'Prontuário do paciente', 'plans.p2.f4': 'Até 3.750 mensagens de WhatsApp por mês', 'plans.p2.f5': 'Suporte prioritário',
+    'plans.p3.name': 'Clínica Plus', 'plans.p3.desc': 'Para clínicas em crescimento com mais de uma unidade.',
+    'plans.p3.f1': 'Até 8 profissionais', 'plans.p3.f2': 'Até 1 unidade', 'plans.p3.f3': 'Tudo da Clínica', 'plans.p3.f4': 'Relatórios consolidados', 'plans.p3.f5': 'Até 6.000 mensagens de WhatsApp por mês',
+    'plans.p4.desc': 'Para clínicas grandes com uma única unidade.',
+    'plans.p4.f1': 'Até 10 profissionais', 'plans.p4.f2': '1 unidade', 'plans.p4.f3': 'Tudo da Clínica Plus', 'plans.p4.f4': 'Onboarding por videochamada', 'plans.p4.f5': 'Suporte dedicado', 'plans.p4.f6': 'Até 12.500 mensagens de WhatsApp por mês',
+    'plans.p5.name': 'Enterprise Plus', 'plans.p5.desc': 'Para grupos e operações multi-unidade.', 'plans.p5.desde': 'A partir de $1.499',
+    'plans.p5.f1': 'Até 12 profissionais por unidade', 'plans.p5.f2': '2 unidades incluídas', 'plans.p5.f3': 'Tudo do Enterprise', 'plans.p5.f4': 'Até 12.500 mensagens de WhatsApp por mês por unidade', 'plans.p5.f5': 'Precisa de mais profissionais ou unidades? Fale conosco',
+    'plans.addon': '+ <strong>$9/mês</strong>: Faturamento eletrônico (Hacienda CR)',
+    'plans.addon2': '+ <strong>$19/mês</strong>: Faturamento eletrônico (Hacienda CR)',
+    'plans.addon3': '+ <strong>$29/mês</strong>: Faturamento eletrônico (Hacienda CR)',
+    'plans.mensajesNota': 'As mensagens incluídas cobrem o uso típico de agendamento, confirmações e lembretes.',
+    'plans.mensajesExcedente': 'Precisa de mais? Cada 1.000 mensagens adicionais custam entre $3 e $7, conforme a tarifa vigente do WhatsApp.',
+    'plans.facturacionNota': 'O add-on de faturamento eletrônico se integra com a Hacienda da Costa Rica e está disponível apenas para clínicas na Costa Rica. Para outros países, entre em contato para avaliar as opções locais.',
     'faq.label': 'Perguntas frequentes', 'faq.title': 'O que sempre perguntam.',
     'faq.q1': 'Preciso instalar algo ou mudar meu número?', 'faq.a1': 'Não. Seu número não muda.',
     'faq.q2': 'E se o paciente escrever às 23h?', 'faq.a2': 'Sara responde 24/7.',
@@ -779,6 +865,8 @@ function applyLang(lang) {
     if (t[key]) {
       if (key.endsWith('.title') && t[key].includes('\n')) {
         el.innerHTML = t[key].replace('\n', '<br>');
+      } else if (t[key].includes('<strong>')) {
+        el.innerHTML = t[key];
       } else {
         el.textContent = t[key];
       }
