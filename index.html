@@ -425,6 +425,31 @@
       .hero-title { font-size: clamp(1.75rem, 10vw, 2.4rem); }
       .stat { min-width: 100%; }
     }
+    /* Formulario "Registrá tu negocio" */
+    .lead-section { background: var(--green-light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .lead-form { max-width: 560px; margin: 0 auto; display: grid; gap: 1rem; }
+    .lead-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .lead-field { display: flex; flex-direction: column; gap: .4rem; }
+    .lead-field label { font-size: .8rem; font-weight: 500; color: var(--text-mid); }
+    .lead-field input, .lead-field select, .lead-field textarea {
+      font-family: 'DM Sans', sans-serif; font-size: .92rem; color: var(--text);
+      padding: .8rem 1rem; border: 1px solid var(--border); border-radius: var(--r);
+      background: #fff; transition: border-color .15s;
+    }
+    .lead-field input:focus, .lead-field select:focus, .lead-field textarea:focus { outline: none; border-color: var(--green); }
+    .lead-field textarea { min-height: 90px; resize: vertical; font-weight: 300; }
+    .lead-submit {
+      justify-self: start; background: var(--green); color: #fff; border: none;
+      font-family: 'DM Sans', sans-serif; font-size: .92rem; font-weight: 500;
+      padding: .85rem 1.75rem; border-radius: 100px; cursor: pointer; transition: opacity .15s, transform .1s;
+    }
+    .lead-submit:hover { opacity: .9; transform: translateY(-1px); }
+    .lead-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+    .lead-msg { font-size: .87rem; padding: .75rem 1rem; border-radius: var(--r); display: none; }
+    .lead-msg.show { display: block; }
+    .lead-msg.ok { background: var(--green-light); color: var(--green); border: 1px solid var(--green-mid); }
+    .lead-msg.err { background: #fdecec; color: #b4232a; border: 1px solid #f5c6c6; }
+    @media(max-width: 480px) { .lead-row { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -487,6 +512,7 @@
         <div style="display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:var(--text-mid)"><span style="color:var(--green);font-size:1rem">✓</span> Entiende lenguaje natural — no es un bot de menús</div>
         <div style="display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:var(--text-mid)"><span style="color:var(--green);font-size:1rem">✓</span> Responde en el idioma del paciente automáticamente</div>
         <div style="display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:var(--text-mid)"><span style="color:var(--green);font-size:1rem">✓</span> Nunca se enferma, nunca falta, nunca descansa</div>
+        <div style="display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:var(--text-mid)"><span style="color:var(--green);font-size:1rem">✓</span> Entiende notas de voz — el paciente también puede mandar audio</div>
       </div>
     </div>
     <div class="sara-chat">
@@ -594,11 +620,10 @@
         <li data-i18n="plans.p1.f5">Panel de gestión incluido</li>
         <li data-i18n="plans.p1.f6">Hasta 750 mensajes de WhatsApp al mes por doctor</li>
       </ul>
-      <div class="plan-addon" data-i18n="plans.addon">+ <strong>$9/mes</strong>: Facturación electrónica (Hacienda CR)</div>
+      <div class="plan-addon" data-i18n="plans.addon1">+ <strong>$9/mes</strong>: Facturación electrónica (Hacienda CR)</div>
       <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Starter%20de%20%2499%2Fdoctor%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
     </div>
-    <div class="plan featured">
-      <div class="plan-tag" data-i18n="plans.popular">Más popular</div>
+    <div class="plan">
       <div class="plan-name" data-i18n="plans.p2.name">Clínica</div>
       <div class="plan-desc" data-i18n="plans.p2.desc">Para clínicas con varios profesionales y seguimiento al paciente.</div>
       <div class="plan-price-row">
@@ -611,10 +636,11 @@
         <li data-i18n="plans.p2.f4">Hasta 3,750 mensajes de WhatsApp al mes</li>
         <li data-i18n="plans.p2.f5">Soporte prioritario</li>
       </ul>
-      <div class="plan-addon" data-i18n="plans.addon">+ <strong>$9/mes</strong>: Facturación electrónica (Hacienda CR)</div>
+      <div class="plan-addon" data-i18n="plans.addon2">+ <strong>$18/mes</strong>: Facturación electrónica (Hacienda CR)</div>
       <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20de%20%24279%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
     </div>
-    <div class="plan">
+    <div class="plan featured">
+      <div class="plan-tag" data-i18n="plans.popular">Más popular</div>
       <div class="plan-name" data-i18n="plans.p3.name">Clínica Plus</div>
       <div class="plan-desc" data-i18n="plans.p3.desc">Para clínicas en crecimiento con más de una sede.</div>
       <div class="plan-price-row">
@@ -627,7 +653,7 @@
         <li data-i18n="plans.p3.f4">Reportes consolidados</li>
         <li data-i18n="plans.p3.f5">Hasta 6,000 mensajes de WhatsApp al mes</li>
       </ul>
-      <div class="plan-addon" data-i18n="plans.addon2">+ <strong>$19/mes</strong>: Facturación electrónica (Hacienda CR)</div>
+      <div class="plan-addon" data-i18n="plans.addon3">+ <strong>$24/mes</strong>: Facturación electrónica (Hacienda CR)</div>
       <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20Plus%20de%20%24499%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
     </div>
     <div class="plan">
@@ -644,7 +670,7 @@
         <li data-i18n="plans.p4.f5">Soporte dedicado</li>
         <li data-i18n="plans.p4.f6">Hasta 12,500 mensajes de WhatsApp al mes</li>
       </ul>
-      <div class="plan-addon" data-i18n="plans.addon2">+ <strong>$19/mes</strong>: Facturación electrónica (Hacienda CR)</div>
+      <div class="plan-addon" data-i18n="plans.addon4">+ <strong>$27/mes</strong>: Facturación electrónica (Hacienda CR)</div>
       <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Enterprise%20de%20%24779%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
     </div>
     <div class="plan">
@@ -660,7 +686,7 @@
         <li data-i18n="plans.p5.f4">Hasta 12,500 mensajes de WhatsApp al mes por sede</li>
         <li data-i18n="plans.p5.f5">¿Necesita más profesionales o más sedes? Consúltenos</li>
       </ul>
-      <div class="plan-addon" data-i18n="plans.addon3">+ <strong>$29/mes</strong>: Facturación electrónica (Hacienda CR)</div>
+      <div class="plan-addon" data-i18n="plans.addon5">+ <strong>$54/mes</strong>: Facturación electrónica (Hacienda CR)</div>
       <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise%20Plus" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
     </div>
   </div>
@@ -690,6 +716,44 @@
       <div class="faq-body" data-i18n="faq.a4"><strong>24 horas</strong> desde que nos contacta. Configuramos todo, conectamos su número y hacemos una prueba en vivo con usted.</div>
     </div>
   </div>
+</section>
+<!-- Registrá tu negocio -->
+<section class="section lead-section" id="registro">
+  <div class="section-label" data-i18n="lead.label">Empezá hoy</div>
+  <h2 class="title" data-i18n="lead.title">Registrá <em>tu negocio.</em></h2>
+  <p class="subtitle" data-i18n="lead.sub">Dejanos tus datos y te contactamos en menos de 24 horas para dejar todo listo.</p>
+  <form class="lead-form" id="leadForm" onsubmit="return enviarLead(event)">
+    <div class="lead-row">
+      <div class="lead-field">
+        <label data-i18n="lead.negocio">Nombre del negocio</label>
+        <input type="text" id="leadNegocio" required>
+      </div>
+      <div class="lead-field">
+        <label data-i18n="lead.tipo">Tipo de negocio</label>
+        <input type="text" id="leadTipo" data-i18n-placeholder="lead.tipoPh" placeholder="Ej: Clínica dental, spa, gimnasio...">
+      </div>
+    </div>
+    <div class="lead-row">
+      <div class="lead-field">
+        <label data-i18n="lead.contacto">Nombre de contacto</label>
+        <input type="text" id="leadContacto" required>
+      </div>
+      <div class="lead-field">
+        <label data-i18n="lead.email">Email</label>
+        <input type="email" id="leadEmail" required>
+      </div>
+    </div>
+    <div class="lead-field">
+      <label data-i18n="lead.telefono">Teléfono (WhatsApp, opcional)</label>
+      <input type="tel" id="leadTelefono" placeholder="+506 8888 8888">
+    </div>
+    <div class="lead-field">
+      <label data-i18n="lead.mensaje">Contanos un poco de tu negocio (opcional)</label>
+      <textarea id="leadMensaje" data-i18n-placeholder="lead.mensajePh" placeholder="Ej: Somos una clínica con 3 doctores, actualmente agendamos por WhatsApp a mano..."></textarea>
+    </div>
+    <div id="leadMsg" class="lead-msg"></div>
+    <button type="submit" class="lead-submit" id="leadSubmitBtn" data-i18n="lead.btn">Enviar registro</button>
+  </form>
 </section>
 <!-- CTA Final -->
 <section class="cta-section">
@@ -745,9 +809,11 @@ const translations = {
     'plans.p4.f1': 'Hasta 10 profesionales', 'plans.p4.f2': '1 sede', 'plans.p4.f3': 'Todo lo del plan Clínica Plus', 'plans.p4.f4': 'Onboarding por videollamada', 'plans.p4.f5': 'Soporte dedicado', 'plans.p4.f6': 'Hasta 12,500 mensajes de WhatsApp al mes',
     'plans.p5.name': 'Enterprise Plus', 'plans.p5.desc': 'Para grupos y operaciones multi-sede.', 'plans.p5.desde': 'Desde $1,499',
     'plans.p5.f1': 'Hasta 12 profesionales por sede', 'plans.p5.f2': '2 sedes incluidas', 'plans.p5.f3': 'Todo lo del plan Enterprise', 'plans.p5.f4': 'Hasta 12,500 mensajes de WhatsApp al mes por sede', 'plans.p5.f5': '¿Necesita más profesionales o más sedes? Consúltenos',
-    'plans.addon': '+ <strong>$9/mes</strong>: Facturación electrónica (Hacienda CR)',
-    'plans.addon2': '+ <strong>$19/mes</strong>: Facturación electrónica (Hacienda CR)',
-    'plans.addon3': '+ <strong>$29/mes</strong>: Facturación electrónica (Hacienda CR)',
+    'plans.addon1': '+ <strong>$9/mes</strong>: Facturación electrónica (Hacienda CR)',
+    'plans.addon2': '+ <strong>$18/mes</strong>: Facturación electrónica (Hacienda CR)',
+    'plans.addon3': '+ <strong>$24/mes</strong>: Facturación electrónica (Hacienda CR)',
+    'plans.addon4': '+ <strong>$27/mes</strong>: Facturación electrónica (Hacienda CR)',
+    'plans.addon5': '+ <strong>$54/mes</strong>: Facturación electrónica (Hacienda CR)',
     'plans.mensajesNota': 'Los mensajes incluidos cubren el uso típico de agendamiento, confirmaciones y recordatorios.',
     'plans.mensajesExcedente': '¿Necesita más? Cada 1,000 mensajes adicionales cuestan entre $3 y $7, según la tarifa vigente de WhatsApp.',
     'plans.facturacionNota': 'El add-on de facturación electrónica se integra con Hacienda de Costa Rica y solo está disponible para clínicas en Costa Rica. Para otros países, contáctenos para revisar las opciones locales.',
@@ -756,6 +822,11 @@ const translations = {
     'faq.q2': '¿Qué pasa si el paciente escribe a las 11pm?', 'faq.a2': 'Sara responde las 24 horas, los 7 días. Si hay disponibilidad, agenda. Si no, lista de espera.',
     'faq.q3': '¿Mis datos y los de mis pacientes están seguros?', 'faq.a3': 'Sí. Infraestructura SOC 2 e ISO 27001. Los datos de cada clínica están completamente aislados.',
     'faq.q4': '¿Cuánto tarda en estar listo?', 'faq.a4': '24 horas desde que nos contacta.',
+    'lead.label': 'Empezá hoy', 'lead.title': 'Registrá tu negocio.', 'lead.sub': 'Dejanos tus datos y te contactamos en menos de 24 horas para dejar todo listo.',
+    'lead.negocio': 'Nombre del negocio', 'lead.tipo': 'Tipo de negocio', 'lead.tipoPh': 'Ej: Clínica dental, spa, gimnasio...',
+    'lead.contacto': 'Nombre de contacto', 'lead.email': 'Email', 'lead.telefono': 'Teléfono (WhatsApp, opcional)',
+    'lead.mensaje': 'Contanos un poco de tu negocio (opcional)', 'lead.mensajePh': 'Ej: Somos una clínica con 3 doctores, actualmente agendamos por WhatsApp a mano...',
+    'lead.btn': 'Enviar registro', 'lead.btnEnviando': 'Enviando...', 'lead.ok': '¡Listo! Recibimos tus datos, te contactamos pronto.', 'lead.err': 'Hubo un problema. Probá de nuevo o escribinos por WhatsApp.',
     'cta.title': 'Su negocio agenda solo.\nUsted descansa.', 'cta.sub': 'Escríbanos. En 24 horas Sara está lista.', 'cta.btn': 'Hablar con Sara ahora',
   },
   en: {
@@ -791,9 +862,11 @@ const translations = {
     'plans.p4.f1': 'Up to 10 professionals', 'plans.p4.f2': '1 location', 'plans.p4.f3': 'Everything in Clinic Plus', 'plans.p4.f4': 'Video call onboarding', 'plans.p4.f5': 'Dedicated support', 'plans.p4.f6': 'Up to 12,500 WhatsApp messages a month',
     'plans.p5.name': 'Enterprise Plus', 'plans.p5.desc': 'For groups and multi-location operations.', 'plans.p5.desde': 'From $1,499',
     'plans.p5.f1': 'Up to 12 professionals per location', 'plans.p5.f2': '2 locations included', 'plans.p5.f3': 'Everything in Enterprise', 'plans.p5.f4': 'Up to 12,500 WhatsApp messages a month per location', 'plans.p5.f5': 'Need more professionals or locations? Contact us',
-    'plans.addon': '+ <strong>$9/mo</strong>: Electronic invoicing (Hacienda CR)',
-    'plans.addon2': '+ <strong>$19/mo</strong>: Electronic invoicing (Hacienda CR)',
-    'plans.addon3': '+ <strong>$29/mo</strong>: Electronic invoicing (Hacienda CR)',
+    'plans.addon1': '+ <strong>$9/mo</strong>: Electronic invoicing (Hacienda CR)',
+    'plans.addon2': '+ <strong>$18/mo</strong>: Electronic invoicing (Hacienda CR)',
+    'plans.addon3': '+ <strong>$24/mo</strong>: Electronic invoicing (Hacienda CR)',
+    'plans.addon4': '+ <strong>$27/mo</strong>: Electronic invoicing (Hacienda CR)',
+    'plans.addon5': '+ <strong>$54/mo</strong>: Electronic invoicing (Hacienda CR)',
     'plans.mensajesNota': 'Included messages cover typical scheduling, confirmations, and reminders.',
     'plans.mensajesExcedente': 'Need more? Each extra 1,000 messages costs between $3 and $7, based on WhatsApp\'s current rate.',
     'plans.facturacionNota': 'The electronic invoicing add-on integrates with Costa Rica\'s Hacienda and is only available for clinics in Costa Rica. For other countries, contact us to review local options.',
@@ -802,6 +875,11 @@ const translations = {
     'faq.q2': 'What if a patient writes at 11pm?', 'faq.a2': 'Sara responds 24/7. If there\'s availability, she books. If not, waiting list.',
     'faq.q3': 'Is my data and my patients\' data safe?', 'faq.a3': 'Yes. SOC 2 and ISO 27001 infrastructure. Each clinic\'s data is completely isolated.',
     'faq.q4': 'How long does setup take?', 'faq.a4': '24 hours from when you contact us.',
+    'lead.label': 'Get started today', 'lead.title': 'Register your business.', 'lead.sub': 'Leave your details and we\'ll contact you within 24 hours to get everything set up.',
+    'lead.negocio': 'Business name', 'lead.tipo': 'Business type', 'lead.tipoPh': 'Ex: Dental clinic, spa, gym...',
+    'lead.contacto': 'Contact name', 'lead.email': 'Email', 'lead.telefono': 'Phone (WhatsApp, optional)',
+    'lead.mensaje': 'Tell us a bit about your business (optional)', 'lead.mensajePh': 'Ex: We\'re a clinic with 3 doctors, currently booking by WhatsApp manually...',
+    'lead.btn': 'Submit', 'lead.btnEnviando': 'Sending...', 'lead.ok': 'Done! We got your info, we\'ll reach out soon.', 'lead.err': 'Something went wrong. Try again or message us on WhatsApp.',
     'cta.title': 'Your business books itself.\nYou rest.', 'cta.sub': 'Contact us. Sara will be ready in 24 hours.', 'cta.btn': 'Talk to Sara now',
   },
   pt: {
@@ -837,9 +915,11 @@ const translations = {
     'plans.p4.f1': 'Até 10 profissionais', 'plans.p4.f2': '1 unidade', 'plans.p4.f3': 'Tudo da Clínica Plus', 'plans.p4.f4': 'Onboarding por videochamada', 'plans.p4.f5': 'Suporte dedicado', 'plans.p4.f6': 'Até 12.500 mensagens de WhatsApp por mês',
     'plans.p5.name': 'Enterprise Plus', 'plans.p5.desc': 'Para grupos e operações multi-unidade.', 'plans.p5.desde': 'A partir de $1.499',
     'plans.p5.f1': 'Até 12 profissionais por unidade', 'plans.p5.f2': '2 unidades incluídas', 'plans.p5.f3': 'Tudo do Enterprise', 'plans.p5.f4': 'Até 12.500 mensagens de WhatsApp por mês por unidade', 'plans.p5.f5': 'Precisa de mais profissionais ou unidades? Fale conosco',
-    'plans.addon': '+ <strong>$9/mês</strong>: Faturamento eletrônico (Hacienda CR)',
-    'plans.addon2': '+ <strong>$19/mês</strong>: Faturamento eletrônico (Hacienda CR)',
-    'plans.addon3': '+ <strong>$29/mês</strong>: Faturamento eletrônico (Hacienda CR)',
+    'plans.addon1': '+ <strong>$9/mês</strong>: Faturamento eletrônico (Hacienda CR)',
+    'plans.addon2': '+ <strong>$18/mês</strong>: Faturamento eletrônico (Hacienda CR)',
+    'plans.addon3': '+ <strong>$24/mês</strong>: Faturamento eletrônico (Hacienda CR)',
+    'plans.addon4': '+ <strong>$27/mês</strong>: Faturamento eletrônico (Hacienda CR)',
+    'plans.addon5': '+ <strong>$54/mês</strong>: Faturamento eletrônico (Hacienda CR)',
     'plans.mensajesNota': 'As mensagens incluídas cobrem o uso típico de agendamento, confirmações e lembretes.',
     'plans.mensajesExcedente': 'Precisa de mais? Cada 1.000 mensagens adicionais custam entre $3 e $7, conforme a tarifa vigente do WhatsApp.',
     'plans.facturacionNota': 'O add-on de faturamento eletrônico se integra com a Hacienda da Costa Rica e está disponível apenas para clínicas na Costa Rica. Para outros países, entre em contato para avaliar as opções locais.',
@@ -848,6 +928,11 @@ const translations = {
     'faq.q2': 'E se o paciente escrever às 23h?', 'faq.a2': 'Sara responde 24/7.',
     'faq.q3': 'Meus dados estão seguros?', 'faq.a3': 'Sim. SOC 2 e ISO 27001. Isolamento completo.',
     'faq.q4': 'Quanto tempo leva?', 'faq.a4': '24 horas.',
+    'lead.label': 'Comece hoje', 'lead.title': 'Registre seu negócio.', 'lead.sub': 'Deixe seus dados e entramos em contato em menos de 24 horas para deixar tudo pronto.',
+    'lead.negocio': 'Nome do negócio', 'lead.tipo': 'Tipo de negócio', 'lead.tipoPh': 'Ex: Clínica odontológica, spa, academia...',
+    'lead.contacto': 'Nome de contato', 'lead.email': 'Email', 'lead.telefono': 'Telefone (WhatsApp, opcional)',
+    'lead.mensaje': 'Conte um pouco sobre seu negócio (opcional)', 'lead.mensajePh': 'Ex: Somos uma clínica com 3 médicos, hoje agendamos pelo WhatsApp manualmente...',
+    'lead.btn': 'Enviar registro', 'lead.btnEnviando': 'Enviando...', 'lead.ok': 'Pronto! Recebemos seus dados, entraremos em contato em breve.', 'lead.err': 'Algo deu errado. Tente de novo ou fale conosco pelo WhatsApp.',
     'cta.title': 'Seu negócio agenda sozinho.\nVocê descansa.', 'cta.sub': 'Entre em contato. Sara estará pronta em 24 horas.', 'cta.btn': 'Falar com Sara agora',
   }
 };
@@ -876,6 +961,42 @@ function applyLang(lang) {
   if (lang === 'pt') document.title = 'AutoCita — Seu negócio agenda sozinho.';
 }
 applyLang(getLang());
+// ── Formulario "Registrá tu negocio" ─────────────────────────────
+const LEADS_API = 'https://autocita-production.up.railway.app';
+async function enviarLead(event) {
+  event.preventDefault();
+  const btn = document.getElementById('leadSubmitBtn');
+  const msgEl = document.getElementById('leadMsg');
+  const t = translations[getLang()] || translations.es;
+  const nombre_negocio = document.getElementById('leadNegocio').value.trim();
+  const tipo_negocio = document.getElementById('leadTipo').value.trim();
+  const nombre_contacto = document.getElementById('leadContacto').value.trim();
+  const email = document.getElementById('leadEmail').value.trim();
+  const telefono = document.getElementById('leadTelefono').value.trim();
+  const mensaje = document.getElementById('leadMensaje').value.trim();
+  msgEl.classList.remove('show', 'ok', 'err');
+  btn.disabled = true;
+  btn.textContent = t['lead.btnEnviando'] || 'Enviando...';
+  try {
+    const resp = await fetch(`${LEADS_API}/leads`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nombre_negocio, tipo_negocio, nombre_contacto, email, telefono, mensaje }),
+    });
+    const data = await resp.json();
+    if (!resp.ok) throw new Error(data.error || 'Error');
+    msgEl.textContent = t['lead.ok'] || 'Listo';
+    msgEl.classList.add('show', 'ok');
+    document.getElementById('leadForm').reset();
+  } catch (e) {
+    msgEl.textContent = t['lead.err'] || 'Hubo un problema';
+    msgEl.classList.add('show', 'err');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = t['lead.btn'] || 'Enviar registro';
+  }
+  return false;
+}
 document.querySelectorAll('.faq-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.parentElement;
