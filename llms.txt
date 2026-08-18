@@ -1,0 +1,16 @@
+# AutomatIA / AutoCita
+
+> AutoCita es una plataforma de automatización con inteligencia artificial para clínicas y consultorios en Costa Rica. Sara, la asistente de IA, agenda citas automáticamente por WhatsApp las 24 horas del día, los 7 días de la semana, incluyendo notas de voz de los pacientes. No requiere que la clínica cambie su número de WhatsApp ni instale software nuevo.
+
+## Qué resuelve
+- Agenda citas por WhatsApp de forma automática, incluso fuera de horario de atención.
+- Entiende texto y notas de voz de los pacientes.
+- Envía recordatorios y confirma citas sin intervención humana.
+- Permite lista de espera automática cuando no hay cupos.
+
+## Planes
+AutoCita ofrece planes desde Starter (un doctor) hasta Enterprise Plus (múltiples sedes), todos facturados mensualmente, con opción de agregar facturación electrónica.
+
+## Contacto
+WhatsApp: https://wa.me/50686205959
+Sitio: https://automatiaai.com
