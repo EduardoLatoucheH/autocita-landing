@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucía — tu vendedora con IA | AutomatIA</title>
+<meta name="description" content="Lucía vende por WhatsApp mientras vos dormís. Catálogo, seguimiento de pedidos y cero clientes perdidos. La misma IA detrás de Sara (AutoCita), ahora para vender. Lista de espera abierta.">
+<style>
+  :root{
+    --verde:#2f6b4f;
+    --verde-oscuro:#234f3b;
+    --terracota:#c1662f;
+    --crema:#faf7f2;
+    --texto:#1f2a24;
+    --gris:#6b7570;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--crema);
+    color:var(--texto);
+    line-height:1.5;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  header{padding:28px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .logo{font-weight:700;font-size:20px;color:var(--verde-oscuro);letter-spacing:-0.02em;}
+  .logo em{color:var(--terracota);font-style:normal;}
+  .tag{font-size:13px;color:var(--gris);margin-top:2px;}
+  .back-link{font-size:13px;color:var(--verde);text-decoration:none;font-weight:600;}
+  .back-link:hover{text-decoration:underline;}
+  .hero{padding:36px 0 44px;}
+  .kicker{
+    display:inline-block;background:var(--terracota);color:#fff;font-size:12px;
+    font-weight:700;padding:6px 14px;border-radius:20px;margin-bottom:18px;
+    letter-spacing:.02em;
+  }
+  h1{font-size:36px;line-height:1.16;font-weight:800;color:var(--verde-oscuro);letter-spacing:-0.02em;}
+  h1 em{color:var(--terracota);font-style:normal;}
+  .sub{font-size:17px;color:var(--gris);margin-top:14px;max-width:560px;}
+  .cta{
+    display:inline-block;margin-top:26px;background:var(--verde);color:#fff;
+    text-decoration:none;font-weight:700;font-size:16px;padding:15px 26px;border-radius:10px;
+  }
+  .cta:hover{background:var(--verde-oscuro);}
+  .cta-sub{font-size:13px;color:var(--gris);margin-top:10px;}
+  section{padding:38px 0;border-top:1px solid #e6e0d6;}
+  h2{font-size:22px;color:var(--verde-oscuro);margin-bottom:16px;letter-spacing:-0.01em;}
+  .chat-demo{background:#fff;border:1px solid #e6e0d6;border-radius:14px;padding:20px;max-width:400px;}
+  .chat-in, .chat-out{font-size:14px;padding:10px 14px;border-radius:12px;margin-bottom:8px;max-width:85%;}
+  .chat-in{background:#e9e4d8;color:var(--texto);border-bottom-left-radius:2px;}
+  .chat-out{background:var(--verde);color:#fff;margin-left:auto;border-bottom-right-radius:2px;}
+  .ejemplos{display:grid;gap:14px;grid-template-columns:1fr;}
+  @media(min-width:560px){.ejemplos{grid-template-columns:1fr 1fr;}}
+  .card{background:#fff;border:1px solid #e6e0d6;border-radius:12px;padding:18px 20px;}
+  .card h3{font-size:15px;color:var(--verde-oscuro);margin-bottom:6px;}
+  .card p{font-size:14px;color:var(--gris);}
+  .proof{background:#fff;border:1px solid #e6e0d6;border-radius:14px;padding:24px;}
+  .proof-tag{font-size:12px;font-weight:700;color:var(--verde);text-transform:uppercase;letter-spacing:.04em;}
+  .proof h3{font-size:19px;margin:8px 0 10px;color:var(--verde-oscuro);}
+  .proof p{color:var(--texto);font-size:15px;}
+  .proof-link{display:inline-block;margin-top:14px;font-size:14px;font-weight:600;color:var(--terracota);text-decoration:none;}
+  .early-box{
+    background:var(--verde-oscuro);color:#fff;border-radius:14px;padding:30px 26px;
+  }
+  .early-tag{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#9fd8b8;margin-bottom:10px;}
+  .early-box h3{font-size:21px;margin-bottom:14px;}
+  .early-box ul{list-style:none;font-size:14.5px;}
+  .early-box ul li{padding:6px 0;opacity:.94;}
+  .early-box ul li::before{content:"✓ ";color:#7fd9a8;font-weight:700;}
+  footer{padding:30px 0 50px;text-align:center;}
+  footer p{font-size:12px;color:var(--gris);}
+  .final-cta{text-align:center;padding:44px 0 0;border-top:none;}
+  .final-cta h2{margin-bottom:8px;}
+  .final-cta p{color:var(--gris);margin-bottom:20px;}
+  .lead-box{background:#fff;border:1px solid #e6e0d6;border-radius:14px;padding:26px 24px;}
+  .lead-box p{color:var(--gris);font-size:14px;margin-bottom:18px;}
+  .lead-row{display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-bottom:12px;}
+  @media(max-width:560px){.lead-row{grid-template-columns:1fr;}}
+  .lead-field{display:flex;flex-direction:column;gap:5px;}
+  .lead-field.full{grid-column:1 / -1;}
+  .lead-field label{font-size:12px;font-weight:600;color:var(--verde-oscuro);}
+  .lead-field input, .lead-field textarea{
+    font:inherit;font-size:14px;padding:10px 12px;border:1px solid #d9d2c4;border-radius:8px;
+    background:var(--crema);color:var(--texto);
+  }
+  .lead-field input:focus, .lead-field textarea:focus{outline:2px solid var(--verde);outline-offset:1px;}
+  .lead-field textarea{resize:vertical;min-height:78px;}
+  .lead-submit{
+    display:inline-block;background:var(--terracota);color:#fff;border:none;font-weight:700;font-size:15px;
+    padding:13px 24px;border-radius:10px;cursor:pointer;width:100%;
+  }
+  .lead-submit:hover{background:#a8551f;}
+  .lead-submit:disabled{opacity:.6;cursor:not-allowed;}
+  .lead-msg{font-size:13px;padding:10px 12px;border-radius:8px;margin-top:12px;display:none;}
+  .lead-msg.show{display:block;}
+  .lead-msg.ok{background:#eaf5ee;color:var(--verde-oscuro);border:1px solid #bfe2cc;}
+  .lead-msg.err{background:#fdecec;color:#b4232a;border:1px solid #f5c6c6;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <div class="logo">Automat<em>IA</em></div>
+      <div class="tag">Lucía — tu vendedora con IA</div>
+    </div>
+    <a class="back-link" href="https://www.automatiaai.com">← Volver a AutoCita</a>
+  </header>
+
+  <section class="hero" style="border-top:none;padding-top:0;">
+    <span class="kicker">🔥 Todavía no está lista — pero ya casi</span>
+    <h1>Mientras vos dormís, <em>Lucía vende.</em></h1>
+    <p class="sub">Es la vendedora con IA para WhatsApp que estamos construyendo con la misma tecnología que ya hace funcionar a Sara en clínicas reales. Cataloga, cobra, hace seguimiento y nunca deja a un cliente esperando. Todavía la estamos afinando — y por eso quien entra primero, entra con condiciones que después no van a existir.</p>
+    <a class="cta" href="#reservar">Quiero ser de los primeros →</a>
+    <div class="cta-sub">Sin costo por reservar tu lugar. Te contactamos apenas esté lista para tu negocio.</div>
+  </section>
+
+  <section>
+    <h2>Así vende Lucía</h2>
+    <div class="chat-demo">
+      <div class="chat-in">Hola, ¿tienen el collar antipulgas talla M?</div>
+      <div class="chat-out">¡Hola! Sí, tenemos 2 en stock a ₡12,500 cada uno 🐾 ¿Te lo aparto?</div>
+      <div class="chat-in" style="margin-top:8px">Sí porfa, y agregame también el shampoo</div>
+      <div class="chat-out" style="margin-top:8px">Listo ✅ Collar + shampoo = ₡19,800. Te mando el link de pago o lo cancelás cuando pasés a recoger. ¿Cuál preferís?</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Lo que ya sabe hacer</h2>
+    <div class="ejemplos">
+      <div class="card">
+        <h3>Catálogo por WhatsApp</h3>
+        <p>El cliente pregunta y Lucía responde con precio, stock y opciones — sin que nadie tenga que estar pendiente del chat.</p>
+      </div>
+      <div class="card">
+        <h3>Upsell automático</h3>
+        <p>Sugiere el producto que combina, en el momento justo — como haría tu mejor vendedor.</p>
+      </div>
+      <div class="card">
+        <h3>Seguimiento de pedidos</h3>
+        <p>Confirma, cobra y avisa cuando el pedido está listo. El cliente nunca tiene que preguntar "¿cómo va mi orden?".</p>
+      </div>
+      <div class="card">
+        <h3>Cero clientes perdidos</h3>
+        <p>Responde al instante, a cualquier hora. Ningún mensaje se queda "visto" sin respuesta.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="proof">
+      <div class="proof-tag">No es una promesa vacía</div>
+      <h3>Ya corre en producción — solo que atendiendo pacientes.</h3>
+      <p>Sara es la misma tecnología, ya trabajando 24/7 para clínicas reales: agenda citas, entiende lenguaje natural y notas de voz, en más de 50 idiomas. Lucía es ese mismo motor, entrenado para vender en vez de agendar.</p>
+      <a class="proof-link" href="https://www.automatiaai.com" target="_blank" rel="noopener">Ver a Sara en acción →</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="early-box">
+      <div class="early-tag">Lista de espera — acceso anticipado</div>
+      <h3>Entrar ahora tiene ventajas que después no van a estar.</h3>
+      <ul>
+        <li>Precio de lanzamiento congelado, para siempre</li>
+        <li>Primeros en la fila cuando esté lista para tu negocio</li>
+        <li>Catálogo e integración armados junto con vos, a la medida</li>
+        <li>Vas a poder opinar qué le agregamos antes de que la cerremos</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <h2>¿Lo hablamos ya mismo?</h2>
+    <p>Contame de tu negocio y te digo directo si Lucía te sirve — aunque todavía esté en construcción.</p>
+    <a class="cta" href="https://wa.me/50686205959?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20de%20Lucia%20para%20mi%20negocio" target="_blank" rel="noopener" style="background:var(--terracota)">Escribir por WhatsApp →</a>
+  </section>
+
+  <section id="reservar">
+    <div class="lead-box">
+      <h2>Reservá tu lugar</h2>
+      <p>Dejanos los datos de tu negocio — te contactamos apenas Lucía esté lista, con prioridad para quien entró primero.</p>
+      <form id="luciaLeadForm" onsubmit="return enviarLuciaLead(event)">
+        <div class="lead-row">
+          <div class="lead-field">
+            <label for="llNegocio">Nombre del negocio</label>
+            <input type="text" id="llNegocio" required>
+          </div>
+          <div class="lead-field">
+            <label for="llTipo">Qué vendés</label>
+            <input type="text" id="llTipo" placeholder="Ej: tienda de mascotas, accesorios, comida...">
+          </div>
+          <div class="lead-field">
+            <label for="llContacto">Tu nombre</label>
+            <input type="text" id="llContacto" required>
+          </div>
+          <div class="lead-field">
+            <label for="llEmail">Email</label>
+            <input type="email" id="llEmail" required>
+          </div>
+          <div class="lead-field full">
+            <label for="llTelefono">WhatsApp (opcional)</label>
+            <input type="tel" id="llTelefono">
+          </div>
+          <div class="lead-field full">
+            <label for="llMensaje">Contanos de tu negocio (opcional)</label>
+            <textarea id="llMensaje" placeholder="Ej: Vendemos por WhatsApp a mano, se nos pierden pedidos y clientes..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="lead-submit" id="llSubmitBtn">Reservar mi lugar</button>
+        <div class="lead-msg" id="llMsg"></div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>AutomatIA · Costa Rica · Lucía está en construcción — esta página describe hacia dónde vamos.</p>
+  </footer>
+
+</div>
+<script>
+const LEADS_API = 'https://autocita-production.up.railway.app';
+async function enviarLuciaLead(event) {
+  event.preventDefault();
+  const btn = document.getElementById('llSubmitBtn');
+  const msgEl = document.getElementById('llMsg');
+  const nombre_negocio = document.getElementById('llNegocio').value.trim();
+  const tipo_negocio = document.getElementById('llTipo').value.trim();
+  const nombre_contacto = document.getElementById('llContacto').value.trim();
+  const email = document.getElementById('llEmail').value.trim();
+  const telefono = document.getElementById('llTelefono').value.trim();
+  const mensajeBase = document.getElementById('llMensaje').value.trim();
+  const mensaje = '[Lista de espera Lucía] ' + (mensajeBase || '(sin mensaje adicional)');
+  msgEl.classList.remove('show', 'ok', 'err');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+  try {
+    const resp = await fetch(`${LEADS_API}/leads`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nombre_negocio, tipo_negocio, nombre_contacto, email, telefono, mensaje }),
+    });
+    const data = await resp.json();
+    if (!resp.ok) throw new Error(data.error || 'Error');
+    msgEl.textContent = '¡Listo! Ya quedaste en la lista — te contactamos apenas esté lista.';
+    msgEl.classList.add('show', 'ok');
+    document.getElementById('luciaLeadForm').reset();
+  } catch (e) {
+    msgEl.textContent = 'Hubo un problema. Probá de nuevo o escribinos por WhatsApp.';
+    msgEl.classList.add('show', 'err');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Reservar mi lugar';
+  }
+  return false;
+}
+</script>
+</body>
+</html>
