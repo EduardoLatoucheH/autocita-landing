@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automatizaciones a la medida — AutomatIA</title>
+<meta name="description" content="Bots de WhatsApp con IA a la medida para tu negocio. Cobranza, soporte, leads, inventario. Armados por el equipo detrás de Sara (AutoCita).">
+<style>
+  :root{
+    --verde:#2f6b4f;
+    --verde-oscuro:#234f3b;
+    --terracota:#c1662f;
+    --crema:#faf7f2;
+    --texto:#1f2a24;
+    --gris:#6b7570;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--crema);
+    color:var(--texto);
+    line-height:1.5;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  header{padding:28px 0;}
+  .logo{font-weight:700;font-size:20px;color:var(--verde-oscuro);letter-spacing:-0.02em;}
+  .logo em{color:var(--terracota);font-style:normal;}
+  .tag{font-size:13px;color:var(--gris);margin-top:2px;}
+  .hero{padding:36px 0 44px;}
+  .kicker{
+    display:inline-block;background:var(--verde);color:#fff;font-size:12px;
+    font-weight:600;padding:5px 12px;border-radius:20px;margin-bottom:18px;
+  }
+  h1{font-size:34px;line-height:1.18;font-weight:800;color:var(--verde-oscuro);letter-spacing:-0.02em;}
+  h1 em{color:var(--terracota);font-style:normal;}
+  .sub{font-size:17px;color:var(--gris);margin-top:14px;max-width:560px;}
+  .cta{
+    display:inline-block;margin-top:26px;background:var(--terracota);color:#fff;
+    text-decoration:none;font-weight:700;font-size:16px;padding:15px 26px;border-radius:10px;
+  }
+  .cta:hover{background:#a8551f;}
+  .cta-sub{font-size:13px;color:var(--gris);margin-top:10px;}
+  section{padding:38px 0;border-top:1px solid #e6e0d6;}
+  h2{font-size:22px;color:var(--verde-oscuro);margin-bottom:16px;letter-spacing:-0.01em;}
+  .ejemplos{display:grid;gap:14px;grid-template-columns:1fr;}
+  @media(min-width:560px){.ejemplos{grid-template-columns:1fr 1fr;}}
+  .card{background:#fff;border:1px solid #e6e0d6;border-radius:12px;padding:18px 20px;}
+  .card h3{font-size:15px;color:var(--verde-oscuro);margin-bottom:6px;}
+  .card p{font-size:14px;color:var(--gris);}
+  .proof{background:#fff;border:1px solid #e6e0d6;border-radius:14px;padding:24px;}
+  .proof-tag{font-size:12px;font-weight:700;color:var(--verde);text-transform:uppercase;letter-spacing:.04em;}
+  .proof h3{font-size:19px;margin:8px 0 10px;color:var(--verde-oscuro);}
+  .proof p{color:var(--texto);font-size:15px;}
+  .proof-link{display:inline-block;margin-top:14px;font-size:14px;font-weight:600;color:var(--terracota);text-decoration:none;}
+  .precio-box{
+    background:var(--verde-oscuro);color:#fff;border-radius:14px;padding:30px 26px;text-align:center;
+  }
+  .precio{font-size:38px;font-weight:800;letter-spacing:-0.02em;}
+  .precio-sub{font-size:14px;opacity:.85;margin-top:6px;}
+  .precio ul{list-style:none;margin-top:18px;text-align:left;max-width:340px;margin-left:auto;margin-right:auto;font-size:14px;}
+  .precio-box ul li{padding:5px 0;opacity:.92;}
+  .precio-box ul li::before{content:"✓ ";color:#7fd9a8;font-weight:700;}
+  footer{padding:30px 0 50px;text-align:center;}
+  footer p{font-size:12px;color:var(--gris);}
+  .final-cta{text-align:center;padding:44px 0;}
+  .final-cta h2{margin-bottom:8px;}
+  .final-cta p{color:var(--gris);margin-bottom:20px;}
+  .lead-box{background:#fff;border:1px solid #e6e0d6;border-radius:14px;padding:26px 24px;}
+  .lead-box p{color:var(--gris);font-size:14px;margin-bottom:18px;}
+  .lead-row{display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-bottom:12px;}
+  @media(max-width:560px){.lead-row{grid-template-columns:1fr;}}
+  .lead-field{display:flex;flex-direction:column;gap:5px;}
+  .lead-field.full{grid-column:1 / -1;}
+  .lead-field label{font-size:12px;font-weight:600;color:var(--verde-oscuro);}
+  .lead-field input, .lead-field textarea{
+    font:inherit;font-size:14px;padding:10px 12px;border:1px solid #d9d2c4;border-radius:8px;
+    background:var(--crema);color:var(--texto);
+  }
+  .lead-field input:focus, .lead-field textarea:focus{outline:2px solid var(--verde);outline-offset:1px;}
+  .lead-field textarea{resize:vertical;min-height:78px;}
+  .lead-submit{
+    display:inline-block;background:var(--verde);color:#fff;border:none;font-weight:700;font-size:15px;
+    padding:13px 24px;border-radius:10px;cursor:pointer;width:100%;
+  }
+  .lead-submit:hover{background:var(--verde-oscuro);}
+  .lead-submit:disabled{opacity:.6;cursor:not-allowed;}
+  .lead-msg{font-size:13px;padding:10px 12px;border-radius:8px;margin-top:12px;display:none;}
+  .lead-msg.show{display:block;}
+  .lead-msg.ok{background:#eaf5ee;color:var(--verde-oscuro);border:1px solid #bfe2cc;}
+  .lead-msg.err{background:#fdecec;color:#b4232a;border:1px solid #f5c6c6;}
+  .precio-addon{margin-top:18px;padding-top:14px;border-top:1px dashed rgba(255,255,255,.25);font-size:12.5px;line-height:1.6;opacity:.85;}
+  .precio-addon strong{opacity:1;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">Automat<em>IA</em></div>
+    <div class="tag">Automatizaciones a la medida</div>
+  </header>
+
+  <section class="hero" style="border-top:none;padding-top:0;">
+    <span class="kicker">Bots de WhatsApp con IA</span>
+    <h1>Un empleado que <em>nunca duerme</em>, hecho para tu negocio.</h1>
+    <p class="sub">Diseñamos y construimos bots de WhatsApp con inteligencia artificial real — no menús ni respuestas automáticas — para cobrar, filtrar leads, dar soporte o lo que tu negocio necesite repetir todos los días.</p>
+    <a class="cta" href="https://wa.me/50686205959?text=Hola%2C%20quiero%20un%20bot%20a%20la%20medida%20para%20mi%20negocio" target="_blank" rel="noopener">Contarme mi caso →</a>
+    <div class="cta-sub">Respuesta en menos de 24 horas.</div>
+  </section>
+
+  <section>
+    <h2>Ejemplos de lo que armamos</h2>
+    <div class="ejemplos">
+      <div class="card">
+        <h3>Cobranza y seguimiento</h3>
+        <p>Recuerda pagos pendientes por WhatsApp en el momento justo, sin que nadie tenga que perseguir a nadie.</p>
+      </div>
+      <div class="card">
+        <h3>Filtro de candidatos</h3>
+        <p>Conversa con cada candidato, hace las preguntas clave y te entrega solo a los que califican.</p>
+      </div>
+      <div class="card">
+        <h3>Soporte de primer nivel</h3>
+        <p>Responde las preguntas repetidas al instante y escala a una persona solo cuando hace falta.</p>
+      </div>
+      <div class="card">
+        <h3>Leads calificados</h3>
+        <p>Entiende qué busca cada cliente y te agenda la visita solo con los que de verdad van a comprar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="proof">
+      <div class="proof-tag">Caso real</div>
+      <h3>Sara ya hace esto — para clínicas.</h3>
+      <p>Sara es nuestra recepcionista con IA: atiende pacientes por WhatsApp 24/7, agenda citas, entiende lenguaje natural y notas de voz, en más de 50 idiomas. Corre sobre la misma tecnología que arma tu bot — solo cambia para qué la entrenamos.</p>
+      <a class="proof-link" href="https://www.automatiaai.com" target="_blank" rel="noopener">Ver AutoCita en automatiaai.com →</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="precio-box">
+      <div class="precio-sub">Bot a la medida</div>
+      <div class="precio">$2,000 – $5,000</div>
+      <div class="precio-sub">pago único, según alcance</div>
+      <ul>
+        <li>Base de datos y lógica hechas para tu negocio</li>
+        <li>Conectado a tu WhatsApp Business, número real</li>
+        <li>Panel para ver y controlar todo, sin tocar código</li>
+        <li>50% para arrancar, 50% contra entrega</li>
+      </ul>
+      <div class="precio-addon">
+        También se puede — con costo adicional:<br>
+        <strong>+$</strong> Creación o modificación de sitio web<br>
+        <strong>+$</strong> Sitio web conectado al CRM
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" style="border-top:none;padding-bottom:0;">
+    <h2>¿Lo hablamos?</h2>
+    <p>Contame qué proceso te está quitando horas y te digo en el momento si tiene sentido automatizarlo.</p>
+    <a class="cta" href="https://wa.me/50686205959?text=Hola%2C%20quiero%20un%20bot%20a%20la%20medida%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir por WhatsApp →</a>
+  </section>
+
+  <section id="contanos">
+    <div class="lead-box">
+      <h2>O contanos por escrito</h2>
+      <p>Dejanos los datos de tu negocio y qué te gustaría automatizar o tener diferente — te contactamos en menos de 24 horas.</p>
+      <form id="autoLeadForm" onsubmit="return enviarAutoLead(event)">
+        <div class="lead-row">
+          <div class="lead-field">
+            <label for="alNegocio">Nombre del negocio</label>
+            <input type="text" id="alNegocio" required>
+          </div>
+          <div class="lead-field">
+            <label for="alTipo">A qué se dedica</label>
+            <input type="text" id="alTipo" placeholder="Ej: tienda de mascotas, academia de tiro...">
+          </div>
+          <div class="lead-field">
+            <label for="alContacto">Tu nombre</label>
+            <input type="text" id="alContacto" required>
+          </div>
+          <div class="lead-field">
+            <label for="alEmail">Email</label>
+            <input type="email" id="alEmail" required>
+          </div>
+          <div class="lead-field full">
+            <label for="alTelefono">WhatsApp (opcional)</label>
+            <input type="tel" id="alTelefono">
+          </div>
+          <div class="lead-field full">
+            <label for="alMensaje">Contanos de tu negocio y qué te gustaría diferente</label>
+            <textarea id="alMensaje" placeholder="Ej: Vendemos y hospedamos perros, hoy coordinamos las reservas a mano por WhatsApp y se nos pierden mensajes..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="lead-submit" id="alSubmitBtn">Enviar</button>
+        <div class="lead-msg" id="alMsg"></div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>AutomatIA · Costa Rica · Tecnología oficial de WhatsApp Business API</p>
+  </footer>
+
+</div>
+<script>
+const LEADS_API = 'https://autocita-production.up.railway.app';
+async function enviarAutoLead(event) {
+  event.preventDefault();
+  const btn = document.getElementById('alSubmitBtn');
+  const msgEl = document.getElementById('alMsg');
+  const nombre_negocio = document.getElementById('alNegocio').value.trim();
+  const tipo_negocio = document.getElementById('alTipo').value.trim();
+  const nombre_contacto = document.getElementById('alContacto').value.trim();
+  const email = document.getElementById('alEmail').value.trim();
+  const telefono = document.getElementById('alTelefono').value.trim();
+  const mensaje = document.getElementById('alMensaje').value.trim();
+  msgEl.classList.remove('show', 'ok', 'err');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+  try {
+    const resp = await fetch(`${LEADS_API}/leads`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nombre_negocio, tipo_negocio, nombre_contacto, email, telefono, mensaje }),
+    });
+    const data = await resp.json();
+    if (!resp.ok) throw new Error(data.error || 'Error');
+    msgEl.textContent = '¡Listo! Recibimos tus datos, te contactamos pronto.';
+    msgEl.classList.add('show', 'ok');
+    document.getElementById('autoLeadForm').reset();
+  } catch (e) {
+    msgEl.textContent = 'Hubo un problema. Probá de nuevo o escribinos por WhatsApp.';
+    msgEl.classList.add('show', 'err');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Enviar';
+  }
+  return false;
+}
+</script>
+</body>
+</html>
