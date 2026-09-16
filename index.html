@@ -133,6 +133,23 @@
       display: none; background: none; border: none;
       cursor: pointer; color: var(--text); padding: .4rem;
     }
+    .product-switch {
+      display: flex; align-items: center; gap: 2px;
+      background: var(--green-light); border-radius: 100px;
+      padding: 3px; flex-shrink: 0;
+    }
+    .product-switch a {
+      font-size: .78rem; font-weight: 500;
+      color: var(--text-mid); text-decoration: none;
+      padding: .42rem .9rem; border-radius: 100px;
+      white-space: nowrap;
+      transition: background .15s, color .15s;
+    }
+    .product-switch a.active { background: var(--green); color: #fff; }
+    .product-switch a:not(.active):hover { color: var(--green); background: rgba(255,255,255,.6); }
+    @media(max-width: 480px) {
+      .product-switch a { padding: .38rem .6rem; font-size: .7rem; }
+    }
     .mobile-menu {
       display: none; position: fixed;
       inset: 60px 0 0 0; background: var(--white);
@@ -525,10 +542,15 @@
 </a>
 <nav>
   <a href="#" class="logo">Automat<em>IA</em></a>
+  <div class="product-switch">
+    <a href="#" class="active">Sara</a>
+    <a href="lucia.html" target="_blank">Lucía 🔥</a>
+  </div>
   <ul class="nav-links">
     <li><a href="#sara" data-i18n="nav.sara">¿Qué es Sara?</a></li>
     <li><a href="#como-funciona" data-i18n="nav.how">Cómo funciona</a></li>
     <li><a href="#planes" data-i18n="nav.plans">Planes</a></li>
+    <li><a href="automatizaciones.html" target="_blank" data-i18n="nav.automatizaciones">Automatizaciones</a></li>
     <li><a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="nav-cta" data-i18n="nav.cta">Probar gratis</a></li>
   </ul>
   <button class="nav-btn" id="menu-btn" aria-label="Menú" aria-expanded="false">
@@ -537,8 +559,10 @@
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="#sara" data-i18n="nav.sara" onclick="closeMenu()">¿Qué es Sara?</a>
+  <a href="lucia.html" target="_blank" onclick="closeMenu()">Lucía 🔥</a>
   <a href="#como-funciona" data-i18n="nav.how" onclick="closeMenu()">Cómo funciona</a>
   <a href="#planes" data-i18n="nav.plans" onclick="closeMenu()">Planes</a>
+  <a href="automatizaciones.html" target="_blank" data-i18n="nav.automatizaciones" onclick="closeMenu()">Automatizaciones</a>
   <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="m-cta" onclick="closeMenu()">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
     <span data-i18n="nav.cta">Probar gratis</span>
@@ -590,6 +614,17 @@
     </div>
   </div>
 </section>
+<!-- Lucía teaser -->
+<div id="lucia" style="max-width:900px;margin:0 auto;padding:0 1.5rem 2rem;scroll-margin-top:90px">
+  <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;justify-content:space-between;background:linear-gradient(135deg,var(--green-light),#fff);border:1px solid var(--green-mid);border-radius:16px;padding:1.6rem 1.8rem">
+    <div style="flex:1;min-width:240px">
+      <span style="font-size:.72rem;font-weight:700;letter-spacing:.03em;background:var(--green);color:#fff;padding:.25rem .65rem;border-radius:999px;white-space:nowrap;display:inline-block;margin-bottom:.6rem" data-i18n="lucia.badge">🔥 En construcción — ya casi</span>
+      <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:1.4rem;color:var(--text);margin-bottom:.4rem" data-i18n="lucia.title">Y viene <em style="font-style:italic;color:var(--green)">Lucía.</em></h3>
+      <p style="font-size:.92rem;color:var(--text-mid);line-height:1.7;max-width:480px" data-i18n="lucia.teaser">La misma tecnología que atiende pacientes 24/7 en AutoCita, ahora vendiendo por vos: catálogo, seguimiento de pedidos y cero clientes perdidos por WhatsApp. Todavía no está lista — pero ya podés reservar tu lugar.</p>
+    </div>
+    <a href="lucia.html" target="_blank" style="flex-shrink:0;background:var(--green);color:#fff;text-decoration:none;font-weight:500;font-size:.9rem;padding:.85rem 1.6rem;border-radius:100px;white-space:nowrap" data-i18n="lucia.cta">Conocé a Lucía →</a>
+  </div>
+</div>
 <!-- Before / After -->
 <section class="section section-sm" style="padding-top:0">
   <div class="section-label" data-i18n="ba.label">La diferencia</div>
@@ -844,7 +879,7 @@
 <script>
 const translations = {
   es: {
-    'nav.sara': '¿Qué es Sara?', 'nav.how': 'Cómo funciona', 'nav.plans': 'Planes', 'nav.cta': 'Probar gratis',
+    'nav.sara': '¿Qué es Sara?', 'nav.lucia': 'Lucía', 'nav.how': 'Cómo funciona', 'nav.plans': 'Planes', 'nav.automatizaciones': 'Automatizaciones', 'nav.cta': 'Probar gratis',
     'hero.label': 'AutoCita by AutomatIA · Costa Rica',
     'hero.title': 'La primera vez que un paciente le escriba a las 11pm y usted ya esté dormido — y la cita igual quede agendada — va a querer haberlo tenido antes.',
     'hero.sub': 'Su negocio agenda solo. Usted descansa.',
@@ -852,6 +887,9 @@ const translations = {
     'stats.s1': 'Siempre disponible', 'stats.s2': 'Citas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Para agendar', 'stats.s5': 'Para estar listo',
     'sara.label': 'Tu recepcionista con IA', 'sara.title': 'Hola, soy Sara.',
     'sara.desc': 'Atiendo a tus pacientes por WhatsApp las 24 horas. Agendo y confirmo citas — en el idioma de cada uno. Mientras dormís, tu agenda se llena sola.',
+    'lucia.badge': '🔥 En construcción — ya casi', 'lucia.title': 'Y viene Lucía.',
+    'lucia.teaser': 'La misma tecnología que atiende pacientes 24/7 en AutoCita, ahora vendiendo por vos: catálogo, seguimiento de pedidos y cero clientes perdidos por WhatsApp. Todavía no está lista — pero ya podés reservar tu lugar.',
+    'lucia.cta': 'Conocé a Lucía →',
     'ba.label': 'La diferencia', 'ba.title': 'Antes y después de AutoCita.',
     'ba.before': 'Antes', 'ba.after': 'Después',
     'ba.b1': 'Contestando WhatsApp en la cena', 'ba.b2': 'Citas perdidas por no ver el mensaje', 'ba.b3': 'Lunes sin saber si hay agenda', 'ba.b4': 'Vacaciones con el teléfono en la mano', 'ba.b5': 'Una recepcionista que cuesta $1,500 al mes',
@@ -897,7 +935,7 @@ const translations = {
     'cta.title': 'Su negocio agenda solo.\nUsted descansa.', 'cta.sub': 'Escríbanos. En 24 horas Sara está lista.', 'cta.btn': 'Hablar con Sara ahora',
   },
   en: {
-    'nav.sara': 'What is Sara?', 'nav.how': 'How it works', 'nav.plans': 'Plans', 'nav.cta': 'Try for free',
+    'nav.sara': 'What is Sara?', 'nav.lucia': 'Lucía', 'nav.how': 'How it works', 'nav.plans': 'Plans', 'nav.automatizaciones': 'Automations', 'nav.cta': 'Try for free',
     'hero.label': 'AutoCita by AutomatIA',
     'hero.title': 'The first time a patient messages you at 11pm and you\'re already asleep — and the appointment still gets booked — you\'ll wish you had this sooner.',
     'hero.sub': 'Your business books itself. You rest.',
@@ -905,6 +943,9 @@ const translations = {
     'stats.s1': 'Always available', 'stats.s2': 'Missed appointments', 'stats.s3': 'Languages', 'stats.s4': 'To book', 'stats.s5': 'To go live',
     'sara.label': 'Your AI receptionist', 'sara.title': 'Hi, I\'m Sara.',
     'sara.desc': 'I handle your patients on WhatsApp 24 hours a day. I book and confirm appointments — in each patient\'s language. While you sleep, your schedule fills itself.',
+    'lucia.badge': '🔥 In the works — almost there', 'lucia.title': 'And Lucía is coming.',
+    'lucia.teaser': "The same tech that handles patients 24/7 on AutoCita, now selling for you: catalog, order tracking, zero customers lost on WhatsApp. Not ready yet — but you can already save your spot.",
+    'lucia.cta': 'Meet Lucía →',
     'ba.label': 'The difference', 'ba.title': 'Before and after AutoCita.',
     'ba.before': 'Before', 'ba.after': 'After',
     'ba.b1': 'Answering WhatsApp during dinner', 'ba.b2': 'Missed appointments from unseen messages', 'ba.b3': 'Monday without knowing your schedule', 'ba.b4': 'Vacations with your phone in hand', 'ba.b5': 'A receptionist costing $1,500/month',
@@ -950,7 +991,7 @@ const translations = {
     'cta.title': 'Your business books itself.\nYou rest.', 'cta.sub': 'Contact us. Sara will be ready in 24 hours.', 'cta.btn': 'Talk to Sara now',
   },
   pt: {
-    'nav.sara': 'O que é Sara?', 'nav.how': 'Como funciona', 'nav.plans': 'Planos', 'nav.cta': 'Testar grátis',
+    'nav.sara': 'O que é Sara?', 'nav.lucia': 'Lucía', 'nav.how': 'Como funciona', 'nav.plans': 'Planos', 'nav.automatizaciones': 'Automações', 'nav.cta': 'Testar grátis',
     'hero.label': 'AutoCita by AutomatIA',
     'hero.title': 'Na primeira vez que um paciente lhe escrever às 23h e você já estiver dormindo — e a consulta ainda assim ficar agendada — você vai querer ter tido isso antes.',
     'hero.sub': 'Seu negócio agenda sozinho. Você descansa.',
@@ -958,6 +999,9 @@ const translations = {
     'stats.s1': 'Sempre disponível', 'stats.s2': 'Consultas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Para agendar', 'stats.s5': 'Para estar pronto',
     'sara.label': 'Sua recepcionista com IA', 'sara.title': 'Olá, sou Sara.',
     'sara.desc': 'Atendo seus pacientes pelo WhatsApp 24 horas por dia. Agendo e confirmo consultas — no idioma de cada um. Enquanto você dorme, sua agenda se preenche sozinha.',
+    'lucia.badge': '🔥 Em construção — já quase', 'lucia.title': 'E vem aí a Lucía.',
+    'lucia.teaser': 'A mesma tecnologia que atende pacientes 24/7 no AutoCita, agora vendendo por você: catálogo, rastreamento de pedidos e zero clientes perdidos no WhatsApp. Ainda não está pronta — mas você já pode reservar seu lugar.',
+    'lucia.cta': 'Conhecer a Lucía →',
     'ba.label': 'A diferença', 'ba.title': 'Antes e depois do AutoCita.',
     'ba.before': 'Antes', 'ba.after': 'Depois',
     'ba.b1': 'Respondendo WhatsApp no jantar', 'ba.b2': 'Consultas perdidas por não ver a mensagem', 'ba.b3': 'Segunda-feira sem saber a agenda', 'ba.b4': 'Férias com o celular na mão', 'ba.b5': 'Uma recepcionista custando $1.500/mês',
