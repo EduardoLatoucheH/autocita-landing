@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad — AutoCita</title>
+    <title>Política de Privacidad — AutomatIA</title>
+    <meta name="description" content="Política de privacidad de AutomatIA (AutoCita y AutoVentas), operado por 3102964957 S.R.L. en Costa Rica.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -27,6 +28,7 @@
         h1 { font-size: 28px; color: var(--primary-dark); margin: 24px 0 8px; }
         .updated { color: var(--gray-500); font-size: 13px; margin-bottom: 32px; }
         h2 { font-size: 18px; color: var(--primary); margin: 32px 0 10px; }
+        h3 { font-size: 15px; color: var(--gray-900); margin: 18px 0 6px; }
         p, li { color: var(--gray-700); font-size: 15px; margin-bottom: 10px; }
         ul { padding-left: 20px; margin-bottom: 10px; }
         a { color: var(--primary); }
@@ -39,46 +41,63 @@
 </head>
 <body>
 <div class="wrap">
-    <a href="/" class="back">&larr; Volver a AutoCita</a>
+    <a href="/" class="back">&larr; Volver a AutomatIA</a>
     <h1>Política de Privacidad</h1>
-    <div class="updated">Última actualización: julio 2026</div>
+    <div class="updated">Última actualización: septiembre 2026</div>
 
     <h2>1. Quiénes somos</h2>
-    <p>AutoCita es un servicio operado por <strong>3102964957 S.R.L.</strong>, sociedad constituida en Costa Rica, bajo la marca comercial <strong>AutoCita / AutomatIA</strong>. Para consultas sobre privacidad, escribinos a <strong>privacidad@automatiaai.com</strong>.</p>
+    <p>AutomatIA es un servicio operado por <strong>3102964957 S.R.L.</strong>, sociedad constituida en Costa Rica, bajo las marcas comerciales <strong>AutomatIA</strong>, <strong>AutoCita</strong> y <strong>AutoVentas</strong>. Para consultas sobre privacidad, escribinos a <strong>privacidad@automatiaai.com</strong>.</p>
+    <p>Esta política aplica a los dos productos: <strong>AutoCita</strong> (agenda de citas para clínicas y consultorios) y <strong>AutoVentas</strong> (asistente de ventas por WhatsApp para negocios).</p>
 
     <h2>2. Qué datos recopilamos</h2>
+
+    <h3>En los dos productos</h3>
     <ul>
         <li><strong>Datos de identificación:</strong> nombre, teléfono, cédula, correo electrónico.</li>
+        <li><strong>Datos de conversación:</strong> mensajes de WhatsApp intercambiados con nuestros asistentes.</li>
+    </ul>
+
+    <h3>Solo en AutoCita</h3>
+    <ul>
         <li><strong>Datos de la cita:</strong> fecha, hora, doctor asignado, tipo de consulta, estado.</li>
         <li><strong>Datos de salud (expediente):</strong> notas clínicas y medicamentos recetados que el personal médico de la clínica decide registrar.</li>
-        <li><strong>Datos de conversación:</strong> mensajes de WhatsApp con nuestro asistente para agendar, confirmar o cancelar citas.</li>
+    </ul>
+
+    <h3>Solo en AutoVentas</h3>
+    <ul>
+        <li><strong>Datos del pedido:</strong> productos consultados, pedidos realizados, cantidades, estado del pedido.</li>
+        <li><strong>Datos de entrega:</strong> la información que el cliente proporciona para recibir su pedido, cuando aplica.</li>
     </ul>
 
     <h2>3. Cómo recopilamos los datos</h2>
-    <p>Directamente del paciente vía WhatsApp, directamente del personal de la clínica a través del panel de administración, y a través de la infraestructura oficial de Meta (WhatsApp Business Platform).</p>
+    <p>Directamente de la persona vía WhatsApp, directamente del personal de la clínica o del negocio a través del panel de administración, y a través de la infraestructura oficial de Meta (WhatsApp Business Platform).</p>
 
     <h2>4. Para qué usamos los datos</h2>
-    <p>Agendar, confirmar, reprogramar y cancelar citas; enviar recordatorios; mantener el expediente clínico a solicitud de la clínica; generar reportes internos de uso. No usamos estos datos para publicidad ni los vendemos a terceros.</p>
+    <p>En AutoCita: agendar, confirmar, reprogramar y cancelar citas; enviar recordatorios; mantener el expediente clínico a solicitud de la clínica.</p>
+    <p>En AutoVentas: responder consultas sobre productos, tomar y dar seguimiento a pedidos, y coordinar la entrega.</p>
+    <p>En los dos casos, además, generamos reportes internos de uso. No usamos estos datos para publicidad ni los vendemos a terceros.</p>
 
     <h2>5. Con quién compartimos los datos</h2>
     <ul>
         <li><strong>Meta / WhatsApp Business Platform:</strong> procesa los mensajes de WhatsApp.</li>
         <li><strong>Supabase:</strong> aloja la información de forma cifrada.</li>
-        <li><strong>Make.com:</strong> enruta los mensajes, sin almacenarlos de forma permanente.</li>
+        <li><strong>n8n:</strong> enruta los mensajes entre WhatsApp y nuestra plataforma, sin almacenarlos de forma permanente.</li>
+        <li><strong>OpenAI:</strong> procesa el texto de las conversaciones para que el asistente pueda responder, y transcribe las notas de voz cuando la persona envía un audio.</li>
+        <li><strong>Railway:</strong> aloja la infraestructura donde corren nuestros servicios.</li>
     </ul>
     <p>No compartimos datos con terceros para fines comerciales o publicitarios.</p>
 
     <h2>6. Dónde se almacenan los datos</h2>
-    <p>En la infraestructura de nuestros proveedores (Supabase, Railway).</p>
+    <p>En la infraestructura de los proveedores indicados en el punto anterior, principalmente Supabase y Railway.</p>
 
     <h2>7. Cuánto tiempo conservamos los datos</h2>
-    <p>Conservamos los datos mientras la clínica mantenga una cuenta activa en la plataforma. Si se solicita la eliminación de una cuenta o de datos específicos, los eliminamos en un plazo razonable, salvo obligación legal de conservación de expedientes clínicos que indique lo contrario.</p>
+    <p>Conservamos los datos mientras la clínica o el negocio mantenga una cuenta activa en la plataforma. Si se solicita la eliminación de una cuenta o de datos específicos, los eliminamos en un plazo razonable, salvo obligación legal de conservación de expedientes clínicos o de registros contables que indique lo contrario.</p>
 
     <h2>8. Derechos del titular de los datos</h2>
     <p>De acuerdo con la Ley N.° 8968 de Protección de la Persona frente al Tratamiento de sus Datos Personales, podés solicitar acceso, rectificación, eliminación u oposición al tratamiento de tus datos, escribiendo a <strong>privacidad@automatiaai.com</strong>. Para pedir la eliminación de tus datos, seguí el procedimiento detallado en nuestra <a href="/eliminacion-datos.html">página de eliminación de datos</a>.</p>
 
     <h2>9. Seguridad</h2>
-    <p>Implementamos medidas técnicas razonables (cifrado en tránsito, control de acceso por clínica) para proteger los datos. Ante cualquier incidente de seguridad relevante, notificaremos a las clínicas afectadas.</p>
+    <p>Implementamos medidas técnicas razonables (cifrado en tránsito, control de acceso por clínica o negocio) para proteger los datos. Ante cualquier incidente de seguridad relevante, notificaremos a los clientes afectados.</p>
 
     <div class="contact">
         <p><strong>3102964957 S.R.L.</strong><br>
