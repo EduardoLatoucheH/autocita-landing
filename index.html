@@ -720,6 +720,7 @@
         <li data-i18n="plans.p1.f3">Confirmaciones de citas</li>
         <li data-i18n="plans.p1.f4">Lista de espera automática</li>
         <li data-i18n="plans.p1.f5">Panel de gestión incluido</li>
+        <li data-i18n="plans.p1.f7">Expediente del paciente — con notas de voz transcritas por IA</li>
         <li data-i18n="plans.p1.f6">Hasta 750 mensajes de WhatsApp al mes por doctor</li>
       </ul>
       <div class="plan-addon" data-i18n="plans.addon1">+ <strong>$9/mes</strong>: Facturación electrónica (Hacienda CR)</div>
@@ -734,7 +735,7 @@
       <ul class="plan-list">
         <li data-i18n="plans.p2.f1">Hasta 5 profesionales</li>
         <li data-i18n="plans.p2.f2">Todo lo del plan Starter</li>
-        <li data-i18n="plans.p2.f3">Expediente del paciente — con notas de voz transcritas por IA</li>
+        <li data-i18n="plans.p2.f3">Reportes por profesional y por sede</li>
         <li data-i18n="plans.p2.f4">Hasta 3,750 mensajes de WhatsApp al mes</li>
         <li data-i18n="plans.p2.f5">Soporte prioritario</li>
       </ul>
@@ -792,6 +793,7 @@
       <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise%20Plus" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
     </div>
   </div>
+  <p class="plans-nota" data-i18n="plans.ivaNota"><strong>Todos los precios están en dólares y no incluyen IVA.</strong></p>
   <p class="plans-nota" data-i18n="plans.mensajesNota">Los mensajes incluidos cubren el uso típico de agendamiento, confirmaciones y recordatorios.</p>
   <p class="plans-nota" data-i18n="plans.mensajesExcedente">¿Necesita más? Cada 1,000 mensajes adicionales cuestan entre $3 y $7, según la tarifa vigente de WhatsApp.</p>
   <p class="plans-nota" data-i18n="plans.facturacionNota">El add-on de facturación electrónica se integra con Hacienda de Costa Rica y solo está disponible para clínicas en Costa Rica. Para otros países, contáctenos para revisar las opciones locales.</p>
@@ -905,9 +907,10 @@ const translations = {
     'plans.label': 'Planes', 'plans.title': 'Encuentre su plan.', 'plans.sub': 'Sin permanencia. Sin tarjeta para empezar.', 'plans.popular': 'Más popular', 'plans.cta': 'Consultar precio →',
     'plans.launch': '🚀 Precio de lanzamiento', 'plans.porProfesional': 'Precio por profesional', 'plans.pordr': '/doctor/mes', 'plans.permes': '/mes', 'plans.ctaEmpezar': 'Empezar ahora →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profesionales independientes y consultorios pequeños.', 'plans.p1.antes': 'Antes $79/mes',
-    'plans.p1.f1': '1 recepción incluida sin costo', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmaciones de citas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Panel de gestión incluido', 'plans.p1.f6': 'Hasta 750 mensajes de WhatsApp al mes por doctor',
+    'plans.p1.f1': '1 recepción incluida sin costo', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmaciones de citas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Panel de gestión incluido', 'plans.p1.f7': 'Expediente del paciente — con notas de voz transcritas por IA', 'plans.p1.f6': 'Hasta 750 mensajes de WhatsApp al mes por doctor',
+    'plans.ivaNota': '<strong>Todos los precios están en dólares y no incluyen IVA.</strong>',
     'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas con varios profesionales y seguimiento al paciente.', 'plans.p2.antes': 'Antes $189/mes',
-    'plans.p2.f1': 'Hasta 5 profesionales', 'plans.p2.f2': 'Todo lo del plan Starter', 'plans.p2.f3': 'Expediente del paciente — con notas de voz transcritas por IA', 'plans.p2.f4': 'Hasta 3,750 mensajes de WhatsApp al mes', 'plans.p2.f5': 'Soporte prioritario',
+    'plans.p2.f1': 'Hasta 5 profesionales', 'plans.p2.f2': 'Todo lo del plan Starter', 'plans.p2.f3': 'Reportes por profesional y por sede', 'plans.p2.f4': 'Hasta 3,750 mensajes de WhatsApp al mes', 'plans.p2.f5': 'Soporte prioritario',
     'plans.p3.name': 'Clínica Plus', 'plans.p3.desc': 'Para clínicas en crecimiento con más de una sede.',
     'plans.p3.f1': 'Hasta 8 profesionales', 'plans.p3.f2': 'Hasta 1 sede', 'plans.p3.f3': 'Todo lo del plan Clínica', 'plans.p3.f4': 'Reportes consolidados', 'plans.p3.f5': 'Hasta 6,000 mensajes de WhatsApp al mes',
     'plans.p4.desc': 'Para clínicas grandes con una sola sede.',
@@ -961,9 +964,10 @@ const translations = {
     'plans.label': 'Plans', 'plans.title': 'Find your plan.', 'plans.sub': 'No commitment. No card to start.', 'plans.popular': 'Most popular', 'plans.cta': 'Get pricing →',
     'plans.launch': '🚀 Launch price', 'plans.porProfesional': 'Priced per professional', 'plans.pordr': '/doctor/mo', 'plans.permes': '/mo', 'plans.ctaEmpezar': 'Get started →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'For independent professionals and small offices.', 'plans.p1.antes': 'Was $79/mo',
-    'plans.p1.f1': '1 reception seat included free', 'plans.p1.f2': 'Sara books 24/7', 'plans.p1.f3': 'Appointment confirmations', 'plans.p1.f4': 'Automatic waiting list', 'plans.p1.f5': 'Management panel included', 'plans.p1.f6': 'Up to 750 WhatsApp messages a month per doctor',
+    'plans.p1.f1': '1 reception seat included free', 'plans.p1.f2': 'Sara books 24/7', 'plans.p1.f3': 'Appointment confirmations', 'plans.p1.f4': 'Automatic waiting list', 'plans.p1.f5': 'Management panel included', 'plans.p1.f7': 'Patient records — with AI-transcribed voice notes', 'plans.p1.f6': 'Up to 750 WhatsApp messages a month per doctor',
+    'plans.ivaNota': '<strong>All prices are in US dollars and do not include VAT.</strong>',
     'plans.p2.name': 'Clinic', 'plans.p2.desc': 'For clinics with multiple professionals and patient follow-up.', 'plans.p2.antes': 'Was $189/mo',
-    'plans.p2.f1': 'Up to 5 professionals', 'plans.p2.f2': 'Everything in Starter', 'plans.p2.f3': 'Patient records — with AI-transcribed voice notes', 'plans.p2.f4': 'Up to 3,750 WhatsApp messages a month', 'plans.p2.f5': 'Priority support',
+    'plans.p2.f1': 'Up to 5 professionals', 'plans.p2.f2': 'Everything in Starter', 'plans.p2.f3': 'Reports by professional and by location', 'plans.p2.f4': 'Up to 3,750 WhatsApp messages a month', 'plans.p2.f5': 'Priority support',
     'plans.p3.name': 'Clinic Plus', 'plans.p3.desc': 'For growing clinics with more than one location.',
     'plans.p3.f1': 'Up to 8 professionals', 'plans.p3.f2': 'Up to 1 location', 'plans.p3.f3': 'Everything in Clinic', 'plans.p3.f4': 'Consolidated reports', 'plans.p3.f5': 'Up to 6,000 WhatsApp messages a month',
     'plans.p4.desc': 'For large clinics with a single location.',
@@ -1017,9 +1021,10 @@ const translations = {
     'plans.label': 'Planos', 'plans.title': 'Encontre seu plano.', 'plans.sub': 'Sem fidelidade. Sem cartão para começar.', 'plans.popular': 'Mais popular', 'plans.cta': 'Consultar preço →',
     'plans.launch': '🚀 Preço de lançamento', 'plans.porProfesional': 'Preço por profissional', 'plans.pordr': '/médico/mês', 'plans.permes': '/mês', 'plans.ctaEmpezar': 'Começar agora →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profissionais independentes.', 'plans.p1.antes': 'Antes $79/mês',
-    'plans.p1.f1': '1 recepção incluída sem custo', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmações de consultas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Painel de gestão incluído', 'plans.p1.f6': 'Até 750 mensagens de WhatsApp por mês por médico',
+    'plans.p1.f1': '1 recepção incluída sem custo', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmações de consultas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Painel de gestão incluído', 'plans.p1.f7': 'Prontuário do paciente — com notas de voz transcritas por IA', 'plans.p1.f6': 'Até 750 mensagens de WhatsApp por mês por médico',
+    'plans.ivaNota': '<strong>Todos os preços estão em dólares e não incluem impostos.</strong>',
     'plans.p2.name': 'Clínica', 'plans.p2.desc': 'Para clínicas com vários profissionais.', 'plans.p2.antes': 'Antes $189/mês',
-    'plans.p2.f1': 'Até 5 profissionais', 'plans.p2.f2': 'Tudo do Starter', 'plans.p2.f3': 'Prontuário do paciente — com notas de voz transcritas por IA', 'plans.p2.f4': 'Até 3.750 mensagens de WhatsApp por mês', 'plans.p2.f5': 'Suporte prioritário',
+    'plans.p2.f1': 'Até 5 profissionais', 'plans.p2.f2': 'Tudo do Starter', 'plans.p2.f3': 'Relatórios por profissional e por unidade', 'plans.p2.f4': 'Até 3.750 mensagens de WhatsApp por mês', 'plans.p2.f5': 'Suporte prioritário',
     'plans.p3.name': 'Clínica Plus', 'plans.p3.desc': 'Para clínicas em crescimento com mais de uma unidade.',
     'plans.p3.f1': 'Até 8 profissionais', 'plans.p3.f2': 'Até 1 unidade', 'plans.p3.f3': 'Tudo da Clínica', 'plans.p3.f4': 'Relatórios consolidados', 'plans.p3.f5': 'Até 6.000 mensagens de WhatsApp por mês',
     'plans.p4.desc': 'Para clínicas grandes com uma única unidade.',
