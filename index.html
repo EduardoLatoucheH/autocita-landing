@@ -62,7 +62,7 @@
       {
         "@type": "Question",
         "name": "¿Mis datos y los de mis pacientes están seguros?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Usamos infraestructura con certificación SOC 2 e ISO 27001. Los datos de cada clínica están completamente aislados. Nadie más puede ver sus pacientes." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. La base de datos está alojada en Supabase, una plataforma auditada con SOC 2 Tipo 2, y cada clínica tiene sus datos aislados: nadie más puede ver sus pacientes." }
       },
       {
         "@type": "Question",
@@ -354,6 +354,16 @@
       line-height: 1.5;
     }
     .plans-nota + .plans-nota { margin-top: .4rem; }
+    /* Selector Clínicas / Negocios sin expediente (27/09/2026): misma grilla,
+       precios $9 menores y sin la viñeta de expediente para barberías, spas,
+       salones y todo negocio que no lleva historial clínico. */
+    .seg-toggle { display: flex; justify-content: center; gap: .4rem; margin: 0 auto 1rem; padding: .3rem; width: fit-content; max-width: 100%; flex-wrap: wrap; border: 1px solid var(--border, #e5e5e5); border-radius: 999px; background: var(--white); }
+    .seg-toggle button { border: 0; background: transparent; padding: .55rem 1.1rem; border-radius: 999px; font: inherit; font-size: .85rem; color: var(--text-mid); cursor: pointer; }
+    .seg-toggle button.activo { background: var(--black); color: #fff; }
+    .seg-nota { text-align: center; font-size: .82rem; color: var(--text-mid); margin: 0 auto 1.5rem; max-width: 560px; }
+    .solo-negocio { display: none; }
+    #planes.seg-negocio .solo-negocio { display: block; }
+    #planes.seg-negocio .solo-clinica { display: none; }
     .plan { background: var(--white); padding: 2rem; }
     .plan.featured { background: var(--black); }
     .plan-tag {
@@ -681,7 +691,7 @@
   <div class="section">
     <div class="section-label" data-i18n="trust.label">Tecnología oficial</div>
     <h2 class="title" data-i18n="trust.title">Todo oficial. <em>Sin intermediarios.</em></h2>
-    <p class="subtitle" data-i18n="trust.sub">No usamos herramientas informales. Cada integración es certificada y segura.</p>
+    <p class="subtitle" data-i18n="trust.sub">No usamos herramientas informales: solo integraciones oficiales y proveedores de primer nivel.</p>
     <div class="trust-grid">
       <div class="trust-card">
         <span class="trust-icon">💬</span>
@@ -693,7 +703,7 @@
         <span class="trust-icon">🔒</span>
         <div class="trust-badge">✓ Datos seguros</div>
         <h3 data-i18n="trust.t2.title">Sus datos protegidos</h3>
-        <p data-i18n="trust.t2.desc">Infraestructura con certificación SOC 2 e ISO 27001. Aislamiento completo entre clínicas. Sus pacientes son solo suyos.</p>
+        <p data-i18n="trust.t2.desc">Base de datos en Supabase, plataforma auditada con SOC 2 Tipo 2. Datos aislados por negocio. Sus clientes y pacientes son solo suyos.</p>
       </div>
       <div class="trust-card">
         <span class="trust-icon">🤖</span>
@@ -709,13 +719,18 @@
   <div class="section-label" data-i18n="plans.label">Planes</div>
   <h2 class="title" data-i18n="plans.title">Encuentre su <em>plan.</em></h2>
   <p class="subtitle" data-i18n="plans.sub">Sin permanencia. Sin tarjeta para empezar. Cambie de plan cuando quiera.</p>
+  <div class="seg-toggle" role="tablist">
+    <button type="button" class="activo" data-seg="clinica" onclick="aplicarSegmento('clinica')" data-i18n="plans.seg.cli">Clínicas y consultorios</button>
+    <button type="button" data-seg="negocio" onclick="aplicarSegmento('negocio')" data-i18n="plans.seg.neg">Barberías, spas y salones</button>
+  </div>
+  <p class="seg-nota solo-negocio" data-i18n="plans.seg.nota">Para negocios que no llevan expediente clínico: mismas funciones de agenda, $9 menos al mes.</p>
   <div class="plans-grid">
     <div class="plan">
       <span class="plan-launch-badge" data-i18n="plans.porProfesional">Precio por profesional</span>
       <div class="plan-name" data-i18n="plans.p1.name">Starter</div>
-      <div class="plan-desc" data-i18n="plans.p1.desc">Para profesionales independientes y consultorios pequeños.</div>
+      <div class="plan-desc" data-i18n="plans.p1.desc" data-i18n-neg="plans.p1.desc_neg">Para profesionales independientes y consultorios pequeños.</div>
       <div class="plan-price-row">
-        <div class="plan-price-ahora">$119<span data-i18n="plans.pordr">/doctor/mes</span> <span style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--text-mid)" data-i18n="plans.masIva">+ IVA</span></div>
+        <div class="plan-price-ahora"><span class="seg-precio" data-cli="$119" data-neg="$110">$119</span><span data-i18n="plans.pordr" data-i18n-neg="plans.pordr_neg">/doctor/mes</span> <span style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--text-mid)" data-i18n="plans.masIva">+ IVA</span></div>
       </div>
       <ul class="plan-list">
         <li data-i18n="plans.p1.f1">1 recepción incluida sin costo</li>
@@ -724,17 +739,17 @@
         <li data-i18n="plans.p1.f4">Lista de espera automática</li>
         <li data-i18n="plans.p1.f5">Panel de gestión incluido</li>
         <li data-i18n="plans.p1.f8">Inbox en vivo: vea cada conversación con Sara y responda usted mismo cuando haga falta</li>
-        <li data-i18n="plans.p1.f7">Expediente del paciente — con notas de voz transcritas por IA</li>
-        <li data-i18n="plans.p1.f6">Hasta 750 mensajes de WhatsApp al mes por doctor</li>
+        <li class="solo-clinica" data-i18n="plans.p1.f7">Expediente del paciente — con notas de voz transcritas por IA</li>
+        <li data-i18n="plans.p1.f6" data-i18n-neg="plans.p1.f6_neg">Hasta 750 mensajes de WhatsApp al mes por doctor</li>
       </ul>
       <div class="plan-addon" data-i18n="plans.addon1">+ <strong>$9/mes</strong>: Facturación electrónica (Hacienda CR)</div>
-      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Starter%20de%20%24119%2Fdoctor%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Starter%20de%20%24119%2Fdoctor%2Fmes" data-href-cli="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Starter%20de%20%24119%2Fdoctor%2Fmes" data-href-neg="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Starter%20para%20negocio%20de%20%24110%2Fprofesional%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
     </div>
     <div class="plan">
-      <div class="plan-name" data-i18n="plans.p2.name">Clínica</div>
-      <div class="plan-desc" data-i18n="plans.p2.desc">Para clínicas con varios profesionales y seguimiento al paciente.</div>
+      <div class="plan-name" data-i18n="plans.p2.name" data-i18n-neg="plans.p2.name_neg">Clínica</div>
+      <div class="plan-desc" data-i18n="plans.p2.desc" data-i18n-neg="plans.p2.desc_neg">Para clínicas con varios profesionales y seguimiento al paciente.</div>
       <div class="plan-price-row">
-        <div class="plan-price-ahora">$339<span data-i18n="plans.permes">/mes</span> <span style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--text-mid)" data-i18n="plans.masIva">+ IVA</span></div>
+        <div class="plan-price-ahora"><span class="seg-precio" data-cli="$339" data-neg="$330">$339</span><span data-i18n="plans.permes">/mes</span> <span style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--text-mid)" data-i18n="plans.masIva">+ IVA</span></div>
       </div>
       <ul class="plan-list">
         <li data-i18n="plans.p2.f1">Hasta 5 profesionales</li>
@@ -744,30 +759,30 @@
         <li data-i18n="plans.p2.f5">Soporte prioritario</li>
       </ul>
       <div class="plan-addon" data-i18n="plans.addon2">+ <strong>$18/mes</strong>: Facturación electrónica (Hacienda CR)</div>
-      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20de%20%24339%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20de%20%24339%2Fmes" data-href-cli="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20de%20%24339%2Fmes" data-href-neg="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Negocio%20de%20%24330%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
     </div>
     <div class="plan featured">
       <div class="plan-tag" data-i18n="plans.popular">Más popular</div>
-      <div class="plan-name" data-i18n="plans.p3.name">Clínica Plus</div>
-      <div class="plan-desc" data-i18n="plans.p3.desc">Para clínicas en crecimiento con más de una sede.</div>
+      <div class="plan-name" data-i18n="plans.p3.name" data-i18n-neg="plans.p3.name_neg">Clínica Plus</div>
+      <div class="plan-desc" data-i18n="plans.p3.desc" data-i18n-neg="plans.p3.desc_neg">Para clínicas en crecimiento con más de una sede.</div>
       <div class="plan-price-row">
-        <div class="plan-price-ahora">$599<span data-i18n="plans.permes">/mes</span> <span style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--text-mid)" data-i18n="plans.masIva">+ IVA</span></div>
+        <div class="plan-price-ahora"><span class="seg-precio" data-cli="$599" data-neg="$590">$599</span><span data-i18n="plans.permes">/mes</span> <span style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--text-mid)" data-i18n="plans.masIva">+ IVA</span></div>
       </div>
       <ul class="plan-list">
         <li data-i18n="plans.p3.f1">Hasta 8 profesionales</li>
         <li data-i18n="plans.p3.f2">Hasta 1 sede</li>
-        <li data-i18n="plans.p3.f3">Todo lo del plan Clínica</li>
+        <li data-i18n="plans.p3.f3" data-i18n-neg="plans.p3.f3_neg">Todo lo del plan Clínica</li>
         <li data-i18n="plans.p3.f4">Reportes consolidados</li>
         <li data-i18n="plans.p3.f5">Hasta 6,000 mensajes de WhatsApp al mes</li>
       </ul>
       <div class="plan-addon" data-i18n="plans.addon3">+ <strong>$24/mes</strong>: Facturación electrónica (Hacienda CR)</div>
-      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20Plus%20de%20%24599%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20Plus%20de%20%24599%2Fmes" data-href-cli="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20Plus%20de%20%24599%2Fmes" data-href-neg="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Negocio%20Plus%20de%20%24590%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
     </div>
     <div class="plan">
       <div class="plan-name">Enterprise</div>
-      <div class="plan-desc" data-i18n="plans.p4.desc">Para clínicas grandes con una sola sede.</div>
+      <div class="plan-desc" data-i18n="plans.p4.desc" data-i18n-neg="plans.p4.desc_neg">Para clínicas grandes con una sola sede.</div>
       <div class="plan-price-row">
-        <div class="plan-price-ahora">$939<span data-i18n="plans.permes">/mes</span> <span style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--text-mid)" data-i18n="plans.masIva">+ IVA</span></div>
+        <div class="plan-price-ahora"><span class="seg-precio" data-cli="$939" data-neg="$930">$939</span><span data-i18n="plans.permes">/mes</span> <span style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--text-mid)" data-i18n="plans.masIva">+ IVA</span></div>
       </div>
       <ul class="plan-list">
         <li data-i18n="plans.p4.f1">Hasta 10 profesionales</li>
@@ -778,13 +793,13 @@
         <li data-i18n="plans.p4.f6">Hasta 12,500 mensajes de WhatsApp al mes</li>
       </ul>
       <div class="plan-addon" data-i18n="plans.addon4">+ <strong>$27/mes</strong>: Facturación electrónica (Hacienda CR)</div>
-      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Enterprise%20de%20%24939%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Enterprise%20de%20%24939%2Fmes" data-href-cli="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Enterprise%20de%20%24939%2Fmes" data-href-neg="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Enterprise%20para%20negocio%20de%20%24930%2Fmes" target="_blank" class="plan-btn" data-i18n="plans.ctaEmpezar">Empezar ahora →</a>
     </div>
     <div class="plan">
       <div class="plan-name" data-i18n="plans.p5.name">Enterprise Plus</div>
-      <div class="plan-desc" data-i18n="plans.p5.desc">Para grupos y operaciones multi-sede.</div>
+      <div class="plan-desc" data-i18n="plans.p5.desc" data-i18n-neg="plans.p5.desc_neg">Para grupos y operaciones multi-sede.</div>
       <div class="plan-price-row">
-        <div class="plan-price-desde" data-i18n="plans.p5.desde">Desde $1,799<span style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-mid)" data-i18n="plans.permes">/mes</span> <span style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--text-mid)" data-i18n="plans.masIva">+ IVA</span></div>
+        <div class="plan-price-desde" data-i18n="plans.p5.desde" data-i18n-neg="plans.p5.desde_neg">Desde $1,799<span style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-mid)" data-i18n="plans.permes">/mes</span> <span style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--text-mid)" data-i18n="plans.masIva">+ IVA</span></div>
       </div>
       <ul class="plan-list">
         <li data-i18n="plans.p5.f1">Hasta 12 profesionales por sede</li>
@@ -794,7 +809,7 @@
         <li data-i18n="plans.p5.f5">¿Necesita más profesionales o más sedes? Consúltenos</li>
       </ul>
       <div class="plan-addon" data-i18n="plans.addon5">+ <strong>$54/mes</strong>: Facturación electrónica (Hacienda CR)</div>
-      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise%20Plus" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
+      <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise%20Plus" data-href-cli="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise%20Plus" data-href-neg="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise%20Plus%20para%20negocio" target="_blank" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
     </div>
   </div>
   <p class="plans-nota" data-i18n="plans.ivaNota"><strong>Todos los precios están en dólares y no incluyen IVA.</strong></p>
@@ -817,7 +832,7 @@
     </div>
     <div class="faq-item">
       <button class="faq-btn" aria-expanded="false"><span data-i18n="faq.q3">¿Mis datos y los de mis pacientes están seguros?</span><span class="faq-icon">+</span></button>
-      <div class="faq-body" data-i18n="faq.a3">Sí. Usamos infraestructura con certificación <strong>SOC 2 e ISO 27001</strong>. Los datos de cada clínica están completamente aislados. Nadie más puede ver sus pacientes.</div>
+      <div class="faq-body" data-i18n="faq.a3">Sí. La base de datos está alojada en <strong>Supabase, plataforma auditada con SOC 2 Tipo 2</strong>, y los datos de cada clínica están aislados. Nadie más puede ver sus pacientes.</div>
     </div>
     <div class="faq-item">
       <button class="faq-btn" aria-expanded="false"><span data-i18n="faq.q4">¿Cuánto tarda en estar listo?</span><span class="faq-icon">+</span></button>
@@ -877,7 +892,7 @@
   <a href="#" class="logo">Automat<em>IA</em></a>
   <div class="footer-badges">
     <span class="badge">✓ WhatsApp Business API oficial</span>
-    <span class="badge">✓ SOC 2 · ISO 27001</span>
+    <span class="badge">✓ Datos aislados por negocio</span>
     <span class="badge">🇨🇷 Costa Rica</span>
   </div>
   <div class="footer-links">
@@ -909,10 +924,11 @@ const translations = {
     'how.s1.title': 'El paciente escribe por WhatsApp', 'how.s1.desc': 'Sin descargar nada. Sin formularios. Sara entiende lenguaje natural.',
     'how.s2.title': 'Sara gestiona todo', 'how.s2.desc': 'Revisa disponibilidad real, confirma la cita, crea el registro.',
     'how.s3.title': 'La cita queda confirmada', 'how.s3.desc': 'El paciente recibe confirmación al instante. La clínica ve todo en su panel.',
-    'trust.label': 'Tecnología oficial', 'trust.title': 'Todo oficial. Sin intermediarios.', 'trust.sub': 'Cada integración es certificada y segura.',
+    'trust.label': 'Tecnología oficial', 'trust.title': 'Todo oficial. Sin intermediarios.', 'trust.sub': 'Solo integraciones oficiales y proveedores de primer nivel.',
     'trust.t1.title': 'Conectado a WhatsApp Business API', 'trust.t1.desc': 'Usamos la infraestructura oficial de Meta para WhatsApp Business. Sin intermediarios ni herramientas informales.',
-    'trust.t2.title': 'Sus datos protegidos', 'trust.t2.desc': 'Infraestructura SOC 2 e ISO 27001. Aislamiento completo entre clínicas.',
+    'trust.t2.title': 'Sus datos protegidos', 'trust.t2.desc': 'Base de datos en Supabase, plataforma auditada con SOC 2 Tipo 2. Datos aislados por negocio.',
     'trust.t3.title': 'No es un bot de menús', 'trust.t3.desc': 'Sara entiende lenguaje natural. El paciente escribe como quiera.',
+    'plans.seg.cli': 'Clínicas y consultorios', 'plans.seg.neg': 'Barberías, spas y salones', 'plans.seg.nota': 'Para negocios que no llevan expediente clínico: mismas funciones de agenda, $9 menos al mes.', 'plans.pordr_neg': '/profesional/mes', 'plans.p1.desc_neg': 'Para barberos, estilistas y profesionales independientes.', 'plans.p1.f6_neg': 'Hasta 750 mensajes de WhatsApp al mes por profesional', 'plans.p2.name_neg': 'Negocio', 'plans.p2.desc_neg': 'Para barberías, spas y salones con varios profesionales.', 'plans.p3.name_neg': 'Negocio Plus', 'plans.p3.desc_neg': 'Para negocios en crecimiento con más profesionales.', 'plans.p3.f3_neg': 'Todo lo del plan Negocio', 'plans.p4.desc_neg': 'Para negocios grandes con una sola sede.', 'plans.p5.desc_neg': 'Para cadenas y franquicias con varias sedes.', 'plans.p5.desde_neg': 'Desde $1,790',
     'plans.label': 'Planes', 'plans.title': 'Encuentre su plan.', 'plans.sub': 'Sin permanencia. Sin tarjeta para empezar.', 'plans.popular': 'Más popular', 'plans.cta': 'Consultar precio →',
     'plans.launch': '🚀 Precio de lanzamiento', 'plans.porProfesional': 'Precio por profesional', 'plans.pordr': '/doctor/mes', 'plans.permes': '/mes', 'plans.ctaEmpezar': 'Empezar ahora →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profesionales independientes y consultorios pequeños.', 'plans.p1.antes': 'Antes $79/mes',
@@ -938,7 +954,7 @@ const translations = {
     'faq.label': 'Preguntas frecuentes', 'faq.title': 'Lo que siempre preguntan.',
     'faq.q1': '¿Necesito instalar algo o cambiar mi número?', 'faq.a1': 'No. No cambia su número y no instala nada. Conectamos su WhatsApp Business durante el proceso de incorporación.',
     'faq.q2': '¿Qué pasa si el paciente escribe a las 11pm?', 'faq.a2': 'Sara responde las 24 horas, los 7 días. Si hay disponibilidad, agenda. Si no, lista de espera.',
-    'faq.q3': '¿Mis datos y los de mis pacientes están seguros?', 'faq.a3': 'Sí. Infraestructura SOC 2 e ISO 27001. Los datos de cada clínica están completamente aislados.',
+    'faq.q3': '¿Mis datos y los de mis pacientes están seguros?', 'faq.a3': 'Sí. Base de datos en Supabase, plataforma auditada con SOC 2 Tipo 2, y los datos de cada clínica están aislados.',
     'faq.q4': '¿Cuánto tarda en estar listo?', 'faq.a4': '24 horas desde que nos contacta.',
     'lead.label': 'Empezá hoy', 'lead.title': 'Registrá tu negocio.', 'lead.sub': 'Dejanos tus datos y te contactamos en menos de 24 horas para dejar todo listo.',
     'lead.negocio': 'Nombre del negocio', 'lead.tipo': 'Tipo de negocio', 'lead.tipoPh': 'Ej: Clínica dental, spa, gimnasio...',
@@ -969,8 +985,9 @@ const translations = {
     'how.s3.title': 'Appointment confirmed', 'how.s3.desc': 'Patient gets instant confirmation. Clinic sees everything in its panel.',
     'trust.label': 'Official technology', 'trust.title': 'All official. No intermediaries.', 'trust.sub': 'Every integration is certified and secure.',
     'trust.t1.title': 'Connected to WhatsApp Business API', 'trust.t1.desc': 'We use Meta\'s official infrastructure for WhatsApp Business. No intermediaries, no informal tools.',
-    'trust.t2.title': 'Your data protected', 'trust.t2.desc': 'SOC 2 and ISO 27001 certified infrastructure. Complete isolation between clinics.',
+    'trust.t2.title': 'Your data protected', 'trust.t2.desc': 'Database hosted on Supabase, a SOC 2 Type 2 audited platform. Data isolated per business.',
     'trust.t3.title': 'Not a menu bot', 'trust.t3.desc': 'Sara understands natural language. Patients write however they want.',
+    'plans.seg.cli': 'Clinics & practices', 'plans.seg.neg': 'Barbershops, spas & salons', 'plans.seg.nota': 'For businesses that don\'t keep clinical records: same scheduling features, $9 less per month.', 'plans.pordr_neg': '/professional/mo', 'plans.p1.desc_neg': 'For barbers, stylists and independent professionals.', 'plans.p1.f6_neg': 'Up to 750 WhatsApp messages a month per professional', 'plans.p2.name_neg': 'Business', 'plans.p2.desc_neg': 'For barbershops, spas and salons with several professionals.', 'plans.p3.name_neg': 'Business Plus', 'plans.p3.desc_neg': 'For growing businesses with more professionals.', 'plans.p3.f3_neg': 'Everything in Business', 'plans.p4.desc_neg': 'For large businesses with a single location.', 'plans.p5.desc_neg': 'For chains and franchises with several locations.', 'plans.p5.desde_neg': 'From $1,790',
     'plans.label': 'Plans', 'plans.title': 'Find your plan.', 'plans.sub': 'No commitment. No card to start.', 'plans.popular': 'Most popular', 'plans.cta': 'Get pricing →',
     'plans.launch': '🚀 Launch price', 'plans.porProfesional': 'Priced per professional', 'plans.pordr': '/doctor/mo', 'plans.permes': '/mo', 'plans.ctaEmpezar': 'Get started →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'For independent professionals and small offices.', 'plans.p1.antes': 'Was $79/mo',
@@ -996,7 +1013,7 @@ const translations = {
     'faq.label': 'FAQ', 'faq.title': 'What people always ask.',
     'faq.q1': 'Do I need to install anything or change my number?', 'faq.a1': 'No. Your number stays the same. We connect your existing WhatsApp Business during onboarding.',
     'faq.q2': 'What if a patient writes at 11pm?', 'faq.a2': 'Sara responds 24/7. If there\'s availability, she books. If not, waiting list.',
-    'faq.q3': 'Is my data and my patients\' data safe?', 'faq.a3': 'Yes. SOC 2 and ISO 27001 infrastructure. Each clinic\'s data is completely isolated.',
+    'faq.q3': 'Is my data and my patients\' data safe?', 'faq.a3': 'Yes. Database hosted on Supabase, a SOC 2 Type 2 audited platform, and each clinic\'s data is isolated.',
     'faq.q4': 'How long does setup take?', 'faq.a4': '24 hours from when you contact us.',
     'lead.label': 'Get started today', 'lead.title': 'Register your business.', 'lead.sub': 'Leave your details and we\'ll contact you within 24 hours to get everything set up.',
     'lead.negocio': 'Business name', 'lead.tipo': 'Business type', 'lead.tipoPh': 'Ex: Dental clinic, spa, gym...',
@@ -1025,10 +1042,11 @@ const translations = {
     'how.s1.title': 'O paciente escreve pelo WhatsApp', 'how.s1.desc': 'Sem baixar nada. Sara entende linguagem natural.',
     'how.s2.title': 'Sara cuida de tudo', 'how.s2.desc': 'Verifica disponibilidade, confirma, cria o registro.',
     'how.s3.title': 'Consulta confirmada', 'how.s3.desc': 'Paciente recebe confirmação na hora. Clínica vê tudo no painel.',
-    'trust.label': 'Tecnologia oficial', 'trust.title': 'Tudo oficial. Sem intermediários.', 'trust.sub': 'Cada integração é certificada e segura.',
+    'trust.label': 'Tecnologia oficial', 'trust.title': 'Tudo oficial. Sem intermediários.', 'trust.sub': 'Só integrações oficiais e fornecedores de primeira linha.',
     'trust.t1.title': 'Conectado à WhatsApp Business API', 'trust.t1.desc': 'Usamos a infraestrutura oficial da Meta para WhatsApp Business. Sem intermediários.',
-    'trust.t2.title': 'Seus dados protegidos', 'trust.t2.desc': 'Infraestrutura SOC 2 e ISO 27001. Isolamento completo entre clínicas.',
+    'trust.t2.title': 'Seus dados protegidos', 'trust.t2.desc': 'Banco de dados no Supabase, plataforma auditada com SOC 2 Tipo 2. Dados isolados por negócio.',
     'trust.t3.title': 'Não é um bot de menus', 'trust.t3.desc': 'Sara entende linguagem natural.',
+    'plans.seg.cli': 'Clínicas e consultórios', 'plans.seg.neg': 'Barbearias, spas e salões', 'plans.seg.nota': 'Para negócios sem prontuário clínico: mesmas funções de agenda, $9 a menos por mês.', 'plans.pordr_neg': '/profissional/mês', 'plans.p1.desc_neg': 'Para barbeiros, cabeleireiros e profissionais independentes.', 'plans.p1.f6_neg': 'Até 750 mensagens de WhatsApp por mês por profissional', 'plans.p2.name_neg': 'Negócio', 'plans.p2.desc_neg': 'Para barbearias, spas e salões com vários profissionais.', 'plans.p3.name_neg': 'Negócio Plus', 'plans.p3.desc_neg': 'Para negócios em crescimento com mais profissionais.', 'plans.p3.f3_neg': 'Tudo do plano Negócio', 'plans.p4.desc_neg': 'Para negócios grandes com uma única unidade.', 'plans.p5.desc_neg': 'Para redes e franquias com várias unidades.', 'plans.p5.desde_neg': 'A partir de $1.790',
     'plans.label': 'Planos', 'plans.title': 'Encontre seu plano.', 'plans.sub': 'Sem fidelidade. Sem cartão para começar.', 'plans.popular': 'Mais popular', 'plans.cta': 'Consultar preço →',
     'plans.launch': '🚀 Preço de lançamento', 'plans.porProfesional': 'Preço por profissional', 'plans.pordr': '/médico/mês', 'plans.permes': '/mês', 'plans.ctaEmpezar': 'Começar agora →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profissionais independentes.', 'plans.p1.antes': 'Antes $79/mês',
@@ -1054,7 +1072,7 @@ const translations = {
     'faq.label': 'Perguntas frequentes', 'faq.title': 'O que sempre perguntam.',
     'faq.q1': 'Preciso instalar algo ou mudar meu número?', 'faq.a1': 'Não. Seu número não muda.',
     'faq.q2': 'E se o paciente escrever às 23h?', 'faq.a2': 'Sara responde 24/7.',
-    'faq.q3': 'Meus dados estão seguros?', 'faq.a3': 'Sim. SOC 2 e ISO 27001. Isolamento completo.',
+    'faq.q3': 'Meus dados estão seguros?', 'faq.a3': 'Sim. Banco de dados no Supabase, plataforma auditada com SOC 2 Tipo 2, com dados isolados por clínica.',
     'faq.q4': 'Quanto tempo leva?', 'faq.a4': '24 horas.',
     'lead.label': 'Comece hoje', 'lead.title': 'Registre seu negócio.', 'lead.sub': 'Deixe seus dados e entramos em contato em menos de 24 horas para deixar tudo pronto.',
     'lead.negocio': 'Nome do negócio', 'lead.tipo': 'Tipo de negócio', 'lead.tipoPh': 'Ex: Clínica odontológica, spa, academia...',
@@ -1089,6 +1107,26 @@ function applyLang(lang) {
   if (lang === 'pt') document.title = 'AutoCita — Seu negócio agenda sozinho.';
 }
 applyLang(getLang());
+// Selector Clínicas / Negocios sin expediente (27/09/2026). En modo negocio
+// cada elemento con data-i18n-neg usa esa otra clave de traducción, los
+// precios toman data-neg, los links de WhatsApp data-href-neg, y lo marcado
+// .solo-clinica (la viñeta de expediente) se oculta. ?tipo=negocio en la URL
+// lo abre directo en ese modo — sirve para anuncios dirigidos a barberías.
+function aplicarSegmento(seg) {
+  const negocio = seg === 'negocio';
+  const sec = document.getElementById('planes');
+  if (!sec) return;
+  sec.classList.toggle('seg-negocio', negocio);
+  sec.querySelectorAll('.seg-toggle button').forEach(b => b.classList.toggle('activo', b.dataset.seg === seg));
+  sec.querySelectorAll('[data-i18n-neg]').forEach(el => {
+    if (!el.dataset.i18nCli) el.dataset.i18nCli = el.getAttribute('data-i18n');
+    el.setAttribute('data-i18n', negocio ? el.dataset.i18nNeg : el.dataset.i18nCli);
+  });
+  sec.querySelectorAll('.seg-precio').forEach(el => { el.textContent = negocio ? el.dataset.neg : el.dataset.cli; });
+  sec.querySelectorAll('[data-href-neg]').forEach(a => { a.href = negocio ? a.dataset.hrefNeg : a.dataset.hrefCli; });
+  applyLang(getLang());
+}
+if (new URLSearchParams(location.search).get('tipo') === 'negocio') aplicarSegmento('negocio');
 // ── Formulario "Registrá tu negocio" ─────────────────────────────
 const LEADS_API = 'https://autocita-production.up.railway.app';
 async function enviarLead(event) {
