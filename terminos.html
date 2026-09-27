@@ -1,254 +1,311 @@
-<!--
-  NOTA PARA EDUARDO (borrar este comentario antes de publicar):
-  Esto NO es asesoría legal — son cláusulas redactadas usando la estructura de
-  los Términos de PuraVentaCR como referencia, adaptadas a lo que realmente
-  hace AutoCita (Sara) y AutoVentas (Lucía). Antes de publicarlas, conviene
-  que las revise un abogado (la misma Maureen con la que ya hablaste de
-  Ley 8968) — sobre todo la parte de datos sensibles de salud en AutoCita,
-  que tiene un estándar de consentimiento más alto que un dato personal común.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Términos y Condiciones — AutomatIA</title>
+<meta name="description" content="Términos y condiciones del servicio de AutomatIA (AutoCita y AutoVentas), operado por 3102964957 S.R.L. en Costa Rica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0d0d0d;
+    --white:#fafaf8;
+    --green:#1a9e6e;
+    --green-light:#e8f5f0;
+    --green-mid:#d0ede3;
+    --text:#1a1a1a;
+    --text-mid:#6b6b6b;
+    --text-light:#b0b0b0;
+    --border:#e8e8e8;
+    --r:10px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;font-size:16px;}
+  body{
+    background:var(--white);
+    color:var(--text);
+    font-family:'DM Sans',sans-serif;
+    font-weight:300;
+    line-height:1.7;
+  }
+  a{color:var(--green);}
+  nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(250,250,248,.96);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
+    padding:0 2.5rem;
+    display:flex;align-items:center;justify-content:space-between;
+    height:60px;
+  }
+  .logo{
+    font-family:'Instrument Serif',serif;
+    font-size:1.2rem;color:var(--text);
+    text-decoration:none;letter-spacing:-.01em;
+  }
+  .logo em{color:var(--green);font-style:italic;}
+  .nav-back{
+    font-size:.85rem;font-weight:400;color:var(--text-mid);
+    text-decoration:none;padding:.45rem .85rem;border-radius:8px;
+    transition:background .15s,color .15s;
+  }
+  .nav-back:hover{background:var(--green-light);color:var(--green);}
+  .wrap{max-width:740px;margin:0 auto;padding:4rem 2.5rem 6rem;}
+  .doc-label{
+    font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--text-light);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;
+  }
+  .doc-label::before{content:'';width:16px;height:1px;background:var(--text-light);flex-shrink:0;}
+  h1{
+    font-family:'Instrument Serif',serif;font-weight:400;
+    font-size:clamp(2rem,5vw,2.8rem);letter-spacing:-.02em;line-height:1.15;
+    color:var(--text);margin-bottom:1rem;
+  }
+  h1 em{font-style:italic;color:var(--green);}
+  .updated{
+    display:inline-block;font-size:.78rem;color:var(--text-mid);
+    background:var(--green-light);padding:.3rem .8rem;border-radius:100px;
+    margin-bottom:2.5rem;
+  }
+  .intro{font-size:.95rem;color:var(--text-mid);max-width:560px;margin-bottom:2.5rem;font-weight:300;}
+  .toc{
+    border:1px solid var(--border);border-radius:var(--r);
+    padding:1.5rem 1.75rem;margin-bottom:3rem;background:#fff;
+  }
+  .toc-title{
+    font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--text-light);margin-bottom:1rem;
+  }
+  .toc ol{list-style:none;columns:2;column-gap:1.5rem;}
+  @media(max-width:560px){.toc ol{columns:1;}}
+  .toc li{margin-bottom:.55rem;break-inside:avoid;}
+  .toc a{font-size:.85rem;color:var(--text);text-decoration:none;font-weight:400;}
+  .toc a:hover{color:var(--green);}
+  .toc a span{color:var(--green-mid);font-family:'Instrument Serif',serif;margin-right:.4rem;}
+  section.clause{padding:2.25rem 0;border-top:1px solid var(--border);scroll-margin-top:80px;}
+  section.clause:first-of-type{border-top:none;padding-top:0;}
+  h2{
+    font-family:'Instrument Serif',serif;font-weight:400;
+    font-size:1.4rem;letter-spacing:-.01em;color:var(--text);
+    margin-bottom:1rem;display:flex;align-items:baseline;gap:.6rem;
+  }
+  h2 .num{
+    font-size:1.4rem;color:var(--green-mid);flex-shrink:0;
+  }
+  h3.sub{
+    font-family:'DM Sans',sans-serif;font-weight:600;font-size:.92rem;
+    color:var(--text);margin:1.5rem 0 .5rem;
+  }
+  h3.sub em{font-style:italic;color:var(--green);font-family:'Instrument Serif',serif;font-weight:400;font-size:1.05rem;}
+  p,li{color:var(--text-mid);font-size:.92rem;margin-bottom:.85rem;font-weight:300;}
+  strong{color:var(--text);font-weight:500;}
+  ul{padding-left:1.2rem;margin-bottom:.85rem;}
+  .note{
+    background:var(--green-light);border-radius:var(--r);
+    padding:1rem 1.25rem;margin:1rem 0;font-size:.85rem;color:var(--text-mid);
+  }
+  .note strong{color:var(--text);}
+  .contact{
+    background:var(--black);border-radius:var(--r);
+    padding:1.75rem 2rem;margin-top:2.5rem;color:var(--white);
+  }
+  .contact p{color:#bbb;margin:0 0 .5rem;font-size:.88rem;}
+  .contact p:last-child{margin-bottom:0;}
+  .contact strong{color:#fff;}
+  .contact a{color:var(--green-mid);}
+  footer{
+    border-top:1px solid var(--border);
+    padding:1.75rem 2.5rem;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+  }
+  .footer-links{display:flex;gap:1.25rem;flex-wrap:wrap;}
+  .footer-links a{font-size:.78rem;color:var(--text-mid);text-decoration:none;}
+  .footer-links a:hover{color:var(--green);}
+  .footer-copy{font-size:.75rem;color:var(--text-light);}
+  @media(max-width:768px){
+    nav{padding:0 1.25rem;}
+    .wrap{padding:2.5rem 1.25rem 4rem;}
+    footer{flex-direction:column;align-items:flex-start;padding:1.5rem 1.25rem;}
+  }
+</style>
+</head>
+<body>
 
-  Están pensadas para pegarse dentro de terminos.html, donde ya tengas la
-  numeración de cláusulas de AutoCita/AutoVentas — ajustá los números de
-  cláusula y los cruces ("conforme a la cláusula X") a como quede en tu
-  documento final.
+<nav>
+  <a href="/" class="logo">Automat<em>IA</em></a>
+  <a href="/" class="nav-back">&larr; Volver al inicio</a>
+</nav>
 
-  Ya completé con tus datos: OpenAI como proveedor de IA, Supabase +
-  Railway como infraestructura, Resend para correo, soporte@automatiaai.com
-  como contacto, USD como moneda, y la política de excedente de mensajes
-  que me diste (se cobra en el siguiente ciclo; si se cancela antes, se
-  cobra aparte al cancelar). La pasarela de pago quedó en un texto genérico
-  ("el medio de pago que el proveedor tenga habilitado") porque todavía no
-  la definiste — cuando la elijas, podés nombrarla ahí directo si querés
-  ser más específico, no es obligatorio.
+<div class="wrap">
+  <div class="doc-label">Documento legal</div>
+  <h1>Términos y <em>Condiciones</em></h1>
+  <div class="updated">Última actualización: septiembre 2026</div>
+  <p class="intro">Estas condiciones aplican al uso de AutoCita, AutoVentas y las automatizaciones a la medida ofrecidas por AutomatIA. Al contratar o usar el servicio, aceptás lo indicado en este documento.</p>
 
-  La etiqueta "[SOLO AUTOCITA]" en el bloque de datos sensibles de salud
-  NO es un dato para rellenar — es un recordatorio de que ese párrafo va
-  solo en los términos de AutoCita, no en los de AutoVentas. Borrá la
-  etiqueta (dejando el párrafo) al pegarlo en el de AutoCita, y no lo
-  copies al de AutoVentas.
--->
+  <div class="toc">
+    <div class="toc-title">Índice</div>
+    <ol>
+      <li><a href="#c1"><span>01</span>Quiénes somos</a></li>
+      <li><a href="#c2"><span>02</span>Qué ofrecemos</a></li>
+      <li><a href="#c3"><span>03</span>Quién puede usar el servicio</a></li>
+      <li><a href="#c4"><span>04</span>Tu cuenta</a></li>
+      <li><a href="#c5"><span>05</span>Asistente de Inteligencia Artificial</a></li>
+      <li><a href="#c6"><span>06</span>Uso aceptable</a></li>
+      <li><a href="#c7"><span>07</span>Datos de terceros</a></li>
+      <li><a href="#c8"><span>08</span>Protección de Datos Personales</a></li>
+      <li><a href="#c9"><span>09</span>Disponibilidad del servicio</a></li>
+      <li><a href="#c10"><span>10</span>Precios, planes y forma de pago</a></li>
+      <li><a href="#c11"><span>11</span>Facturación electrónica</a></li>
+      <li><a href="#c12"><span>12</span>Cancelación</a></li>
+      <li><a href="#c13"><span>13</span>Propiedad intelectual</a></li>
+      <li><a href="#c14"><span>14</span>Limitación de responsabilidad</a></li>
+      <li><a href="#c15"><span>15</span>Cambios a estas condiciones</a></li>
+      <li><a href="#c16"><span>16</span>Ley aplicable</a></li>
+    </ol>
+  </div>
 
+  <section class="clause" id="c1">
+    <h2><span class="num">01</span>Quiénes somos</h2>
+    <p>AutomatIA es un servicio operado por <strong>3102964957 S.R.L.</strong>, sociedad constituida en Costa Rica, bajo las marcas comerciales <strong>AutomatIA</strong>, <strong>AutoCita</strong> y <strong>AutoVentas</strong>. Para consultas sobre estas condiciones, escribinos a <strong>soporte@automatiaai.com</strong>.</p>
+  </section>
 
-═══════════════════════════════════════════════════════════
-CLÁUSULA — ASISTENTE DE INTELIGENCIA ARTIFICIAL (AutoCita / "Sara")
-═══════════════════════════════════════════════════════════
+  <section class="clause" id="c2">
+    <h2><span class="num">02</span>Qué ofrecemos</h2>
+    <ul>
+      <li><strong>AutoCita:</strong> agenda de citas para clínicas y consultorios, con un asistente que atiende WhatsApp, agenda, confirma, reprograma y envía recordatorios, más un panel de administración para el personal de la clínica.</li>
+      <li><strong>AutoVentas:</strong> asistente de ventas por WhatsApp para negocios, con catálogo, consultas y toma de pedidos.</li>
+      <li><strong>Automatizaciones a la medida:</strong> desarrollos específicos acordados por escrito con cada cliente, incluyendo creación de sitios web cuando se contrate.</li>
+    </ul>
+  </section>
 
-<p>La plataforma incluye un asistente de inteligencia artificial denominado
-"Sara", que opera a través de WhatsApp y que, por instrucción del paciente o
-del usuario autorizado, puede apoyar la gestión de la clínica y ejecutar
-acciones tales como agendar, reprogramar o cancelar citas, consultar
-disponibilidad de horarios, enviar recordatorios y responder preguntas sobre
-los servicios de la clínica. El asistente funciona mediante un modelo de
-lenguaje provisto por un tercero (OpenAI)
-y, para operar, procesa el contenido de la conversación, datos del paciente
-necesarios para identificarlo y agendarlo (nombre, teléfono, cédula cuando
-aplique) y la información de agenda de la clínica.</p>
+  <section class="clause" id="c3">
+    <h2><span class="num">03</span>Quién puede usar el servicio</h2>
+    <p>El servicio está dirigido a negocios y profesionales. Para contratarlo debés ser mayor de edad y tener capacidad legal para obligar al negocio que representás. La cuenta es responsabilidad del titular que la contrata.</p>
+  </section>
 
-<p><strong>a) Naturaleza de ayuda:</strong> las respuestas y acciones del
-asistente constituyen una ayuda para la gestión de citas y pueden contener
-errores o resultados inesperados. La clínica y el paciente deben revisar la
-información entregada por el asistente, en especial la confirmación de
-fecha, hora y doctor asignado. La clínica es responsable de las acciones
-ejecutadas a través del asistente conforme a la configuración de horarios,
-doctores y servicios que ella misma definió en la plataforma.</p>
+  <section class="clause" id="c4">
+    <h2><span class="num">04</span>Tu cuenta</h2>
+    <p>Al contratar el servicio se crea una cuenta a nombre del negocio. El titular es responsable de mantener la confidencialidad de sus credenciales, de las personas a las que da acceso y de la actividad que ocurra bajo su cuenta. Avisanos de inmediato si sospechás de un acceso no autorizado.</p>
+  </section>
 
-<p><strong>b) Ausencia de garantía:</strong> el proveedor no garantiza la
-exactitud, disponibilidad ni los resultados del contenido generado por el
-asistente, sin perjuicio de las responsabilidades que la legislación de
-protección al consumidor no permita excluir.</p>
+  <section class="clause" id="c5">
+    <h2><span class="num">05</span>Asistente de Inteligencia Artificial</h2>
 
-<p><strong>c) Sin ejercicio de la medicina ni criterio clínico:</strong> el
-asistente no brinda diagnóstico, criterio médico ni recomendaciones de
-tratamiento; su función se limita a la gestión administrativa de citas y
-comunicación con el paciente. Cualquier consulta o inquietud de salud del
-paciente debe ser atendida por el profesional de salud correspondiente, no
-por el asistente.</p>
+    <h3 class="sub">Sara <em>(AutoCita)</em></h3>
+    <p>La plataforma incluye un asistente de inteligencia artificial denominado <strong>Sara</strong>, que opera a través de WhatsApp y que, por instrucción del paciente o del usuario autorizado, puede apoyar la gestión de la clínica y ejecutar acciones tales como agendar, reprogramar o cancelar citas, consultar disponibilidad de horarios, enviar recordatorios y responder preguntas sobre los servicios de la clínica. El asistente funciona mediante un modelo de lenguaje provisto por un tercero (OpenAI) y, para operar, procesa el contenido de la conversación, datos del paciente necesarios para identificarlo y agendarlo (nombre, teléfono, cédula cuando aplique) y la información de agenda de la clínica.</p>
+    <p><strong>a) Naturaleza de ayuda:</strong> las respuestas y acciones del asistente constituyen una ayuda para la gestión de citas y pueden contener errores o resultados inesperados. La clínica y el paciente deben revisar la información entregada por el asistente, en especial la confirmación de fecha, hora y doctor asignado. La clínica es responsable de las acciones ejecutadas a través del asistente conforme a la configuración de horarios, doctores y servicios que ella misma definió en la plataforma.</p>
+    <p><strong>b) Ausencia de garantía:</strong> el proveedor no garantiza la exactitud, disponibilidad ni los resultados del contenido generado por el asistente, sin perjuicio de las responsabilidades que la legislación de protección al consumidor no permita excluir.</p>
+    <p><strong>c) Sin ejercicio de la medicina ni criterio clínico:</strong> el asistente no brinda diagnóstico, criterio médico ni recomendaciones de tratamiento; su función se limita a la gestión administrativa de citas y comunicación con el paciente. Cualquier consulta o inquietud de salud del paciente debe ser atendida por el profesional de salud correspondiente, no por el asistente.</p>
+    <p><strong>d) Tratamiento por el proveedor de inteligencia artificial:</strong> los datos necesarios para el funcionamiento del asistente pueden ser tratados por el proveedor de inteligencia artificial fuera de Costa Rica. Dicho tratamiento y la transferencia internacional correspondiente se rigen por la cláusula de Protección de Datos Personales y por la Ley N.° 8968.</p>
+    <p><strong>e) Canal de mensajería:</strong> la comunicación con el asistente se realiza a través de WhatsApp Business Platform, operada por Meta, sujeta además a las políticas propias de dicha plataforma. El proveedor no controla ni responde por interrupciones del servicio de mensajería atribuibles a Meta.</p>
 
-<p><strong>d) Tratamiento por el proveedor de inteligencia artificial:</strong>
-los datos necesarios para el funcionamiento del asistente pueden ser tratados
-por el proveedor de inteligencia artificial fuera de Costa Rica. Dicho
-tratamiento y la transferencia internacional correspondiente se rigen por la
-cláusula de Protección de Datos Personales y por la Ley N.° 8968.</p>
+    <h3 class="sub">Lucía <em>(AutoVentas)</em></h3>
+    <p>La plataforma incluye un asistente de inteligencia artificial denominado <strong>Lucía</strong>, que opera a través de WhatsApp y que, por instrucción del cliente o del negocio, puede apoyar la gestión comercial y ejecutar acciones tales como mostrar el catálogo de productos, tomar pedidos, registrar apartados y abonos, informar el estado de una entrega y responder preguntas sobre los productos o servicios del negocio. El asistente funciona mediante un modelo de lenguaje provisto por un tercero (OpenAI) y procesa el contenido de la conversación, datos del cliente necesarios para gestionar el pedido (nombre, teléfono, dirección de entrega cuando aplique) y la información de catálogo, precios e inventario del negocio.</p>
+    <p><strong>a) Naturaleza de ayuda:</strong> las respuestas y acciones del asistente constituyen una ayuda para la gestión de pedidos y pueden contener errores o resultados inesperados. El negocio y el cliente deben revisar la información entregada por el asistente, en especial precios, cantidades y el estado de pago de un pedido. El negocio es responsable de las acciones ejecutadas a través del asistente conforme al catálogo, precios y reglas de apartado/abono que él mismo configuró en la plataforma.</p>
+    <p><strong>b) Ausencia de garantía:</strong> el proveedor no garantiza la exactitud, disponibilidad ni los resultados del contenido generado por el asistente, sin perjuicio de las responsabilidades que la legislación de protección al consumidor no permita excluir.</p>
+    <p><strong>c) Confirmación de acciones sensibles:</strong> el negocio debe confirmar y supervisar las acciones de carácter sensible ejecutadas a través del asistente, tales como el registro de un abono, la cancelación de un pedido o cambios en el catálogo, aunque estas puedan iniciarse por instrucción del asistente.</p>
+    <p><strong>d) Tratamiento por el proveedor de inteligencia artificial:</strong> los datos necesarios para el funcionamiento del asistente pueden ser tratados por el proveedor de inteligencia artificial fuera de Costa Rica, conforme a la cláusula de Protección de Datos Personales y a la Ley N.° 8968.</p>
+    <p><strong>e) Canal de mensajería:</strong> la comunicación con el asistente se realiza a través de WhatsApp Business Platform, operada por Meta. El proveedor no controla ni responde por interrupciones del servicio de mensajería atribuibles a Meta.</p>
+  </section>
 
-<p><strong>e) Canal de mensajería:</strong> la comunicación con el asistente
-se realiza a través de WhatsApp Business Platform, operada por Meta, sujeta
-además a las políticas propias de dicha plataforma. El proveedor no controla
-ni responde por interrupciones del servicio de mensajería atribuibles a Meta.</p>
+  <section class="clause" id="c6">
+    <h2><span class="num">06</span>Uso aceptable</h2>
+    <p>Al usar el servicio te comprometés a no:</p>
+    <ul>
+      <li>Enviar mensajes masivos no solicitados, spam o comunicaciones a personas que no dieron su consentimiento.</li>
+      <li>Usar el servicio para actividades ilegales, fraudulentas o engañosas.</li>
+      <li>Suplantar la identidad de otra persona o negocio.</li>
+      <li>Intentar vulnerar, sobrecargar o acceder sin autorización a la plataforma o a datos de otros clientes.</li>
+      <li>Incumplir las políticas de WhatsApp Business y de Meta que apliquen al uso de la plataforma.</li>
+    </ul>
+    <p>El incumplimiento de esta sección puede derivar en la suspensión inmediata de la cuenta.</p>
+  </section>
 
+  <section class="clause" id="c7">
+    <h2><span class="num">07</span>Datos de terceros</h2>
+    <p>Cuando el cliente carga o procesa datos de sus propios pacientes o clientes a través de la plataforma, el cliente es el responsable de esos datos: debe contar con la base legal y el consentimiento necesarios para tratarlos, y debe informar a esas personas sobre el uso de un asistente automatizado por WhatsApp. AutomatIA actúa como proveedor de la herramienta que procesa esa información por cuenta del cliente.</p>
+    <p>En el caso de datos de salud tratados a través de AutoCita, la clínica es la responsable del expediente clínico y de cumplir la normativa aplicable en Costa Rica. Ver nuestra <a href="/privacidad.html">Política de Privacidad</a>.</p>
+  </section>
 
-═══════════════════════════════════════════════════════════
-CLÁUSULA — ASISTENTE DE INTELIGENCIA ARTIFICIAL (AutoVentas / "Lucía")
-═══════════════════════════════════════════════════════════
+  <section class="clause" id="c8">
+    <h2><span class="num">08</span>Protección de Datos Personales</h2>
+    <p>El tratamiento de datos personales se rige por la Ley N.° 8968, Ley de Protección de la Persona frente al tratamiento de sus datos personales, y su reglamento, bajo la supervisión de la Agencia de Protección de Datos de los Habitantes (PRODHAB).</p>
+    <p><strong>Consentimiento informado (artículo 5 de la Ley N.° 8968):</strong> al aceptar estos Términos, usted otorga su consentimiento expreso e informado para que el proveedor recolecte y trate los datos personales necesarios para prestar el servicio (datos de cuenta, de contacto, de facturación y de uso de la plataforma). La finalidad del tratamiento es operar la plataforma, gestionar la cuenta y la suscripción, cumplir obligaciones legales y brindar soporte.</p>
+    <p>Usted, como titular de los datos, tiene derecho de acceso, rectificación, actualización, eliminación y revocación del consentimiento, los cuales puede ejercer escribiendo a <strong>soporte@automatiaai.com</strong>.</p>
+    <div class="note"><strong>Datos sensibles de salud (artículo 9 de la Ley N.° 8968) — aplica a AutoCita:</strong> cuando la clínica utiliza el módulo de Expediente, Odontograma o notas clínicas (incluidas notas de audio), la plataforma trata datos sensibles relacionados con la salud del paciente. Este tratamiento requiere el consentimiento expreso, específico e informado del paciente, el cual la clínica —como responsable de dicha base de datos frente a sus pacientes— debe recabar y conservar. El proveedor actúa como encargado del tratamiento de estos datos por cuenta de la clínica: los almacena cifrados, restringe su acceso al personal autorizado por la propia clínica según el rol asignado (doctor, recepcionista, dueño) y no los utiliza para ningún fin distinto de prestar el servicio contratado por la clínica.</div>
+    <p><strong>Encargados y proveedores (subencargados):</strong> para prestar el servicio, el proveedor se apoya en terceros que tratan datos por su cuenta, entre ellos, por categorías: el proveedor del modelo de inteligencia artificial (OpenAI); el proveedor de base de datos e infraestructura (Supabase); el proveedor de alojamiento de la aplicación (Railway); el proveedor de mensajería WhatsApp Business Platform (Meta); el proveedor de envío de correo transaccional (Resend); y los proveedores de almacenamiento de archivos e imágenes (incluidas notas de audio, cuando aplique). Varios de estos proveedores pueden encontrarse fuera de Costa Rica; en tal caso, la transferencia internacional de datos se realiza conforme a la Ley N.° 8968. El proveedor procura que dichos terceros apliquen medidas de protección adecuadas.</p>
+    <p><strong>Ubicación y transferencia de los datos:</strong> los datos pueden ser alojados y tratados en infraestructura ubicada fuera de Costa Rica. Cuando el tratamiento ocurra fuera del país, el proveedor adoptará medidas razonables para que la transferencia internacional se realice conforme a la Ley N.° 8968.</p>
+    <p><strong>Conservación:</strong> el proveedor conserva los datos mientras la cuenta esté activa y durante los plazos que exija la legislación tributaria, mercantil, de protección de datos y, en el caso de AutoCita, la normativa de expediente clínico aplicable. Tras la terminación, usted podrá solicitar una copia de sus datos dentro de los treinta (30) días naturales siguientes; vencido ese plazo, el proveedor podrá eliminarlos, salvo aquellos que deba conservar por obligación legal.</p>
+    <p><strong>Incidentes de seguridad:</strong> el proveedor aplica medidas de seguridad razonables para proteger los datos y, en caso de un incidente que los afecte, actuará y notificará conforme a la legislación aplicable.</p>
+    <p>Cuando la clínica o el negocio trate datos personales de sus propios pacientes o clientes a través de la plataforma, actúa como responsable de dicha base de datos y se obliga a cumplir la Ley N.° 8968 frente a esos titulares, así como a contar con la base de legitimación que corresponda — incluido, en AutoCita, el consentimiento expreso para datos sensibles de salud mencionado arriba.</p>
+    <p>Ver también nuestra <a href="/privacidad.html">Política de Privacidad</a>.</p>
+  </section>
 
-<p>La plataforma incluye un asistente de inteligencia artificial denominado
-"Lucía", que opera a través de WhatsApp y que, por instrucción del cliente o
-del negocio, puede apoyar la gestión comercial y ejecutar acciones tales como
-mostrar el catálogo de productos, tomar pedidos, registrar apartados y
-abonos, informar el estado de una entrega y responder preguntas sobre los
-productos o servicios del negocio. El asistente funciona mediante un modelo
-de lenguaje provisto por un tercero (OpenAI) y procesa
-el contenido de la conversación, datos del cliente necesarios para gestionar
-el pedido (nombre, teléfono, dirección de entrega cuando aplique) y la
-información de catálogo, precios e inventario del negocio.</p>
+  <section class="clause" id="c9">
+    <h2><span class="num">09</span>Disponibilidad del servicio</h2>
+    <p>Trabajamos para mantener el servicio disponible de forma continua, pero no garantizamos que esté libre de interrupciones. El servicio depende de infraestructura de terceros (entre otros, Meta / WhatsApp Business Platform, Supabase y Railway), y una falla o cambio de política en esos proveedores puede afectar su funcionamiento. Podemos realizar mantenimientos programados, avisando con antelación razonable cuando sea posible.</p>
+  </section>
 
-<p><strong>a) Naturaleza de ayuda:</strong> las respuestas y acciones del
-asistente constituyen una ayuda para la gestión de pedidos y pueden contener
-errores o resultados inesperados. El negocio y el cliente deben revisar la
-información entregada por el asistente, en especial precios, cantidades y
-el estado de pago de un pedido. El negocio es responsable de las acciones
-ejecutadas a través del asistente conforme al catálogo, precios y reglas de
-apartado/abono que él mismo configuró en la plataforma.</p>
+  <section class="clause" id="c10">
+    <h2><span class="num">10</span>Precios, planes y forma de pago</h2>
+    <p>Los precios de los planes de suscripción se muestran en la plataforma antes de la contratación, expresados en dólares de los Estados Unidos de América (USD). Cada plan incluye una cantidad de conversaciones/mensajes de WhatsApp mensuales conforme al detalle publicado. El uso que exceda dicho límite en un mes se factura como cargo adicional en el siguiente ciclo de facturación, según la tarifa vigente informada en la plataforma. Si la cuenta se cancela antes de que ese cargo adicional se facture, dicho excedente se cobra de forma separada al momento de la cancelación.</p>
+    <p>El cobro se realiza de forma anticipada y periódica según el plan elegido, a través del medio de pago que el proveedor tenga habilitado en la plataforma en cada momento. El proveedor no almacena los datos completos de la tarjeta; dichos datos son tratados por el proveedor de pagos conforme a sus propias políticas de seguridad.</p>
+    <p><strong>Renovación automática:</strong> salvo que se cancele antes de la fecha de renovación, la suscripción se renueva automáticamente por períodos iguales, al precio vigente en ese momento. Cualquier modificación del precio aplicable a futuras renovaciones se comunicará con antelación razonable, conforme a la Ley N.° 7472, de manera que el cliente pueda cancelar antes de que surta efecto.</p>
+    <p>Salvo por el derecho de retracto que corresponda conforme al artículo 40 de la Ley N.° 7472, los montos del período ya pagado no son reembolsables. Si el cliente cancela, la cancelación surte efecto al finalizar el período de facturación en curso, con acceso al servicio hasta esa fecha.</p>
+  </section>
 
-<p><strong>b) Ausencia de garantía:</strong> el proveedor no garantiza la
-exactitud, disponibilidad ni los resultados del contenido generado por el
-asistente, sin perjuicio de las responsabilidades que la legislación de
-protección al consumidor no permita excluir.</p>
+  <section class="clause" id="c11">
+    <h2><span class="num">11</span>Facturación electrónica</h2>
+    <p>El módulo de facturación electrónica es un complemento opcional del plan contratado. Cuando esté habilitado, la plataforma permite generar, firmar y enviar ante el Ministerio de Hacienda los comprobantes electrónicos correspondientes (factura electrónica, tiquete electrónico y nota de crédito, según aplique).</p>
+    <p><strong>Condición de emisor:</strong> la clínica o el negocio es el emisor y responsable tributario de los comprobantes generados desde su cuenta. Es su obligación estar inscrito ante el Ministerio de Hacienda en el régimen y actividad económica que corresponda, y mantener su información fiscal actualizada. La aceptación o el rechazo de un comprobante es una decisión de los sistemas del Ministerio de Hacienda, ajena al proveedor.</p>
+    <p><strong>Credenciales y llave criptográfica:</strong> para emitir comprobantes, el cliente debe suministrar y mantener vigente su llave criptográfica y las credenciales de acceso a los sistemas del Ministerio de Hacienda. El proveedor las almacena cifradas y las utiliza únicamente para firmar y enviar los comprobantes de esa cuenta.</p>
+    <p>El proveedor no asume responsabilidad por las obligaciones tributarias propias de la clínica o del negocio.</p>
+  </section>
 
-<p><strong>c) Confirmación de acciones sensibles:</strong> el negocio debe
-confirmar y supervisar las acciones de carácter sensible ejecutadas a través
-del asistente, tales como el registro de un abono, la cancelación de un
-pedido o cambios en el catálogo, aunque estas puedan iniciarse por
-instrucción del asistente.</p>
+  <section class="clause" id="c12">
+    <h2><span class="num">12</span>Cancelación</h2>
+    <p>Podés cancelar el servicio en cualquier momento escribiendo a <strong>soporte@automatiaai.com</strong>. Podemos suspender o cancelar una cuenta que incumpla estas condiciones, o cuando lo exija una autoridad competente o un proveedor del que dependa el servicio. Tras la cancelación aplica lo indicado en nuestra <a href="/eliminacion-datos.html">página de eliminación de datos</a>.</p>
+  </section>
 
-<p><strong>d) Tratamiento por el proveedor de inteligencia artificial:</strong>
-los datos necesarios para el funcionamiento del asistente pueden ser tratados
-por el proveedor de inteligencia artificial fuera de Costa Rica, conforme a
-la cláusula de Protección de Datos Personales y a la Ley N.° 8968.</p>
+  <section class="clause" id="c13">
+    <h2><span class="num">13</span>Propiedad intelectual</h2>
+    <p>La plataforma, su código, diseño, marcas y documentación son propiedad de 3102964957 S.R.L. El contrato no transfiere esos derechos al cliente. Los datos que el cliente carga en la plataforma siguen siendo del cliente.</p>
+  </section>
 
-<p><strong>e) Canal de mensajería:</strong> la comunicación con el asistente
-se realiza a través de WhatsApp Business Platform, operada por Meta. El
-proveedor no controla ni responde por interrupciones del servicio de
-mensajería atribuibles a Meta.</p>
+  <section class="clause" id="c14">
+    <h2><span class="num">14</span>Limitación de responsabilidad</h2>
+    <p>El servicio se presta tal cual. En la medida permitida por la ley, no respondemos por lucro cesante ni por daños indirectos derivados del uso o de la imposibilidad de usar el servicio. Nada en estas condiciones limita la responsabilidad que no pueda excluirse legalmente.</p>
+    <p>El asistente automatizado puede cometer errores. El cliente es responsable de supervisar su operación y de verificar la información crítica, en particular la relacionada con citas médicas y con datos de salud.</p>
+  </section>
 
+  <section class="clause" id="c15">
+    <h2><span class="num">15</span>Cambios a estas condiciones</h2>
+    <p>Podemos actualizar estas condiciones. Cuando el cambio sea relevante, lo comunicaremos a los clientes activos. La fecha de la última actualización aparece al inicio de esta página.</p>
+  </section>
 
-═══════════════════════════════════════════════════════════
-CLÁUSULA — PROTECCIÓN DE DATOS PERSONALES (Ley N.° 8968)
-(Común a AutoCita y AutoVentas — el bloque de "datos sensibles" aplica
- solo a AutoCita por el expediente clínico)
-═══════════════════════════════════════════════════════════
+  <section class="clause" id="c16">
+    <h2><span class="num">16</span>Ley aplicable</h2>
+    <p>Estas condiciones se rigen por las leyes de la República de Costa Rica, y cualquier disputa se someterá a los tribunales competentes de San José, Costa Rica.</p>
+  </section>
 
-<p>El tratamiento de datos personales se rige por la Ley N.° 8968, Ley de
-Protección de la Persona frente al tratamiento de sus datos personales, y su
-reglamento, bajo la supervisión de la Agencia de Protección de Datos de los
-Habitantes (PRODHAB).</p>
+  <div class="contact">
+    <p><strong>3102964957 S.R.L.</strong></p>
+    <p>Correo: <a href="mailto:soporte@automatiaai.com">soporte@automatiaai.com</a> · Privacidad: <a href="mailto:privacidad@automatiaai.com">privacidad@automatiaai.com</a></p>
+    <p>Sitio web: automatiaai.com</p>
+    <p>Ver también nuestra <a href="/privacidad.html">Política de Privacidad</a> y nuestras <a href="/eliminacion-datos.html">instrucciones de eliminación de datos</a>.</p>
+  </div>
+</div>
 
-<p><strong>Consentimiento informado (artículo 5 de la Ley N.° 8968):</strong>
-al aceptar estos Términos, usted otorga su consentimiento expreso e informado
-para que el proveedor recolecte y trate los datos personales necesarios para
-prestar el servicio (datos de cuenta, de contacto, de facturación y de uso
-de la plataforma). La finalidad del tratamiento es operar la plataforma,
-gestionar la cuenta y la suscripción, cumplir obligaciones legales y brindar
-soporte.</p>
+<footer>
+  <a href="/" class="logo">Automat<em>IA</em></a>
+  <div class="footer-links">
+    <a href="/privacidad.html">Privacidad</a>
+    <a href="/eliminacion-datos.html">Eliminación de datos</a>
+    <a href="/terminos.html">Términos y condiciones</a>
+  </div>
+  <span class="footer-copy">© 2026 AutomatIA · AutoCita es un nombre comercial de 3102964957 S.R.L.</span>
+</footer>
 
-<p>Usted, como titular de los datos, tiene derecho de acceso, rectificación,
-actualización, eliminación y revocación del consentimiento, los cuales puede
-ejercer escribiendo a soporte@automatiaai.com.</p>
-
-<p><strong>[SOLO AUTOCITA] Datos sensibles de salud (artículo 9 de la Ley
-N.° 8968):</strong> cuando la clínica utiliza el módulo de Expediente,
-Odontograma o notas clínicas (incluidas notas de audio), la plataforma trata
-datos sensibles relacionados con la salud del paciente. Este tratamiento
-requiere el consentimiento expreso, específico e informado del paciente, el
-cual la clínica —como responsable de dicha base de datos frente a sus
-pacientes— debe recabar y conservar. El proveedor actúa como encargado del
-tratamiento de estos datos por cuenta de la clínica: los almacena cifrados,
-restringe su acceso al personal autorizado por la propia clínica según el
-rol asignado (doctor, recepcionista, dueño) y no los utiliza para ningún fin
-distinto de prestar el servicio contratado por la clínica.</p>
-
-<p><strong>Encargados y proveedores (subencargados):</strong> para prestar
-el servicio, el proveedor se apoya en terceros que tratan datos por su
-cuenta, entre ellos, por categorías: el proveedor del modelo de inteligencia
-artificial (OpenAI); el proveedor de base de datos e infraestructura
-(Supabase); el proveedor de alojamiento de la aplicación (Railway); el
-proveedor de mensajería WhatsApp Business Platform (Meta); el proveedor de
-envío de correo transaccional (Resend); y los proveedores de
-almacenamiento de archivos e imágenes (incluidas notas de audio, cuando
-aplique). Varios de estos proveedores pueden encontrarse fuera de Costa Rica;
-en tal caso, la transferencia internacional de datos se realiza conforme a
-la Ley N.° 8968. El proveedor procura que dichos terceros apliquen medidas
-de protección adecuadas.</p>
-
-<p><strong>Ubicación y transferencia de los datos:</strong> los datos pueden
-ser alojados y tratados en infraestructura ubicada fuera de Costa Rica.
-Cuando el tratamiento ocurra fuera del país, el proveedor adoptará medidas
-razonables para que la transferencia internacional se realice conforme a la
-Ley N.° 8968.</p>
-
-<p><strong>Conservación:</strong> el proveedor conserva los datos mientras la
-cuenta esté activa y durante los plazos que exija la legislación tributaria,
-mercantil, de protección de datos y, en el caso de AutoCita, la normativa de
-expediente clínico aplicable. Tras la terminación, usted podrá solicitar una
-copia de sus datos dentro de los treinta (30) días naturales siguientes;
-vencido ese plazo, el proveedor podrá eliminarlos, salvo aquellos que deba
-conservar por obligación legal.</p>
-
-<p><strong>Incidentes de seguridad:</strong> el proveedor aplica medidas de
-seguridad razonables para proteger los datos y, en caso de un incidente que
-los afecte, actuará y notificará conforme a la legislación aplicable.</p>
-
-<p>Cuando la clínica o el negocio trate datos personales de sus propios
-pacientes o clientes a través de la plataforma, actúa como responsable de
-dicha base de datos y se obliga a cumplir la Ley N.° 8968 frente a esos
-titulares, así como a contar con la base de legitimación que corresponda —
-incluido, en AutoCita, el consentimiento expreso para datos sensibles de
-salud mencionado arriba.</p>
-
-
-═══════════════════════════════════════════════════════════
-CLÁUSULA — PRECIOS, PLANES Y FORMA DE PAGO
-═══════════════════════════════════════════════════════════
-
-<p>Los precios de los planes de suscripción se muestran en la plataforma
-antes de la contratación, expresados en dólares de los Estados Unidos de
-América (USD). Cada plan incluye una cantidad de conversaciones/mensajes de
-WhatsApp mensuales conforme al detalle publicado. El uso que exceda dicho
-límite en un mes se factura como cargo adicional en el siguiente ciclo de
-facturación, según la tarifa vigente informada en la plataforma. Si la
-cuenta se cancela antes de que ese cargo adicional se facture, dicho
-excedente se cobra de forma separada al momento de la cancelación.</p>
-
-<p>El cobro se realiza de forma anticipada y periódica según el plan
-elegido, a través del medio de pago que el proveedor tenga habilitado en la
-plataforma en cada momento. El proveedor no almacena los datos completos de
-la tarjeta; dichos datos son tratados por el proveedor de pagos conforme a
-sus propias políticas de seguridad.</p>
-
-<p><strong>Renovación automática:</strong> salvo que se cancele antes de la
-fecha de renovación, la suscripción se renueva automáticamente por períodos
-iguales, al precio vigente en ese momento. Cualquier modificación del precio
-aplicable a futuras renovaciones se comunicará con antelación razonable,
-conforme a la Ley N.° 7472, de manera que el cliente pueda cancelar antes de
-que surta efecto.</p>
-
-<p>Salvo por el derecho de retracto que corresponda conforme al artículo 40
-de la Ley N.° 7472, los montos del período ya pagado no son reembolsables.
-Si el cliente cancela, la cancelación surte efecto al finalizar el período
-de facturación en curso, con acceso al servicio hasta esa fecha.</p>
-
-
-═══════════════════════════════════════════════════════════
-CLÁUSULA — MÓDULO DE FACTURACIÓN ELECTRÓNICA (add-on)
-═══════════════════════════════════════════════════════════
-
-<p>El módulo de facturación electrónica es un complemento opcional del plan
-contratado. Cuando esté habilitado, la plataforma permite generar, firmar y
-enviar ante el Ministerio de Hacienda los comprobantes electrónicos
-correspondientes (factura electrónica, tiquete electrónico y nota de
-crédito, según aplique).</p>
-
-<p><strong>Condición de emisor:</strong> la clínica o el negocio es el
-emisor y responsable tributario de los comprobantes generados desde su
-cuenta. Es su obligación estar inscrito ante el Ministerio de Hacienda en el
-régimen y actividad económica que corresponda, y mantener su información
-fiscal actualizada. La aceptación o el rechazo de un comprobante es una
-decisión de los sistemas del Ministerio de Hacienda, ajena al proveedor.</p>
-
-<p><strong>Credenciales y llave criptográfica:</strong> para emitir
-comprobantes, el cliente debe suministrar y mantener vigente su llave
-criptográfica y las credenciales de acceso a los sistemas del Ministerio de
-Hacienda. El proveedor las almacena cifradas y las utiliza únicamente para
-firmar y enviar los comprobantes de esa cuenta.</p>
-
-<p>El proveedor no asume responsabilidad por las obligaciones tributarias
-propias de la clínica o del negocio.</p>
+</body>
+</html>
