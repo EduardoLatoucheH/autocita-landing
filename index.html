@@ -67,7 +67,7 @@
       {
         "@type": "Question",
         "name": "¿Cuánto tarda en estar listo?",
-        "acceptedAnswer": { "@type": "Answer", "text": "24 horas desde que nos contacta. Configuramos todo, conectamos su número y hacemos una prueba en vivo con usted." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Hasta 15 días desde que nos contacta. Configuramos todo, conectamos su número (depende de la verificación de Meta) y hacemos una prueba en vivo con usted." }
       }
     ]
   }
@@ -601,7 +601,7 @@
   <div class="stat"><span class="stat-num">0</span><span class="stat-label" data-i18n="stats.s2">Citas perdidas</span></div>
   <div class="stat"><span class="stat-num">+50</span><span class="stat-label" data-i18n="stats.s3">Idiomas</span></div>
   <div class="stat"><span class="stat-num">2min</span><span class="stat-label" data-i18n="stats.s4">Para agendar</span></div>
-  <div class="stat"><span class="stat-num">24h</span><span class="stat-label" data-i18n="stats.s5">Para estar listo</span></div>
+  <div class="stat"><span class="stat-num">15 d</span><span class="stat-label" data-i18n="stats.s5">Máximo para estar listo</span></div>
 </div>
 <!-- Sara -->
 <section id="sara" class="section section-sm">
@@ -836,7 +836,7 @@
     </div>
     <div class="faq-item">
       <button class="faq-btn" aria-expanded="false"><span data-i18n="faq.q4">¿Cuánto tarda en estar listo?</span><span class="faq-icon">+</span></button>
-      <div class="faq-body" data-i18n="faq.a4"><strong>24 horas</strong> desde que nos contacta. Configuramos todo, conectamos su número y hacemos una prueba en vivo con usted.</div>
+      <div class="faq-body" data-i18n="faq.a4"><strong>Hasta 15 días</strong> desde que nos contacta. Configuramos todo, conectamos su número (depende de la verificación de Meta) y hacemos una prueba en vivo con usted.</div>
     </div>
   </div>
 </section>
@@ -881,7 +881,7 @@
 <!-- CTA Final -->
 <section class="cta-section">
   <h2 data-i18n="cta.title">Su negocio agenda solo.<br>Usted descansa.</h2>
-  <p data-i18n="cta.sub">Escríbanos. En 24 horas Sara está lista.</p>
+  <p data-i18n="cta.sub">Escríbanos. Sara queda lista en hasta 15 días.</p>
   <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="btn-white">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.882l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.002-1.37l-.358-.213-3.714.974.99-3.618-.234-.371A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
     <span data-i18n="cta.btn">Hablar con Sara ahora</span>
@@ -910,7 +910,7 @@ const translations = {
     'hero.title': 'La primera vez que un paciente le escriba a las 11pm y usted ya esté dormido — y la cita igual quede agendada — va a querer haberlo tenido antes.',
     'hero.sub': 'Su negocio agenda solo. Usted descansa.',
     'hero.cta': 'Escribirle a Sara ahora', 'hero.link': 'Ver cómo funciona →',
-    'stats.s1': 'Siempre disponible', 'stats.s2': 'Citas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Para agendar', 'stats.s5': 'Para estar listo',
+    'stats.s1': 'Siempre disponible', 'stats.s2': 'Citas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Para agendar', 'stats.s5': 'Máximo para estar listo',
     'sara.label': 'Tu recepcionista con IA', 'sara.title': 'Hola, soy Sara.',
     'sara.desc': 'Atiendo a tus pacientes por WhatsApp las 24 horas. Agendo y confirmo citas — en el idioma de cada uno. Mientras dormís, tu agenda se llena sola.',
     'lucia.badge': '🔥 En construcción — ya casi', 'lucia.title': 'Y viene Lucía.',
@@ -955,13 +955,13 @@ const translations = {
     'faq.q1': '¿Necesito instalar algo o cambiar mi número?', 'faq.a1': 'No. No cambia su número y no instala nada. Conectamos su WhatsApp Business durante el proceso de incorporación.',
     'faq.q2': '¿Qué pasa si el paciente escribe a las 11pm?', 'faq.a2': 'Sara responde las 24 horas, los 7 días. Si hay disponibilidad, agenda. Si no, lista de espera.',
     'faq.q3': '¿Mis datos y los de mis pacientes están seguros?', 'faq.a3': 'Sí. Base de datos en Supabase, plataforma auditada con SOC 2 Tipo 2, y los datos de cada clínica están aislados.',
-    'faq.q4': '¿Cuánto tarda en estar listo?', 'faq.a4': '24 horas desde que nos contacta.',
+    'faq.q4': '¿Cuánto tarda en estar listo?', 'faq.a4': 'Hasta 15 días desde que nos contacta: configuramos todo, conectamos su número (depende de la verificación de Meta) y hacemos una prueba en vivo con usted.',
     'lead.label': 'Empezá hoy', 'lead.title': 'Registrá tu negocio.', 'lead.sub': 'Dejanos tus datos y te contactamos en menos de 24 horas para dejar todo listo.',
     'lead.negocio': 'Nombre del negocio', 'lead.tipo': 'Tipo de negocio', 'lead.tipoPh': 'Ej: Clínica dental, spa, gimnasio...',
     'lead.contacto': 'Nombre de contacto', 'lead.email': 'Email', 'lead.telefono': 'Teléfono (WhatsApp, opcional)',
     'lead.mensaje': 'Contanos un poco de tu negocio (opcional)', 'lead.mensajePh': 'Ej: Somos una clínica con 3 doctores, actualmente agendamos por WhatsApp a mano...',
     'lead.btn': 'Enviar registro', 'lead.btnEnviando': 'Enviando...', 'lead.ok': '¡Listo! Recibimos tus datos, te contactamos pronto.', 'lead.err': 'Hubo un problema. Probá de nuevo o escribinos por WhatsApp.',
-    'cta.title': 'Su negocio agenda solo.\nUsted descansa.', 'cta.sub': 'Escríbanos. En 24 horas Sara está lista.', 'cta.btn': 'Hablar con Sara ahora',
+    'cta.title': 'Su negocio agenda solo.\nUsted descansa.', 'cta.sub': 'Escríbanos. Sara queda lista en hasta 15 días.', 'cta.btn': 'Hablar con Sara ahora',
   },
   en: {
     'nav.sara': 'What is Sara?', 'nav.lucia': 'Lucía', 'nav.how': 'How it works', 'nav.plans': 'Plans', 'nav.automatizaciones': 'Automations', 'nav.cta': 'Try for free',
@@ -969,7 +969,7 @@ const translations = {
     'hero.title': 'The first time a patient messages you at 11pm and you\'re already asleep — and the appointment still gets booked — you\'ll wish you had this sooner.',
     'hero.sub': 'Your business books itself. You rest.',
     'hero.cta': 'Talk to Sara now', 'hero.link': 'See how it works →',
-    'stats.s1': 'Always available', 'stats.s2': 'Missed appointments', 'stats.s3': 'Languages', 'stats.s4': 'To book', 'stats.s5': 'To go live',
+    'stats.s1': 'Always available', 'stats.s2': 'Missed appointments', 'stats.s3': 'Languages', 'stats.s4': 'To book', 'stats.s5': 'Max. to go live',
     'sara.label': 'Your AI receptionist', 'sara.title': 'Hi, I\'m Sara.',
     'sara.desc': 'I handle your patients on WhatsApp 24 hours a day. I book and confirm appointments — in each patient\'s language. While you sleep, your schedule fills itself.',
     'lucia.badge': '🔥 In the works — almost there', 'lucia.title': 'And Lucía is coming.',
@@ -1014,13 +1014,13 @@ const translations = {
     'faq.q1': 'Do I need to install anything or change my number?', 'faq.a1': 'No. Your number stays the same. We connect your existing WhatsApp Business during onboarding.',
     'faq.q2': 'What if a patient writes at 11pm?', 'faq.a2': 'Sara responds 24/7. If there\'s availability, she books. If not, waiting list.',
     'faq.q3': 'Is my data and my patients\' data safe?', 'faq.a3': 'Yes. Database hosted on Supabase, a SOC 2 Type 2 audited platform, and each clinic\'s data is isolated.',
-    'faq.q4': 'How long does setup take?', 'faq.a4': '24 hours from when you contact us.',
+    'faq.q4': 'How long does setup take?', 'faq.a4': 'Up to 15 days from when you contact us: we set everything up, connect your number (depends on Meta\'s verification) and run a live test with you.',
     'lead.label': 'Get started today', 'lead.title': 'Register your business.', 'lead.sub': 'Leave your details and we\'ll contact you within 24 hours to get everything set up.',
     'lead.negocio': 'Business name', 'lead.tipo': 'Business type', 'lead.tipoPh': 'Ex: Dental clinic, spa, gym...',
     'lead.contacto': 'Contact name', 'lead.email': 'Email', 'lead.telefono': 'Phone (WhatsApp, optional)',
     'lead.mensaje': 'Tell us a bit about your business (optional)', 'lead.mensajePh': 'Ex: We\'re a clinic with 3 doctors, currently booking by WhatsApp manually...',
     'lead.btn': 'Submit', 'lead.btnEnviando': 'Sending...', 'lead.ok': 'Done! We got your info, we\'ll reach out soon.', 'lead.err': 'Something went wrong. Try again or message us on WhatsApp.',
-    'cta.title': 'Your business books itself.\nYou rest.', 'cta.sub': 'Contact us. Sara will be ready in 24 hours.', 'cta.btn': 'Talk to Sara now',
+    'cta.title': 'Your business books itself.\nYou rest.', 'cta.sub': 'Contact us. Sara will be ready in up to 15 days.', 'cta.btn': 'Talk to Sara now',
   },
   pt: {
     'nav.sara': 'O que é Sara?', 'nav.lucia': 'Lucía', 'nav.how': 'Como funciona', 'nav.plans': 'Planos', 'nav.automatizaciones': 'Automações', 'nav.cta': 'Testar grátis',
@@ -1028,7 +1028,7 @@ const translations = {
     'hero.title': 'Na primeira vez que um paciente lhe escrever às 23h e você já estiver dormindo — e a consulta ainda assim ficar agendada — você vai querer ter tido isso antes.',
     'hero.sub': 'Seu negócio agenda sozinho. Você descansa.',
     'hero.cta': 'Falar com Sara agora', 'hero.link': 'Ver como funciona →',
-    'stats.s1': 'Sempre disponível', 'stats.s2': 'Consultas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Para agendar', 'stats.s5': 'Para estar pronto',
+    'stats.s1': 'Sempre disponível', 'stats.s2': 'Consultas perdidas', 'stats.s3': 'Idiomas', 'stats.s4': 'Para agendar', 'stats.s5': 'Máximo para ficar pronto',
     'sara.label': 'Sua recepcionista com IA', 'sara.title': 'Olá, sou Sara.',
     'sara.desc': 'Atendo seus pacientes pelo WhatsApp 24 horas por dia. Agendo e confirmo consultas — no idioma de cada um. Enquanto você dorme, sua agenda se preenche sozinha.',
     'lucia.badge': '🔥 Em construção — já quase', 'lucia.title': 'E vem aí a Lucía.',
@@ -1073,13 +1073,13 @@ const translations = {
     'faq.q1': 'Preciso instalar algo ou mudar meu número?', 'faq.a1': 'Não. Seu número não muda.',
     'faq.q2': 'E se o paciente escrever às 23h?', 'faq.a2': 'Sara responde 24/7.',
     'faq.q3': 'Meus dados estão seguros?', 'faq.a3': 'Sim. Banco de dados no Supabase, plataforma auditada com SOC 2 Tipo 2, com dados isolados por clínica.',
-    'faq.q4': 'Quanto tempo leva?', 'faq.a4': '24 horas.',
+    'faq.q4': 'Quanto tempo leva?', 'faq.a4': 'Até 15 dias desde o seu contato: configuramos tudo, conectamos seu número (depende da verificação da Meta) e fazemos um teste ao vivo com você.',
     'lead.label': 'Comece hoje', 'lead.title': 'Registre seu negócio.', 'lead.sub': 'Deixe seus dados e entramos em contato em menos de 24 horas para deixar tudo pronto.',
     'lead.negocio': 'Nome do negócio', 'lead.tipo': 'Tipo de negócio', 'lead.tipoPh': 'Ex: Clínica odontológica, spa, academia...',
     'lead.contacto': 'Nome de contato', 'lead.email': 'Email', 'lead.telefono': 'Telefone (WhatsApp, opcional)',
     'lead.mensaje': 'Conte um pouco sobre seu negócio (opcional)', 'lead.mensajePh': 'Ex: Somos uma clínica com 3 médicos, hoje agendamos pelo WhatsApp manualmente...',
     'lead.btn': 'Enviar registro', 'lead.btnEnviando': 'Enviando...', 'lead.ok': 'Pronto! Recebemos seus dados, entraremos em contato em breve.', 'lead.err': 'Algo deu errado. Tente de novo ou fale conosco pelo WhatsApp.',
-    'cta.title': 'Seu negócio agenda sozinho.\nVocê descansa.', 'cta.sub': 'Entre em contato. Sara estará pronta em 24 horas.', 'cta.btn': 'Falar com Sara agora',
+    'cta.title': 'Seu negócio agenda sozinho.\nVocê descansa.', 'cta.sub': 'Entre em contato. Sara ficará pronta em até 15 dias.', 'cta.btn': 'Falar com Sara agora',
   }
 };
 function getLang() {
