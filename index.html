@@ -329,6 +329,14 @@
       padding: .25rem .65rem; border-radius: 100px;
       margin-bottom: .75rem; letter-spacing: .04em;
     }
+    /* Pluggs (13/10/2026): producto aparte, precios solo en dólares */
+    .pluggs-wrap { max-width: 1000px; margin: 0 auto; }
+    .pluggs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; margin-top: 1.5rem; }
+    @media(max-width: 760px) { .pluggs-grid { grid-template-columns: 1fr; } }
+    .pluggs-grid .plan { background: #fff; }
+    .pluggs-lista { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.2rem 0 0; padding: 0; }
+    .pluggs-lista li { font-size: .85rem; color: var(--text-mid); background: var(--green-light); border: 1px solid var(--green-mid); border-radius: 999px; padding: .35rem .8rem; }
+    .pluggs-cta { display: flex; gap: .8rem; flex-wrap: wrap; align-items: center; margin-top: 1.5rem; }
     .plans-grid {
       display: grid; grid-template-columns: repeat(5, 1fr);
       gap: 1px; background: var(--border);
@@ -562,6 +570,7 @@
   <ul class="nav-links">
     <li><a href="#sara" data-i18n="nav.sara">¿Qué es Sara?</a></li>
     <li><a href="#como-funciona" data-i18n="nav.how">Cómo funciona</a></li>
+    <li><a href="#pluggs" data-i18n="nav.pluggs">Pluggs</a></li>
     <li><a href="#planes" data-i18n="nav.plans">Planes</a></li>
     <li><a href="automatizaciones.html" target="_blank" data-i18n="nav.automatizaciones">Automatizaciones</a></li>
     <li><a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="nav-cta" data-i18n="nav.cta">Probar gratis</a></li>
@@ -574,6 +583,7 @@
   <a href="#sara" data-i18n="nav.sara" onclick="closeMenu()">¿Qué es Sara?</a>
   <a href="lucia.html" target="_blank" onclick="closeMenu()">Lucía 🔥</a>
   <a href="#como-funciona" data-i18n="nav.how" onclick="closeMenu()">Cómo funciona</a>
+  <a href="#pluggs" data-i18n="nav.pluggs" onclick="closeMenu()">Pluggs</a>
   <a href="#planes" data-i18n="nav.plans" onclick="closeMenu()">Planes</a>
   <a href="automatizaciones.html" target="_blank" data-i18n="nav.automatizaciones" onclick="closeMenu()">Automatizaciones</a>
   <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="m-cta" onclick="closeMenu()">
@@ -638,6 +648,25 @@
     <a href="lucia.html" target="_blank" style="flex-shrink:0;background:var(--green);color:#fff;text-decoration:none;font-weight:500;font-size:.9rem;padding:.85rem 1.6rem;border-radius:100px;white-space:nowrap" data-i18n="lucia.cta">Conocé a Lucía →</a>
   </div>
 </div>
+<!-- Pluggs: producto aparte (precios solo en dólares, desde la misma fuente que su página) -->
+<section id="pluggs" class="section section-sm" style="scroll-margin-top:90px">
+  <div class="pluggs-wrap">
+    <div class="section-label" data-i18n="pluggs.label">Nuevo · Pluggs</div>
+    <h2 class="title" data-i18n="pluggs.title">Contenido para tus redes, <em>hecho con IA.</em></h2>
+    <p class="subtitle" data-i18n="pluggs.sub">Titulares, carruseles, guiones de reel, plan de contenido y estrategia de Instagram para tu negocio, en español de Costa Rica. Vos revisás y publicás.</p>
+    <ul class="pluggs-lista">
+      <li data-i18n="pluggs.f1">Titulares y carruseles</li>
+      <li data-i18n="pluggs.f2">Guiones de reel y video animado</li>
+      <li data-i18n="pluggs.f3">Plan de contenido</li>
+      <li data-i18n="pluggs.f4">Estrategia de perfil de Instagram</li>
+    </ul>
+    <div class="pluggs-grid" id="pluggsPlanes" aria-live="polite"></div>
+    <p class="plans-nota" data-i18n="pluggs.nota"><strong>Precios en dólares por mes.</strong> La prueba gratis es una por persona, con marca de agua. Lo que generás lo revisás vos antes de publicar.</p>
+    <div class="pluggs-cta">
+      <a href="https://pluggs.automatiaai.com/" target="_blank" rel="noopener" class="plan-btn" style="display:inline-block;width:auto;padding:.85rem 1.6rem" data-i18n="pluggs.cta">Probar Pluggs gratis →</a>
+    </div>
+  </div>
+</section>
 <!-- Before / After -->
 <section class="section section-sm" style="padding-top:0">
   <div class="section-label" data-i18n="ba.label">La diferencia</div>
@@ -916,6 +945,18 @@ const translations = {
     'lucia.badge': '🔥 En construcción — ya casi', 'lucia.title': 'Y viene Lucía.',
     'lucia.teaser': 'La misma tecnología que atiende pacientes 24/7 en AutoCita, ahora vendiendo por vos: catálogo, seguimiento de pedidos y cero clientes perdidos por WhatsApp. Todavía no está lista — pero ya podés reservar tu lugar.',
     'lucia.cta': 'Conocé a Lucía →',
+    'nav.pluggs': 'Pluggs',
+    'pluggs.label': 'Nuevo · Pluggs',
+    'pluggs.title': 'Contenido para tus redes, hecho con IA.',
+    'pluggs.sub': 'Titulares, carruseles, guiones de reel, plan de contenido y estrategia de Instagram para tu negocio, en español de Costa Rica. Vos revisás y publicás.',
+    'pluggs.f1': 'Titulares y carruseles',
+    'pluggs.f2': 'Guiones de reel y video animado',
+    'pluggs.f3': 'Plan de contenido',
+    'pluggs.f4': 'Estrategia de perfil de Instagram',
+    'pluggs.nota': '<strong>Precios en dólares por mes.</strong> La prueba gratis es una por persona, con marca de agua. Lo que generás lo revisás vos antes de publicar.',
+    'pluggs.cta': 'Probar Pluggs gratis →',
+    'pluggs.mes': '/mes',
+    'pluggs.gratis': 'Gratis',
     'ba.label': 'La diferencia', 'ba.title': 'Antes y después de AutoCita.',
     'ba.before': 'Antes', 'ba.after': 'Después',
     'ba.b1': 'Contestando WhatsApp en la cena', 'ba.b2': 'Citas perdidas por no ver el mensaje', 'ba.b3': 'Lunes sin saber si hay agenda', 'ba.b4': 'Vacaciones con el teléfono en la mano', 'ba.b5': 'Una recepcionista que cuesta $1,500 al mes',
@@ -975,6 +1016,18 @@ const translations = {
     'lucia.badge': '🔥 In the works — almost there', 'lucia.title': 'And Lucía is coming.',
     'lucia.teaser': "The same tech that handles patients 24/7 on AutoCita, now selling for you: catalog, order tracking, zero customers lost on WhatsApp. Not ready yet — but you can already save your spot.",
     'lucia.cta': 'Meet Lucía →',
+    'nav.pluggs': 'Pluggs',
+    'pluggs.label': 'New · Pluggs',
+    'pluggs.title': 'Content for your social media, made with AI.',
+    'pluggs.sub': 'Headlines, carousels, reel scripts, a content plan and an Instagram strategy for your business, in Costa Rican Spanish. You review and publish.',
+    'pluggs.f1': 'Headlines and carousels',
+    'pluggs.f2': 'Reel scripts and animated video',
+    'pluggs.f3': 'Content plan',
+    'pluggs.f4': 'Instagram profile strategy',
+    'pluggs.nota': '<strong>Prices in US dollars per month.</strong> The free trial is one per person, with a watermark. You review everything before publishing.',
+    'pluggs.cta': 'Try Pluggs free →',
+    'pluggs.mes': '/month',
+    'pluggs.gratis': 'Free',
     'ba.label': 'The difference', 'ba.title': 'Before and after AutoCita.',
     'ba.before': 'Before', 'ba.after': 'After',
     'ba.b1': 'Answering WhatsApp during dinner', 'ba.b2': 'Missed appointments from unseen messages', 'ba.b3': 'Monday without knowing your schedule', 'ba.b4': 'Vacations with your phone in hand', 'ba.b5': 'A receptionist costing $1,500/month',
@@ -1034,6 +1087,18 @@ const translations = {
     'lucia.badge': '🔥 Em construção — já quase', 'lucia.title': 'E vem aí a Lucía.',
     'lucia.teaser': 'A mesma tecnologia que atende pacientes 24/7 no AutoCita, agora vendendo por você: catálogo, rastreamento de pedidos e zero clientes perdidos no WhatsApp. Ainda não está pronta — mas você já pode reservar seu lugar.',
     'lucia.cta': 'Conhecer a Lucía →',
+    'nav.pluggs': 'Pluggs',
+    'pluggs.label': 'Novo · Pluggs',
+    'pluggs.title': 'Conteúdo para suas redes, feito com IA.',
+    'pluggs.sub': 'Títulos, carrosséis, roteiros de reel, plano de conteúdo e estratégia de Instagram para o seu negócio, em espanhol da Costa Rica. Você revisa e publica.',
+    'pluggs.f1': 'Títulos e carrosséis',
+    'pluggs.f2': 'Roteiros de reel e vídeo animado',
+    'pluggs.f3': 'Plano de conteúdo',
+    'pluggs.f4': 'Estratégia de perfil do Instagram',
+    'pluggs.nota': '<strong>Preços em dólares por mês.</strong> O teste grátis é um por pessoa, com marca d\'água. Você revisa tudo antes de publicar.',
+    'pluggs.cta': 'Testar o Pluggs grátis →',
+    'pluggs.mes': '/mês',
+    'pluggs.gratis': 'Grátis',
     'ba.label': 'A diferença', 'ba.title': 'Antes e depois do AutoCita.',
     'ba.before': 'Antes', 'ba.after': 'Depois',
     'ba.b1': 'Respondendo WhatsApp no jantar', 'ba.b2': 'Consultas perdidas por não ver a mensagem', 'ba.b3': 'Segunda-feira sem saber a agenda', 'ba.b4': 'Férias com o celular na mão', 'ba.b5': 'Uma recepcionista custando $1.500/mês',
@@ -1190,6 +1255,31 @@ function closeMenu() {
 document.addEventListener('click', e => {
   if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) closeMenu();
 });
+</script>
+<script>
+// Pluggs en la landing (13/10/2026): los planes se leen de la misma API que usa su página (una sola fuente de precios) y se muestran SOLO en dólares.
+// Si la API no responde, queda el botón para ver los planes en pluggs.automatiaai.com (nunca se inventan precios acá).
+(function () {
+  var cont = document.getElementById('pluggsPlanes'); if (!cont) return;
+  var API = 'https://pluggs-api-production.up.railway.app';
+  function t(k, d) { var l = (typeof getLang === 'function' ? getLang() : 'es'), tr = (translations[l] || translations.es); return tr[k] || d; }
+  function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  fetch(API + '/publico/planes').then(function (r) { if (!r.ok) throw new Error('http'); return r.json(); }).then(function (d) {
+    var planes = (d.planes || []).filter(function (p) { return !p.es_interno; }).slice(0, 4);
+    if (!planes.length) { cont.style.display = 'none'; return; }
+    cont.style.gridTemplateColumns = 'repeat(' + Math.min(planes.length, 4) + ', 1fr)';
+    planes.forEach(function (p) {
+      var c = el('div', 'plan' + (p.id === 'pro' ? ' featured' : ''));
+      c.appendChild(el('div', 'plan-name', p.nombre));
+      if (p.promesa) c.appendChild(el('div', 'plan-desc', p.promesa));
+      var fila = el('div', 'plan-price-row'), precio = el('div', 'plan-price-ahora');
+      // El número va como texto directo (el CSS de los planes pone en grande lo que no es <span>) y "/mes" en chico.
+      if (Number(p.precio_usd) > 0) { precio.appendChild(document.createTextNode('$' + Number(p.precio_usd).toLocaleString('en-US'))); precio.appendChild(el('span', '', ' ' + t('pluggs.mes', '/mes'))); }
+      else precio.appendChild(document.createTextNode(t('pluggs.gratis', 'Gratis')));
+      fila.appendChild(precio); c.appendChild(fila); cont.appendChild(c);
+    });
+  }).catch(function () { cont.style.display = 'none'; });
+})();
 </script>
 </body>
 </html>
