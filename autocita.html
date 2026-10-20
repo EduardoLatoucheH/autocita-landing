@@ -62,7 +62,7 @@
       {
         "@type": "Question",
         "name": "¿Mis datos y los de mis pacientes están seguros?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Sí. La base de datos está alojada en Supabase, una plataforma auditada con SOC 2 Tipo 2, y cada clínica tiene sus datos aislados: nadie más puede ver sus pacientes." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. La base de datos está alojada en Supabase, y cada clínica tiene sus datos aislados: nadie más puede ver sus pacientes." }
       },
       {
         "@type": "Question",
@@ -610,8 +610,7 @@
 <hr class="divider">
 <div class="stats">
   <div class="stat"><span class="stat-num">24/7</span><span class="stat-label" data-i18n="stats.s1">Siempre disponible</span></div>
-      <div class="stat"><span class="stat-num">2min</span><span class="stat-label" data-i18n="stats.s4">Para agendar</span></div>
-  <div class="stat"><span class="stat-num">15 d</span><span class="stat-label" data-i18n="stats.s5">Máximo para estar listo</span></div>
+        <div class="stat"><span class="stat-num">15 d</span><span class="stat-label" data-i18n="stats.s5">Máximo para estar listo</span></div>
 </div>
 <!-- Sara -->
 <section id="sara" class="section section-sm">
@@ -648,7 +647,7 @@
       <div class="ba-item"><span class="icon">✗</span><span data-i18n="ba.b2">Citas perdidas por no ver el mensaje</span></div>
       <div class="ba-item"><span class="icon">✗</span><span data-i18n="ba.b3">Lunes sin saber si hay agenda</span></div>
       <div class="ba-item"><span class="icon">✗</span><span data-i18n="ba.b4">Vacaciones con el teléfono en la mano</span></div>
-      <div class="ba-item"><span class="icon">✗</span><span data-i18n="ba.b5">Una recepcionista que cuesta $1,500 al mes</span></div>
+      <div class="ba-item"><span class="icon">✗</span><span data-i18n="ba.b5">Una recepcionista que solo cubre el horario de oficina</span></div>
     </div>
     <div class="ba-col after">
       <div class="ba-label green" data-i18n="ba.after">Después</div>
@@ -702,7 +701,7 @@
         <span class="trust-icon">🔒</span>
         <div class="trust-badge">✓ Datos seguros</div>
         <h3 data-i18n="trust.t2.title">Sus datos protegidos</h3>
-        <p data-i18n="trust.t2.desc">Base de datos en Supabase, plataforma auditada con SOC 2 Tipo 2. Datos aislados por negocio. Sus clientes y pacientes son solo suyos.</p>
+        <p data-i18n="trust.t2.desc">Base de datos en Supabase. Datos aislados por negocio. Sus clientes y pacientes son solo suyos.</p>
       </div>
       <div class="trust-card">
         <span class="trust-icon">🤖</span>
@@ -832,7 +831,7 @@
     </div>
     <div class="faq-item">
       <button class="faq-btn" aria-expanded="false"><span data-i18n="faq.q3">¿Mis datos y los de mis pacientes están seguros?</span><span class="faq-icon">+</span></button>
-      <div class="faq-body" data-i18n="faq.a3">Sí. La base de datos está alojada en <strong>Supabase, plataforma auditada con SOC 2 Tipo 2</strong>, y los datos de cada clínica están aislados. Nadie más puede ver sus pacientes.</div>
+      <div class="faq-body" data-i18n="faq.a3">Sí. La base de datos está alojada en <strong>Supabase</strong>, y los datos de cada clínica están aislados. Nadie más puede ver sus pacientes.</div>
     </div>
     <div class="faq-item">
       <button class="faq-btn" aria-expanded="false"><span data-i18n="faq.q4">¿Cuánto tarda en estar listo?</span><span class="faq-icon">+</span></button>
@@ -930,7 +929,7 @@ const translations = {
     'pluggs.gratis': 'Gratis',
     'ba.label': 'La diferencia', 'ba.title': 'Antes y después de AutoCita.',
     'ba.before': 'Antes', 'ba.after': 'Después',
-    'ba.b1': 'Contestando WhatsApp en la cena', 'ba.b2': 'Citas perdidas por no ver el mensaje', 'ba.b3': 'Lunes sin saber si hay agenda', 'ba.b4': 'Vacaciones con el teléfono en la mano', 'ba.b5': 'Una recepcionista que cuesta $1,500 al mes',
+    'ba.b1': 'Contestando WhatsApp en la cena', 'ba.b2': 'Citas perdidas por no ver el mensaje', 'ba.b3': 'Lunes sin saber si hay agenda', 'ba.b4': 'Vacaciones con el teléfono en la mano', 'ba.b5': 'Una recepcionista que solo cubre el horario de oficina',
     'ba.a1': 'Sara llena su agenda mientras duerme', 'ba.a2': 'Cada cita confirmada al instante por WhatsApp', 'ba.a3': 'Semana organizada sola desde el domingo', 'ba.a4': 'Vacaciones de verdad', 'ba.a5': 'Su negocio trabaja. Usted descansa.',
     'how.label': 'Cómo funciona', 'how.title': 'Tres pasos. Sin complicaciones.', 'how.sub': 'No hay apps que instalar. No hay sistemas que aprender. Solo WhatsApp, trabajando solo.',
     'how.s1.title': 'El paciente escribe por WhatsApp', 'how.s1.desc': 'Sin descargar nada. Sin formularios. Sara entiende lenguaje natural.',
@@ -938,7 +937,7 @@ const translations = {
     'how.s3.title': 'La cita queda confirmada', 'how.s3.desc': 'El paciente recibe confirmación al instante. La clínica ve todo en su panel.',
     'trust.label': 'Tecnología oficial', 'trust.title': 'Todo oficial. Sin intermediarios.', 'trust.sub': 'Solo integraciones oficiales y proveedores de primer nivel.',
     'trust.t1.title': 'Conectado a WhatsApp Business API', 'trust.t1.desc': 'Usamos la infraestructura oficial de Meta para WhatsApp Business. Sin intermediarios ni herramientas informales.',
-    'trust.t2.title': 'Sus datos protegidos', 'trust.t2.desc': 'Base de datos en Supabase, plataforma auditada con SOC 2 Tipo 2. Datos aislados por negocio.',
+    'trust.t2.title': 'Sus datos protegidos', 'trust.t2.desc': 'Base de datos en Supabase. Datos aislados por negocio.',
     'trust.t3.title': 'No es un bot de menús', 'trust.t3.desc': 'Sara entiende lenguaje natural. El paciente escribe como quiera.',
     'plans.seg.cli': 'Clínicas y consultorios', 'plans.seg.neg': 'Barberías, spas y salones', 'plans.seg.nota': 'Para negocios que no llevan expediente clínico: mismas funciones de agenda, $9 menos al mes.', 'plans.pordr_neg': '/profesional/mes', 'plans.p1.desc_neg': 'Para barberos, estilistas y profesionales independientes.', 'plans.p1.f6_neg': 'Hasta 750 mensajes de WhatsApp al mes por profesional', 'plans.p2.name_neg': 'Negocio', 'plans.p2.desc_neg': 'Para barberías, spas y salones con varios profesionales.', 'plans.p3.name_neg': 'Negocio Plus', 'plans.p3.desc_neg': 'Para negocios en crecimiento con más profesionales.', 'plans.p3.f3_neg': 'Todo lo del plan Negocio', 'plans.p4.desc_neg': 'Para negocios grandes con una sola sede.', 'plans.p5.desc_neg': 'Para cadenas y franquicias con varias sedes.', 'plans.p5.desde_neg': 'Desde $1,790',
     'plans.label': 'Planes', 'plans.title': 'Encuentre su plan.', 'plans.sub': 'Cancele con 15 días de aviso antes del siguiente cobro.', 'plans.popular': 'Más popular', 'plans.cta': 'Consultar precio →',
@@ -966,7 +965,7 @@ const translations = {
     'faq.label': 'Preguntas frecuentes', 'faq.title': 'Lo que siempre preguntan.',
     'faq.q1': '¿Necesito instalar algo o cambiar mi número?', 'faq.a1': 'No. No cambia su número y no instala nada. Conectamos su WhatsApp Business durante el proceso de incorporación.',
     'faq.q2': '¿Qué pasa si el paciente escribe a las 11pm?', 'faq.a2': 'Sara responde las 24 horas, los 7 días. Si hay disponibilidad, agenda. Si no, lista de espera.',
-    'faq.q3': '¿Mis datos y los de mis pacientes están seguros?', 'faq.a3': 'Sí. Base de datos en Supabase, plataforma auditada con SOC 2 Tipo 2, y los datos de cada clínica están aislados.',
+    'faq.q3': '¿Mis datos y los de mis pacientes están seguros?', 'faq.a3': 'Sí. Base de datos en Supabase, y los datos de cada clínica están aislados.',
     'faq.q4': '¿Cuánto tarda en estar listo?', 'faq.a4': 'Hasta 15 días desde que nos contacta: configuramos todo, conectamos su número (depende de la verificación de Meta) y hacemos una prueba en vivo con usted.',
     'lead.label': 'Empezá hoy', 'lead.title': 'Registrá tu negocio.', 'lead.sub': 'Dejanos tus datos y te contactamos en menos de 24 horas para dejar todo listo.',
     'lead.negocio': 'Nombre del negocio', 'lead.tipo': 'Tipo de negocio', 'lead.tipoPh': 'Ej: Clínica dental, spa, gimnasio...',
@@ -1001,7 +1000,7 @@ const translations = {
     'pluggs.gratis': 'Free',
     'ba.label': 'The difference', 'ba.title': 'Before and after AutoCita.',
     'ba.before': 'Before', 'ba.after': 'After',
-    'ba.b1': 'Answering WhatsApp during dinner', 'ba.b2': 'Missed appointments from unseen messages', 'ba.b3': 'Monday without knowing your schedule', 'ba.b4': 'Vacations with your phone in hand', 'ba.b5': 'A receptionist costing $1,500/month',
+    'ba.b1': 'Answering WhatsApp during dinner', 'ba.b2': 'Missed appointments from unseen messages', 'ba.b3': 'Monday without knowing your schedule', 'ba.b4': 'Vacations with your phone in hand', 'ba.b5': 'A receptionist who only covers office hours',
     'ba.a1': 'Sara fills your schedule while you sleep', 'ba.a2': 'Every appointment confirmed instantly on WhatsApp', 'ba.a3': 'Week organized on its own by Sunday', 'ba.a4': 'Real vacations', 'ba.a5': 'Your business works. You rest.',
     'how.label': 'How it works', 'how.title': 'Three steps. No complications.', 'how.sub': 'No apps to install. No systems to learn. Just WhatsApp, working on its own.',
     'how.s1.title': 'Patient writes on WhatsApp', 'how.s1.desc': 'Nothing to download. Sara understands natural language.',
@@ -1009,10 +1008,10 @@ const translations = {
     'how.s3.title': 'Appointment confirmed', 'how.s3.desc': 'Patient gets instant confirmation. Clinic sees everything in its panel.',
     'trust.label': 'Official technology', 'trust.title': 'All official. No intermediaries.', 'trust.sub': 'Every integration is certified and secure.',
     'trust.t1.title': 'Connected to WhatsApp Business API', 'trust.t1.desc': 'We use Meta\'s official infrastructure for WhatsApp Business. No intermediaries, no informal tools.',
-    'trust.t2.title': 'Your data protected', 'trust.t2.desc': 'Database hosted on Supabase, a SOC 2 Type 2 audited platform. Data isolated per business.',
+    'trust.t2.title': 'Your data protected', 'trust.t2.desc': 'Database hosted on Supabase. Data isolated per business.',
     'trust.t3.title': 'Not a menu bot', 'trust.t3.desc': 'Sara understands natural language. Patients write however they want.',
     'plans.seg.cli': 'Clinics & practices', 'plans.seg.neg': 'Barbershops, spas & salons', 'plans.seg.nota': 'For businesses that don\'t keep clinical records: same scheduling features, $9 less per month.', 'plans.pordr_neg': '/professional/mo', 'plans.p1.desc_neg': 'For barbers, stylists and independent professionals.', 'plans.p1.f6_neg': 'Up to 750 WhatsApp messages a month per professional', 'plans.p2.name_neg': 'Business', 'plans.p2.desc_neg': 'For barbershops, spas and salons with several professionals.', 'plans.p3.name_neg': 'Business Plus', 'plans.p3.desc_neg': 'For growing businesses with more professionals.', 'plans.p3.f3_neg': 'Everything in Business', 'plans.p4.desc_neg': 'For large businesses with a single location.', 'plans.p5.desc_neg': 'For chains and franchises with several locations.', 'plans.p5.desde_neg': 'From $1,790',
-    'plans.label': 'Plans', 'plans.title': 'Find your plan.', 'plans.sub': 'No commitment. No card to start.', 'plans.popular': 'Most popular', 'plans.cta': 'Get pricing →',
+    'plans.label': 'Plans', 'plans.title': 'Find your plan.', 'plans.sub': 'Cancel with 15 days\' notice before the next charge.', 'plans.popular': 'Most popular', 'plans.cta': 'Get pricing →',
     'plans.launch': '🚀 Launch price', 'plans.porProfesional': 'Priced per professional', 'plans.pordr': '/doctor/mo', 'plans.permes': '/mo', 'plans.ctaEmpezar': 'Get started →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'For independent professionals and small offices.', 'plans.p1.antes': 'Was $79/mo',
     'plans.p1.f1': '1 reception seat included free', 'plans.p1.f2': 'Sara books 24/7', 'plans.p1.f3': 'Appointment confirmations', 'plans.p1.f4': 'Automatic waiting list', 'plans.p1.f5': 'Management panel included', 'plans.p1.f8': 'Live inbox: see every conversation with Sara and reply yourself whenever needed', 'plans.p1.f7': 'Patient records — with AI-transcribed voice notes', 'plans.p1.f6': 'Up to 750 WhatsApp messages a month per doctor',
@@ -1037,7 +1036,7 @@ const translations = {
     'faq.label': 'FAQ', 'faq.title': 'What people always ask.',
     'faq.q1': 'Do I need to install anything or change my number?', 'faq.a1': 'No. Your number stays the same. We connect your existing WhatsApp Business during onboarding.',
     'faq.q2': 'What if a patient writes at 11pm?', 'faq.a2': 'Sara responds 24/7. If there\'s availability, she books. If not, waiting list.',
-    'faq.q3': 'Is my data and my patients\' data safe?', 'faq.a3': 'Yes. Database hosted on Supabase, a SOC 2 Type 2 audited platform, and each clinic\'s data is isolated.',
+    'faq.q3': 'Is my data and my patients\' data safe?', 'faq.a3': 'Yes. Database hosted on Supabase, and each clinic\'s data is isolated.',
     'faq.q4': 'How long does setup take?', 'faq.a4': 'Up to 15 days from when you contact us: we set everything up, connect your number (depends on Meta\'s verification) and run a live test with you.',
     'lead.label': 'Get started today', 'lead.title': 'Register your business.', 'lead.sub': 'Leave your details and we\'ll contact you within 24 hours to get everything set up.',
     'lead.negocio': 'Business name', 'lead.tipo': 'Business type', 'lead.tipoPh': 'Ex: Dental clinic, spa, gym...',
@@ -1080,7 +1079,7 @@ const translations = {
     'how.s3.title': 'Consulta confirmada', 'how.s3.desc': 'Paciente recebe confirmação na hora. Clínica vê tudo no painel.',
     'trust.label': 'Tecnologia oficial', 'trust.title': 'Tudo oficial. Sem intermediários.', 'trust.sub': 'Só integrações oficiais e fornecedores de primeira linha.',
     'trust.t1.title': 'Conectado à WhatsApp Business API', 'trust.t1.desc': 'Usamos a infraestrutura oficial da Meta para WhatsApp Business. Sem intermediários.',
-    'trust.t2.title': 'Seus dados protegidos', 'trust.t2.desc': 'Banco de dados no Supabase, plataforma auditada com SOC 2 Tipo 2. Dados isolados por negócio.',
+    'trust.t2.title': 'Seus dados protegidos', 'trust.t2.desc': 'Banco de dados no Supabase. Dados isolados por negócio.',
     'trust.t3.title': 'Não é um bot de menus', 'trust.t3.desc': 'Sara entende linguagem natural.',
     'plans.seg.cli': 'Clínicas e consultórios', 'plans.seg.neg': 'Barbearias, spas e salões', 'plans.seg.nota': 'Para negócios sem prontuário clínico: mesmas funções de agenda, $9 a menos por mês.', 'plans.pordr_neg': '/profissional/mês', 'plans.p1.desc_neg': 'Para barbeiros, cabeleireiros e profissionais independentes.', 'plans.p1.f6_neg': 'Até 750 mensagens de WhatsApp por mês por profissional', 'plans.p2.name_neg': 'Negócio', 'plans.p2.desc_neg': 'Para barbearias, spas e salões com vários profissionais.', 'plans.p3.name_neg': 'Negócio Plus', 'plans.p3.desc_neg': 'Para negócios em crescimento com mais profissionais.', 'plans.p3.f3_neg': 'Tudo do plano Negócio', 'plans.p4.desc_neg': 'Para negócios grandes com uma única unidade.', 'plans.p5.desc_neg': 'Para redes e franquias com várias unidades.', 'plans.p5.desde_neg': 'A partir de $1.790',
     'plans.label': 'Planos', 'plans.title': 'Encontre seu plano.', 'plans.sub': 'Cancele com 15 dias de aviso antes da próxima cobrança.', 'plans.popular': 'Mais popular', 'plans.cta': 'Consultar preço →',
@@ -1108,7 +1107,7 @@ const translations = {
     'faq.label': 'Perguntas frequentes', 'faq.title': 'O que sempre perguntam.',
     'faq.q1': 'Preciso instalar algo ou mudar meu número?', 'faq.a1': 'Não. Seu número não muda.',
     'faq.q2': 'E se o paciente escrever às 23h?', 'faq.a2': 'Sara responde 24/7.',
-    'faq.q3': 'Meus dados estão seguros?', 'faq.a3': 'Sim. Banco de dados no Supabase, plataforma auditada com SOC 2 Tipo 2, com dados isolados por clínica.',
+    'faq.q3': 'Meus dados estão seguros?', 'faq.a3': 'Sim. Banco de dados no Supabase, com dados isolados por clínica.',
     'faq.q4': 'Quanto tempo leva?', 'faq.a4': 'Até 15 dias desde o seu contato: configuramos tudo, conectamos seu número (depende da verificação da Meta) e fazemos um teste ao vivo com você.',
     'lead.label': 'Comece hoje', 'lead.title': 'Registre seu negócio.', 'lead.sub': 'Deixe seus dados e entramos em contato em menos de 24 horas para deixar tudo pronto.',
     'lead.negocio': 'Nome do negócio', 'lead.tipo': 'Tipo de negócio', 'lead.tipoPh': 'Ex: Clínica odontológica, spa, academia...',
