@@ -41,7 +41,7 @@
   <meta property="og:url" content="https://automatiaai.com/">
   <meta name="twitter:card" content="summary">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "AutomatIA", "url": "https://automatiaai.com", "description": "Automatización con IA para negocios en Costa Rica: AutoCita, AutoVentas y Pluggs.", "areaServed": "CR", "sameAs": ["https://wa.me/50686205959"]}</script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Sara da consejos médicos?", "acceptedAnswer": {"@type": "Answer", "text": "No. Sara agenda, confirma y recuerda citas. No diagnostica ni reemplaza a su médico."}}, {"@type": "Question", "name": "¿Puede una persona tomar la conversación?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Desde el inbox usted ve cada conversación y responde cuando haga falta."}}, {"@type": "Question", "name": "¿Qué pasa si supero el límite de mensajes?", "acceptedAnswer": {"@type": "Answer", "text": "Cada plan incluye mensajes al mes. Los extra se cobran como cargo adicional en el siguiente ciclo, según los Términos."}}, {"@type": "Question", "name": "¿Tengo que cambiar mi número de WhatsApp?", "acceptedAnswer": {"@type": "Answer", "text": "No. Conectamos su WhatsApp Business actual. No instala nada."}}, {"@type": "Question", "name": "¿Puedo cancelar?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, escribiendo a soporte@automatiaai.com con 15 días de anticipación al siguiente cobro. La suscripción se renueva sola cada período."}}, {"@type": "Question", "name": "¿Quién publica en mis redes con Pluggs?", "acceptedAnswer": {"@type": "Answer", "text": "Usted. Pluggs crea el contenido, usted lo revisa y lo publica."}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Sara da consejos médicos?", "acceptedAnswer": {"@type": "Answer", "text": "No. Sara agenda, confirma y recuerda citas; no está diseñada para diagnosticar ni dar consejos médicos. Ante una duda de salud, el paciente debe consultar a su médico."}}, {"@type": "Question", "name": "¿Puede una persona tomar la conversación?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Desde el inbox usted ve cada conversación y responde cuando haga falta."}}, {"@type": "Question", "name": "¿Qué pasa si supero el límite de mensajes?", "acceptedAnswer": {"@type": "Answer", "text": "Cada plan incluye mensajes al mes. Los extra se cobran como cargo adicional en el siguiente ciclo, según los Términos."}}, {"@type": "Question", "name": "¿Tengo que cambiar mi número de WhatsApp?", "acceptedAnswer": {"@type": "Answer", "text": "No. Conectamos su WhatsApp Business actual. No instala nada."}}, {"@type": "Question", "name": "¿Puedo cancelar?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, escribiendo a soporte@automatiaai.com con 15 días de anticipación al siguiente cobro. La suscripción se renueva sola cada período."}}, {"@type": "Question", "name": "¿Hay un costo de activación?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. AutoCita y AutoVentas tienen un cargo único de activación, más IVA, que se indica en su cotización. No es reembolsable una vez iniciada la activación (Términos, cláusula 10)."}}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -188,7 +188,7 @@
           <li>Expediente con notas de voz</li>
         </ul>
         <!-- precio real: Starter US$119/doctor/mes + IVA (autocita.html, plan Starter clínica) -->
-        <p class="desde">Desde US$119 por doctor al mes + IVA</p>
+        <p class="desde">Desde US$119 por doctor al mes + IVA, más un cargo único de activación</p>
         <a class="btn btn-main" href="autocita.html">Conocer más</a>
       </article>
       <article class="card">
@@ -201,7 +201,7 @@
           <li>Seguimiento de cada cliente</li>
         </ul>
         <!-- precio real: AutoVentas Lite US$23.99/mes + IVA (lucia.html) -->
-        <p class="desde">Desde US$23.99 al mes + IVA</p>
+        <p class="desde">Desde US$23.99 al mes + IVA, más un cargo único de activación</p>
         <a class="btn btn-main" href="lucia.html">Conocer más</a>
       </article>
       <article class="card">
@@ -296,7 +296,7 @@
     <div class="faq">
       <details><summary>¿Sara da consejos médicos?</summary>
         <!-- VERIFICAR: no encontré en el código una instrucción explícita "no dar consejos médicos"; confirmar en el prompt de Sara antes de publicar. -->
-        <p>No. Sara agenda, confirma y recuerda citas. No diagnostica ni reemplaza a su médico.</p></details>
+        <p>No. Sara agenda, confirma y recuerda citas; no está diseñada para diagnosticar ni dar consejos médicos. Ante una duda de salud, el paciente debe consultar a su médico.</p></details>
       <details><summary>¿Puede una persona tomar la conversación?</summary>
         <!-- verif: inbox + bot_pausado + responder a mano (index-actualizado.js:2352-2410, 2652) -->
         <p>Sí. Desde el inbox usted ve cada conversación y responde cuando haga falta.</p></details>
@@ -308,8 +308,8 @@
       <details><summary>¿Puedo cancelar?</summary>
         <!-- verif: terminos.html cláusula 12 (15 días de aviso) y renovación automática. No se afirma "sin contrato largo". -->
         <p>Sí, escribiendo a soporte@automatiaai.com con 15 días de anticipación al siguiente cobro. La suscripción se renueva sola cada período.</p></details>
-      <details><summary>¿Quién publica en mis redes con Pluggs?</summary>
-        <p>Usted. Pluggs crea el contenido, usted lo revisa y lo publica.</p></details>
+      <details><summary>¿Hay un costo de activación?</summary>
+        <p>Sí. AutoCita y AutoVentas tienen un cargo único de activación, más IVA, que se indica en su cotización. No es reembolsable una vez iniciada la activación (Términos, cláusula 10).</p></details>
     </div>
   </div>
 </section>

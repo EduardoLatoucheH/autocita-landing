@@ -719,7 +719,7 @@
 <section id="planes" class="section">
   <div class="section-label" data-i18n="plans.label">Planes</div>
   <h2 class="title" data-i18n="plans.title">Encuentre su <em>plan.</em></h2>
-  <p class="subtitle" data-i18n="plans.sub">Sin permanencia. Sin tarjeta para empezar. Cambie de plan cuando quiera.</p>
+  <p class="subtitle" data-i18n="plans.sub">Cancele con 15 días de aviso antes del siguiente cobro.</p>
   <div class="seg-toggle" role="tablist">
     <button type="button" class="activo" data-seg="clinica" onclick="aplicarSegmento('clinica')" data-i18n="plans.seg.cli">Clínicas y consultorios</button>
     <button type="button" data-seg="negocio" onclick="aplicarSegmento('negocio')" data-i18n="plans.seg.neg">Barberías, spas y salones</button>
@@ -813,9 +813,10 @@
       <a href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise%20Plus" data-href-cli="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise%20Plus" data-href-neg="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise%20Plus%20para%20negocio" target="_blank" rel="noopener noreferrer" class="plan-btn" data-i18n="plans.cta">Consultar precio →</a>
     </div>
   </div>
+  <p class="plans-nota"><strong>Cargo único de activación:</strong> además de la mensualidad hay un cargo único de activación (más IVA), indicado en su cotización. No es reembolsable una vez iniciada la activación; ver Términos, cláusula 10.</p>
   <p class="plans-nota" data-i18n="plans.ivaNota"><strong>Todos los precios están en dólares y no incluyen IVA.</strong></p>
   <p class="plans-nota" data-i18n="plans.mensajesNota"><strong>Los mensajes incluidos son de servicio y utilidad</strong> — agendamiento, confirmaciones y recordatorios, que es el uso normal de la plataforma. Las campañas de marketing y promociones usan otra categoría de WhatsApp, con tarifa distinta, y se cotizan aparte.</p>
-  <p class="plans-nota" data-i18n="plans.mensajesExcedente">¿Necesita más? Cada mensaje adicional se cobra unitario a $0.065 por mensaje. Le avisamos antes de llegar al límite; nunca se le cobra un excedente sin que usted lo haya aprobado.</p>
+  <p class="plans-nota" data-i18n="plans.mensajesExcedente">¿Necesita más? Cada mensaje adicional cuesta $0.065 y se cobra como cargo adicional en el siguiente ciclo de facturación, según los Términos.</p>
   <p class="plans-nota" data-i18n="plans.facturacionNota">El add-on de facturación electrónica se integra con Hacienda de Costa Rica y solo está disponible para clínicas en Costa Rica. Para otros países, contáctenos para revisar las opciones locales.</p>
 </section>
 <!-- FAQ -->
@@ -942,7 +943,7 @@ const translations = {
     'trust.t2.title': 'Sus datos protegidos', 'trust.t2.desc': 'Base de datos en Supabase, plataforma auditada con SOC 2 Tipo 2. Datos aislados por negocio.',
     'trust.t3.title': 'No es un bot de menús', 'trust.t3.desc': 'Sara entiende lenguaje natural. El paciente escribe como quiera.',
     'plans.seg.cli': 'Clínicas y consultorios', 'plans.seg.neg': 'Barberías, spas y salones', 'plans.seg.nota': 'Para negocios que no llevan expediente clínico: mismas funciones de agenda, $9 menos al mes.', 'plans.pordr_neg': '/profesional/mes', 'plans.p1.desc_neg': 'Para barberos, estilistas y profesionales independientes.', 'plans.p1.f6_neg': 'Hasta 750 mensajes de WhatsApp al mes por profesional', 'plans.p2.name_neg': 'Negocio', 'plans.p2.desc_neg': 'Para barberías, spas y salones con varios profesionales.', 'plans.p3.name_neg': 'Negocio Plus', 'plans.p3.desc_neg': 'Para negocios en crecimiento con más profesionales.', 'plans.p3.f3_neg': 'Todo lo del plan Negocio', 'plans.p4.desc_neg': 'Para negocios grandes con una sola sede.', 'plans.p5.desc_neg': 'Para cadenas y franquicias con varias sedes.', 'plans.p5.desde_neg': 'Desde $1,790',
-    'plans.label': 'Planes', 'plans.title': 'Encuentre su plan.', 'plans.sub': 'Sin permanencia. Sin tarjeta para empezar.', 'plans.popular': 'Más popular', 'plans.cta': 'Consultar precio →',
+    'plans.label': 'Planes', 'plans.title': 'Encuentre su plan.', 'plans.sub': 'Cancele con 15 días de aviso antes del siguiente cobro.', 'plans.popular': 'Más popular', 'plans.cta': 'Consultar precio →',
     'plans.launch': '🚀 Precio de lanzamiento', 'plans.porProfesional': 'Precio por profesional', 'plans.pordr': '/doctor/mes', 'plans.permes': '/mes', 'plans.ctaEmpezar': 'Empezar ahora →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profesionales independientes y consultorios pequeños.', 'plans.p1.antes': 'Antes $79/mes',
     'plans.p1.f1': '1 recepción incluida sin costo', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmaciones de citas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Panel de gestión incluido', 'plans.p1.f8': 'Inbox en vivo: vea cada conversación con Sara y responda usted mismo cuando haga falta', 'plans.p1.f7': 'Expediente del paciente — con notas de voz transcritas por IA', 'plans.p1.f6': 'Hasta 750 mensajes de WhatsApp al mes por doctor',
@@ -962,7 +963,7 @@ const translations = {
     'plans.addon5': '+ <strong>$54/mes</strong>: Facturación electrónica (Hacienda CR)',
     'plans.masIva': '+ IVA',
     'plans.mensajesNota': '<strong>Los mensajes incluidos son de servicio y utilidad</strong> — agendamiento, confirmaciones y recordatorios, que es el uso normal de la plataforma. Las campañas de marketing y promociones usan otra categoría de WhatsApp, con tarifa distinta, y se cotizan aparte.',
-    'plans.mensajesExcedente': '¿Necesita más? Cada mensaje adicional se cobra unitario a $0.065 por mensaje. Le avisamos antes de llegar al límite; nunca se le cobra un excedente sin que usted lo haya aprobado.',
+    'plans.mensajesExcedente': '¿Necesita más? Cada mensaje adicional cuesta $0.065 y se cobra como cargo adicional en el siguiente ciclo de facturación, según los Términos.',
     'plans.facturacionNota': 'El add-on de facturación electrónica se integra con Hacienda de Costa Rica y solo está disponible para clínicas en Costa Rica. Para otros países, contáctenos para revisar las opciones locales.',
     'faq.label': 'Preguntas frecuentes', 'faq.title': 'Lo que siempre preguntan.',
     'faq.q1': '¿Necesito instalar algo o cambiar mi número?', 'faq.a1': 'No. No cambia su número y no instala nada. Conectamos su WhatsApp Business durante el proceso de incorporación.',
@@ -1033,7 +1034,7 @@ const translations = {
     'plans.addon5': '+ <strong>$54/mo</strong>: Electronic invoicing (Hacienda CR)',
     'plans.masIva': '+ VAT',
     'plans.mensajesNota': '<strong>Included messages are service and utility messages</strong> — scheduling, confirmations, and reminders, which is the platform\'s normal use. Marketing campaigns and promotions use a different WhatsApp category, at a different rate, and are quoted separately.',
-    'plans.mensajesExcedente': 'Need more? Extra messages are billed per unit at $0.065 per message. We notify you before you reach the limit; you are never charged an overage you haven\'t approved.',
+    'plans.mensajesExcedente': 'Need more? Each extra message costs $0.065 and is billed as an additional charge in the next billing cycle, per the Terms.',
     'plans.facturacionNota': 'The electronic invoicing add-on integrates with Costa Rica\'s Hacienda and is only available for clinics in Costa Rica. For other countries, contact us to review local options.',
     'faq.label': 'FAQ', 'faq.title': 'What people always ask.',
     'faq.q1': 'Do I need to install anything or change my number?', 'faq.a1': 'No. Your number stays the same. We connect your existing WhatsApp Business during onboarding.',
@@ -1084,7 +1085,7 @@ const translations = {
     'trust.t2.title': 'Seus dados protegidos', 'trust.t2.desc': 'Banco de dados no Supabase, plataforma auditada com SOC 2 Tipo 2. Dados isolados por negócio.',
     'trust.t3.title': 'Não é um bot de menus', 'trust.t3.desc': 'Sara entende linguagem natural.',
     'plans.seg.cli': 'Clínicas e consultórios', 'plans.seg.neg': 'Barbearias, spas e salões', 'plans.seg.nota': 'Para negócios sem prontuário clínico: mesmas funções de agenda, $9 a menos por mês.', 'plans.pordr_neg': '/profissional/mês', 'plans.p1.desc_neg': 'Para barbeiros, cabeleireiros e profissionais independentes.', 'plans.p1.f6_neg': 'Até 750 mensagens de WhatsApp por mês por profissional', 'plans.p2.name_neg': 'Negócio', 'plans.p2.desc_neg': 'Para barbearias, spas e salões com vários profissionais.', 'plans.p3.name_neg': 'Negócio Plus', 'plans.p3.desc_neg': 'Para negócios em crescimento com mais profissionais.', 'plans.p3.f3_neg': 'Tudo do plano Negócio', 'plans.p4.desc_neg': 'Para negócios grandes com uma única unidade.', 'plans.p5.desc_neg': 'Para redes e franquias com várias unidades.', 'plans.p5.desde_neg': 'A partir de $1.790',
-    'plans.label': 'Planos', 'plans.title': 'Encontre seu plano.', 'plans.sub': 'Sem fidelidade. Sem cartão para começar.', 'plans.popular': 'Mais popular', 'plans.cta': 'Consultar preço →',
+    'plans.label': 'Planos', 'plans.title': 'Encontre seu plano.', 'plans.sub': 'Cancele com 15 dias de aviso antes da próxima cobrança.', 'plans.popular': 'Mais popular', 'plans.cta': 'Consultar preço →',
     'plans.launch': '🚀 Preço de lançamento', 'plans.porProfesional': 'Preço por profissional', 'plans.pordr': '/médico/mês', 'plans.permes': '/mês', 'plans.ctaEmpezar': 'Começar agora →',
     'plans.p1.name': 'Starter', 'plans.p1.desc': 'Para profissionais independentes.', 'plans.p1.antes': 'Antes $79/mês',
     'plans.p1.f1': '1 recepção incluída sem custo', 'plans.p1.f2': 'Sara agenda 24/7', 'plans.p1.f3': 'Confirmações de consultas', 'plans.p1.f4': 'Lista de espera automática', 'plans.p1.f5': 'Painel de gestão incluído', 'plans.p1.f8': 'Inbox ao vivo: veja cada conversa com a Sara e responda você mesmo quando precisar', 'plans.p1.f7': 'Prontuário do paciente — com notas de voz transcritas por IA', 'plans.p1.f6': 'Até 750 mensagens de WhatsApp por mês por médico',
@@ -1104,7 +1105,7 @@ const translations = {
     'plans.addon5': '+ <strong>$54/mês</strong>: Faturamento eletrônico (Hacienda CR)',
     'plans.masIva': '+ impostos',
     'plans.mensajesNota': '<strong>As mensagens incluídas são de serviço e utilidade</strong> — agendamento, confirmações e lembretes, que é o uso normal da plataforma. Campanhas de marketing e promoções usam outra categoria do WhatsApp, com tarifa diferente, e são orçadas à parte.',
-    'plans.mensajesExcedente': 'Precisa de mais? Cada mensagem extra é cobrada por unidade a $0,065 por mensagem. Avisamos antes de você chegar ao limite; nunca cobramos um excedente sem a sua aprovação.',
+    'plans.mensajesExcedente': 'Precisa de mais? Cada mensagem extra custa $0,065 e é cobrada como cobrança adicional no próximo ciclo de faturamento, conforme os Termos.',
     'plans.facturacionNota': 'O add-on de faturamento eletrônico se integra com a Hacienda da Costa Rica e está disponível apenas para clínicas na Costa Rica. Para outros países, entre em contato para avaliar as opções locais.',
     'faq.label': 'Perguntas frequentes', 'faq.title': 'O que sempre perguntam.',
     'faq.q1': 'Preciso instalar algo ou mudar meu número?', 'faq.a1': 'Não. Seu número não muda.',
