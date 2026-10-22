@@ -1,0 +1,143 @@
+/* AutomatIA — hoja compartida de la landing (22/10/2026).
+   Neutros y tipografía iguales en todo el sitio; cada página declara su servicio
+   con <body data-servicio="autocita|autoventas|pluggs|automatizaciones"> y hereda su acento.
+   La central no declara servicio: queda neutra (tinta sobre crema). */
+
+:root{
+  --crema:#F6F1E7;
+  --papel:#FFFFFF;
+  --tinta:#1F1C17;
+  --gris:#5E574D;
+  --linea:#E3DBCB;
+  --error:#A3262C;
+  --ok-bg:#E8F0EA;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+
+  /* Acento por defecto = central neutra */
+  --acento:#1F1C17;
+  --acento-hover:#000000;
+  --acento-suave:#EDE6D8;
+  --acento-texto:#1F1C17;
+}
+body[data-servicio="autocita"]{--acento:#3B6B57;--acento-hover:#2F5846;--acento-suave:#E4ECE6;--acento-texto:#3B6B57}
+body[data-servicio="autoventas"]{--acento:#B04F34;--acento-hover:#954128;--acento-suave:#F3E2DA;--acento-texto:#B04F34}
+body[data-servicio="pluggs"]{--acento:#6B4E8C;--acento-hover:#593F76;--acento-suave:#E9E3EF;--acento-texto:#6B4E8C}
+body[data-servicio="automatizaciones"]{--acento:#2C5F75;--acento-hover:#224C5E;--acento-suave:#DDE8ED;--acento-texto:#2C5F75}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--crema);color:var(--tinta);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--acento-texto)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--acento);outline-offset:3px;border-radius:6px}
+
+/* ---------- Burbuja de navegación (nav.js) ---------- */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.topbar .wrap{display:flex;align-items:center;gap:16px;padding-top:10px;padding-bottom:10px}
+.marca{font-weight:600;font-size:18px;letter-spacing:-.02em;color:var(--tinta);text-decoration:none;white-space:nowrap}
+.marca b{font-weight:600;color:var(--gris)}
+.burbuja{display:flex;gap:4px;background:var(--papel);border:1px solid var(--linea);border-radius:999px;padding:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-left:auto;max-width:100%}
+.burbuja::-webkit-scrollbar{display:none}
+.burbuja a{flex:0 0 auto;display:flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;font-size:14px;font-weight:500;color:var(--gris);text-decoration:none;white-space:nowrap;transition:background .2s,color .2s}
+.burbuja a:hover{color:var(--tinta);background:var(--crema)}
+.burbuja a[aria-current="page"]{color:#fff;font-weight:600}
+.burbuja a[data-s="autocita"][aria-current="page"]{background:#3B6B57}
+.burbuja a[data-s="autoventas"][aria-current="page"]{background:#B04F34}
+.burbuja a[data-s="pluggs"][aria-current="page"]{background:#6B4E8C}
+.burbuja a[data-s="automatizaciones"][aria-current="page"]{background:#2C5F75}
+@media(max-width:700px){
+  .topbar .wrap{flex-direction:column;align-items:stretch;gap:8px;padding-left:12px;padding-right:12px}
+  .marca{text-align:center}
+  .burbuja{margin-left:0;width:100%}
+}
+
+/* ---------- Tipografía ---------- */
+h1,h2,h3{font-family:var(--serif);font-weight:400;font-style:normal;letter-spacing:-.01em;line-height:1.08}
+h1{font-size:clamp(34px,6vw,56px)}
+h2{font-size:clamp(28px,4.4vw,38px);margin-bottom:28px}
+h3{font-size:22px}
+.etiqueta{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--acento-texto);margin-bottom:16px}
+.sub{font-size:19px;color:var(--gris);margin-top:16px;max-width:34em}
+
+/* ---------- Botones ---------- */
+.acciones{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;background:var(--acento);color:#fff;border:0;border-radius:12px;font:600 16px var(--sans);text-decoration:none;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--acento-hover)}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.enlace{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--acento-texto)}
+
+/* ---------- Secciones ---------- */
+.hero{padding:64px 0 56px}
+.seccion{padding:56px 0;border-top:1px solid var(--linea)}
+@media(max-width:700px){.hero{padding:40px 0 36px}.seccion{padding:40px 0}}
+
+/* Tarjetas */
+.tarjetas{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.tarjeta{background:var(--papel);border:1px solid var(--linea);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.tarjeta .ico{width:44px;height:44px;border-radius:12px;background:var(--acento-suave);color:var(--acento-texto);display:grid;place-items:center;font-size:22px;margin-bottom:8px}
+.tarjeta h3{font-family:var(--sans);font-size:18px;font-weight:600;letter-spacing:0;line-height:1.25}
+.tarjeta p{font-size:15px;color:var(--gris)}
+.tarjeta .btn{margin-top:auto;align-self:flex-start}
+.tarjeta .etiqueta{margin-bottom:0}
+/* Tarjetas de servicio en la central: cada una con su color */
+.tarjeta[data-s="autocita"]{--acento:#3B6B57;--acento-hover:#2F5846;--acento-suave:#E4ECE6;--acento-texto:#3B6B57}
+.tarjeta[data-s="autoventas"]{--acento:#B04F34;--acento-hover:#954128;--acento-suave:#F3E2DA;--acento-texto:#B04F34}
+.tarjeta[data-s="pluggs"]{--acento:#6B4E8C;--acento-hover:#593F76;--acento-suave:#E9E3EF;--acento-texto:#6B4E8C}
+.tarjeta[data-s="automatizaciones"]{--acento:#2C5F75;--acento-hover:#224C5E;--acento-suave:#DDE8ED;--acento-texto:#2C5F75}
+
+/* Pasos */
+.pasos{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));counter-reset:paso}
+.paso{counter-increment:paso;padding:4px 0}
+.paso::before{content:counter(paso);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--acento);color:#fff;font-weight:600;margin-bottom:12px}
+.paso b{display:block;font-size:18px;margin-bottom:2px}
+.paso span{color:var(--gris);font-size:15px}
+
+/* Planes */
+.planes{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.plan{background:var(--papel);border:1px solid var(--linea);border-radius:18px;padding:26px}
+.plan .nombre{font-weight:600;font-size:16px;color:var(--acento-texto)}
+.plan .precio{font-family:var(--serif);font-size:44px;line-height:1.1;margin:6px 0 2px}
+.plan .nota{font-size:14px;color:var(--gris)}
+
+/* Plegables */
+details{border-top:1px solid var(--linea)}
+details:last-of-type{border-bottom:1px solid var(--linea)}
+summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:14px 0;font-weight:600;font-size:17px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:24px;font-weight:400;color:var(--acento-texto);flex:0 0 auto}
+details[open] summary::after{content:"–"}
+details .cuerpo{padding:0 0 20px;color:var(--gris);font-size:16px;max-width:42em}
+details .cuerpo p+p,details .cuerpo ul{margin-top:10px}
+details .cuerpo ul{padding-left:20px}
+.detalle{margin-top:24px}
+.detalle details{border-top:1px solid var(--linea)}
+
+/* Formulario */
+.form{background:var(--papel);border:1px solid var(--linea);border-radius:18px;padding:28px;max-width:680px}
+.form-fila{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin-bottom:14px}
+.campo{display:flex;flex-direction:column;gap:6px}
+.campo.full{grid-column:1/-1}
+.campo label{font-size:13px;font-weight:600}
+.campo input,.campo textarea{font:inherit;font-size:16px;min-height:48px;padding:11px 14px;border:1px solid #CFC5B1;border-radius:10px;background:var(--crema);color:var(--tinta)}
+.campo textarea{min-height:104px;resize:vertical}
+.campo input:focus,.campo textarea:focus{outline:2px solid var(--acento);outline-offset:1px}
+.form .btn{width:100%}
+.msg{display:none;font-size:14px;padding:12px 14px;border-radius:10px;margin-top:14px}
+.msg.show{display:block}
+.msg.ok{background:var(--ok-bg);color:var(--tinta);border:1px solid #BFD3C4}
+.msg.err{background:#FBEAEA;color:var(--error);border:1px solid #EBC3C3}
+@media(max-width:600px){.form-fila{grid-template-columns:1fr}.form{padding:20px}}
+
+/* CTA final + pie */
+.cta-final{text-align:center;padding:64px 0}
+.cta-final h2{margin-bottom:12px}
+.cta-final .sub{margin:0 auto}
+.cta-final .acciones{justify-content:center}
+.pie{border-top:1px solid var(--linea);padding:32px 0 56px;text-align:center;font-size:13px;color:var(--gris)}
+.pie nav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 20px;margin-bottom:10px}
+.pie a{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--tinta);text-decoration:none}
+.pie a:hover{text-decoration:underline}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}

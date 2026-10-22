@@ -1,6 +1,6 @@
 # AutomatIA
 
-> AutomatIA ofrece tres servicios: AutoCita (Sara agenda citas por WhatsApp para clínicas), AutoVentas (Lucía vende por WhatsApp) y Pluggs (contenido para redes). Detalle en autocita.html, lucia.html y pluggs.html.
+> AutomatIA ofrece cuatro servicios: AutoCita (Sara agenda citas por WhatsApp para clínicas), AutoVentas (Lucía vende por WhatsApp), Pluggs (contenido para redes) y Automatizaciones (bots a la medida). Detalle en autocita.html, lucia.html, pluggs.html y automatizaciones.html.
 
 ## AutoCita
 
