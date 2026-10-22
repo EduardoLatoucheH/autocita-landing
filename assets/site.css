@@ -22,7 +22,9 @@
 }
 body[data-servicio="autocita"]{--acento:#3B6B57;--acento-hover:#2F5846;--acento-suave:#E4ECE6;--acento-texto:#3B6B57}
 body[data-servicio="autoventas"]{--acento:#B04F34;--acento-hover:#954128;--acento-suave:#F3E2DA;--acento-texto:#B04F34}
-body[data-servicio="pluggs"]{--acento:#B4236B;--acento-hover:#96205A;--acento-suave:#F5DCE8;--acento-texto:#B4236B}
+body[data-servicio="pluggs"]{--acento:#087A81;--acento-hover:#066067;--acento-suave:#D9F0F1;--acento-texto:#087A81;
+  /* Pluggs (22/10/2026): fondo propio, muy claro y fresco, en vez del crema del resto del sitio */
+  --crema:#F2FAFA;--linea:#D3E7E9}
 body[data-servicio="automatizaciones"]{--acento:#2457C5;--acento-hover:#1C46A0;--acento-suave:#DCE5F6;--acento-texto:#2457C5}
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -34,7 +36,7 @@ a{color:var(--acento-texto)}
 :focus-visible{outline:3px solid var(--acento);outline-offset:3px;border-radius:6px}
 
 /* ---------- Burbuja de navegación (nav.js) ---------- */
-.topbar{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.topbar{position:sticky;top:0;z-index:50;background:var(--crema);border-bottom:1px solid var(--linea)}
 .topbar .wrap{display:flex;align-items:center;gap:16px;padding-top:10px;padding-bottom:10px}
 .marca{font-weight:600;font-size:18px;letter-spacing:-.02em;color:var(--tinta);text-decoration:none;white-space:nowrap}
 .marca b{font-weight:600;color:var(--gris)}
@@ -45,7 +47,7 @@ a{color:var(--acento-texto)}
 .burbuja a[aria-current="page"]{color:#fff;font-weight:600}
 .burbuja a[data-s="autocita"][aria-current="page"]{background:#3B6B57}
 .burbuja a[data-s="autoventas"][aria-current="page"]{background:#B04F34}
-.burbuja a[data-s="pluggs"][aria-current="page"]{background:#B4236B}
+.burbuja a[data-s="pluggs"][aria-current="page"]{background:#087A81}
 .burbuja a[data-s="automatizaciones"][aria-current="page"]{background:#2457C5}
 @media(max-width:700px){
   .topbar .wrap{flex-direction:column;align-items:stretch;gap:8px;padding-left:12px;padding-right:12px}
@@ -84,7 +86,7 @@ h3{font-size:22px}
 /* Tarjetas de servicio en la central: cada una con su color */
 .tarjeta[data-s="autocita"]{--acento:#3B6B57;--acento-hover:#2F5846;--acento-suave:#E4ECE6;--acento-texto:#3B6B57}
 .tarjeta[data-s="autoventas"]{--acento:#B04F34;--acento-hover:#954128;--acento-suave:#F3E2DA;--acento-texto:#B04F34}
-.tarjeta[data-s="pluggs"]{--acento:#B4236B;--acento-hover:#96205A;--acento-suave:#F5DCE8;--acento-texto:#B4236B}
+.tarjeta[data-s="pluggs"]{--acento:#087A81;--acento-hover:#066067;--acento-suave:#D9F0F1;--acento-texto:#087A81}
 .tarjeta[data-s="automatizaciones"]{--acento:#2457C5;--acento-hover:#1C46A0;--acento-suave:#DCE5F6;--acento-texto:#2457C5}
 
 /* Pasos */

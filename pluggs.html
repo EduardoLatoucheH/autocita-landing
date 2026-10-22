@@ -42,6 +42,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    /* Calendario de ejemplo (22/10/2026): se arma con JS; los colores salen del acento de Pluggs */
+    .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;max-width:820px}
+    .cal .h{font-size:12px;font-weight:600;color:var(--gris);text-align:center;padding:4px 0}
+    .cal .d{background:var(--papel);border:1px solid var(--linea);border-radius:10px;min-height:84px;padding:6px;display:flex;flex-direction:column;gap:4px}
+    .cal .d.v{background:transparent;border-style:dashed;opacity:.5}
+    .cal .n{font-size:12px;color:var(--gris)}
+    .chip{display:inline-block;font-size:11px;font-weight:600;border-radius:6px;padding:2px 6px;line-height:1.35}
+    .t-car{background:var(--acento-suave);color:#055A60}
+    .t-reel{background:var(--acento);color:#fff}
+    .t-foto{background:var(--papel);border:1px solid var(--acento);color:#055A60}
+    .leyenda{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:14px;color:var(--gris);align-items:center}
+    @media(max-width:600px){
+      .cal{gap:4px}.cal .d{min-height:50px;padding:4px}
+      .cal .chip{font-size:0;padding:0;height:6px;border-radius:3px}
+    }
+  </style>
 </head>
 <body data-servicio="pluggs">
 <header id="topbar"></header>
@@ -69,6 +86,21 @@
         <div class="tarjeta"><span class="ico" aria-hidden="true">▶</span><h3>Reels y video animado</h3><p>Guiones y piezas en movimiento.</p></div>
         <div class="tarjeta"><span class="ico" aria-hidden="true">▦</span><h3>Plan de contenido</h3><p>El mes completo, organizado.</p></div>
         <div class="tarjeta"><span class="ico" aria-hidden="true">◉</span><h3>Estrategia de perfil</h3><p>Bio y estilo de tu Instagram.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2b. Calendario de publicaciones (ejemplo ilustrativo del plan de contenido del mes) -->
+  <section class="seccion">
+    <div class="wrap">
+      <h2>Tu calendario de publicaciones</h2>
+      <p class="sub" style="margin:-12px 0 24px">Pluggs arma el mes. Vos revisás y publicás.</p>
+      <div class="cal" id="cal" role="img" aria-label="Ejemplo de un mes de publicaciones con carruseles, reels y fotos"></div>
+      <div class="leyenda" aria-hidden="true">
+        <span><span class="chip t-car">Carrusel</span></span>
+        <span><span class="chip t-reel">Reel</span></span>
+        <span><span class="chip t-foto">Foto</span></span>
+        <span>Ejemplo ilustrativo.</span>
       </div>
     </div>
   </section>
@@ -140,6 +172,24 @@
 </footer>
 
 <script src="/assets/nav.js"></script>
+<script>
+// Calendario de ejemplo: 30 días, semana de lunes a domingo. Todo con textContent (sin innerHTML).
+(function () {
+  var cal = document.getElementById('cal');
+  var posts = { 2: ['car', 'Carrusel'], 4: ['reel', 'Reel'], 7: ['foto', 'Foto'], 9: ['car', 'Carrusel'], 11: ['reel', 'Reel'], 14: ['foto', 'Foto'],
+    16: ['car', 'Carrusel'], 18: ['reel', 'Reel'], 21: ['foto', 'Foto'], 23: ['car', 'Carrusel'], 25: ['reel', 'Reel'], 28: ['car', 'Carrusel'], 30: ['foto', 'Foto'] };
+  function el(cls, txt) { var e = document.createElement('div'); e.className = cls; if (txt) e.textContent = txt; return e; }
+  ['L', 'M', 'M', 'J', 'V', 'S', 'D'].forEach(function (d) { cal.appendChild(el('h', d)); });
+  for (var i = 1; i <= 35; i++) {
+    var c = el(i <= 30 ? 'd' : 'd v');
+    if (i <= 30) {
+      c.appendChild(el('n', String(i)));
+      if (posts[i]) { var chip = document.createElement('span'); chip.className = 'chip t-' + posts[i][0]; chip.textContent = posts[i][1]; c.appendChild(chip); }
+    }
+    cal.appendChild(c);
+  }
+})();
+</script>
 <script>
 (function () {
   var cont = document.getElementById('pluggsPlanes');
