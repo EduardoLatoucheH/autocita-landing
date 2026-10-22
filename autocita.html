@@ -54,6 +54,7 @@
     .plan .btn{margin-top:14px;min-height:44px;padding:0 18px;font-size:14px}
     .plan .precio small{font-family:var(--sans);font-size:14px;color:var(--gris)}
     .nota-plan{font-size:14px;color:var(--gris);margin-top:10px}
+    .plan .dif{margin-top:10px;padding-top:10px;border-top:1px solid var(--linea);color:var(--tinta);font-size:13.5px}
   </style>
 </head>
 <body data-servicio="autocita">
@@ -124,30 +125,35 @@
           <div class="nombre" data-k="p1">Starter</div>
           <div class="precio"><span class="seg-precio" data-cli="$119" data-neg="$110">$119</span> <small data-k="per.doc">/doctor/mes</small></div>
           <div class="nota" data-k="p1.d">Para profesionales independientes y consultorios pequeños.</div>
+          <div class="nota dif" data-k="pf1">Un profesional y 750 mensajes al mes. Incluye panel, inbox y lista de espera.</div>
           <a class="btn seg-href" data-cli="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Starter%20de%20%24119%2Fdoctor%2Fmes" data-neg="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Starter%20para%20negocio%20de%20%24110%2Fprofesional%2Fmes" href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Starter%20de%20%24119%2Fdoctor%2Fmes" target="_blank" rel="noopener noreferrer" data-k="plan.cta">Empezar</a>
         </div>
         <div class="plan">
           <div class="nombre" data-k="p2">Clínica</div>
           <div class="precio"><span class="seg-precio" data-cli="$339" data-neg="$330">$339</span> <small data-k="per.mes">/mes</small></div>
           <div class="nota" data-k="p2.d">Para clínicas con varios profesionales.</div>
+          <div class="nota dif" data-k="pf2">Hasta 5 profesionales y 3,750 mensajes al mes. Suma reportes y soporte prioritario.</div>
           <a class="btn seg-href" data-cli="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20de%20%24339%2Fmes" data-neg="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Negocio%20de%20%24330%2Fmes" href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20de%20%24339%2Fmes" target="_blank" rel="noopener noreferrer" data-k="plan.cta">Empezar</a>
         </div>
         <div class="plan">
           <div class="nombre" data-k="p3">Clínica Plus</div>
           <div class="precio"><span class="seg-precio" data-cli="$599" data-neg="$590">$599</span> <small data-k="per.mes">/mes</small></div>
           <div class="nota" data-k="p3.d">Para clínicas en crecimiento.</div>
+          <div class="nota dif" data-k="pf3">Hasta 8 profesionales y 6,000 mensajes al mes. Suma reportes consolidados.</div>
           <a class="btn seg-href" data-cli="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20Plus%20de%20%24599%2Fmes" data-neg="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Negocio%20Plus%20de%20%24590%2Fmes" href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Cl%C3%ADnica%20Plus%20de%20%24599%2Fmes" target="_blank" rel="noopener noreferrer" data-k="plan.cta">Empezar</a>
         </div>
         <div class="plan">
           <div class="nombre">Enterprise</div>
           <div class="precio"><span class="seg-precio" data-cli="$939" data-neg="$930">$939</span> <small data-k="per.mes">/mes</small></div>
           <div class="nota" data-k="p4.d">Para clínicas grandes con una sola sede.</div>
+          <div class="nota dif" data-k="pf4">Hasta 10 profesionales y 12,500 mensajes al mes. Suma onboarding por videollamada y soporte dedicado.</div>
           <a class="btn seg-href" data-cli="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Enterprise%20de%20%24939%2Fmes" data-neg="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Enterprise%20de%20%24930%2Fmes" href="https://wa.me/50686205959?text=Hola%2C%20quiero%20el%20plan%20Enterprise%20de%20%24939%2Fmes" target="_blank" rel="noopener noreferrer" data-k="plan.cta">Empezar</a>
         </div>
         <div class="plan">
           <div class="nombre">Enterprise Plus</div>
-          <div class="precio"><small data-k="desde">Desde</small> <span class="seg-precio" data-cli="$1,799" data-neg="$1,790">$1,799</span> <small data-k="per.mes">/mes</small></div>
+          <div class="precio" data-k="medida">A medida</div>
           <div class="nota" data-k="p5.d">Para grupos y operaciones multi-sede.</div>
+          <div class="nota dif" data-k="pf5">12 profesionales por sede, 2 sedes y 12,500 mensajes al mes por sede.</div>
           <a class="btn" href="https://wa.me/50686205959?text=Hola%2C%20quiero%20info%20del%20plan%20Enterprise%20Plus" target="_blank" rel="noopener noreferrer" data-k="plan.info">Consultar</a>
         </div>
       </div>
@@ -162,7 +168,7 @@
               <li data-k="pd.3">Clínica Plus / Negocio Plus: hasta 8 profesionales, 1 sede, reportes consolidados y hasta 6,000 mensajes al mes.</li>
               <li data-k="pd.4">Enterprise: hasta 10 profesionales, 1 sede, onboarding por videollamada, soporte dedicado y hasta 12,500 mensajes al mes.</li>
               <li data-k="pd.5">Enterprise Plus: hasta 12 profesionales por sede, 2 sedes y hasta 12,500 mensajes al mes por sede. ¿Necesitás más profesionales o sedes? Consultanos.</li>
-              <li data-k="pd.6">Facturación electrónica (Hacienda CR), opcional: $9 / $18 / $24 / $27 / $54 al mes según el plan, solo para clínicas en Costa Rica.</li>
+              <li data-k="pd.6">Facturación electrónica (Hacienda CR), opcional: $9 / $18 / $24 / $27 al mes según el plan (en Enterprise Plus se cotiza), solo para clínicas en Costa Rica.</li>
               <li class="solo-clinica" data-k="pd.7">Los planes de clínicas incluyen expediente del paciente con notas de voz transcritas por IA. Barberías, spas y salones pagan $9 menos al mes y no incluyen expediente clínico.</li>
             </ul>
             <p><span data-k="pd.8">Cargo único de activación: además de la mensualidad hay un cargo único de activación (más IVA), indicado en tu cotización. No es reembolsable una vez iniciada la activación; ver</span> <a href="/terminos.html#c10" data-k="pd.8l">Términos, cláusula 10</a>.</p>
@@ -257,7 +263,12 @@ const T = {
     'p3.d': 'For growing clinics.', 'p3.dn': 'For growing businesses.',
     'p4.d': 'For large clinics with a single location.', 'p4.dn': 'For large businesses with a single location.',
     'p5.d': 'For groups and multi-location operations.', 'p5.dn': 'For chains and franchises with several locations.',
-    'plan.cta': 'Get started', 'plan.info': 'Ask us',
+    'plan.cta': 'Get started', 'plan.info': 'Ask us', 'medida': 'Custom',
+    'pf1': 'One professional and 750 messages per month. Includes panel, inbox and waitlist.',
+    'pf2': 'Up to 5 professionals and 3,750 messages per month. Adds reports and priority support.',
+    'pf3': 'Up to 8 professionals and 6,000 messages per month. Adds consolidated reports.',
+    'pf4': 'Up to 10 professionals and 12,500 messages per month. Adds video-call onboarding and dedicated support.',
+    'pf5': '12 professionals per location, 2 locations and 12,500 messages per month per location.',
     'plans.iva': 'Prices in US dollars, plus VAT. Cancel with 15 days\' notice before the next charge.',
     'pd.sum': 'See details of each plan',
     'pd.1': 'Starter: up to 750 WhatsApp messages per month per professional, management panel, live inbox, waitlist and 1 front-desk seat included.',
@@ -265,7 +276,7 @@ const T = {
     'pd.3': 'Clinic Plus / Business Plus: up to 8 professionals, 1 location, consolidated reports and up to 6,000 messages per month.',
     'pd.4': 'Enterprise: up to 10 professionals, 1 location, video-call onboarding, dedicated support and up to 12,500 messages per month.',
     'pd.5': 'Enterprise Plus: up to 12 professionals per location, 2 locations and up to 12,500 messages per month per location. Need more professionals or locations? Ask us.',
-    'pd.6': 'Electronic invoicing (Hacienda CR), optional: $9 / $18 / $24 / $27 / $54 per month depending on the plan, for clinics in Costa Rica only.',
+    'pd.6': 'Electronic invoicing (Hacienda CR), optional: $9 / $18 / $24 / $27 per month depending on the plan (quoted for Enterprise Plus), for clinics in Costa Rica only.',
     'pd.7': 'Clinic plans include the patient record with voice notes transcribed by AI. Barbershops, spas and salons pay $9 less per month and do not include clinical records.',
     'pd.8': 'One-time activation fee: besides the monthly fee there is a one-time activation fee (plus VAT) shown in your quote. It is non-refundable once activation has started; see', 'pd.8l': 'Terms, clause 10',
     'pd.9': 'Included messages are service and utility messages (scheduling, confirmations and reminders). Marketing campaigns use another WhatsApp category with a different rate and are quoted separately. Each extra message costs $0.065 and is charged in the next cycle, per the Terms.',
@@ -304,7 +315,12 @@ const T = {
     'p3.d': 'Para clínicas em crescimento.', 'p3.dn': 'Para negócios em crescimento.',
     'p4.d': 'Para clínicas grandes com uma só unidade.', 'p4.dn': 'Para negócios grandes com uma só unidade.',
     'p5.d': 'Para grupos e operações com várias unidades.', 'p5.dn': 'Para redes e franquias com várias unidades.',
-    'plan.cta': 'Começar', 'plan.info': 'Consultar',
+    'plan.cta': 'Começar', 'plan.info': 'Consultar', 'medida': 'Sob medida',
+    'pf1': 'Um profissional e 750 mensagens por mês. Inclui painel, inbox e lista de espera.',
+    'pf2': 'Até 5 profissionais e 3.750 mensagens por mês. Soma relatórios e suporte prioritário.',
+    'pf3': 'Até 8 profissionais e 6.000 mensagens por mês. Soma relatórios consolidados.',
+    'pf4': 'Até 10 profissionais e 12.500 mensagens por mês. Soma onboarding por videochamada e suporte dedicado.',
+    'pf5': '12 profissionais por unidade, 2 unidades e 12.500 mensagens por mês por unidade.',
     'plans.iva': 'Preços em dólares, mais IVA. Cancele com 15 dias de aviso antes da próxima cobrança.',
     'pd.sum': 'Ver detalhes de cada plano',
     'pd.1': 'Starter: até 750 mensagens de WhatsApp por mês por profissional, painel de gestão, inbox ao vivo, lista de espera e 1 recepção incluída.',
@@ -312,7 +328,7 @@ const T = {
     'pd.3': 'Clínica Plus / Negócio Plus: até 8 profissionais, 1 unidade, relatórios consolidados e até 6.000 mensagens por mês.',
     'pd.4': 'Enterprise: até 10 profissionais, 1 unidade, onboarding por videochamada, suporte dedicado e até 12.500 mensagens por mês.',
     'pd.5': 'Enterprise Plus: até 12 profissionais por unidade, 2 unidades e até 12.500 mensagens por mês por unidade. Precisa de mais profissionais ou unidades? Consulte-nos.',
-    'pd.6': 'Faturamento eletrônico (Hacienda CR), opcional: $9 / $18 / $24 / $27 / $54 por mês conforme o plano, somente para clínicas na Costa Rica.',
+    'pd.6': 'Faturamento eletrônico (Hacienda CR), opcional: $9 / $18 / $24 / $27 por mês conforme o plano (no Enterprise Plus é cotado), somente para clínicas na Costa Rica.',
     'pd.7': 'Os planos de clínicas incluem o prontuário do paciente com notas de voz transcritas por IA. Barbearias, spas e salões pagam $9 a menos por mês e não incluem prontuário clínico.',
     'pd.8': 'Taxa única de ativação: além da mensalidade há uma taxa única de ativação (mais IVA), indicada na sua cotação. Não é reembolsável após iniciada a ativação; veja', 'pd.8l': 'Termos, cláusula 10',
     'pd.9': 'As mensagens incluídas são de serviço e utilidade (agendamento, confirmações e lembretes). Campanhas de marketing usam outra categoria do WhatsApp, com tarifa distinta, e são cotadas à parte. Cada mensagem adicional custa $0,065 e é cobrada no ciclo seguinte, conforme os Termos.',
